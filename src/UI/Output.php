@@ -75,15 +75,17 @@ class Output {
 
     function flashMessages() {
         ob_start();
-        echo '<div id="flashmessages">';
+        echo '<div id="flashmessages" class="end-0 me-3" style="position:fixed;z-index:1070;">';
         if ( $this->session_get('error') ) {
-            echo '<div class="alert alert-danger alert-banner" style="clear:both">
-                    <a href="#" class="close" data-dismiss="alert">&times;</a>'.
+            echo '<div class="alert alert-danger alert-banner sticky-sm-top" style="clear:both">' .
+                '<a href="#!" type="button" onclick="document.getElementById(\'flashmessages\').style.display=\'none\';return false;">'.
+                '<i class="fa fa-times alert-danger" aria-hidden="true"></i><span class="sr-only">dismiss alert</span></a> '.
                 $this->session_get('error')."</div>\n";
             $this->session_forget('error');
         } else if ( isset($_GET['lti_errormsg']) ) {
-            echo '<div class="alert alert-danger alert-banner" style="clear:both">
-                    <a href="#" class="close" data-dismiss="alert">&times;</a>'.
+            echo '<div class="alert alert-danger alert-banner" style="clear:both">'.
+                '<a href="#!" type="button" onclick="document.getElementById(\'flashmessages\').style.display=\'none\';return false;">'.
+                '<i class="fa fa-times alert-danger" aria-hidden="true"></i><span class="sr-only">dismiss alert</span></a> '.
                 htmlentities($_GET['lti_errormsg'])."</div>";
 
             if ( isset($_GET['detail']) ) {
@@ -94,8 +96,9 @@ class Output {
         }
 
         if ( $this->session_get('success') ) {
-            echo '<div class="alert alert-success alert-banner" style="clear:both">
-                    <a href="#" class="close" data-dismiss="alert">&times;</a>'.
+            echo '<div class="alert alert-success alert-banner" style="clear:both">'.
+                '<a href="#!" type="button" onclick="document.getElementById(\'flashmessages\').style.display=\'none\';return false;">'.
+                '<i class="fa fa-times alert-success" aria-hidden="true"></i><span class="sr-only">dismiss alert</span></a> '.
                 $this->session_get('success')."</div>\n";
 
             $this->session_forget('success');
@@ -131,12 +134,19 @@ class Output {
       <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://udayton.edu/0/_2019/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+        <link href="https://udayton.edu/0/_2019/images/favicon.png" rel="shortcut icon" type="image/png">
         <title><?= $CFG->servicename ?><?php if ( isset($CFG->context_title) ) echo(' - '.$CFG->context_title); ?></title>
 <?php echo($this->headerData()); ?>
         <!-- Tiny bit of JS -->
         <script src="<?= $CFG->staticroot ?>/js/tsugiscripts_head.js"></script>
         <!-- Le styles -->
-        <link href="<?= $CFG->staticroot ?>/bootstrap-3.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Google Fonts Roboto -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+        <!-- MDB -->
+        <link rel="stylesheet" href="<?= $CFG->staticroot ?>/MDB5-STANDARD-UI-KIT-Free-6.1.0/css/custom.css" />
+        <!-- <link rel="stylesheet" href="<?= $CFG->staticroot ?>/MDB5-STANDARD-UI-KIT-Free-6.1.0/css/mdb.dark.min.css" /> -->
+
         <link href="<?= $CFG->staticroot ?>/js/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
         <?php if ( strpos($CFG->fontawesome, 'free-5.') > 0 ) { ?>
         <link href="<?= $CFG->fontawesome ?>/css/all.css" rel="stylesheet">
@@ -152,7 +162,7 @@ class Output {
         
         self::output_theme_css($theme) ?>
 
-          <link href="<?= $CFG->staticroot ?>/css/tsugi2.css" rel="stylesheet">
+          <!-- <link href="<?= $CFG->staticroot ?>/css/theme-customizations.css" rel="stylesheet"> -->
 
           <style>
               <?php
@@ -289,14 +299,7 @@ body {
 ?>
 </head>
 <body prefix="oer: http://oerschema.org">
-<div id="body_container">
-<script>
-if (window!=window.top) {
-    document.getElementById("body_container").className = "container-fluid";
-} else {
-    document.getElementById("body_container").className = "container";
-}
-</script>
+<div id="body_container" style="position:relative;">
 <?php
         if ( $checkpost && count($_POST) > 0 ) {
             $dump = self::safe_var_dump($_POST);
@@ -432,11 +435,13 @@ EOF;
         global $CFG;
         ob_start();
         echo('<script src="'.$CFG->staticroot.'/js/jquery-1.11.3.js"></script>'."\n");
-        echo('<script src="'.$CFG->staticroot.'/bootstrap-3.4.1/js/bootstrap.min.js"></script>'."\n");
+        echo('<script src="'.$CFG->staticroot.'/MDB5-STANDARD-UI-KIT-Free-4.3.0/js/mdb.min.js"></script>'."\n");
+        echo('<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>'."\n");
         echo('<script src="'.$CFG->staticroot.'/js/jquery-ui-1.11.4/jquery-ui.min.js"></script>'."\n");
         echo('<script src="'.$CFG->staticroot.'/js/jquery.timeago-1.6.3.js"></script>'."\n");
         echo('<script src="'.$CFG->staticroot.'/js/handlebars-v4.0.2.js"></script>'."\n");
         echo('<script src="'.$CFG->staticroot.'/tmpljs-3.8.0/tmpl.min.js"></script>'."\n");
+        echo('<script src="'.$CFG->staticroot.'/js/qrcodejs/qrcode.min.js"></script>'."\n");
         echo('<script src="'.$CFG->staticroot.'/js/tsugiscripts.js"></script>'."\n");
 
 ?>
@@ -908,11 +913,12 @@ $('a').each(function (x) {
         $menu_txt .= "<script>\n";
         $menu_txt .= "if ( ! inIframe() ) {\n";
         $menu_txt .= "  document.getElementById('tsugi_main_nav_bar').style.display = 'block';\n";
-        $menu_txt .= "  document.getElementsByTagName('body')[0].style.paddingTop = '5.93rem';\n";
+        $menu_txt .= "  const navbar_height = document.querySelector('.navbar').offsetHeight+16;\n";
+        $menu_txt .= "  document.body.style.paddingTop = navbar_height + 'px';\n";
         $menu_txt .= "} else {\n";
         if ( $tool_menu ) {
-            $menu_txt .= "  document.getElementById('tsugi_tool_nav_bar').classList.add(\"navbar-fixed-top\");\n";
-            $menu_txt .= "  document.getElementsByTagName('body')[0].style.paddingTop = '5.93rem';\n";
+            $menu_txt .= "  document.getElementById('tsugi_tool_nav_bar').classList.add(\"fixed-top\");\n";
+            $menu_txt .= "  document.getElementsByTagName('body')[0].style.paddingTop = '4.93rem';\n";
         } else {
             $menu_txt .= "  document.getElementsByTagName('body')[0].style.paddingTop = '1.0rem';\n";
         }
@@ -926,7 +932,9 @@ $('a').each(function (x) {
 
     private function recurseNav($entry, $depth, $is_tool_nav = false) {
         global $CFG;
-        $current_url = $is_tool_nav ? basename($_SERVER['PHP_SELF']) : $CFG->getCurrentUrl();
+        $uri = $_SERVER['REQUEST_URI'];
+        $full_url = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] : $_SERVER['REQUEST_URI'];
+        $current_url = $is_tool_nav ? basename($_SERVER['PHP_SELF']) : $full_url;
         $retval = '';
         $pad = str_repeat('    ',$depth);
         if ( $depth > 10 ) return $retval;
@@ -934,8 +942,9 @@ $('a').each(function (x) {
             $target = '';
             $url = $entry->href;
             $attr = $entry->attr;
+            $disabled = $entry->disabled;
             if ( $url === false ) {
-                $retval .= $pad.'<p class="navbar-text">'.$entry->link.'</p>'."\n";
+                $retval .= $pad.'<span class="navbar-text">'.$entry->link.'</span>'."\n";
                 return $retval;
             }
             if ( (strpos($url,'http:') === 0 || strpos($url,'https:') === 0 ) &&
@@ -944,20 +953,28 @@ $('a').each(function (x) {
                 $target = ' target="_blank"';
             }
             $active = '';
-            if ( $current_url == $url ) {
-                $active = ' class="active"';
+            if ( $current_url == substr($url, strpos($url, "//") + 2) ) {
+                $active = ' active';
             }
-            $retval .= $pad.'<li'.$active.'><a href="'.$url.'"'.$target.' '.$attr.'>'.$entry->link.'</a></li>'."\n";
+            if ($disabled) {
+                $disabled = ' disabled';
+                // Set attributes for list element
+                $disabled_class = $attr;
+            }
+            $list_class = $depth > 2 ? ' class="nav-item"' : '';
+            $list_class = $disabled ? $list_class.' '.$disabled_class : $list_class;
+            $link_class = $depth > 2 ? 'dropdown-item' : 'nav-link';
+            $retval .= $pad.'<li'.$list_class.'><a data-current-url="'.$current_url.'" class="'.$link_class.$active.$disabled.'" href="'.$url.'"'.$target.' '.$attr.'>'.$entry->link.'</a></li>'."\n";
             return $retval;
         }
-        $retval .= $pad.'<li class="dropdown">'."\n";
-        $dropdown_link_class = 'dropdown-toggle';
+        $retval .= $pad.'<li class="nav-item dropdown">'."\n";
+        $dropdown_link_class = 'nav-link dropdown-toggle';
         if (strpos($entry->link, '<img') !== false) {
             // Drop down link contains an image so add class to style
             $dropdown_link_class .= ' dropdown-img';
         }
-        $retval .= $pad.'  <a href="#" class="'.$dropdown_link_class.'" data-toggle="dropdown">'.$entry->link.' <span class="fa fa-caret-down" aria-hidden="true"></span></a>'."\n";
-        $retval .= $pad.'  <ul class="dropdown-menu">'."\n";
+        $retval .= $pad.'  <a href="#" class="'.$dropdown_link_class.'" id="navbarDropdownMenuLink" role="button" aria-expanded="false" data-mdb-toggle="dropdown" data-toggle="dropdown">'.$entry->link.'</a>'."\n";
+        $retval .= $pad.'  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">'."\n";
         foreach($entry->href as $child) {
            $retval .= $this->recurseNav($child, $depth+1);
         }
@@ -970,31 +987,33 @@ $('a').each(function (x) {
         global $CFG, $TSUGI_LAUNCH;
 
         if ( $is_tool_menu ) {
-            $retval = '<nav class="navbar navbar-default" role="navigation" id="tsugi_tool_nav_bar">';
+            $retval = '<nav class="navbar navbar-expand-lg navbar-light bg-light ps-2 pe-2" role="navigation" id="tsugi_tool_nav_bar">';
         } else {
-           $retval = '<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="tsugi_main_nav_bar" style="display:none">';
+           $retval = '<nav class="navbar fixed-top navbar-expand-lg navbar-dark ps-2 pe-2" role="navigation" id="tsugi_main_nav_bar" style="background-color: var(--primary);display:none">';
         }
 
-$retval .= <<< EOF
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-
-EOF;
+        $retval .= '<div class="container-fluid">';
 
         if ( $set->home ) {
-            $retval .= '      <a class="navbar-brand" href="'.$set->home->href.'">'.$set->home->link.'</a>'."\n";
+            $retval .= '      <a class="navbar-brand mb-0 h1" href="'.$set->home->href.'">'.$set->home->link.'</a>'."\n";
         }
-        $retval .= "    </div>\n";
-        $retval .= '    <div class="navbar-collapse collapse">'."\n";
-
+        // The All Sessions Mega-Menu
+        $retval .= LessonsUIHelper::renderMegaMenuOptions();
+        $retval .= '<button type="button" class="navbar-toggler"
+                                data-mdb-toggle="collapse"
+                                data-mdb-target="#navbarNav"
+                                data-toggle="collapse"
+                                data-target="#navbarNav"
+                                aria-controls="navbarNav"
+                                aria-expanded="false"
+                                aria-label="Toggle navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </button>';
+        $retval .= '    <div id="navbarNav" class="navbar-collapse collapse">'."\n";
+        
         if ( $set->left && count($set->left->menu) > 0 ) {
-            $retval .= '      <ul class="nav navbar-nav navbar-main">'."\n";
+            $retval .= '      <ul class="navbar-nav">'."\n";
             foreach($set->left->menu as $entry) {
                 $retval .= $this->recurseNav($entry, 2, $is_tool_menu);
             }
@@ -1002,7 +1021,7 @@ EOF;
         }
 
         if ( $set->right && count($set->right->menu) > 0 ) {
-            $retval .= '      <ul class="nav navbar-nav navbar-right">'."\n";
+            $retval .= '      <ul class="navbar-nav ms-auto">'."\n";
             foreach($set->right->menu as $entry) {
                 $retval .= $this->recurseNav($entry, 2, $is_tool_menu);
             }
@@ -1090,16 +1109,12 @@ EOF;
         if ( ! is_array($debug_log) ) return;
 
         foreach ( $debug_log as $k => $v ) {
-            if ( is_array($v) && count($v) > 1 && isset($v[0]) ) {
+            if ( is_array($v) && count($v) > 1 ) {
                 $this->togglePre($v[0], $v[1]);
-            } else if ( is_array($v) && isset($v[0]) && is_string($v[0]) ) {
-                echo("<pre>\n");echo(htmlentities($v[0]));echo("\n</pre>\n");
+            } else if ( is_array($v) ) {
+                line_out($v[0]);
             } else if ( is_string($v) ) {
-                echo("<pre>\n");echo(htmlentities($v));echo("\n</pre>\n");
-            } else {
-                echo("<pre>\n");
-                echo(htmlentities(print_r($v)));
-                echo("\n</pre>\n");
+                line_out($v);
             }
         }
     }
@@ -1374,12 +1389,9 @@ EOF;
             if (isset($_SESSION) && isset($_SESSION['lti_post']) && isset($_SESSION['lti_post']['theme_dark_mode'])) {
                 $launched_dark_mode = $_SESSION['lti_post']['theme_dark_mode'];
             }
-            if (isset($launched_theme_base)) {
-                $theme_base = U::isValidCSSColor($launched_theme_base) ? $launched_theme_base : $theme_base;
-            }
-            if (isset($launched_dark_mode)) {
-                $dark_mode = Theme::isActive($launched_dark_mode);
-            }
+            $launched_dark_mode = Theme::isActive($launched_dark_mode);
+            $theme_base = U::isValidCSSColor($launched_theme_base) ? $launched_theme_base : $theme_base;
+            $dark_mode = $launched_dark_mode ? true : $dark_mode;
         }
 
         // Override the config AND launch values if the user's preference is set in the $_SESSION
@@ -1389,8 +1401,8 @@ EOF;
                 array('PID' => $_SESSION['profile_id'])
             );
             $profile_row = $stmt->fetch(\PDO::FETCH_ASSOC);
-            if (!empty($profile_row) && !is_null($profile_row['json'])) {
-                $profile = json_decode($profile_row['json']);
+            if (!empty($profile_row)) {
+                $profile = json_decode($profile_row['json'] ?? '{}');
                 if (isset($profile->theme_override)) {
                     if ($profile->theme_override == 'dark') {
                         $dark_mode = true;
@@ -1407,7 +1419,11 @@ EOF;
         Theme::$theme_base = $theme_base;
 
         // Generate the theme
+<<<<<<< HEAD
         if (isset($theme_base) && U::isValidCSSColor($theme_base)) {
+=======
+        if (U::isValidCSSColor($theme_base)) {
+>>>>>>> b558aafec (Add initial structure for multiple course types)
             $theme = Theme::getLegacyTheme($theme_base, $dark_mode);
             // Default any remaining values that weren't already configured
             $theme = Theme::defaults($theme);

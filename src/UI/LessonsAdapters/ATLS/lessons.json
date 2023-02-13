@@ -1,0 +1,564 @@
+{
+  "title": "Advancing Teaching & Learning Scholars (ATLS)",
+  "description": "ATLS sessions are open to all instructors at the University of Dayton and may be taken in any order. Please click into a session below to read the description, view the facilitator(s), register, and provide feedback. There are eight core ATLS sessions. Elective sessions will be added in the future. ",
+  "discussions" : [
+    {
+      "title" : "Welcome to ATLS - General Discussion",
+      "launch" : "/mod/tdiscus/",
+      "resource_link_id": "discussion_welcome"
+    }
+  ],
+  "badges": [
+    {
+      "title": "Attended Your First Session",
+      "description": "Well, that was easy. You attended your first ATLS program CORE session, so we only felt that it was appropriate to reward you with your first badge! You probably thought that the only thing you'd get from your first session was some useful information to help you become a better instructor, didn't you? Congratulations!",
+      "image": "firstsession.png",
+      "anchor": "first-session",
+      "threshold": "0.125",
+      "assignments": [
+        "reg-core-1",
+        "reg-core-2",
+        "reg-core-3",
+        "reg-core-4",
+        "reg-core-5",
+        "reg-core-6",
+        "reg-core-7",
+        "reg-core-8"
+      ]
+    },
+    {
+      "title": "Reflective Practitioner",
+      "description": "Your dedication and participation didn't stop when the session ended. You took the time to provide feedback on how it went, helping the facilitators see what resonated the most, and if anything needs to be refined for future offerings. That's super generous of you!",
+      "image": "reflectivepractitioner.png",
+      "anchor": "reflective-practitioner",
+      "threshold": "0.125",
+      "assignments": [
+        "feedback-core-1",
+        "feedback-core-2",
+        "feedback-core-3",
+        "feedback-core-4",
+        "feedback-core-5",
+        "feedback-core-6",
+        "feedback-core-7",
+        "feedback-core-8"
+      ]
+    },
+    {
+      "title": "Halfway There!",
+      "description": "It seems like just yesterday you attended your first ATLS session. Now, you're at four. Where has the time gone? This badge symbolizes your continued dedication to learning more about finding success with students, teaching, and the University of Dayton. Keep it up!",
+      "image": "halfwaythere.png",
+      "anchor": "halfway-there",
+      "threshold": "0.5",
+      "assignments": [
+        "reg-core-1",
+        "reg-core-2",
+        "reg-core-3",
+        "reg-core-4",
+        "reg-core-5",
+        "reg-core-6",
+        "reg-core-7",
+        "reg-core-8"
+      ]
+    },
+    {
+      "title": "Core Program Graduate",
+      "description": "This badge is a biggie. It is proof that you've completed all eight of the ATLS program CORE sessions. This is no small accomplishment and is not something you check off the list in an afternoon.",
+      "image": "coregraduate.png",
+      "anchor": "core-program-graduate",
+      "threshold": "1.0",
+      "assignments": [
+        "reg-core-1",
+        "reg-core-2",
+        "reg-core-3",
+        "reg-core-4",
+        "reg-core-5",
+        "reg-core-6",
+        "reg-core-7",
+        "reg-core-8"
+      ]
+    },
+    {
+      "title": "Feedback All-Star",
+      "description": "Not only did you attend all of the sessions. You also provided feedback after each session in order to earn this badge. We are incredibly proud of you for completing the program, but we're also so thankful for all of the feedback you've provided along the way - ensuring a better program for everyone behind you. That's how we all get better.",
+      "image": "feedbackallstar.png",
+      "anchor": "feedback-all-star",
+      "threshold": "1.0",
+      "assignments": [
+        "feedback-core-1",
+        "feedback-core-2",
+        "feedback-core-3",
+        "feedback-core-4",
+        "feedback-core-5",
+        "feedback-core-6",
+        "feedback-core-7",
+        "feedback-core-8"
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "session": "Core Session 1",
+      "title": "Who Are Our Students?",
+      "anchor": "core-1",
+      "core": true,
+      "icon": "fa-medal",
+      "duration": "1hr 30min",
+      "calendar": "Aug. / Sep. / Jan.",
+      "description": "Whether you’ve taught elsewhere for many years or are joining the professorial ranks for the first time, a key to being effective in helping students learn is understanding who our students are. In this session we will give you a sense of the Gen Z student in general, and more specifically, the population of students who call UD home. We will host a panel of UD students and give you the opportunity to ask them questions, and we will explore strategies for getting to know your students. Regardless of the setting for your course(s), whether required courses in large sections, upper level small seminars, graduate seminars, and more, you will get the chance to explore strategies for understanding and therefore connecting with our students.",
+      "image": "/images/UD COL-342.jpg",
+      "facilitators": [
+        {
+          "displayname": "Dr. Michelle Pautz",
+          "title": "College of Arts & Sciences Associate Dean for Curriculum and Student Academic Success and Professor of Political Science",
+          "image": "https://udayton.edu/directory/provost/img/pautz-michelle-275x300.png"
+        }
+      ],
+      "learningoutcomes": [
+        "Describe the demographic makeup of the UD student population.",
+        "Identify common student perceptions and expectations of a UD education.",
+        "Assess the impact of the cultural, pandemic, and social life experiences that students bring to the classroom.",
+        "Explain the importance of understanding the whole student experience in the design and facilitation of learning."
+      ],
+      "discussions" : [
+        {
+          "title" : "Core Session 1 - Who Are Our Students?",
+          "launch" : "/mod/tdiscus/",
+          "resource_link_id": "discuss-core-1"
+        }
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/atls-registration/?atls_session_id=core-1&atls_view=REGISTRATION",
+          "resource_link_id" : "reg-core-1",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/atls-registration/?atls_session_id=core-1&atls_view=FEEDBACK",
+          "resource_link_id" : "feedback-core-1",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/atls-registration/?atls_session_id=core-1&atls_view=ADMINISTRATION",
+          "resource_link_id" : "admin-core-1",
+          "type": "ADMINISTRATION"
+        }
+      ],
+      "resources" : [
+        {
+          "title" : "Session Slides",
+          "icon" : "far fa-file-powerpoint",
+          "url" : "https://docs.google.com/presentation/d/1FeKbDsjRZ7AGs3wJYKhc82IDfCZ2XHfEnvyvgBCRPgI/edit?usp=sharing"
+        }
+      ]
+    },
+    {
+      "session": "Core Session 2",
+      "title": "Supporting Students In and Beyond the Classroom",
+      "anchor": "core-2",
+      "core": true,
+      "icon": "fa-medal",
+      "duration": "1hr 30min",
+      "calendar": "Oct. / Feb.",
+      "description": "Supporting today’s UD students goes way beyond simply providing academic support and office hours to make sure they do well in your classes. As our view of support has evolved over the years so has our network of support resources for students. This session will cover not just what support resources are available for our students but will more broadly cover how to create an accessible and equitable learning environment for all students. Participants will also learn how to engage various offices to activate support resources as well as the basics of facilitating accommodation requests from the Office of Learning Resources.",
+      "image": "/images/UD COL-271.jpg",
+      "facilitators": [
+        {
+          "displayname": "John Harrelson",
+          "title": "Director, Office of Learning Resources",
+          "image": "https://udayton.edu/directory//aali/ltc/img/harrelson_john_275.jpg"
+        },
+        {
+          "displayname": "Dr. Kim Trick",
+          "title": "Principal Lecturer of Chemistry & Assistant Dean for the College of Arts and Sciences",
+          "image": "https://udayton.edu/directory//artssciences/chemistry/images/trick_kim.jpg"
+        },
+        {
+          "displayname": "Melissa Longino",
+          "title": "Assistant Vice President for Health and Wellbeing and Executive Director, Campus Recreation",
+          "image": "https://udayton.edu/directory//studev/campusrec/images/longino_melissa.jpg"
+        },
+        {
+          "displayname": "Christine Schramm",
+          "title": "Associate Vice President & Dean of Students",
+          "image": "https://udayton.edu/directory/studev/dean/img/schramm.png"
+        }
+      ],
+      "learningoutcomes": [
+        "Create an accessible and equitable learning environment for all students.",
+        "Identify support resources available to students.",
+        "Explain how to facilitate student accommodation requests.",
+        "Engage the Office of Learning Resources for assistance & support."
+      ],
+      "discussions" : [
+        {
+          "title" : "Core Session 2 - Supporting Students In and Beyond the Classroom",
+          "launch" : "/mod/tdiscus/",
+          "resource_link_id": "discuss-core-2"
+        }
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/atls-registration/?atls_session_id=core-2&atls_view=REGISTRATION",
+          "resource_link_id" : "reg-core-2",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/atls-registration/?atls_session_id=core-2&atls_view=FEEDBACK",
+          "resource_link_id" : "feedback-core-2",
+          "type": "FEEDBACK"
+        }
+      ],
+      "resources" : [
+        {
+          "title" : "Session Slides",
+          "icon" : "far fa-file-powerpoint",
+          "url" : "https://docs.google.com/presentation/d/1xXkVAuO2DPY0w3Wp_bSqY5INoWqVqwVM7TrTbr2DaZ4/edit?usp=sharing"
+        },
+        {
+          "title" : "Wellbeing and Success Syllabus Statement",
+          "icon" : "far fa-file-word",
+          "url" : "/resources/Wellbeing%20and%20Success%20Statement%20Syllabus%20Statements.docx"
+        }
+      ]
+    },
+    {
+      "session": "Core Session 3",
+      "title": "Using Educational Technologies at UD to Support Learning",
+      "anchor": "core-3",
+      "core": true,
+      "icon": "fa-medal",
+      "duration": "1hr 30min",
+      "calendar": "Nov. / Mar.",
+      "description": "So many learning technologies and so little time! Participants at this session will see student testimonials about their expectations for instructor usage of technologies like Isidore, Warpwire, Zoom, and more. We will recommend best practices with ed tech based on student feedback, and we will invite participants to learn by collaborating with the Center for Online Learning.",
+      "image": "/images/UD COL-449.jpg",
+      "facilitators": [
+        {
+          "displayname": "Julianne Morgan",
+          "title": "Academic Engagement Lead, Center for Online Learning",
+          "image": "https://udayton.edu/directory//udit/img/morgan_julieanne_500x500.jpg"
+        },
+        {
+          "displayname": "Paul Dagnall",
+          "title": "Assistant Director, Learning Innovation and Engagement, Center for Online Learning",
+          "image": "https://udayton.edu/directory//udit/img/dagnall_paul_275.jpg"
+        },
+        {
+          "displayname": "Dr. Judit Beagle",
+          "title": "Assistant Professor of Chemistry",
+          "image": "https://udayton.edu/directory//artssciences/chemistry/images/beagle-judit.jpg"
+        }
+      ],
+      "learningoutcomes": [
+        "Access the learning technology systems available to support students.",
+        "Discuss the student expectations surrounding learning technology at UD.",
+        "Explain the learning and teaching benefits of using learning technology.",
+        "Engage the Center for Online Learning for assistance & support."
+      ],
+      "discussions" : [
+        {
+          "title" : "Core Session 3 - Using Educational Technologies at UD to Support Learning",
+          "launch" : "/mod/tdiscus/",
+          "resource_link_id": "discuss-core-3"
+        }
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/atls-registration/?atls_session_id=core-3&atls_view=REGISTRATION",
+          "resource_link_id" : "reg-core-3",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/atls-registration/?atls_session_id=core-3&atls_view=FEEDBACK",
+          "resource_link_id" : "feedback-core-3",
+          "type": "FEEDBACK"
+        }
+      ],
+      "resources" : [
+        {
+          "title" : "Session Slides",
+          "icon" : "far fa-file-powerpoint",
+          "url" : "https://docs.google.com/presentation/d/19AosG4UzxTt_3V3HfU-p1tXqYtTwUeO8b5rbCzMSJIU/edit?usp=sharing"
+        }
+      ]
+    },
+    {
+      "session": "Core Session 4",
+      "title": "Driving Student Success",
+      "anchor": "core-4",
+      "core": true,
+      "icon": "fa-medal",
+      "duration": "1hr 30min",
+      "calendar": "Dec. / Apr.",
+      "description": "Participants will understand the importance of advising/mentoring the whole student (and what that looks like). They will also be provided tools and resources to use to help mentor students through their academic journey, including technology and interpersonal strategies and techniques.",
+      "image": "/images/UD COL-399.jpg",
+      "facilitators": [
+        {
+          "displayname": "Aaron Witherspoon",
+          "title": "Director, University Advising Initiatives and Student Success",
+          "image": "https://udayton.edu/directory//aali/ltc/img/witherspoon_aaron_275.jpg"
+        },
+        {
+          "displayname": "Dr. Heather Parsons",
+          "title": "Coordinator of Academic Advising and Departmental Initiatives",
+          "image": "https://udayton.edu/directory//artssciences/communication/images/parsons_heather.jpg"
+        }
+      ],
+      "learningoutcomes": [
+        "Explain the influential role faculty play in student success.",
+        "Use campus systems to support and strengthen student achievement & wellness.",
+        "Outline the benefits of advising & mentoring students."
+      ],
+      "discussions" : [
+        {
+          "title" : "Core Session 4 - Driving Student Success",
+          "launch" : "/mod/tdiscus/",
+          "resource_link_id": "discuss-core-4"
+        }
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/atls-registration/?atls_session_id=core-4&atls_view=REGISTRATION",
+          "resource_link_id" : "reg-core-4",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/atls-registration/?atls_session_id=core-4&atls_view=FEEDBACK",
+          "resource_link_id" : "feedback-core-4",
+          "type": "FEEDBACK"
+        }
+      ],
+      "resources" : [
+        {
+          "title" : "Session Slides",
+          "icon" : "far fa-file-powerpoint",
+          "url" : "https://docs.google.com/presentation/d/12zTXcAM84rtNsoKINbwsQTDIvFWj37XjDeISKO5hCh0/edit?usp=sharing"
+        }
+      ]
+    },
+    {
+      "session": "Core Session 5",
+      "title": "Engaging Students in a Learner-Centered Classroom",
+      "anchor": "core-5",
+      "core": true,
+      "icon": "fa-medal",
+      "duration": "1hr 30min",
+      "calendar": "Jan. / Sep.",
+      "description": "This session will allow participants to share and discuss practical strategies to incorporate learner-centered activities in their courses. We will also address common challenges faced by underrepresented instructors and students.",
+      "image": "/images/UD COL-282.jpg",
+      "facilitators": [
+        {
+          "displayname": "Dr. Yvonne Sun",
+          "title": "Associate Professor of Biology",
+          "image": "https://udayton.edu/directory//artssciences/biology/images/sun-yvonne.jpg"
+        },
+        {
+          "displayname": "Dr. Li-Yin Liu",
+          "title": "Assistant Professor of Political Science",
+          "image": "https://udayton.edu/directory//artssciences/politicalscience/images/liu-li-yin.jpg"
+        }
+      ],
+      "learningoutcomes": [
+        "Design course activities that create reflective, engaged, and motivated students.",
+        "Design differentiated course activities to engage a diverse range of students.",
+        "Access student support resources."
+      ],
+      "discussions" : [
+        {
+          "title" : "Core Session 5 - Engaging Students in a Learner-Centered Classroom",
+          "launch" : "/mod/tdiscus/",
+          "resource_link_id": "discuss-core-5"
+        }
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/atls-registration/?atls_session_id=core-5&atls_view=REGISTRATION",
+          "resource_link_id" : "reg-core-5",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/atls-registration/?atls_session_id=core-5&atls_view=FEEDBACK",
+          "resource_link_id" : "feedback-core-5",
+          "type": "FEEDBACK"
+        }
+      ]
+    },
+    {
+      "session": "Core Session 6",
+      "title": "How Do You Know If Students Are Learning?",
+      "anchor": "core-6",
+      "core": true,
+      "icon": "fa-medal",
+      "duration": "1hr 30min",
+      "calendar": "Feb. / Oct.",
+      "description": "Assessment of student learning is frequently cited as a bane of teaching.  Despite the bad rap, gauging learning is critical for students to improve their study methods and just as critical for teachers to adjust pedagogical approaches and provide personalized feedback to students.  This session explores assessment from the perspectives of different disciplines with an eye to employing more joyful, effective and efficient assessment practices in your classes.",
+      "image": "/images/UD COL-254.jpg",
+      "facilitators": [
+        {
+          "displayname": "Dr. David Wright",
+          "title": "Director of Academic Technology and Curriculum Innovation, Associate Professor of Biology",
+          "image": "https://udayton.edu/directory//artssciences/biology/images/Wright_D.jpg"
+        },
+        {
+          "displayname": "Dr. Nicola Work",
+          "title": "Associate Professor of French & Interim Assistant Provost for the Common Academic Program",
+          "image": "https://udayton.edu/directory//artssciences/languages/images/work-nicola-2021.jpg"
+        },
+        {
+          "displayname": "Heidi Gauder",
+          "title": "Roesch Library Professor and Coordinator of Research & Instruction",
+          "image": "https://udayton.edu/directory//libraries/images/gauder.jpg"
+        }
+      ],
+      "learningoutcomes": [
+        "Recognize the importance of assessing student learning.",
+        "Apply backward design principles to ensure learning goals are supported & evaluated.",
+        "Recognize the role different kinds of assessment can play in facilitating learning.",
+        "Design assessment strategies that create reflective, engaged, and motivated students."
+      ],
+      "discussions" : [
+        {
+          "title" : "Core Session 6 - How Do You Know If Students Are Learning?",
+          "launch" : "/mod/tdiscus/",
+          "resource_link_id": "discuss-core-6"
+        }
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/atls-registration/?atls_session_id=core-6&atls_view=REGISTRATION",
+          "resource_link_id" : "reg-core-6",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/atls-registration/?atls_session_id=core-6&atls_view=FEEDBACK",
+          "resource_link_id" : "feedback-core-6",
+          "type": "FEEDBACK"
+        }
+      ]
+    },
+    {
+      "session": "Core Session 7",
+      "title": "Inclusive Pedagogy",
+      "anchor": "core-7",
+      "core": true,
+      "icon": "fa-medal",
+      "duration": "1hr 30min",
+      "calendar": "Mar. / Nov.",
+      "description": "Utilizing principles of backward design and UD’s diversity as an institutional learning goal (ILG), this session will introduce the basic tenets of inclusive pedagogy. The goal of this session is to guide attendees in the design of course goal objectives, materials, and approaches to instruction and content delivery.",
+      "image": "/images/UD COL-433.jpg",
+      "facilitators": [
+        {
+          "displayname": "Dr. Kenya Crosson",
+          "title": "Associate Dean for Faculty and Staff Development, School of Engineering",
+          "image": "https://udayton.edu/directory//engineering/civil/images/crosson-kenya.jpg"
+        },
+        {
+          "displayname": "Dr. Julio Quintero",
+          "title": "Director for Inclusive Excellence Strategy and Initiatives, Office of Diversity and Inclusion",
+          "image": "https://udayton.edu/directory//diversity-inclusion/img/quintero-julio-275x300.png"
+        }
+      ],
+      "learningoutcomes": [
+        "Identify teaching strategies and practices to promote an inclusive classroom environment.",
+        "Recognize resources to adapt learning materials to diverse populations and perspectives.",
+        "Identify universal design principles and resources in the creation of inclusive course materials.",
+        "Become familiar with principles to design learning activities that are equitable and accessible to all students."
+      ],
+      "discussions" : [
+        {
+          "title" : "Core Session 7 - Inclusive Pedagogy",
+          "launch" : "/mod/tdiscus/",
+          "resource_link_id": "discuss-core-7"
+        }
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/atls-registration/?atls_session_id=core-7&atls_view=REGISTRATION",
+          "resource_link_id" : "reg-core-7",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/atls-registration/?atls_session_id=core-7&atls_view=FEEDBACK",
+          "resource_link_id" : "feedback-core-7",
+          "type": "FEEDBACK"
+        }
+      ]
+    },
+    {
+      "session": "Core Session 8",
+      "title": "Why Do We Teach?",
+      "anchor": "core-8",
+      "core": true,
+      "icon": "fa-medal",
+      "duration": "1hr 30min",
+      "calendar": "Apr. / Dec.",
+      "description": "In this session we will examine how we define our roles as teachers, why we entered the profession, what our professional goals are, and how we might attain them. Topics addressed will include vocational discernment, the purposes higher education serves today, and the scholarship of teaching and learning. The session will involve reflective writing exercises and peer discussion.",
+      "image": "/images/UD COL-382.jpg",
+      "facilitators": [
+        {
+          "displayname": "Dr. Steve Wilhoit",
+          "title": "English Professor",
+          "image": "https://udayton.edu/directory//aali/ltc/img/wilhoit_steve_275.jpg"
+        }
+      ],
+      "learningoutcomes": [
+        "Reflect on your vocation as a teacher.",
+        "Explain the crucial role of education in advancing society.",
+        "Develop a professional development plan.",
+        "Recognize the scholarly options involved in the scholarship of teaching."
+      ],
+      "discussions" : [
+        {
+          "title" : "Core Session 8 - Why Do We Teach?",
+          "launch" : "/mod/tdiscus/",
+          "resource_link_id": "discuss-core-8"
+        }
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/atls-registration/?atls_session_id=core-8&atls_view=REGISTRATION",
+          "resource_link_id" : "reg-core-8",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/atls-registration/?atls_session_id=core-8&atls_view=FEEDBACK",
+          "resource_link_id" : "feedback-core-8",
+          "type": "FEEDBACK"
+        }
+      ]
+    }
+  ]
+}

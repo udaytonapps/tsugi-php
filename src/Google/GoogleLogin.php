@@ -36,7 +36,7 @@ class GoogleLogin {
     /**
      * Get the login url
      */
-    function getLoginUrl($state) {
+    function getLoginUrl($state, $restricted=true) {
         $loginUrl = "https://accounts.google.com/o/oauth2/auth?"
             . "client_id=" . $this->client_id
             . "&redirect_uri=" . $this->redirect
@@ -44,6 +44,10 @@ class GoogleLogin {
             . "&response_type=code"
             . "&scope=email%20profile" 
             . "&include_granted_scopes=true";
+
+        if ($restricted) {
+            $loginUrl = $loginUrl."&hd=udayton.edu";
+        }
 
         if ( $this->openid_realm ) {
             $loginUrl .= "&openid.realm=" . $this->openid_realm;

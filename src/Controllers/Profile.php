@@ -5,6 +5,7 @@ namespace Tsugi\Controllers;
 use Laravel\Lumen\Routing\Controller;
 use Tsugi\Lumen\Application;
 use Symfony\Component\HttpFoundation\Request;
+use Tsugi\Util\U;
 
 class Profile extends Controller {
 
@@ -146,6 +147,7 @@ echo(' ('.$_SESSION['email'].")</h4>\n");
             </div>
             <hr class="hidden-phone"/>
             <div style="display: flex; justify-content: space-between;">
+<<<<<<< HEAD
         <div class="control-group">
         <div class="controls">
         How much mail would you like us to send?
@@ -172,6 +174,34 @@ Send me notification mail for important things like my assignment was graded.
     <input class="btn btn-warning" type="button" onclick="location.href='<?= $CFG->apphome ?>/index.php'; return false;" value="Cancel"/>
 </div>
 </div>
+=======
+                <div class="control-group">
+                    <div class="controls">
+                        How much mail would you like us to send?
+                        <label class="radio">
+                            <?php self::radio('subscribe',-1,$subscribe); ?> >
+                            No mail will be sent.
+                        </label>
+                        <label class="radio">
+                            <?php self::radio('subscribe',0,$subscribe); ?> >
+                            Keep the mail level as low as possible.
+                        </label>
+                        <label class="radio">
+                            <?php self::radio('subscribe',1,$subscribe); ?> >
+                            Send only announcements.
+                        </label>
+                        <label class="radio">
+                            <?php self::radio('subscribe',2,$subscribe); ?> >
+                            Send me notification mail for important things like my assignment was graded.
+                        </label>
+                    </div>
+                </div>
+                <div class="control-group pull-right" style="margin-top: 20px">
+                    <button type="submit" class="btn btn-primary visible-phone">Save</button>
+                    <input class="btn btn-warning" type="button" onclick="location.href='<?= $CFG->apphome ?>/index.php'; return false;" value="Cancel"/>
+                </div>
+            </div>
+>>>>>>> b558aafec (Add initial structure for multiple course types)
 <?php if ( isset($CFG->google_map_api_key) && ! $CFG->OFFLINE ) { ?>
     <hr class="hidden-phone"/>
         How would you like to be shown in maps.<br/>

@@ -300,7 +300,9 @@ class U {
     public static function add_url_parm($url, $key, $val) {
         if ( ! is_string($url) || ! is_string($key) || ! is_string($val) ) return $url;
         $url .= strpos($url,'?') === false ? '?' : '&';
-        $url .= urlencode($key) . '=' . urlencode($val);
+        if (isset($key) && isset($val)) {
+            $url .= urlencode($key) . '=' . urlencode($val);
+        }
         return $url;
     }
 
@@ -715,7 +717,7 @@ class U {
             "/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/",
         );
         foreach($patterns as $pattern) {
-            if (preg_match($pattern,$color) ) return true;
+            if (isset($color) && preg_match($pattern,$color) ) return true;
         }
         return false;
     }

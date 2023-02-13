@@ -390,12 +390,14 @@ class Login extends Controller {
         // We need a login URL
         $_SESSION['GOOGLE_STATE'] = md5(uniqid(rand(), TRUE));
         $loginUrl = $glog->getLoginUrl($_SESSION['GOOGLE_STATE']);
+        $guestLoginUrl = $glog->getLoginUrl($_SESSION['GOOGLE_STATE'], false);
 
         $context = array();
         $login_return = isset($CFG->apphome) ? $CFG->apphome : $CFG->wwwroot;
         if ( isset($_SESSION['login_return']) ) $login_return = $_SESSION['login_return'];
         $context['login_return'] = $login_return;
         $context['loginUrl'] = $loginUrl;
+        $context['guestLoginUrl'] = $guestLoginUrl;
 
         return $this->viewLogin($context);
     }
@@ -410,28 +412,25 @@ class Login extends Controller {
         $OUTPUT->topNav();
         $OUTPUT->flashMessages();
 ?>
-<div style="margin: 30px">
-<p>
-We here at <?= $CFG->servicename ?> use Google Accounts as our sole login.
-We do not want to spend a lot of time verifying identity, resetting passwords,
-detecting robot-login storms, and other issues so we let Google do that hard work.
-</p>
-<form method="post">
-    <input class="btn btn-warning" type="button"
-    onclick="location.href='<?= $context['login_return'] ?>'; return false;" value="Cancel"
-        style="height: 2.5em;"/>
-    <a href="<?= $context['loginUrl'] ?>"><img src="<?= $CFG->staticroot ?>/img/google_signin_buttons/2x/btn_google_signin_dark_normal_web@2x.png"
-      title="<?= htmlentities(__('Sign in with Google')) ?>"
-      style="height: 3em;"></a>
-</form>
-<p>
-So you must have a Google account and we will require your
-name and email address to login.  We do not need and do not receive your password - only Google
-will ask you for your password.  When you press login, you will be directed to the Google
-authentication system where you will be given the option to share your
-information with <?= $CFG->servicename ?>.
-</p>
-</div>
+        <section class="vh-100 bg-white">
+            <div class="container py-5 h-75">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                            <div class="card-body p-5 text-center">
+                                <h3>Sign in to <?=$CFG->servicename?></h3>
+                                <p class="mb-5">University of Dayton users please click the "UD Users Login" button below and sign in with your credentials.</p>
+                                <a href="<?= $context['loginUrl'] ?>" class="btn btn-primary btn-lg btn-block">UD Users Login</a>
+                                <hr class="my-4">
+                                <a href="<?= $context['guestLoginUrl'] ?>" class="btn btn-lg btn-block btn-light">Guest Login</a>
+                                <button class="btn btn-lg btn-block btn-light mb-2" onclick="location.href='<?= $context["login_return"] ?>'; return false;"
+                                        type="button">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 <?php
         $OUTPUT->footerStart();
         $OUTPUT->footerEnd();

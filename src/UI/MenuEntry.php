@@ -28,6 +28,11 @@ class MenuEntry {
      * Extra attributes
      */
     public $attr = false;
+    
+    /**
+     * Disabled link 
+     */
+    public $disabled = false;
 
     /**
      * Construct a menu entry from a link and href
@@ -37,9 +42,10 @@ class MenuEntry {
      * a Menu.
      * @param $attr An optional string to add within the anchor tag
      */
-    public function __construct($link, $href=false, $attr=false) {
+    public function __construct($link, $href=false, $attr=false, $disabled=false) {
         $this->link = $link;
         $this->attr = $attr;
+        $this->disabled = $disabled;
         if ( $href instanceof \Tsugi\UI\Menu ){
             $this->href = $href->menu;
         } else {

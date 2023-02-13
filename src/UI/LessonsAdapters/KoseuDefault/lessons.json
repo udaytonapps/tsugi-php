@@ -1,0 +1,69 @@
+{
+  "title": "Hosting Your Own MOOC with Koseu",
+  "description": "This is merely a sample lessons.json borrowed from www.tsugi.org.  You should edit this file with your own course materials, LTI tools, and videos.",
+  "modules": [
+    {
+      "title": "Overview of Tsugi",
+      "anchor": "overview",
+      "icon": "fa-clone",
+      "description": "This gives some context around what Tsugi is and why Tsugi is being developed.",
+      "slides": "lectures/00-Mini.pptx",
+      "videos": [
+        {
+          "title": "Overview of Tsugi",
+          "youtube": "OzrlFJNBFqY"
+        }
+      ]
+    },
+    {
+      "title": "Using Tsugi Apps in a Learning System",
+      "anchor": "tsugitools",
+      "icon": "fa-cloud",
+      "description": "TsugiCloud provides free hosting for open source Tsugi tools.  Teachers can use TsugiCloud tools in their Learning Management Systems (LMS) or Google Classroom for free.  Developers can submit their tools to TsugiCloud for free hosting and use by teachers.   Developers can also host their own Tsugi app store if they like.",
+      "videos": [
+        {
+          "title": "Using TsugiCloud in Google Classroom",
+          "youtube": "SeAsoA_fJo0"
+        },
+        {
+          "title": "Using TsugiCloud in Sakai",
+          "youtube": "au2_C_2PgIA"
+        }
+      ],
+      "references": [
+        {
+          "title": "TsugiCloud (free Tsugi Hosting)",
+          "href": "https://www.tsugicloud.org/"
+        },
+        {
+          "title": "Using TsugiCloud with Google Classroom",
+          "href": "https://www.tsugicloud.org/about/documentation/howto/classroom"
+        },
+        {
+          "title": "Using TsugiCloud with Canvas",
+          "href": "https://www.tsugicloud.org/about/documentation/howto/canvas"
+        },
+        {
+          "title": "Using TsugiCloud with Sakai",
+          "href": "https://www.tsugicloud.org/about/documentation/howto/sakai"
+        }
+      ]
+    },
+    {
+      "title": "Pre-Requisite: Learning PHP and MySQL",
+      "anchor": "wa4e",
+      "icon": "fa-clone",
+      "description": "If you don't know how to use PHP, MySQL, and JavaScript, to build web applications, we recommend you take 'Web Applications for Everybody'.  You can earn a certificate on Coursera or take the course at our free online web site.",
+      "references": [
+        {
+          "title": "Web Applications for Everybody Specialization (Coursera)",
+          "href": "https://www.coursera.org/specializations/web-applications/"
+        },
+        {
+          "title": "Web Applications for Everybody (WA4E)",
+          "href": "https://www.wa4e.com/"
+        }
+      ]
+    }
+  ]
+}

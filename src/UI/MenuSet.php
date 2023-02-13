@@ -52,10 +52,14 @@ class MenuSet {
      *
      * @return MenuSet The instance to allow for chaining
      */
-    public function addLeft($link, $href, $push=false, $attr=false)
+    public function addLeft($link, $href, $push=false, $attr=false, $disabled=false, $disabledmsg='')
     {
         if ( $this->left == false ) $this->left = new Menu();
-        $x = new \Tsugi\UI\MenuEntry($link, $href, $attr);
+        if ($disabled) {
+            $attribute = 'data-mdb-toggle="popover" data-mdb-trigger="hover" data-mdb-content="' . $disabledmsg . '" data-mdb-placement="bottom"';
+            $attr = $attr ? $attr . ' ' . $attribute : $attribute;
+        }
+        $x = new \Tsugi\UI\MenuEntry($link, $href, $attr, $disabled);
         $this->left->add($x, $push);
         return $this;
     }
@@ -70,10 +74,14 @@ class MenuSet {
      *
      * @return MenuSet The instance to allow for chaining
      */
-    public function addRight($link, $href, $push=true, $attr=false)
+    public function addRight($link, $href, $push=true, $attr=false, $disabled=false, $disabledmsg='')
     {
         if ( $this->right == false ) $this->right = new Menu();
-        $x = new \Tsugi\UI\MenuEntry($link, $href, $attr);
+        if ($disabled) {
+            $attribute = 'data-mdb-toggle="popover" data-mdb-trigger="hover" data-mdb-content="' . $disabledmsg . '" data-mdb-placement="bottom"';
+            $attr = $attr ? $attr . ' ' . $attribute : $attribute;
+        }
+        $x = new \Tsugi\UI\MenuEntry($link, $href, $attr, $disabled);
         $this->right->add($x, $push);
         return $this;
     }
@@ -128,8 +136,10 @@ class MenuSet {
         if ( ! is_array($entry) ) {
             $link = $entry->link;
             $href = $entry->href;
+            $attr = $entry->attr;
+            $disabled = $entry->disabled;
             if ( is_string($href) ) {
-                return new \Tsugi\UI\MenuEntry($link, $href);
+                return new \Tsugi\UI\MenuEntry($link, $href, $attr, $disabled);
             }
             $submenu = self::importRecurse($href, $depth+1);
             return new \Tsugi\UI\MenuEntry($link, $submenu);

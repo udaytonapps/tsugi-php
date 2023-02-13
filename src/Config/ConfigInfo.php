@@ -69,6 +69,12 @@ class ConfigInfo {
     public $owneremail = false;
 
     /**
+     * No-Reply versions of the owner name and owner email.
+     */
+    public $owneremailsender = false;
+    public $ownernoreplyemail = false;
+
+    /**
      * Whether or not we accept key requests on this system
      *
      * Tsugi has a workflow to allow users to come directly to

@@ -41,12 +41,13 @@ class Menu {
      * a Menu.
      * @param $push true if this is to be put before the rest of the items in the menu
      * @param $attr An optional string to add within the anchor tag
+     * @param $disabled true if this link is disabled
 
      * @return Menu The instance is returned to allow chaining syntax
      */
-    public function addLink($link, $href, $push=false, $attr=false)
+    public function addLink($link, $href, $push=false, $attr=false, $disabled=false)
     {
-        $entry = new MenuEntry($link, $href, $attr);
+        $entry = new MenuEntry($link, $href, $attr, $disabled);
         return $this->add($entry, $push);
     }
 

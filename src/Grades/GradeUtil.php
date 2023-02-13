@@ -133,4 +133,22 @@ class GradeUtil {
         $rows = $PDOX->allRowsDie($sql,array(':UID' => $user_id, ':CID' => $context_id));
         return $rows;
     }
+
+    /**
+     * Load all the grades including resource_link_id. Only available to instructor or admin roles
+     */
+    public static function loadGradesForAdmin()
+    {
+        global $CFG, $PDOX;
+        if (!isset( $_SESSION['role']) || $_SESSION['role'] < LTIX::ROLE_INSTRUCTOR) die("Requires instructor or admin role");
+        $p = $CFG->dbprefix;
+        $sql =
+            "SELECT R.result_id AS result_id, L.title as title, L.link_key AS link_key, 
+            R.grade AS grade, R.note AS note, U.user_id as user_id, displayname, email
+        FROM {$p}lti_user as U LEFT JOIN {$p}lti_result AS R ON U.user_id = R.user_id
+        LEFT JOIN {$p}lti_link as L ON R.link_id = L.link_id
+        ORDER BY displayname ASC";
+        $rows = $PDOX->allRowsDie($sql);
+        return $rows;
+    }
 }

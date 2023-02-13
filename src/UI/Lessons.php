@@ -942,7 +942,7 @@ class Lessons {
   <div class="tab-pane fade active in" id="home">
 <?php
         echo('<table class="table table-striped table-hover "><tbody>'."\n");
-        foreach($this->lessons->badges as $badge) {
+        foreach($this->lessons->badges ?? [] as $badge) {
             $threshold = $badge->threshold;
             $count = 0;
             $total = 0;
