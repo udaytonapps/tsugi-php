@@ -1,0 +1,13 @@
+<div class="d-flex container">
+	{% include 'breadcrumbs.twig' %}
+</div>
+<div class="container mt-4 mb-4">
+	{% set title = course.title %}
+	{% set description = course.description %}
+	{% include 'landing-banner.twig' %}
+	<div class="d-flex flex-wrap justify-content-center align-content-center pt-4">
+		{% for moduleDataItem in moduleData %}
+			{% include 'async-module-card.twig' %}
+		{% endfor %}
+	</div>
+</div>

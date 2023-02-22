@@ -1,0 +1,95 @@
+<div class="col-md-4 mb-4 d-flex align-items-stretch">
+  <div class="card w-100">
+    <div class="bg-image">
+      <img
+        class="img-fluid"
+        src="{{ module.image ? contextRoot ~ module.image : genericImg}}"
+      />
+      {% if registered %}
+      <div
+        class="registration-info {{ absent ? 'absent-bg' : ''}} text-dark position-absolute top-0 start-0 h-100 w-100 d-flex align-items-center align-content-center"
+      >
+        <div class="text-center mx-auto">
+          <h5>
+            <i
+              class="fa {{absent ? 'fa-warning' : 'fa-check'}}"
+              aria-hidden="true"
+            ></i>
+            {{status}}
+          </h5>
+          <p>
+            {{regDate | date('D, M j, Y g:i a')}}
+            <br />{{registeredLocation}}
+          </p>
+        </div>
+      </div>
+      {% endif %} {% if module.calendar %}
+      <div class="card-time card-time-left">
+        <span class="far fa-calendar" aria-hidden="true"></span>
+        {{module.calendar}}
+      </div>
+      {% endif %} {% if module.duration %}
+      <div class="card-time">
+        <span class="far fa-clock" aria-hidden="true"></span>
+        {{module.duration}}
+      </div>
+      {% endif %}
+    </div>
+    <div class="card-body pb-0">
+      <div>
+        <h6 class="card-subtitle mt-1 mb-2 text-muted">
+          {% if module.icon %}
+          <i class="fa ' . $module->icon . ' pe-1" aria-hidden="true"></i>
+          {% endif %} {{module.session}}
+        </h6>
+
+        <h5 class="card-title pb-2">{{module.title}}</h5>
+        {% if module.teaser %}
+        <p class="card-text">
+          {{ module.teaser|length > 50 ? module.teaser|slice(0, 50) ~ '...' :
+          module.teaser }}
+        </p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="card-footer border-top-0 pt-0 d-flex align-">
+      <div style="display: flex">
+        {% if showRegisterButton == true or attended == false %}
+            {% for lti in
+            module.lti %}
+                {% if lti.type == 'REGISTRATION' %}
+                    {% if showRegisterButton or (attended == false and isOver) %}
+                        <a class="btn btn-link" href="{{lti.calulated_launch_path}}">
+                            {{lti.title}}
+                        </a>
+                    {% else %}
+                        <a class="btn btn-link" href="{{lti.calulated_launch_path}}">
+                            {{absent ? 'Change' : 'Update'}} Registration
+                        </a>
+                    {% endif %} 
+                {% endif %} 
+            {% endfor %} 
+        {% elseif attended %}
+            {% if feedbackGiven %}
+                {% for lti in module.lti %}
+                    {% if lti.type == 'REGISTRATION' %}
+                    <a class="btn btn-link" href="{{lti.calulated_launch_path}}"
+                    ><i class="fa fa-check" aria-hidden="true"></i>Complete</a>
+                    {% endif %} 
+                {% endfor %} 
+            {% else %} 
+                {% for lti in module.lti %} 
+                    {% if lti.type == 'FEEDBACK' %}
+                        <a class="btn btn-primary" href="{{lti.calulated_launch_path}}"
+                        >{{lti.title}}</a>
+                    {% endif %} 
+                {% endfor %} 
+            {% endif %}
+        {% endif %}
+      </div>
+      <a href="{{detailsUrl}}" class="btn btn-link" data-mdb-ripple-color="dark"
+        >View Details</a
+      >
+    </div>
+  </div>
+</div>

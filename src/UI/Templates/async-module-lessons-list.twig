@@ -1,0 +1,84 @@
+{% apply inline_css %}
+<style>
+	.async-module-lessons-list {
+		min-width: 250px;
+	}
+	.async-module-lessons-list .teaser-li {
+		padding-top: 0;
+		padding-left: 10px;
+		font-size: 14px;
+	}
+	.async-module-lessons-list .page-li {
+		padding-left: 24px;
+	}
+	.async-module-lessons-list .page-title {
+		margin-left: 10px;
+	}
+	.async-module-lessons-list .expand-icon-wrapper {
+		margin-right: 5px;
+		width: 20px;
+		display: inline-block;
+		text-align: center;
+	}
+	.async-module-lessons-list .expand-button[aria-expanded=true] .fa-chevron-right {
+		display: none;
+	}
+	.async-module-lessons-list .expand-button[aria-expanded=false] .fa-chevron-down {
+		display: none;
+	}
+	.async-module-lessons-list .list-link {
+		border-radius: 0 !important;
+	}
+</style>
+{% endapply %}
+
+{% macro showClass(collapsed, activePage, lesson) %}
+	{% for lessonPage in lesson.pages %}
+		{% if collapsed == false or (lessonPage.anchor == activePage.anchor) %}
+			show
+		{% endif %}
+	{% endfor %}
+{% endmacro %}
+
+<div class="async-module-lessons-list">
+	{% for idx, lesson in module.lessons %}
+		<h6 class="bg-light p-2 border expand-button" href="#!" role="button" data-mdb-toggle="collapse" data-mdb-target="#collapse-{{idx}}" aria-expanded={{collapsed ? "false" : "true"}} aria-controls="collapse-{{idx}}">
+			{% if page.anchor == lessonPage.anchor %}
+				<i class="fa fa-dot-circle-o text-primary"></i>
+			{% else %}
+				{% set icon = random(['<i class="fas fa-check-circle text-success"></i>', '<i class="far fa-circle"></i>']) %}
+				{{icon | raw}}
+				{% if icon is null %}
+					<i class="fas fa-check-circle text-success"></i>
+					<i class="far fa-circle"></i>
+				{% endif %}
+			{% endif %}
+			<span class="expand-icon-wrapper">
+				<i class="fas fa-chevron-right"></i>
+				<i class="fas fa-chevron-down"></i>
+			</span>
+			{{lesson.title}}
+		</h6>
+		<ul class="list-group list-group-light mb-4 collapse {{_self.showClass(collapsed, page, lesson)}} mt-3" id="collapse-{{idx}}">
+			<li class="teaser-li list-group-item d-flex justify-content-between align-items-center">{{lesson.teaser}}</li>
+			{% for lessonPage in lesson.pages %}
+				<a href="{{linkRoot}}{{lessonPage.anchor}}" class="list-link {{page.anchor == lessonPage.anchor ? 'active' : ''}} page-li list-group-item d-flex justify-content-between align-items-center">
+					<div class="d-flex align-items-center">
+
+						{% if page.anchor == lessonPage.anchor %}
+							<i class="fa fa-dot-circle-o text-primary"></i>
+						{% else %}
+							{% set icon = random(['<i class="fas fa-check-circle text-success"></i>', '<i class="far fa-circle"></i>']) %}
+							{{icon | raw}}
+							{% if icon is null %}
+								<i class="fas fa-check-circle text-success"></i>
+								<i class="far fa-circle"></i>
+							{% endif %}
+						{% endif %}
+						<span class="page-title">{{lessonPage.title}}</span>
+					</div>
+				</a>
+			{% endfor %}
+		</ul>
+	{% endfor %}
+</div>

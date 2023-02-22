@@ -1,0 +1,23 @@
+{# "icon": "fa-list-ol",
+"title": "Quiz: What is Isidore?",
+"launch": "mod/learnquiz/index.php?quiz=bn_whatisisidore",
+"resource_link_id": "bn_whatisisidore" #}
+{# TODO: launch_root? #}
+
+{% apply inline_css %}
+<style>
+	.generic-lti {}
+</style>
+{% endapply %}
+
+<div class="generic-lti d-flex">
+	{% if logged_in %}
+		<a class="btn btn-default" href="{{lti_launch_path}}/{{lti.resource_link_id}}">
+			<span class="fa fa-fw {{lti.icon}}"></span>
+			{{lti.title}}</a>
+	{% else %}
+		<a class="btn btn-default disabled" href="#">
+			<span class="fa fa-fw {{lti.icon}}"></span>
+			{{lti.title}}</a>
+	{% endif %}
+</div>

@@ -1,0 +1,43 @@
+{% apply inline_css %}
+<style>
+	.generic-contents .content-item {
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+</style>
+{% endapply %}
+
+{% macro renderContent(content) %}
+	{% if content.type == "TEXT" %}
+		{% for text in content.paragraphs %}
+			<p>{{text}}</p>
+		{% endfor %}
+	{% elseif content.type == "VIDEO" %}
+		{% set video = content.video %}
+		{% include 'generic-video-content.twig' %}
+	{% elseif content.type == "LTI" %}
+		{% set lti = content.lti %}
+		{% include 'generic-lti-content.twig' %}
+	{% elseif content.type == "LINK" %}
+		{% if content.link.icon %}
+			<span class="fa {{content.link.icon}}" aria-hidden="true"></span>
+		{% endif %}
+		<a target="_blank" href="{{content.link.url}}">{{content.link.title}}</a>
+	{% elseif content.type == "ORDERED_LIST" %}
+		<ol>
+			{% for listContent in content.orderedList.contents %}
+				<li>
+					{{_self.renderContent(listContent)}}
+				</li>
+			{% endfor %}
+		</ol>
+	{% endif %}
+{% endmacro %}
+
+<div class="generic-contents">
+	{% for content in contents %}
+		<div class="content-item">
+			{{_self.renderContent(content)}}
+		</div>
+	{% endfor %}
+</div>

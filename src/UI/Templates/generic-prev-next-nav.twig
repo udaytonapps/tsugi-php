@@ -1,0 +1,27 @@
+{% apply inline_css %}
+<style>
+	.generic-prev-next-nav .prev-next-text-container {
+		line-height: 1;
+	}
+</style>
+{% endapply %}
+<div class="generic-prev-next-nav">
+	<ul class="nav nav-pills nav-justified mb-3">
+		<li class="nav-item previous {{ prevPage ? '' : 'disabled'}}">
+			<a class="btn btn-link {{ prevPage ? '' : 'disabled'}} text-muted" href="{{prevPage.anchor}}">
+				<div class="prev-next-text-container d-flex gap-2">
+					<i class="fa fa-chevron-left" aria-hidden="true"></i>
+					<span>Previous</span>
+				</div>
+			</a>
+		</li>
+		<li class="nav-item previous {{ nextPage ? '' : 'disabled'}}">
+			<a class="btn btn-link {{ nextPage ? '' : 'disabled'}} text-muted" href="{{nextPage.anchor}}">
+				<div class="prev-next-text-container d-flex gap-2">
+					<span>Next</span>
+					<i class="fa fa-chevron-right" aria-hidden="true"></i>
+				</div>
+			</a>
+		</li>
+	</ul>
+</div>

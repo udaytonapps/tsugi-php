@@ -1,0 +1,16 @@
+{% apply inline_css %}
+<style></style>
+{% endapply %}
+<nav aria-label="breadcrumb" class="breadcrumbs">
+	<ol class="breadcrumb">
+		{% for crumb in breadcrumbs %}
+			<li class="breadcrumb-item">
+				{% if loop.last %}
+					{{ crumb.label|length > 20 ? crumb.label|slice(0, 20) ~ '...' : crumb.label  }}
+				{% else %}
+					<a href="{{crumb.path | lower}}">{{ crumb.label|length > 20 ? crumb.label|slice(0, 20) ~ '...' : crumb.label  }}</a>
+				{% endif %}
+			{% endfor %}
+		</li>
+	</ol>
+</nav>

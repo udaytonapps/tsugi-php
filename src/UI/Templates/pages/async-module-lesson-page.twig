@@ -1,0 +1,35 @@
+{% apply inline_css %}
+<style>
+	/* .container {
+		margin: 0;
+		padding: 0;
+	} */
+	.lesson-page .lesson-page-content {
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+	.lesson-page .async-module-lessons-list {
+		width: 325px;
+		min-width: 325px;
+		margin-right: 50px;
+	}
+</style>
+{% endapply %}
+<div class="lesson-page d-flex flex-column container">
+	<div class="d-flex justify-content-between container">
+		{% include 'breadcrumbs.twig' %}
+		{% include 'generic-prev-next-nav.twig' %}
+	</div>
+	<div class="d-flex flex-sm-nowrap flex-wrap-reverse mt-4 mb-4">
+		<div class="d-flex">
+			{% set collapsed = true %}
+			{% include 'async-module-lessons-list.twig' %}
+		</div>
+		<div class="container lesson-page-content d-flex flex-column">
+			<h1>{{page.title}}</h1>
+			{% set contents = page.contents %}
+			{% include 'generic-contents.twig' %}
+		</div>
+
+	</div>
+</div>

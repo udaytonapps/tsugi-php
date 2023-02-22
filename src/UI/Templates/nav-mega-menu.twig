@@ -1,0 +1,18 @@
+<ul
+	class="navbar-nav">
+	<!-- Dropdown -->
+	<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" href="#" id="mega-menu" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+			All Courses
+		</a>
+		<ul class="dropdown-menu" aria-labelledby="mega-menu">
+			{% for keyName, course in courses %}
+				<li>
+					<a class="dropdown-item" href="{{root}}{{keyName}}">
+						{{course.displayLabel}}
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</li>
+</ul>
