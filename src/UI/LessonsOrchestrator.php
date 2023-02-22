@@ -2,8 +2,9 @@
 
 namespace Tsugi\UI;
 
-use \Tsugi\Util\U;
+use Tsugi\Util\U;
 use Tsugi\Core\LTIX;
+use Tsugi\UI\StandardAsync\StandardAsyncAdapter;
 
 class LessonsOrchestrator
 {
@@ -26,21 +27,39 @@ class LessonsOrchestrator
                 'adapter' => AtlsLessons::class,
                 'adapterPath' => $adapterDirectory . '/Atls/AtlsLessons.php'
             ],
+            'isidore' => (object)[
+                'displayLabel' => 'Isidore Training',
+                'adapter' => StandardAsyncAdapter::class,
+                'adapterPath' => $adapterDirectory . '/StandardAsync/StandardAsyncAdapter.php'
+            ],
         ];
         // If not in object, error out?
         return $reference;
     }
 
-    public static function getLessons($nameKey = 'ATLS', $anchor = null, $index = null)
+    public static function getCategoryName($nameKey)
+    {
+        try {
+            // Instantiate and return the relevant Lessons class
+            $adapterReference = self::getLessonsReference($nameKey);
+            require_once($adapterReference->{$nameKey}->adapterPath);
+            return $adapterReference->{$nameKey}->adapter;
+        } catch (\Exception $e) {
+            echo ('Unable to retrieve Lessons Adapter!</br>');
+            echo ($e->getMessage());
+        }
+    }
+
+    public static function getLessons($nameKey = 'ATLS', $moduleAnchor = null, $pageAnchor = null, $index = null)
     {
         try {
             // Instantiate and return the relevant Lessons class
             $relativeContext = '/LessonsAdapters' . '/' . $nameKey;
             $adapterReference = self::getLessonsReference($nameKey);
             require_once($adapterReference->{$nameKey}->adapterPath);
-            return new $adapterReference->{$nameKey}->adapter($relativeContext, $anchor);
+            return new $adapterReference->{$nameKey}->adapter($relativeContext, $moduleAnchor, $pageAnchor);
         } catch (\Exception $e) {
-            echo ('Unable to retrieve Lessons Adapter!');
+            echo ('Unable to retrieve Lessons Adapter!</br>');
             echo ($e->getMessage());
         }
     }
