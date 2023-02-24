@@ -2,6 +2,11 @@
 
 namespace Tsugi\UI;
 
+require_once(__DIR__ . '/LessonsAdapters/CourseBase.php');
+require_once(__DIR__ . '/LessonsAdapters/StandardAsync/StandardAsync.php');
+require_once(__DIR__ . '/LessonsAdapters/StandardSync/StandardSync.php');
+
+use CourseBase;
 use Tsugi\Util\U;
 use Tsugi\Core\LTIX;
 use Tsugi\UI\StandardAsync\StandardAsyncAdapter;
@@ -50,7 +55,7 @@ class LessonsOrchestrator
         }
     }
 
-    public static function getLessons($nameKey = 'ATLS', $moduleAnchor = null, $pageAnchor = null, $index = null)
+    public static function getLessons($nameKey = 'ATLS', $moduleAnchor = null, $pageAnchor = null, $index = null): CourseBase
     {
         try {
             // Instantiate and return the relevant Lessons class
@@ -352,5 +357,87 @@ class LessonsOrchestrator
             if (isset($entry[$i]->href) && is_string($entry[$i]->href)) self::absolute_url_ref($entry[$i]->href);
             if (isset($entry[$i]->launch) && is_string($entry[$i]->launch)) self::absolute_url_ref($entry[$i]->launch);
         }
+    }
+
+    /** Get an LTI or Discussion associated with a resource link ID */
+    public static function getLtiByRlid($course, $resource_link_id)
+    {
+        // Sync
+        if (isset($course->discussions)) {
+            foreach ($course->discussions as $discussion) {
+                if ($discussion->resource_link_id == $resource_link_id) return $discussion;
+            }
+        }
+
+        foreach ($course->modules as $mod) {
+            if (isset($mod->lti)) {
+                foreach ($mod->lti as $lti) {
+                    if ($lti->resource_link_id == $resource_link_id) return $lti;
+                }
+            }
+            if (isset($mod->discussions)) {
+                foreach ($mod->discussions as $discussion) {
+                    if ($discussion->resource_link_id == $resource_link_id) return $discussion;
+                }
+            }
+        }
+
+        // Async
+        foreach ($course->modules as $mod) {
+            if (isset($mod->lessons)) {
+                foreach ($mod->lessons as $lesson) {
+                    if (isset($lesson->pages)) {
+                        foreach ($lesson->pages as $page) {
+                            if (isset($page->contents)) {
+                                foreach ($page->contents as $content) {
+                                    if (isset($content->lti)) {
+                                        if ($content->lti->resource_link_id == $resource_link_id) return $content->lti;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    /** Get a module associated with a resource link ID */
+    public static function getModuleByRlid($course, $resource_link_id)
+    {
+        // Sync
+        foreach ($course->modules as $mod) {
+            if (isset($mod->lti)) {
+                foreach ($mod->lti as $lti) {
+                    if ($lti->resource_link_id == $resource_link_id) return $mod;
+                }
+            }
+            if (isset($mod->discussions)) {
+                foreach ($mod->discussions as $discussion) {
+                    if ($discussion->resource_link_id == $resource_link_id) return $mod;
+                }
+            }
+        }
+
+        // Async
+        foreach ($course->modules as $mod) {
+            if (isset($mod->lessons)) {
+                foreach ($mod->lessons as $lesson) {
+                    if (isset($lesson->pages)) {
+                        foreach ($lesson->pages as $page) {
+                            if (isset($page->contents)) {
+                                foreach ($page->contents as $content) {
+                                    if (isset($content->lti)) {
+                                        if ($content->lti->resource_link_id == $resource_link_id) return $mod;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return null;
     }
 }

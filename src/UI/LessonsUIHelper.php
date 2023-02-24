@@ -9,7 +9,7 @@ require_once __DIR__ . '/../../../../../vendor/autoload.php';
 class LessonsUIHelper
 {
     protected static $_loader;
-    protected static $_twig;
+    protected static \Twig\Environment $_twig;
 
     public static function twig()
     {

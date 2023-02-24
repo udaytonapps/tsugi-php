@@ -8,13 +8,15 @@ use \Tsugi\Core\LTIX;
 use \Tsugi\Crypt\AesOpenSSL;
 
 use \DateTime;
+use Tsugi\UI\LessonsOrchestrator;
+use Tsugi\UI\StandardSync\SyncBase;
+use Tsugi\UI\StandardSync\SyncCourse;
 
-
-class AtlsLessons
+class AtlsLessons extends SyncBase
 {
 
     /** All the lessons */
-    public $lessons;
+    public $course; // TODO SyncCourse types
 
     /** The individual module */
     public $module;
@@ -32,7 +34,9 @@ class AtlsLessons
     public $registrations = array();
 
     /** The root path to the context-specific session data */
-    private $contextRoot;
+    public $contextRoot;
+
+    protected $category;
 
     /*
      ** Load up the JSON from the file
@@ -40,10 +44,11 @@ class AtlsLessons
     public function __construct($relativeContext, $anchor = null, $index = null)
     {
         global $CFG;
+        $this->category = substr($relativeContext, strrpos($relativeContext, '/') + 1);
         $this->contextRoot = $CFG->wwwroot . '/vendor/tsugi/lib/src/UI' . $relativeContext;
-        $this->lessons =  LessonsOrchestrator::getLessonsJson($relativeContext);
+        $this->course =  LessonsOrchestrator::getLessonsJson($relativeContext);
         $this->resource_links = array();
-        LessonsOrchestrator::modifyLessonsAndLinks($this->lessons, $this->resource_links);
+        LessonsOrchestrator::modifyLessonsAndLinks($this->course, $this->resource_links);
 
         $anchor = isset($_GET['anchor']) ? $_GET['anchor'] : $anchor;
         $index = isset($_GET['index']) ? $_GET['index'] : $index;
@@ -51,7 +56,7 @@ class AtlsLessons
         // Search for the selected anchor or index position
         $count = 0;
         if ($anchor || $index) {
-            foreach ($this->lessons->modules as $mod) {
+            foreach ($this->course->modules as $mod) {
                 $count++;
                 if ($anchor !== null && isset($mod->anchor) && $anchor != $mod->anchor) continue;
                 if ($index !== null && $index != $count) continue;
@@ -83,7 +88,7 @@ class AtlsLessons
      */
     public function getModuleByAnchor($anchor)
     {
-        foreach ($this->lessons->modules as $mod) {
+        foreach ($this->course->modules as $mod) {
             if ($mod->anchor == $anchor) return $mod;
         }
         return null;
@@ -94,13 +99,13 @@ class AtlsLessons
      */
     public function getLtiByRlid($resource_link_id)
     {
-        if (isset($this->lessons->discussions)) {
-            foreach ($this->lessons->discussions as $discussion) {
+        if (isset($this->course->discussions)) {
+            foreach ($this->course->discussions as $discussion) {
                 if ($discussion->resource_link_id == $resource_link_id) return $discussion;
             }
         }
 
-        foreach ($this->lessons->modules as $mod) {
+        foreach ($this->course->modules as $mod) {
             if (isset($mod->lti)) {
                 foreach ($mod->lti as $lti) {
                     if ($lti->resource_link_id == $resource_link_id) return $lti;
@@ -120,7 +125,7 @@ class AtlsLessons
      */
     public function getModuleByRlid($resource_link_id)
     {
-        foreach ($this->lessons->modules as $mod) {
+        foreach ($this->course->modules as $mod) {
             if (isset($mod->lti)) {
                 foreach ($mod->lti as $lti) {
                     if ($lti->resource_link_id == $resource_link_id) return $mod;
@@ -133,6 +138,42 @@ class AtlsLessons
             }
         }
         return null;
+    }
+
+    public function getModuleData()
+    {
+        global $CFG;
+
+        $moduleCardData = (object)['moduleData' => []];
+        foreach ($this->course->modules as $module) {
+
+            // Don't render hidden or auth-only modules // TODO
+            // if (isset($module->hidden) && $module->hidden) continue;
+            // if (isset($module->login) && $module->login && !isset($_SESSION['id'])) continue;
+
+            // foreach ($module->lti as &$lti) { // TODO
+            //     $launch_path = $rest_path->parent . '/' . $rest_path->controller . '_launch/' . $lti->resource_link_id . '?redirect_url=' . $_SERVER['REQUEST_URI'];
+            //     $lti->calulated_launch_path = $launch_path;
+            // }
+
+            $encodedAnchor = urlencode($module->anchor);
+
+            array_push($moduleCardData->moduleData, (object)[
+                'module' => $module,
+                'contextRoot' => $this->contextRoot,
+                // 'moduleUrl' => U::get_rest_path() . '/' . urlencode($module->anchor),
+                'moduleUrl' => "{$CFG->apphome}/categories/{$this->category}/{$encodedAnchor}",
+            ]);
+        }
+
+        // Assign default BG image, breadcrumbs and course info (for header)
+        $moduleCardData->genericImg = $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.png';
+        // $moduleCardData->breadcrumbs = $this->getBreadcrumbs();
+        $moduleCardData->course = $this->course;
+
+        LessonsUIHelper::debugLog($moduleCardData);
+
+        return $moduleCardData;
     }
 
     /*
@@ -168,11 +209,13 @@ class AtlsLessons
                 $this->registrations[$reg["module_launch_id"]] = $reg;
             }
         }
+        echo ('<div class="container">');
         if ($this->isSingle()) {
             return $this->renderSingle($buffer);
         } else {
             return $this->renderAll($buffer);
         }
+        echo ('</div>');
     }
 
     public static function absolute_url_ref(&$url)
@@ -269,14 +312,14 @@ class AtlsLessons
         if ($this->position == 1) {
             echo ('<li class="nav-item previous disabled"><a class="nav-link disabled text-muted" href="#" onclick="return false;"><i class="fa fa-ban" aria-hidden="true"></i> ' . __('Previous') . '</a></li>' . "\n");
         } else {
-            $prev = $all . '/' . urlencode($this->lessons->modules[$this->position - 2]->anchor);
+            $prev = $all . '/' . urlencode($this->course->modules[$this->position - 2]->anchor);
             echo ('<li class="nav-item previous"><a class="nav-link" href="' . $prev . '"><i class="fa fa-arrow-left" aria-hidden="true"></i> ' . __('Previous') . '</a></li>' . "\n");
         }
-        echo ('<li class="nav-item"><a class="nav-link" href="' . $all . '">' . __('All') . ' (' . $this->position . ' / ' . count($this->lessons->modules) . ')</a></li>');
-        if ($this->position >= count($this->lessons->modules)) {
+        echo ('<li class="nav-item"><a class="nav-link" href="' . $all . '">' . __('All') . ' (' . $this->position . ' / ' . count($this->course->modules) . ')</a></li>');
+        if ($this->position >= count($this->course->modules)) {
             echo ('<li class="nav-item next disabled"><a class="nav-link disabled text-muted" href="#" onclick="return false;">' . __('Next') . ' <i class="fa fa-ban" aria-hidden="true"></i></a></li>' . "\n");
         } else {
-            $next = $all . '/' . urlencode($this->lessons->modules[$this->position]->anchor);
+            $next = $all . '/' . urlencode($this->course->modules[$this->position]->anchor);
             echo ('<li class="nav-item next"><a class="nav-link" href="' . $next . '">' . __('Next') . ' <i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>' . "\n");
         }
         echo ("</ul></div>\n");
@@ -604,12 +647,12 @@ class AtlsLessons
         global $CFG, $PDOX;
         ob_start();
         echo ('<div typeof="Course">' . "\n");
-        echo '<h4>' . $this->lessons->title . '</h4><h1>All Sessions</h1>';
-        echo ('<p class="lead" property="description">' . $this->lessons->description . "</p>\n");
+        echo '<h4>' . $this->course->title . '</h4><h1>All Sessions</h1>';
+        echo ('<p class="lead" property="description">' . $this->course->description . "</p>\n");
         echo ('<hr class="my-2"><h4 class="text-center">Core Sessions</h4><hr class="my-2">');
         $count = 0;
         echo ('<div class="row session-box">');
-        foreach ($this->lessons->modules as $module) {
+        foreach ($this->course->modules as $module) {
             $instances = $PDOX->allRowsDie(
                 "SELECT session_date, session_location, duration_minutes, module_launch_id, capacity
                 FROM {$CFG->dbprefix}atls_module_instance
@@ -636,7 +679,6 @@ class AtlsLessons
                 $absent = $this->registrations[$module->anchor]["attendance_status"] === "ABSENT";
             }
 
-
             $upcoming = array();
             foreach ($instances as $instance) {
                 $theDate = date('m/d', strtotime($instance['session_date']));
@@ -654,7 +696,8 @@ class AtlsLessons
             $rest_path = U::rest_path();
 
             foreach ($module->lti as &$lti) {
-                $launch_path = $rest_path->parent . '/' . $rest_path->controller . '_launch/' . $lti->resource_link_id . '?redirect_url=' . $_SERVER['REQUEST_URI'];
+                // TODO: Fix launch path
+                $launch_path = $rest_path->full . '/' . $rest_path->controller . '_launch/' . $lti->resource_link_id . '?redirect_url=' . $_SERVER['REQUEST_URI'];
                 $lti->calulated_launch_path = $launch_path;
             }
 
@@ -675,17 +718,18 @@ class AtlsLessons
 
             LessonsUIHelper::renderSessionCard($renderSessionCardConfig);
         }
+        echo ('</div></div>');
     }
 
     public function renderAssignments($allgrades, $buffer = false)
     {
         ob_start();
         echo '<div class="container">';
-        echo ('<h4>' . $this->lessons->title . "</h4><h1>Progress</h1>\n");
+        echo ('<h4>' . $this->course->title . "</h4><h1>Progress</h1>\n");
         echo '<h6 class="bg-light p-2 border-top border-bottom">Core Sessions</h6>';
         echo '<ul class="list-group list-group-light list-group-small">';
         $count = 0;
-        foreach ($this->lessons->modules as $module) {
+        foreach ($this->course->modules as $module) {
             $count++;
             if (!isset($module->lti)) continue;
             echo ('<li class="list-group-item d-flex justify-content-between align-items-start">' . "\n");
@@ -830,7 +874,7 @@ class AtlsLessons
     {
         global $CFG;
         ob_start();
-        echo ('<h4>' . $this->lessons->title . "</h4><h1>Badges</h1>\n");
+        echo ('<h4>' . $this->course->title . "</h4><h1>Badges</h1>\n");
         $awarded = array();
         ?>
         <ul class="nav nav-tabs nav-fill mb-3" id="badgetabs" role="tablist">
@@ -849,7 +893,7 @@ class AtlsLessons
             <div class="tab-pane fade show active" id="badge-tabs-1" role="tabpanel" aria-labelledby="badgetabs-1">
                 <div class="d-flex flex-wrap align-items-stretch justify-content-center">
                     <?php
-                    foreach ($this->lessons->badges as $badge) {
+                    foreach ($this->course->badges as $badge) {
                         $threshold = $badge->threshold;
                         $count = 0;
                         $total = 0;
@@ -931,13 +975,13 @@ class AtlsLessons
 
         // Flatten the discussions
         $discussions = array();
-        if (isset($this->lessons->discussions)) {
-            foreach ($this->lessons->discussions as $discussion) {
+        if (isset($this->course->discussions)) {
+            foreach ($this->course->discussions as $discussion) {
                 $discussions[] = $discussion;
             }
         }
 
-        foreach ($this->lessons->modules as $module) {
+        foreach ($this->course->modules as $module) {
             if (isset($module->hidden) && $module->hidden) continue;
             if (isset($module->discussions) && is_array($module->discussions)) {
                 foreach ($module->discussions as $discussion) {
@@ -955,7 +999,7 @@ class AtlsLessons
             return;
         }
 
-        echo ('<h4>' . $this->lessons->title . '</h4><h1>' . __('Discussions') . "</h1>\n");
+        echo ('<h4>' . $this->course->title . '</h4><h1>' . __('Discussions') . "</h1>\n");
 
         // TODO: Perhaps the tdiscus service will get promoted to Tsugi
         // but for now we bypass the abstraction and go straight to the source...
@@ -1061,8 +1105,8 @@ class AtlsLessons
             </script>
         <?php
         }
-        if (isset($this->lessons->footers) && is_array($this->lessons->footers)) {
-            foreach ($this->lessons->footers as $footer) {
+        if (isset($this->course->footers) && is_array($this->course->footers)) {
+            foreach ($this->course->footers as $footer) {
                 $footer = self::expandLink($footer);
                 echo ($footer);
                 echo ("\n");
@@ -1283,7 +1327,7 @@ class AtlsLessons
               </style>');
     ?>
         <div class="container pb-4">
-            <h1><?= $this->lessons->title ?></h1>
+            <h1><?= $this->course->title ?></h1>
             <ul class="nav nav-tabs mb-3" id="badgeadmin" role="tablist">
                 <li class="nav-item" role="presentation"><a class="nav-link active" href="#badgeadmin-by-badge" data-mdb-toggle="tab" aria-controls="badgeadmin-by-badge" aria-selected="true">By Badge</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="#badgeadmin-by-user" data-mdb-toggle="tab" aria-controls="badgeadmin-by-user" aria-selected="false">By User</a></li>
@@ -1292,7 +1336,7 @@ class AtlsLessons
                 <div class="tab-pane fade show active" id="badgeadmin-by-badge" role="tabpanel" aria-labelledby="badgeadmin-by-badge">
                     <?php
                     echo ('<div class="row d-flex flex-wrap justify-content-center">' . "\n");
-                    foreach ($this->lessons->badges as $badge) {
+                    foreach ($this->course->badges as $badge) {
                         $threshold = $badge->threshold;
                         $awardedUsers = array();
                         foreach ($gradeMap as $user => $userGrades) {
@@ -1401,7 +1445,7 @@ class AtlsLessons
                             foreach ($gradeMap as $user => $userGrades) {
                                 $awardedBadges = array();
                                 // Loop over all lesson badges to check what was earned
-                                foreach ($this->lessons->badges as $badge) {
+                                foreach ($this->course->badges as $badge) {
                                     $threshold = $badge->threshold;
                                     $count = 0;
                                     $total = 0;

@@ -1419,11 +1419,7 @@ EOF;
         Theme::$theme_base = $theme_base;
 
         // Generate the theme
-<<<<<<< HEAD
         if (isset($theme_base) && U::isValidCSSColor($theme_base)) {
-=======
-        if (U::isValidCSSColor($theme_base)) {
->>>>>>> b558aafec (Add initial structure for multiple course types)
             $theme = Theme::getLegacyTheme($theme_base, $dark_mode);
             // Default any remaining values that weren't already configured
             $theme = Theme::defaults($theme);

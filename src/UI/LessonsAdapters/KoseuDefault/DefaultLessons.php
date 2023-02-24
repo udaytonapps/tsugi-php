@@ -2,13 +2,14 @@
 
 namespace Tsugi\UI;
 
+use CourseBase;
 use \Tsugi\Util\U;
 use \Tsugi\Util\LTI;
 use \Tsugi\Core\LTIX;
 use \Tsugi\Crypt\AesOpenSSL;
 
 
-class DefaultLessons
+class DefaultLessons extends CourseBase
 {
 
     /**
@@ -31,12 +32,15 @@ class DefaultLessons
      */
     public $position;
 
-    private $contextRoot;
+    public $contextRoot;
 
     /**
      * Index by resource_link
      */
     public $resource_links;
+
+    protected $category;
+    public $course;
 
     /**
      * get a setting for the lesson
@@ -116,8 +120,10 @@ class DefaultLessons
         global $CFG;
 
         global $CFG, $PDOX;
+        $this->category = substr($relativeContext, strrpos($relativeContext, '/') + 1);
         $this->contextRoot = $CFG->wwwroot . '/vendor/tsugi/lib/src/UI' . $relativeContext;
         $lessons = LessonsOrchestrator::getLessonsJson($relativeContext);
+        $this->course =  LessonsOrchestrator::getLessonsJson($relativeContext);
         $this->resource_links = array();
 
         if ($lessons === null) {
@@ -335,11 +341,13 @@ class DefaultLessons
      */
     public function render($buffer = false)
     {
+        echo ('<div class="container mb-4">');
         if ($this->isSingle()) {
             return $this->renderSingle($buffer);
         } else {
             return $this->renderAll($buffer);
         }
+        echo ('</div>');
     }
 
     public static function absolute_url_ref(&$url)
@@ -1278,5 +1286,41 @@ class DefaultLessons
                 }
             }
             return false;
+        }
+
+        public function getModuleData()
+        {
+            global $CFG;
+
+            $moduleCardData = (object)['moduleData' => []];
+            foreach ($this->lessons->modules as $module) {
+
+                // Don't render hidden or auth-only modules // TODO
+                // if (isset($module->hidden) && $module->hidden) continue;
+                // if (isset($module->login) && $module->login && !isset($_SESSION['id'])) continue;
+
+                // foreach ($module->lti as &$lti) { // TODO
+                //     $launch_path = $rest_path->parent . '/' . $rest_path->controller . '_launch/' . $lti->resource_link_id . '?redirect_url=' . $_SERVER['REQUEST_URI'];
+                //     $lti->calulated_launch_path = $launch_path;
+                // }
+
+                $encodedAnchor = urlencode($module->anchor);
+
+                array_push($moduleCardData->moduleData, (object)[
+                    'module' => $module,
+                    'contextRoot' => $this->contextRoot,
+                    // 'moduleUrl' => U::get_rest_path() . '/' . urlencode($module->anchor),
+                    'moduleUrl' => "{$CFG->apphome}/categories/{$this->category}/{$encodedAnchor}",
+                ]);
+            }
+
+            // Assign default BG image, breadcrumbs and course info (for header)
+            $moduleCardData->genericImg = $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.png';
+            // $moduleCardData->breadcrumbs = $this->getBreadcrumbs();
+            $moduleCardData->course = $this->lessons;
+
+            LessonsUIHelper::debugLog($moduleCardData);
+
+            return $moduleCardData;
         }
     }

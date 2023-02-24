@@ -1,0 +1,2623 @@
+{
+  "title": "<small>Center for Online Learning</small><br />Isidore Training Modules",
+  "description": "Below are training modules and lessons developed by the Center for Online Learning to help folks use Isidore, UD's learning management system.",
+  "badges": [
+    {
+      "title": "Participation Trophy",
+      "description": "Do you earn this badge for doing anything impressive? Nope. All you do is log into the system, and poof! You get the badge. You participated. Take your trophy. You are now prepared for your first steps in the Center for Online Learning's online training. DISCLAIMER: Always consult your physician before beginning any online training program. This is not intended to diagnose any medical condition or to replace your health care professional. If you experience any pain or shortness of breath with these online modules, stop and consult your physician.",
+      "image": "ParticipationTrophy.png",
+      "anchor": "participationtrophy",
+      "threshold": "1.0",
+      "assignments": []
+    },
+    {
+      "title": "Is-A-Door",
+      "description": "Isidore. If you know what it is and you know what it does, it will open all kinds of doors for your teaching career here at UD. The name of the badge will also serve as a reminder of the proper pronunciation. The Center for Online Learning hears a lot of eyes-a-dore and Isadora type stuff. No good! You wouldn't want to bring dishonor on Saint Isidore of Seville, the patron saint of students and the Internet, would you? This badge is awarded for completing the What Is Isidore? lesson.",
+      "image": "IsADoor.png",
+      "anchor": "isadoor",
+      "threshold": "1.0",
+      "assignments": ["bn_whatisisidore"]
+    },
+    {
+      "title": "Onboarded",
+      "description": "Earning this badge proves that you are on-board. You're not the captain of the ship. Heck. You're not even a crew member. But you're on the boat, and you earned your spot by completing the I'm Brand New module.",
+      "image": "Onboarded.png",
+      "anchor": "onboarded",
+      "threshold": "1.0",
+      "assignments": [
+        "bn_whatisisidore",
+        "bn_gettingstarted",
+        "bn_sitecreation"
+      ]
+    },
+    {
+      "title": "Site Sighted",
+      "description": "Creating a site in Isidore is the most important thing you will ever do. At any point of your life. No matter what. It may even save your life. This badge is awarded following a validation (or observational sighting) of an Isidore site you created as part of the Course Site Creation lesson.",
+      "image": "SiteSighted.png",
+      "anchor": "sitesighted",
+      "threshold": "1.0",
+      "assignments": ["bn_sitecreation2"]
+    },
+    {
+      "title": "Gen Ed",
+      "description": "Like the general ed courses for undergrads, this badge is awarded for those that have completed the Isidore 101 modules, which teaches on the fundamental tools of Isidore. And just like those general ed, Isidore 101 prepares you for your next steps in learning Isidore, your next steps in teaching, and your next steps in becoming the best instructor this institution has ever seen!",
+      "image": "GenEd.png",
+      "anchor": "gened",
+      "threshold": "1.0",
+      "assignments": [
+        "101_ckeditor",
+        "101_overview",
+        "101_announcements",
+        "101_resources",
+        "101_roster",
+        "101_attendance",
+        "101_calendar"
+      ]
+    },
+    {
+      "title": "Feelin' Dangerous",
+      "description": "Have you ever heard the expression, You know enough to be dangerous? Well, that's you right now. This badge is earned following the completion of both the I'm Brand New and Isidore 101 modules. At this point you're ready to start doing some great things with Isidore. But we need to be clear that the dangerous thing is just an expression. We don't suggest you ever put yourself in a position where you feel or create true danger. Just be cool, ok?",
+      "image": "FeelinDangerous.png",
+      "anchor": "feelindangerous",
+      "threshold": "1.0",
+      "assignments": [
+        "bn_whatisisidore",
+        "bn_gettingstarted",
+        "bn_sitecreation",
+        "101_ckeditor",
+        "101_overview",
+        "101_announcements",
+        "101_resources",
+        "101_roster",
+        "101_attendance",
+        "101_calendar"
+      ]
+    },
+    {
+      "title": "Header ",
+      "description": "Headers are important in soccer but this badge is awarded to those that know that headers are important in online content as well. Alt text and closed captions are important as well, but they are not used quite as often in soccer. Well, you could probably find some closed captions on a televised soccer match. ",
+      "image": "SoccerBall.png",
+      "anchor": "headerbadge",
+      "threshold": "1.0",
+      "assignments": [
+        "acc_visual",
+        "acc_auditory",
+        "acc_cog",
+        "acc_files",
+        "acc_materials"
+      ]
+    },
+    {
+      "title": "Creative Caring",
+      "description": "The CC symbol stands for Closed Captions, but those that earn this badge understand that accessibility is also about Creative Caring. Instructors do not need to suppress their creativity to keep their content accessible. In fact, universal design tends to be best for everyone. ",
+      "image": "CC-Open.png",
+      "anchor": "creativecaring",
+      "threshold": "1.0",
+      "assignments": [
+        "acc_visual",
+        "acc_auditory",
+        "acc_cog",
+        "acc_files",
+        "acc_materials",
+        "acc_visual_qw",
+        "acc_auditory_qw",
+        "acc_cog_qw",
+        "acc_files_qw",
+        "acc_materials_qw"
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "title": "Isidore Onboarding",
+      "description": "If you’re brand new to Isidore or just need a complete refresher, the lessons in this training module will help you understand everything you need to know to get started with UD’s learning management system (LMS). The topics covered include background information about Isidore, basic navigation and layout of the system, the site creation process, and brief overviews of the most essential tools to facilitate your classes.<br><br>Completing this training package should take no longer than 45 minutes. We recommend starting with the first lesson, but you can also jump to any topic to find the specific help you need.",
+      "video": {
+        "title": "Isidore Onboarding Teaser",
+        "warpwire": "mzkEAA"
+      },
+      "time": "Est. 45 min",
+      "anchor": "onboarding",
+      "lessons": [
+        {
+          "title": "What is Isidore?",
+          "anchor": "onboarding-what-is-isidore",
+          "icon": "fa-question",
+          "description": "Discover the history of Isidore.",
+          "overviewcontent": "Isidore is UD's open-source Learning Management System or LMS. Isidore is based on the Sakai LMS, but why did UD go this direction? Find out in this lesson.",
+          "videos": [
+            {
+              "title": "What is Isidore?",
+              "warpwire": "6TMEAA"
+            }
+          ],
+          "section2title": "Test Your Knowledge",
+          "section2content": "Now it's time to prove you watched the video. Complete the Quick Quiz below and earn a badge.",
+          "lti": {
+            "header": "Quick Quiz",
+            "description": "Complete the Quick Quiz below to earn a badge.",
+            "icon": "fa-list-ol",
+            "title": "What is Isidore? Quiz",
+            "launch": "mod/learnquiz/index.php?quiz=bn_whatisisidore",
+            "resource_link_id": "bn_whatisisidore"
+          },
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Related Lessons",
+              "references": [
+                {
+                  "icon": "fa-sign-in-alt",
+                  "title": "Getting Started with Isidore",
+                  "href": "/lessons/onboarding-getting-started"
+                },
+                {
+                  "icon": "fa-plus",
+                  "title": "Creating Course Sites",
+                  "href": "/lessons/onboarding-creating-sites"
+                }
+              ]
+            },
+            {
+              "header": "Additional Articles",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Wiki Page for St. Isidore of Seville",
+                  "href": "https://en.wikipedia.org/wiki/Isidore_of_Seville"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "The Sakai LMS Homepage",
+                  "href": "https://www.sakailms.org/"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Isidore Releases",
+                  "href": "https://ewiki.udayton.edu/isidore/Isidore_releases"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Getting Started with Isidore",
+          "anchor": "onboarding-getting-started",
+          "icon": "fa-sign-in-alt",
+          "description": "Find out how to log in and use the homepage.",
+          "overviewcontent": "The Isidore homepage is designed to help you see summarized information about all of your classes on one page, similar to a dashboard. In this video, you’ll learn how to log in and about each of the components on your homepage.",
+          "videos": [
+            {
+              "title": "Getting Started with Isidore",
+              "warpwire": "MzQEAA"
+            }
+          ],
+          "section2title": "Test Your Knowledge",
+          "section2content": "Now it's time to prove you watched the video. Complete the Quick Quiz below and earn a badge.",
+          "lti": {
+            "header": "Quick Quiz",
+            "description": "Complete the Quick Quiz below to earn credit for completing this Lesson.",
+            "icon": "fa-list-ol",
+            "title": "Getting Started with Isidore Quiz",
+            "launch": "mod/learnquiz/index.php?quiz=bn_gettingstarted",
+            "resource_link_id": "bn_gettingstarted"
+          },
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Wiki Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Manage Overview Help",
+                  "href": "https://ewiki.udayton.edu/isidore/Manage_Overview#Managing_Overview_on_your_Isidore_Home"
+                }
+              ]
+            },
+            {
+              "header": "Related Lessons",
+              "references": [
+                {
+                  "icon": "fa-plus",
+                  "title": "Creating Course Sites",
+                  "href": "/lessons/onboarding-creating-sites"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Setting Up Your Course Site",
+          "anchor": "onboarding-creating-sites",
+          "icon": "fa-chalkboard-teacher",
+          "description": "Learn how to create Isidore sites.",
+          "overviewcontent": "There are several different approaches for creating Isidore sites. In this Lesson, we’ll provide guidance on which site creation path you should take, as well as demonstrations of each workflow. We’ll then review how to create an attractive and informative landing page with an up-to-date syllabus and schedule."
+        },
+        {
+          "title": "Site Creation",
+          "sublesson": true,
+          "anchor": "onboarding-creating-sites-site-creation",
+          "icon": "fa-plus",
+          "description": "Create an Isidore site for your course sections.",
+          "overviewcontent": "As an instructor, you should create an Isidore site for each of your course sections. In this video, you’ll learn how to create a site from scratch, how to duplicate an existing site, and how to create a site from a template - and how to determine which option is best for your needs.",
+          "videos": [
+            {
+              "title": "Site Creation",
+              "warpwire": "gTYEAA"
+            }
+          ],
+          "section2title": "Try It",
+          "section2content": "You will now create your own Isidore site. If you would like to create a site for an actual course, you can follow the steps shown in the video.",
+          "section2steps": [
+            {
+              "step": "Log in to Isidore."
+            },
+            {
+              "step": "Create an Isidore site."
+            },
+            {
+              "step": "Let us know your site's title by completing the Quick Write below these steps."
+            },
+            {
+              "step": "A Center for Online Learning staff member will verify that you created a site, then, boom! You earned a Site Sighted badge!"
+            }
+          ],
+          "section3title": "Test Your Knowledge",
+          "section3content": "Once you have created a site, submit the site to the Quick Write below to earn your Site Sighted badge. Then put your knowledge to the test by taking the Quick Quiz.",
+          "lti": [
+            {
+              "header": "Quick Write",
+              "description": "Use the steps above to create a course site and then use the link below to submit your site to the Center for Online Learning for credit.",
+              "icon": "fa-pencil-square",
+              "title": "Sight my Site!",
+              "launch": "mod/modquickwrite/",
+              "resource_link_id": "bn_sitecreation2"
+            },
+            {
+              "header": "Quick Quiz",
+              "description": "Take the three question quiz below to show us you know how to create Isidore sites.",
+              "icon": "fa-list-ol",
+              "title": "Course Site Creation Quiz",
+              "launch": "mod/learnquiz/index.php?quiz=bn_sitecreation",
+              "resource_link_id": "bn_sitecreation"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Wiki Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Site Creation Help",
+                  "href": "https://ewiki.udayton.edu/isidore/Site_Creation"
+                }
+              ]
+            },
+            {
+              "header": "Related Lessons",
+              "references": [
+                {
+                  "icon": "fa-sign-in-alt",
+                  "title": "Getting Started with Isidore",
+                  "href": "/lessons/onboarding-getting-started"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Overview",
+          "sublesson": true,
+          "anchor": "onboarding-creating-sites-overview",
+          "icon": "fa-list-ul",
+          "description": "Design an informative and interactive landing page.",
+          "overviewcontent": "The Overview page for your course is the page students will see every time they access your site. It should be organized and informative so students know exactly how to get started with your class.",
+          "videos": [
+            {
+              "title": "Overview",
+              "warpwire": "RzYEAA"
+            }
+          ],
+          "section3title": "Test Your Knowledge",
+          "section3content": "Prove you know the basics of the widgets on the Overview.",
+          "lti": [
+            {
+              "header": "Quick Quiz",
+              "description": "Take the three question quiz below to show us you know how to add the Cheer Cup widget to your Overview.",
+              "icon": "fa-list-ol",
+              "title": "Overview Quiz",
+              "launch": "mod/learnquiz/index.php?quiz=101_overview",
+              "resource_link_id": "101_overview"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Wiki Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Homepage Builder",
+                  "href": "https://ewiki.udayton.edu/isidore/Homepage_Builder"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Manage Overview",
+                  "href": "https://ewiki.udayton.edu/isidore/Manage_Overview"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Commons",
+                  "href": "https://ewiki.udayton.edu/isidore/Commons"
+                }
+              ]
+            },
+            {
+              "header": "Related Lessons",
+              "references": [
+                {
+                  "icon": "fa-map",
+                  "title": "Syllabus and Schedule",
+                  "href": "/lessons/onboarding-syllabus-and-schedule"
+                }
+              ]
+            },
+            {
+              "header": "Additional Articles",
+              "references": [
+                {
+                  "icon": "fa-comments",
+                  "title": "Course Communication Guide",
+                  "href": "https://udayton.edu/0/onlinelearning/learn/Course%20Communication%20Guide.pdf"
+                },
+                {
+                  "icon": "fa-university",
+                  "title": "Blog: Common Uses of Commons in Isidore",
+                  "href": "https://udayton.edu/blogs/onlinelearning/2021/02_03_2021_commons.php"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Syllabus and Schedule",
+          "sublesson": true,
+          "anchor": "onboarding-creating-sites-syllabus-and-schedule",
+          "icon": "fa-map",
+          "description": "Modify the UD syllabus and schedule templates.",
+          "overviewcontent": "Use the syllabus and schedule templates to ensure you have the most up-to-date University policies, services, and dates.",
+          "videos": [
+            {
+              "title": "Syllabus and Schedule",
+              "warpwire": "QzYEAA"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Additional Articles",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Syllabus Template",
+                  "href": "https://udayton.edu/0/onlinelearning/learn/Accessible%20Syllabus%20Template.docx"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Syllabus - Completed Example",
+                  "href": "https://udayton.edu/0/onlinelearning/Accessible%20Syllabus%20Template%20-%20Completed%20Example.pdf"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Schedule Template",
+                  "href": "https://udayton.edu/0/onlinelearning/learn/Course%20Schedule%20Template.docx"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Schedule - Completed Example",
+                  "href": "https://udayton.edu/0/onlinelearning/learn/Course%20Schedule%20-%20Completed%20Example.pdf"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Site Info",
+          "sublesson": true,
+          "anchor": "onboarding-creating-sites-site-info",
+          "icon": "fa-cog",
+          "description": "Manage your site settings and tools.",
+          "overviewcontent": "The Site Info tool allows you to add tools and manage participants in your Isidore course site. It provides other customizations and controls as well so you can make sure your site is dialed into your specifications.",
+          "videos": [
+            {
+              "title": "Site Info",
+              "warpwire": "RTYEAA"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Wiki Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Site Info Help",
+                  "href": "https://ewiki.udayton.edu/isidore/Site_Info"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Manage Groups Help",
+                  "href": "https://ewiki.udayton.edu/isidore/Manage_Groups"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Importing from Other Sites",
+                  "href": "https://ewiki.udayton.edu/isidore/Import_from_Site"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Essential Isidore Tools",
+          "anchor": "onboarding-essential-tools",
+          "icon": "fa-tools",
+          "description": "Learn the basics of some of the most essential Isidore tools.",
+          "overviewcontent": "There are many tools in Isidore, but the tools covered in this Lesson are some of the most important for instructors to understand. You will be off to a good start with your site if you understand the basics of these essential tools."
+        },
+        {
+          "title": "Text Editor",
+          "sublesson": true,
+          "anchor": "onboarding-essential-tools-text-editor",
+          "icon": "fa-indent",
+          "description": "Format text, post pictures, and embed videos.",
+          "overviewcontent": "The text editor is far more powerful than just a tool for adding formatted text. With this tool, you can post pictures, upload files, embed videos, write math equations, and insert visually interesting templates.",
+          "videos": [
+            {
+              "title": "Text Editor",
+              "warpwire": "mTkEAA"
+            }
+          ],
+          "section2title": "Test Your Knowledge",
+          "section2content": "The video was just a sample of all that is possible with the rich-text editor. Play around with the buttons yourself to see all that's possible. Only then will you be able to pass the quiz.",
+          "lti": [
+            {
+              "header": "Quick Quiz",
+              "description": "Check out the CK Editor article in the Wiki resources to help you answer the questions in the quiz.",
+              "icon": "fa-list-ol",
+              "title": "Text Editor Quiz",
+              "launch": "mod/learnquiz/index.php?quiz=101_ckeditor",
+              "resource_link_id": "101_ckeditor"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Wiki Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Rich-text Editor Help",
+                  "href": "https://ewiki.udayton.edu/isidore/CK_Editor"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Examples of the Templates",
+                  "href": "https://ewiki.udayton.edu/isidore/Templates"
+                }
+              ]
+            },
+            {
+              "header": "Related Lessons",
+              "references": [
+                {
+                  "icon": "fa-eye",
+                  "title": "Accessibility Module",
+                  "href": "/lessons#accessibility"
+                }
+              ]
+            },
+            {
+              "header": "Additional Articles",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "The Human Touch and Your Digital Personality",
+                  "href": "https://secure.onlinelearningconsortium.org/effective_practices/human-touch-and-your-digital-personality"
+                },
+                {
+                  "icon": "fa-tag",
+                  "title": "Blog: Writing Good Alt Text",
+                  "href": "https://udayton.edu/blogs/onlinelearning/2021/07_07_2021_alttext.php"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Announcements",
+          "sublesson": true,
+          "anchor": "onboarding-essential-tools-announcements",
+          "icon": "fa-bullhorn",
+          "description": "Communicate with your students.",
+          "overviewcontent": "There are many ways to stay in touch with students. Announcements are a great option because it keeps the posts organized within Isidore while also generating an email to the students’ UD inboxes.",
+          "videos": [
+            {
+              "title": "Announcements",
+              "warpwire": "UTQEAA"
+            }
+          ],
+          "section2title": "Test Your Knowledge",
+          "section2content": "Take the three question quiz below to establish your Announcements expertise.",
+          "lti": [
+            {
+              "header": "Quick Quiz",
+              "description": "Take the three question quiz below to establish your Announcements expertise.",
+              "icon": "fa-list-ol",
+              "title": "Announcements Quiz",
+              "launch": "mod/learnquiz/index.php?quiz=101_announcements",
+              "resource_link_id": "101_announcements"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Wiki Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Announcements Help",
+                  "href": "https://ewiki.udayton.edu/isidore/Announcements"
+                }
+              ]
+            },
+            {
+              "header": "Additional Articles",
+              "references": [
+                {
+                  "icon": "fa-comments",
+                  "title": "Course Communication Guide",
+                  "href": "https://udayton.edu/0/onlinelearning/learn/Course%20Communication%20Guide.pdf"
+                },
+                {
+                  "icon": "fa-hands-helping",
+                  "title": "Blog: The Power of Asking How You’re Doing",
+                  "href": "https://udayton.edu/blogs/onlinelearning/2021/02_15_2021_checkin.php"
+                },
+                {
+                  "icon": "fa-envelope",
+                  "title": "Video: Intrinsic Motivation & Course Communication",
+                  "href": "https://learn.udayton.edu/topics/arcscommunication"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Resources",
+          "sublesson": true,
+          "anchor": "onboarding-essential-tools-resources",
+          "icon": "fa-folder-open",
+          "description": "Organize course materials.",
+          "overviewcontent": "The Resources tool is a required tool in your Isidore site, meaning you can't delete it. This is because any attachment, file, or cat picture you add to your site is actually stored in the Resources tool, whether you know it or not. While Resources isn't the only tool you can use to share course materials with your students, it's the easiest to get started with.",
+          "videos": [
+            {
+              "title": "Resources",
+              "warpwire": "PzQEAA"
+            }
+          ],
+          "section2title": "Test Your Knowledge",
+          "section2content": "Take a three question quiz to demonstrate your understanding of Resources.",
+          "lti": [
+            {
+              "header": "Quick Quiz",
+              "description": "You know the drill! Answer 3 questions to prove you watched the video.",
+              "icon": "fa-list-ol",
+              "title": "Resources Quiz",
+              "launch": "mod/learnquiz/index.php?quiz=101_resources",
+              "resource_link_id": "101_resources"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Wiki Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Resources Help",
+                  "href": "https://ewiki.udayton.edu/isidore/Resources"
+                }
+              ]
+            },
+            {
+              "header": "Related Lessons",
+              "references": [
+                {
+                  "icon": "fa-file-alt",
+                  "title": "Lessons Template",
+                  "href": "/lessons/onboarding-common-tools-lessons-template"
+                }
+              ]
+            },
+            {
+              "header": "Additional Articles",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "UD Students Answer: What is the Single Most Important Thing an Instructor Can Do in Isidore?",
+                  "href": "https://udayton.edu/0/onlinelearning/learn/studentsurveyresponses.pdf"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Roster",
+          "sublesson": true,
+          "anchor": "onboarding-essential-tools-roster",
+          "icon": "fa-id-card",
+          "description": "Review who is in your class.",
+          "overviewcontent": "The Roster tool helps you get to know your students. Use the features within the tool to memorize students’ names with their faces, hear their name pronunciation recordings, and see their majors and minors. You can also see when students last visited your Isidore course site.",
+          "videos": [
+            {
+              "title": "Roster",
+              "warpwire": "RzQEAA"
+            }
+          ],
+          "section2title": "Test Your Knowledge",
+          "section2content": "This quiz is easier than memorizing all your students' names, but it’s fun to try that anyway.",
+          "lti": [
+            {
+              "header": "Quick Quiz",
+              "description": "This quiz is easier than memorizing all your students' names, but you should probably do that, too.",
+              "icon": "fa-list-ol",
+              "title": "Roster Quiz",
+              "launch": "mod/learnquiz/index.php?quiz=101_roster",
+              "resource_link_id": "101_roster"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Wiki Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Roster Help",
+                  "href": "https://ewiki.udayton.edu/isidore/Roster"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "NameCoach Help",
+                  "href": "https://ewiki.udayton.edu/isidore/Record_the_pronunciation_of_my_name"
+                }
+              ]
+            },
+            {
+              "header": "Additional Articles",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Pronouncing Students’ Names Correctly Should Be a Big Deal",
+                  "href": "https://www.edweek.org/leadership/opinion-pronouncing-students-names-correctly-should-be-a-big-deal/2017/11"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "The Importance of Learning Students’ Names",
+                  "href": "https://www.facultyfocus.com/articles/effective-teaching-strategies/importance-learning-students-names/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Attendance",
+          "sublesson": true,
+          "anchor": "onboarding-essential-tools-attendance",
+          "icon": "fa-hand-paper",
+          "description": "Track students’ attendance.",
+          "overviewcontent": "Help students stay accountable and keep track of their attendance by recording it in Isidore. The default settings let you mark a student as present, absent, excused, late, or left early. You may also add comments to individual student’s attendance records to help you remember why they were absent or excused. The tool also allows you to customize your categories of attendance and add grading options.",
+          "videos": [
+            {
+              "title": "Attendance",
+              "warpwire": "KzQEAA"
+            }
+          ],
+          "section2title": "Try It",
+          "section2content": "Learn how to print a sign-in or attendance taking sheet.",
+          "section2steps": [
+            {
+              "step": "Log in to Isidore."
+            },
+            {
+              "step": "Navigate to Isidore site."
+            },
+            {
+              "step": "Create an Attendance item."
+            },
+            {
+              "step": "Click on the Actions button and choose Print."
+            },
+            {
+              "step": "Print either a Sign-In or an Attendance sheet."
+            }
+          ],
+          "section3title": "Test Your Knowledge",
+          "lti": [
+            {
+              "header": "Quick Quiz",
+              "description": "You might be tempted to skip this quiz, but you shouldn’t. There’s a big time-saving tip in it!",
+              "icon": "fa-list-ol",
+              "title": "Attendance Quiz",
+              "launch": "mod/learnquiz/index.php?quiz=101_attendance",
+              "resource_link_id": "101_attendance"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Wiki Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Attendance Help",
+                  "href": "https://ewiki.udayton.edu/isidore/Attendance"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Automated Attendance Grading Help",
+                  "href": "https://ewiki.udayton.edu/isidore/Setup_Attendance_Grading#Enabling_Automatic_Grading"
+                }
+              ]
+            },
+            {
+              "header": "Additional Articles",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Roll Call for Learning",
+                  "href": "https://www.facultyfocus.com/articles/effective-teaching-strategies/roll-call-for-learning-putting-a-new-twist-on-an-old-administrative-chore/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Calendar",
+          "sublesson": true,
+          "anchor": "onboarding-essential-tools-calendar",
+          "icon": "fa-calendar-alt",
+          "description": "Manage course due dates with the Calendar tool.",
+          "overviewcontent": "Students tell us that the second most important tool in Isidore is the Calendar (after the Gradebook, of course!). Learn how you can create course Calendar entries that help students stay on track.",
+          "videos": [
+            {
+              "title": "Calendar",
+              "warpwire": "LzQEAA"
+            }
+          ],
+          "section2title": "Test Your Knowledge",
+          "section2content": "Reinforce your learning of the Calendar tool in this two question quiz.",
+          "lti": [
+            {
+              "header": "Quick Quiz",
+              "description": "It's important you prove to us you know the Calendar tool.",
+              "icon": "fa-list-ol",
+              "title": "Calendar Quiz",
+              "launch": "mod/learnquiz/index.php?quiz=101_calendar",
+              "resource_link_id": "101_calendar"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Wiki Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Calendar Help",
+                  "href": "https://ewiki.udayton.edu/isidore/Calendar"
+                }
+              ]
+            },
+            {
+              "header": "Related Lessons",
+              "references": [
+                {
+                  "icon": "fa-bullhorn",
+                  "title": "Announcements",
+                  "href": "/lessons/onboarding-essential-tools-announcements"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Common Isidore Tools",
+          "anchor": "onboarding-common-tools",
+          "icon": "fa-tools",
+          "description": "Learn about Assignments, Tests & Quizzes, Lessons, and Gradebook.",
+          "overviewcontent": "Some of the most commonly used tools are slightly  advanced as they involve more setup and require more engagement from students. In this Lesson, we’ll review how to use the Assignments, Tests & Quizzes, Lessons, and Gradebook tools."
+        },
+        {
+          "title": "Assignments",
+          "sublesson": true,
+          "anchor": "onboarding-common-tools-assignments",
+          "icon": "fa-file-alt",
+          "description": "Post and collect written submissions from students.",
+          "overviewcontent": "Keep your students’ submissions organized within Isidore by posting the instructions with open and due dates in the Assignments tool. Once students electronically submit their writing, you can provide feedback, grades, and allow students to revise and resubmit.",
+          "videos": [
+            {
+              "title": "Assignments",
+              "warpwire": "nTkEAA"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Wiki Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Assignments Help",
+                  "href": "https://ewiki.udayton.edu/isidore/Assignments"
+                }
+              ]
+            },
+            {
+              "header": "Related Lessons",
+              "references": [
+                {
+                  "icon": "fa-book",
+                  "title": "Gradebook",
+                  "href": "/lessons/onboarding-common-tools-gradebook"
+                }
+              ]
+            },
+            {
+              "header": "Additional Articles",
+              "references": [
+                {
+                  "icon": "fa-user-edit",
+                  "title": "Blog: Reducing Grading Load with Model Answers",
+                  "href": "https://udayton.edu/blogs/onlinelearning/2020/2020_10_19_reducing_grading1.php"
+                },
+                {
+                  "icon": "far fa-comment-alt",
+                  "title": "How to Give Your Students Better Feedback in Less Time",
+                  "href": "https://www.facultyfocus.com/articles/online-education/online-assessment-grading-and-feedback/how-to-give-your-students-better-feedback-in-less-time/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Tests & Quizzes",
+          "sublesson": true,
+          "anchor": "onboarding-common-tools-tests-and-quizzes",
+          "icon": "fa-check-square",
+          "description": "Deliver online, automatically graded assessments.",
+          "overviewcontent": "Create online tests and quizzes with a huge amount of questions types, which in most cases are automatically graded. Scores can be sent to the gradebook, and students will be able to see valuable feedback.",
+          "videos": [
+            {
+              "title": "Tests & Quizzes",
+              "warpwire": "QzQEAA"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Wiki Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Tests & Quizzes Help",
+                  "href": "https://ewiki.udayton.edu/isidore/Tests_and_Quizzes"
+                }
+              ]
+            },
+            {
+              "header": "Related Lessons",
+              "references": [
+                {
+                  "icon": "fa-book",
+                  "title": "Gradebook",
+                  "href": "/lessons/onboarding-common-tools-gradebook"
+                }
+              ]
+            },
+            {
+              "header": "Additional Articles",
+              "references": [
+                {
+                  "icon": "fa-chart-bar",
+                  "title": "Frequent, Low-Stakes Assessment for Confidence",
+                  "href": "https://www.facultyfocus.com/articles/educational-assessment/frequent-low-stakes-grading-assessment-for-communication-confidence/"
+                },
+                {
+                  "icon": "far fa-list-ol",
+                  "title": "Writing Good Multiple Choice Test Questions",
+                  "href": "https://cft.vanderbilt.edu/guides-sub-pages/writing-good-multiple-choice-test-questions/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Lessons Template",
+          "sublesson": true,
+          "anchor": "onboarding-common-tools-lessons-template",
+          "icon": "fa-file-alt",
+          "description": "Organize course materials within the Lessons template.",
+          "overviewcontent": "If you have created your Isidore site based on a template, your site will contain weekly pages that are date-released throughout the semester. Within each page is a section where you can write out the tasks for the week as well as develop a checklist that students can use to keep themselves on track. If you use this template, we recommend hiding the Resources tool so students know to look for all course materials within the Lessons tool.",
+          "videos": [
+            {
+              "title": "Lessons Template",
+              "warpwire": "OzQEAA"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Wiki Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Lessons Help",
+                  "href": "https://ewiki.udayton.edu/isidore/Lessons"
+                }
+              ]
+            },
+            {
+              "header": "Additional Articles",
+              "references": [
+                {
+                  "icon": "fa-tasks",
+                  "title": "Blog: Keeping Your Students on Track with Checklists",
+                  "href": "https://udayton.edu/blogs/onlinelearning/2020/2020_12_07_checklist.php"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Gradebook",
+          "sublesson": true,
+          "anchor": "onboarding-common-tools-gradebook",
+          "icon": "fa-book",
+          "description": "Provide grades to students.",
+          "overviewcontent": "The Isidore Gradebook tool allows you to enter grades for individual students, then it automatically performs grade calculations based on your preferences. Students are able to view their grades (and only <strong>their own</strong> grades!) and appreciate it when you keep everything up-to-date.",
+          "videos": [
+            {
+              "title": "Gradebook",
+              "warpwire": "NzQEAA"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Wiki Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Gradebook Help",
+                  "href": "https://ewiki.udayton.edu/isidore/Gradebook"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Setting Up the Gradebook",
+                  "href": "https://ewiki.udayton.edu/isidore/Setup_my_Gradebook"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Make Grades Available to Students",
+                  "href": "https://ewiki.udayton.edu/isidore/Make_Grades_Available_to_Students"
+                }
+              ]
+            },
+            {
+              "header": "Related Lessons",
+              "references": [
+                {
+                  "icon": "fa-file-alt",
+                  "title": "Assignments",
+                  "href": "/lessons/onboarding-common-tools-assignments"
+                },
+                {
+                  "icon": "fa-check-square",
+                  "title": "Tests & Quizzes",
+                  "href": "/lessons/onboarding-common-tools-tests-and-quizzes"
+                }
+              ]
+            },
+            {
+              "header": "Additional Articles",
+              "references": [
+                {
+                  "icon": "fa-video",
+                  "title": "Video: What Do UD Students Think About Grades?",
+                  "href": "https://udayton.warpwire.com/w/WScBAA/"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Accessibility",
+      "description": "This set of lessons introduces the concepts of digital accessibility in the context of teaching here at the University of Dayton. Additional Resources are provided with each module to provide optional, in-depth training to complete your understanding of how to make all of your course content accessible.",
+      "time": "Est. 35 min",
+      "anchor": "accessibility",
+      "video": {
+        "title": "Accessibility Teaser",
+        "warpwire": "aScBAA"
+      },
+      "lessons": [
+        {
+          "title": "Visual Disabilities",
+          "anchor": "visualdisabilities",
+          "icon": "fa-eye",
+          "description": "How can you make your content accessible for students with visual impairments?",
+          "videos": [
+            {
+              "title": "Accessibility: Visual Disabilities",
+              "warpwire": "iyYBAA"
+            }
+          ],
+          "overviewcontent": "Students with profound visual impairments use screen reading software to read files and web pages. How does this inform the way you construct and organize your content? And how does color-blindness affect your use of color?",
+          "section1title": "Step 1",
+          "section1content": "This video explains the essentials for producing content that is accessible to students with visual impairments.",
+          "section2title": "Step 2: Test Your Knowledge",
+          "section2content": "In addition to watching the video, please look through the Additional Resources. Then you will be ready for the following assessments.",
+          "lti": [
+            {
+              "header": "Quick Quiz",
+              "description": "The following quiz will measure your understanding of the essential elements described in the video.",
+              "icon": "fa-list-ol",
+              "title": "Visual Disabilities Quiz",
+              "launch": "mod/learnquiz/index.php?quiz=acc_visual",
+              "resource_link_id": "acc_visual"
+            },
+            {
+              "header": "Quick Write",
+              "description": "Complete the following assignment.",
+              "icon": "fa-pencil-square",
+              "title": "Visual Disabilities Assignment",
+              "launch": "mod/modquickwrite/",
+              "resource_link_id": "acc_visual_qw"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Resources",
+              "references": [
+                {
+                  "icon": "fa-play-circle",
+                  "title": "Robert Spangler Interview Video",
+                  "href": "https://udayton.warpwire.com/w/gSoBAA/"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Designing for Visual Disabilities",
+                  "href": "https://webaim.org/articles/visual/"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Introduction to Web Accessibility",
+                  "href": "https://webaim.org/intro/"
+                }
+              ]
+            },
+            {
+              "header": "Related Lessons",
+              "references": [
+                {
+                  "icon": "fa-sign-in-alt",
+                  "title": "Isidore Text Editor",
+                  "href": "/lessons/texteditor"
+                },
+                {
+                  "icon": "fa-sign-in-alt",
+                  "title": "Accessible Documents",
+                  "href": "/lessons/accessibledocs"
+                }
+              ]
+            }
+          ],
+          "aside2title": "Potential Questions You May Have",
+          "aside2questions": [
+            {
+              "question": "How detailed should I be when writing alt text for an image?",
+              "answer": "Be brief, but be sure to describe the essential elements of the image. If the graphic is supposed to make the audience think or feel something, be sure your alt text leads that direction."
+            },
+            {
+              "question": "Should I always start with H1?",
+              "answer": "This gets tricky. The main thing is that you use header tags. That's 99% of the battle. Often Isidore has existing headers already in place. In most cases in Isidore, it's recommended you start with H2."
+            }
+          ],
+          "aside3title": "Did you know?",
+          "aside3content": "The Center for Online Learning has invited expert screen-reader users to evaluate Isidore. Additionally, Isidore is based on the open source LMS Sakai, which has accessibility as crucial foundation of the software."
+        },
+        {
+          "title": "Auditory Disabilities",
+          "anchor": "auditorydisabilities",
+          "icon": "fa-file-sound-o",
+          "description": "How can you make your content accessible for students with hearing impairments?",
+          "videos": [
+            {
+              "title": "Accessibility: Auditory Disabilities",
+              "warpwire": "ASsBAA"
+            }
+          ],
+          "overviewcontent": "Videos have two components, images and sound. For students with hearing impairments, you will need to ensure that all audio components are \"captured\" and presented to students. This is most often in the form of closed captioning. The bonus is that captions are part of universal design and are beneficial to every type of learner.",
+          "section1title": "Step 1",
+          "section1content": "This video explains the essentials for producing content that is accessible to students with hearing impairments, and it also explains how captions can be beneficial to students without hearing impairments.",
+          "section2title": "Step 2: Test Your Knowledge",
+          "section2content": "In addition to watching the video, please look through the Additional Resources. Then you will be ready for the following assessments.",
+          "lti": [
+            {
+              "header": "Quick Quiz",
+              "description": "The following quiz will measure your understanding of the essential elements described in the video.",
+              "icon": "fa-list-ol",
+              "title": "Auditory Disabilities Quiz",
+              "launch": "mod/learnquiz/index.php?quiz=acc_auditory",
+              "resource_link_id": "acc_auditory"
+            },
+            {
+              "header": "Quick Write",
+              "description": "Complete the following assignment.",
+              "icon": "fa-pencil-square",
+              "title": "Auditory Disabilities Assignment",
+              "launch": "mod/modquickwrite/",
+              "resource_link_id": "acc_auditory_qw"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "WebAIM Captions, Transcripts, and Audio",
+                  "href": "https://webaim.org/techniques/captions/"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "How to Locate Captioned Videos and Create Your Own",
+                  "href": "http://aem.cast.org/about/module-3-new-educator-training.html"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "National Center on Accessible Educational Materials: Closed Captioning",
+                  "href": "http://aem.cast.org/about/events/2017/05/beginning-with-the-why-an-introduction-to-closed-captioning.html"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "UDayton eWiki on Accessibility",
+                  "href": "https://ewiki.udayton.edu/isidore/Accessibility"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Using Warpwire in Isidore",
+                  "href": "https://ewiki.udayton.edu/isidore/Warpwire_Video"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Closed Captions in YouTube",
+                  "href": "https://support.google.com/youtube/answer/2734705?hl=en"
+                }
+              ]
+            },
+            {
+              "header": "Related Lessons",
+              "references": [
+                {
+                  "icon": "fa-sign-in-alt",
+                  "title": "Accessibility of Outside Materials",
+                  "href": "/lessons/accessiblematerials"
+                },
+                {
+                  "icon": "fa-sign-in-alt",
+                  "title": "Isidore Text Editor",
+                  "href": "/lessons/texteditor"
+                }
+              ]
+            }
+          ],
+          "aside2title": "Potential Questions You May Have",
+          "aside2questions": [
+            {
+              "question": "Do I have to pay for captions?",
+              "answer": "Not if it's for a course. If you upload videos to Warpwire for the purpose of providing instructional content, the Center for Online Learning will take care of the captions for you."
+            },
+            {
+              "question": "How can I ensure the captions are accurate?",
+              "answer": "You are still responsible for the accuracy of the captions, so please check them. If you find inaccuracies please contact the Center for Online Learning."
+            }
+          ],
+          "aside3title": "Did you know?",
+          "aside3content": "Warpwire videos can actually be searched. For example, if you wanted to search a video for the moment the speaker says the word, 'Malaysia', you just click the search icon type 'Malaysia'. This is possible due to the presence of captions."
+        },
+        {
+          "title": "Cognitive, Motor, & Other Disabilities",
+          "anchor": "cogdisabilities",
+          "icon": "fa-hand-pointer",
+          "description": "How can you make your content accessible for students with cognitive, motor, and other disabilities?",
+          "videos": [
+            {
+              "title": "Accessibility: Cognitive, Motor, & Other Disabilities",
+              "warpwire": "JSsBAA"
+            }
+          ],
+          "overviewcontent": "Many of the accessibility techniques you use for people with visual disabilities are helpful for individuals with cognitive and motor disabilities, but putting extra attention on organization and clarity is definitely something you should prioritize.",
+          "section1title": "Step 1",
+          "section1content": "This video explains the essentials for producing content that is accessible to students with cognitive and motor disabilities. There also is discussion on content for students with seizure disorders.",
+          "section2title": "Step 2: Test Your Knowledge",
+          "section2content": "In addition to watching the video, please look through the Additional Resources. Then you will be ready for the following assessments.",
+          "lti": [
+            {
+              "header": "Quick Quiz",
+              "description": "The following quiz will measure your understanding of the essential elements described in the video.",
+              "icon": "fa-list-ol",
+              "title": "Other Disabilities Quiz",
+              "launch": "mod/learnquiz/index.php?quiz=acc_cog",
+              "resource_link_id": "acc_cog"
+            },
+            {
+              "header": "Quick Write",
+              "description": "Complete the following assignment.",
+              "icon": "fa-pencil-square",
+              "title": "Other Disabilities Assignment",
+              "launch": "mod/modquickwrite/",
+              "resource_link_id": "acc_cog_qw"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "WebAIM Cognitive Disabilities",
+                  "href": "https://webaim.org/articles/cognitive/"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "WebAIM Motor Disabilities",
+                  "href": "https://webaim.org/articles/motor/"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "WebAIM Seizure Disorders",
+                  "href": "https://webaim.org/articles/seizure/"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "UDayton eWiki on Accessibility",
+                  "href": "https://ewiki.udayton.edu/isidore/Accessibility"
+                }
+              ]
+            },
+            {
+              "header": "Related Lessons",
+              "references": [
+                {
+                  "icon": "fa-sign-in-alt",
+                  "title": "Isidore Text Editor",
+                  "href": "/lessons/texteditor"
+                },
+                {
+                  "icon": "fa-sign-in-alt",
+                  "title": "Accessible Documents",
+                  "href": "/lessons/accessibledocs"
+                }
+              ]
+            }
+          ],
+          "aside2title": "Potential Questions You May Have",
+          "aside2questions": [
+            {
+              "question": "What if my content is inherently complex?",
+              "answer": "It's not about how complicated your content is, but rather how clearly you present it. Be organized. Use headers and spacing appropriately."
+            },
+            {
+              "question": "What if a student is lacking in basic study skills?",
+              "answer": "Direct them to contact the Office of Learning Resources or contact the Student Success Team."
+            }
+          ],
+          "aside3title": "Did you know?",
+          "aside3content": "A study revealed that simply presenting the same instructions in an easier to read font, caused students to see the tasks as easier. Clarity and organization make a difference."
+        },
+        {
+          "title": "Accessible Documents",
+          "anchor": "accessibledocs",
+          "icon": "fa-file-image",
+          "description": "How can you make your files, such as Word and Powerpoint, accessible for students with disabilities?",
+          "videos": [
+            {
+              "title": "Accessibility: Accessible Documents",
+              "warpwire": "HykBAA"
+            }
+          ],
+          "overviewcontent": "All documents utilized in class must be made available in electronic format to students. This is important not just for students with visual and hearing impairments but for all students who may have academic accommodations for attention issues and processing disorders. This impacts approximately 5-10 percent of students. What steps must you take to ensure that the electronic version is completely accessible?",
+          "section1title": "Step 1",
+          "section1content": "This video explains the essentials for delivering accessible files.",
+          "section2title": "Step 2: Test Your Knowledge",
+          "section2content": "In addition to watching the video, please look through the Additional Resources. Then you will be ready for the following assessments.",
+          "lti": [
+            {
+              "header": "Quick Quiz",
+              "description": "The following quiz will measure your understanding of the essential elements described in the video.",
+              "icon": "fa-list-ol",
+              "title": "Accessible Documents Quiz",
+              "launch": "mod/learnquiz/index.php?quiz=acc_files",
+              "resource_link_id": "acc_files"
+            },
+            {
+              "header": "Quick Write",
+              "description": "Complete the following assignment.",
+              "icon": "fa-pencil-square",
+              "title": "Accessible Documents Assignment",
+              "launch": "mod/modquickwrite/",
+              "resource_link_id": "acc_files_qw"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Sensus Access Accessible Document Conversion",
+                  "href": "https://udayton.edu/ltc/learningresources/disability/sensus-access-instructions.php"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Microsoft Word Training on Accessibility in Word",
+                  "href": "https://support.office.com/en-us/article/make-your-word-documents-accessible-to-people-with-disabilities-d9bf3683-87ac-47ea-b91a-78dcacb3c66d#bkmk_winlinksscreentips"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Microsoft Word Training on Accessibility in PowerPoint",
+                  "href": "https://support.office.com/en-us/article/make-your-powerpoint-presentations-accessible-to-people-with-disabilities-6f7772b2-2f33-4bd2-8ca7-dae3b2b3ef25"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "National Center on Accessible Educational Materials: Closed Captioning",
+                  "href": "http://aem.cast.org/about/events/2017/05/beginning-with-the-why-an-introduction-to-closed-captioning.html"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "WebAIM Word, Powerpoint, and Acrobat",
+                  "href": "https://webaim.org/training/docs/"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "National Center on Accessible Educational Materials: Accessible Documents",
+                  "href": "http://aem.cast.org/about/module-2-new-educator-training.html"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Adobe Acrobat Accessibility Overview",
+                  "href": "https://www.adobe.com/accessibility/products/acrobat.html"
+                }
+              ]
+            },
+            {
+              "header": "Related Lessons",
+              "references": [
+                {
+                  "icon": "fa-sign-in-alt",
+                  "title": "Accessibility of Outside Materials",
+                  "href": "/lessons/accessiblematerials"
+                }
+              ]
+            }
+          ],
+          "aside2title": "Potential Questions You May Have",
+          "aside2questions": [
+            {
+              "question": "What do I do if my existing documents are not accessible?",
+              "answer": "In the Additional Resources, you'll see a link to Sensus Access. This can be very useful in terms of converting text that is unreadable to readable text. It will not necessarily convert all headings and it certainly won't put alt text in there, but it gives you a good base to start from."
+            },
+            {
+              "question": "I don't like the way the headers look in MS Word, can I change the look?",
+              "answer": "You bet! In the ribbon you can right mouse click on the header you want to change and it will change it for all instances of the header."
+            }
+          ],
+          "aside3title": "Did you know?",
+          "aside3content": "Google Docs and Slides also have the same general accessible properties as their Microsoft Office counterparts."
+        },
+        {
+          "title": "Accessibility of Outside Materials",
+          "anchor": "accessiblematerials",
+          "icon": "fa-globe",
+          "description": "If you intend to use materials that you do not produce yourself, how can you be sure they are accessible?",
+          "videos": [
+            {
+              "title": "Accessibility: Outside Materials",
+              "warpwire": "8SgBAA"
+            }
+          ],
+          "overviewcontent": "Most faculty include some externally produced content in their course required course materials. This could be articles from the web, YouTube videos, publisher resources, and software. If you are requiring your students to use it, you need to be sure it is accessible.",
+          "section1title": "Step 1",
+          "section1content": "This video explains the essentials for ensuring outside materials are accessible.",
+          "section2title": "Step 2: Test Your Knowledge",
+          "section2content": "In addition to watching the video, please look through the Additional Resources. Then you will be ready for the following assessments.",
+          "lti": [
+            {
+              "header": "Quick Quiz",
+              "description": "The following quiz will measure your understanding of the essential elements described in the video.",
+              "icon": "fa-list-ol",
+              "title": "Outside Materials Quiz",
+              "launch": "mod/learnquiz/index.php?quiz=acc_materials",
+              "resource_link_id": "acc_materials"
+            },
+            {
+              "header": "Quick Write",
+              "description": "Complete the following assignment.",
+              "icon": "fa-pencil-square",
+              "title": "Outside Materials Assignment",
+              "launch": "mod/modquickwrite/",
+              "resource_link_id": "acc_materials_qw"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Sensus Access Accessible Document Conversion",
+                  "href": "https://udayton.edu/olr/disability/sensus-access-instructions.php"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "How to Find Specialized Formats of Print Materials",
+                  "href": "http://aem.cast.org/about/module-4-new-educator-training.html"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "How to Select Accessible Digital Materials",
+                  "href": "http://aem.cast.org/about/module-5-new-educator-training.html"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "UDayton eWiki on Accessibility",
+                  "href": "https://ewiki.udayton.edu/isidore/Accessibility"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Rev Captioning YouTube Videos",
+                  "href": "https://www.rev.com/blog/how-to-add-closed-captions-to-youtube-videos"
+                }
+              ]
+            },
+            {
+              "header": "Related Lessons",
+              "references": [
+                {
+                  "icon": "fa-sign-in-alt",
+                  "title": "Auditory Disabilities",
+                  "href": "/lessons/auditorydisabilities"
+                },
+                {
+                  "icon": "fa-sign-in-alt",
+                  "title": "Accessible Documents",
+                  "href": "/lessons/accessibledocs"
+                }
+              ]
+            }
+          ],
+          "aside2title": "Potential Questions You May Have",
+          "aside2questions": [
+            {
+              "question": "My chair picked my materials, what if they're not accessible?",
+              "answer": "Say something, but be tactful about it. Offer to contact the vendor or publisher. Your chair can later decide whether you'll continue with those materials."
+            },
+            {
+              "question": "How can I ensure the captions are accurate?",
+              "answer": "You are still responsible for the accuracy of the captions, so please check them. If you find inaccuracies please contact the Center for Online Learning."
+            }
+          ],
+          "aside3title": "Did you know?",
+          "aside3content": "Most electronic textbooks are accessible, and they also tend to be cheaper. Just remember to check before you buy."
+        }
+      ]
+    },
+    {
+      "title": "Zoom Video Conferencing",
+      "description": "Let us introduce you to Zoom, the University of Dayton’s chosen platform for video conferencing. While Zoom is primarily used for synchronous learning and web conferencing, there are some unique ways you can use Zoom to enhance your face to face class and increase student engagement. This training module will explain the potential uses, how to acquire zoom, navigate the zoom room, and utilize the best practices for facilitating a synchronous session.",
+      "time": "Est. 20 min",
+      "anchor": "zoom",
+      "video": {
+        "title": "What's Zoom Got to Do with Me?",
+        "warpwire": "RU8BAA"
+      },
+      "lessons": [
+        {
+          "title": "Getting Ready to Zoom",
+          "anchor": "zoomgettingready",
+          "icon": "fa-video",
+          "description": "Activating your account and downloading Zoom.",
+          "videos": [
+            {
+              "title": "Getting Started with Zoom",
+              "warpwire": "QU8BAA"
+            }
+          ],
+          "overviewcontent": "Whether you are planning on teaching online, adding interactivity to your face to face course, or just want to check out video conferencing, this lesson will help you to activate your Zoom account, download the client app, schedule/manage meetings, and tell you how to get support.",
+          "section1title": "Step 1: Activating and Installing Zoom",
+          "section1content": "Watch this video for information on how to get started using Zoom.\n\n",
+          "section2title": "Practical Application",
+          "section2content": "Personalize your Zoom settings to prepare for your first facilitation.<ol><li>Log into your zoom account at <a href=\"https://go.udayton.edu/zoom\" target=\"_blank\">https://go.udayton.edu/zoom</a>.</li><li>Upload an image for your profile in your profile settings.</li><li>Explore the settings menu and customize in the manner that works best for your needs.</li></ol>",
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Support",
+              "references": [
+                {
+                  "icon": "fa-link",
+                  "title": "Center for Online Learning: Zoom Help",
+                  "href": "https://ewiki.udayton.edu/isidore/Zoom"
+                },
+                {
+                  "icon": "fa-link",
+                  "title": "UDit: Using Zoom at UD",
+                  "href": "https://udayton.teamdynamix.com/TDClient/1868/Portal/KB/ArticleDet?ID=88426"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Zoom: Help Center",
+                  "href": "https://support.zoom.us/hc/en-us"
+                }
+              ]
+            },
+            {
+              "header": "Downloads",
+              "references": [
+                {
+                  "icon": "fa-file-pdf",
+                  "title": "Installing Zoom",
+                  "href": "https://drive.google.com/open?id=1JK9vY6FfApozV-JQXA9ekawLeCkyaFhh"
+                },
+                {
+                  "icon": "fa-file-pdf",
+                  "title": "Quick Start in Isidore",
+                  "href": "https://drive.google.com/open?id=1w-Ia1MBewixN_QQare7okg_1GyLEx_LC"
+                },
+                {
+                  "icon": "fa-file-pdf",
+                  "title": "Quick Start Outside of Isidore",
+                  "href": "https://drive.google.com/open?id=1uTbiQwi12mwhQZNXkooX2DfTKFXuVa7H"
+                },
+                {
+                  "icon": "fa-file-pdf",
+                  "title": "Sharing Recordings",
+                  "href": "https://drive.google.com/open?id=1qcY9vsoI05dhicJaEoWfa486pc2nW3at"
+                },
+                {
+                  "icon": "fa-file-pdf",
+                  "title": "Zoom Meetings Training Reference Guide",
+                  "href": "https://support.zoom.us/hc/en-us/article_attachments/360047188071/Zoom_Meetings_Training_Reference_Guide.pdf"
+                }
+              ]
+            },
+            {
+              "header": "Related Lessons",
+              "references": [
+                {
+                  "icon": "fa-video",
+                  "title": "Facilitating Zoom Sessions",
+                  "href": "/lessons/templatesites-zoom"
+                }
+              ]
+            }
+          ],
+          "aside2title": "Potential Questions You May Have",
+          "aside2questions": [
+            {
+              "question": "Do I need to activate my Zoom account if I am also teaching with 2U and use Zoom for that platform?",
+              "answer": "The University of Dayton provisioned faculty with Zoom accounts separate from the ones provided by 2U for the online program. However, Zoom will only allow you to register one account with each email.  Registering your University of Dayton Zoom account will disconnect your 2U account. If you have a 2U account, please use your 2U account for all Zoom activity."
+            },
+            {
+              "question": "Do I need to download my Zoom video recording and upload them into the Warpwire video tool for students to access?",
+              "answer": "No, this is not necessary if you are using Zoom within Isidore (recommend for class meetings). Students can access the video recordings from the Zoom tool in the Isidore course site.  All recordings are automatically closed captioned with timestamps."
+            },
+            {
+              "question": "Do I have to send an invite out to all my students if I hold an online session?",
+              "answer": "Nope!  Students will be able to view the links to upcoming sessions and click “join” right from Isidore (if you are using Zoom within Isidore, which is HIGHLY recommended). Yet another benefit of utilizing UD’s awesome LMS! You may want to send a friendly reminder to students though --just in case."
+            }
+          ],
+          "aside3title": "Did you know?",
+          "aside3content": "The first concepts of video conferencing were developed in the 1870s, as part of an extension of audio devices. The first actual developments of the video telephone began in the late 1920s with the AT&T company Bell Labs and John Logie Baird. AT&T experimented with video phones in 1927. (Business Matters, https://www.bmmagazine.co.uk/tech/history-video-conferencing/_)."
+        },
+        {
+          "title": "Zoom Classroom Basics",
+          "anchor": "zoomclassroombasics",
+          "icon": "fa-chalkboard-teacher",
+          "description": "Learn the basic tools of the Zoom classroom.",
+          "videos": [
+            {
+              "title": "Zoom Classroom Basics",
+              "warpwire": "Q08BAA"
+            }
+          ],
+          "overviewcontent": "All set up and ready to go?  In this lesson we will review the basic features of the Zoom classroom.  Once you have these down, adding the advanced features will be a simple feat.",
+          "section1title": "Zooming In!",
+          "section1content": "Get ready to take flight in your online classroom. This video will explain all the basic tools you will need to facilitate a quality class or meeting.",
+          "section2title": "Practical Application",
+          "section2content": "<h5>Try out your new skills as a Zoom facilitator.</h5><p>Schedule a meeting for Zoom and invite a friend. Record the session and review the recording afterward to identify any changes in approach you may need in your next use of Zoom. While in the session, ensure you can be heard and seen well with your webcam. Play around with the features and ensure that you feel comfortable using them. Alternatively, contact Center for Online Learning support (onlinelearning@udyaton.edu) to schedule a test meeting.</p>",
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Downloadable Resources",
+              "references": [
+                {
+                  "icon": "fa-file-pdf",
+                  "title": "Take Flight Checklist",
+                  "href": "https://drive.google.com/file/d/1ul2s9EphiyCaljnlV2mKWSQU0o8KFot2/view"
+                }
+              ]
+            },
+            {
+              "header": "More Zoom Features",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Zoom Video Tutorials",
+                  "href": "https://support.zoom.us/hc/en-us/articles/206618765-Zoom-Video-Tutorials"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Managing Breakout Rooms",
+                  "href": "https://support.zoom.us/hc/en-us/articles/206476313-Managing-Video-Breakout-Rooms"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Creating and Using Polls",
+                  "href": "https://support.zoom.us/hc/en-us/articles/213756303-Polling-for-Meetings"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Webinar Recording: Improve Your Virtual Presentation Skills",
+                  "href": "http://blog.zoom.us/wordpress/2017/01/31/webinar-recording-improve-your-virtual-presentation-skills/"
+                }
+              ]
+            },
+            {
+              "header": "Related Lessons",
+              "references": [
+                {
+                  "icon": "fa-video",
+                  "title": "Facilitating Zoom Sessions",
+                  "href": "/lessons/templatesites-zoom"
+                }
+              ]
+            }
+          ],
+          "aside2title": "Potential Questions You May Have",
+          "aside2questions": [
+            {
+              "question": "I’m ready to try the more challenging aspects of managing a live Zoom session. How do I manage creating and using polls and breakout rooms?",
+              "answer": "Super! Zoom has great training on these topics. Check out the links in resources."
+            },
+            {
+              "question": "Should I manage my settings from the Zoom tool itself or from my Zoom account at go.udayton.edu/zoom?",
+              "answer": "You can manage settings from either location but please be aware that there are more settings in your online account than are available through the Zoom tool itself. You cannot manage settings from the Zoom tool in Isidore."
+            }
+          ],
+          "aside3title": "Did you know?",
+          "aside3content": "The class session report in “Past Meetings” tab will tell you how long your students were present in your class session and how engaged they were during that session.  The attentiveness rating is based on participation in the chat box, polls, discussion, video, etc."
+        },
+        {
+          "title": "Synchronous Teaching Pedagogy",
+          "anchor": "zoomteaching",
+          "icon": "fa-graduation-cap",
+          "description": "How to ensure student engagement and collaboration are a part of your synchronous teaching.",
+          "videos": [
+            {
+              "title": "Pedagogy for Synchronous Class Facilitation",
+              "warpwire": "R08BAA"
+            }
+          ],
+          "overviewcontent": "It takes a significant effort to convert quality instructional plans into well-designed, high-engagement synchronous learning experiences. In this lesson, we will talk about some of the top skills that keep students active and learning in a synchronous session.",
+          "section1title": "Pedagogy for Synchronous Class Facilitation",
+          "section1content": "Facilitating a synchronous class takes careful planning to provide for the necessary student engagement and collaboration. Find out more by watching the video below.",
+          "section2title": "Practical Application",
+          "lti": [
+            {
+              "header": "Quick Write - Share your experience",
+              "description": "Use the link below to submit your response. You will be asked to answer the following two prompts.<ol><li>Have you already taught online before with a synchronous tool?  Discuss the challenges of maintaining student engagement in a tool like Zoom. What areas of improvement do you see that can be addressed and improved based on this training?</li><li>During a synchronous class session, you notice that one of your students is not participating. You have tried multiple ways to engage the class, including the chatbox, whiteboard, microphone and breakout rooms to no avail. How would you address the student and encourage a higher level of engagement?</li></ol>",
+              "icon": "fa-pencil-square",
+              "title": "Share your experience",
+              "launch": "mod/modquickwrite/",
+              "resource_link_id": "zoom_teaching_qw"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Zoom Specific Resources",
+              "references": [
+                {
+                  "icon": "fa-file-pdf",
+                  "title": "Zoom Study Group Guide",
+                  "href": "https://drive.google.com/file/d/1tDaJSyNUvmKdR6_1_63G0ow0qVbs28_u/view"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "3 Ways To Use Polls In Meetings",
+                  "href": "http://blog.zoom.us/wordpress/2016/09/20/3-ways-to-use-polls-in-meetings/"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Enhanced Productivity Via Shared Screen Annotation",
+                  "href": "http://blog.zoom.us/wordpress/2016/07/22/productivity-via-shared-screen-annotation/"
+                }
+              ]
+            },
+            {
+              "header": "Downloadable Resources",
+              "references": [
+                {
+                  "icon": "fa-file-powerpoint",
+                  "title": "PPT Template for AV Support and Agenda ",
+                  "href": "https://drive.google.com/file/d/1AfngkALUIfBBZqPrlMXPmemdUf08aD2i/view"
+                },
+                {
+                  "icon": "fa-file-pdf",
+                  "title": "Synchronous Online Teaching Evaluation Rubric",
+                  "href": "https://drive.google.com/file/d/1ccL0dwFe72NAErE5yFyn4mp1C0vJxwuA/view"
+                }
+              ]
+            },
+            {
+              "header": "Related Lessons",
+              "references": [
+                {
+                  "icon": "fa-video",
+                  "title": "Facilitating Zoom Sessions",
+                  "href": "/lessons/templatesites-zoom"
+                }
+              ]
+            },
+            {
+              "header": "Additional Training",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Learning to Teach Online – Coursera Course",
+                  "href": "https://www.coursera.org/learn/teach-online"
+                }
+              ]
+            },
+            {
+              "header": "Articles",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Improve Student Success with an Online Learning Community",
+                  "href": "https://www.wbtsystems.com/learning-hub/blogs/improve-student-success-online-learning-community"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "9 Proven Ways for Instructors to Address Online Student Retention",
+                  "href": "https://teachonline.asu.edu/2015/08/9-proven-ways-for-instructors-to-address-online-student-retention/#more-3162"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Breakout rooms in virtual classrooms: why and how.",
+                  "href": "https://blog.wiziq.com/breakout-rooms-in-virtual-classrooms/"
+                }
+              ]
+            }
+          ],
+          "aside2title": "Potential Questions You May Have",
+          "aside2questions": [
+            {
+              "question": "What is the recommended ratio of instructor lecture to student contribution in the online classroom?",
+              "answer": "Answers on this vary but the consensus is that lecture by the instructor should never exceed the amount of time spent participating in interactive tasks such as questioning and discussion, group work, or other learning that is active for students."
+            },
+            {
+              "question": "What is a creative activity to utilize in a breakout room?",
+              "answer": "A current trend in online learning is to create an actual “Breakout Room” room.  The instructor builds a series of puzzles and questions, centered on the learning topic, that have to be solved by the students. This is  similar to the Escape and Breakout rooms that are popular group outing activities. Different groups can race against one another to see who solves the breakout first."
+            }
+          ]
+        },
+        {
+          "title": "Facilitating Zoom Sessions",
+          "anchor": "facilitating-zoom",
+          "icon": "fa-video",
+          "description": "A quick dive into the different ways to access Zoom and how to create and schedule meetings.",
+          "overviewcontent": "Synchronous classes, one-on-one meetings, office hours, brainstorming, group work, presentations and more are essential parts to your course and your student’s growth in knowledge and skill. Zoom allows these to take place when distance is required. If you are just getting started or if you just need some additional information, this lesson will get you up and running in Zoom."
+        },
+        {
+          "title": "Accessing Zoom",
+          "sublesson": true,
+          "anchor": "accessing-zoom",
+          "icon": "fa-video",
+          "description": "Learn about the different ways to access Zoom.",
+          "overviewcontent": "There are three ways you can access Zoom. In this video we will discuss what these three ways are, the differences between them, and how to know which is the best way to access and utilize Zoom for your particular purpose.",
+          "videos": [
+            {
+              "title": "Accessing Zoom",
+              "warpwire": "YwMCAA"
+            }
+          ]
+        },
+        {
+          "title": "Adding Meetings",
+          "sublesson": true,
+          "anchor": "zoom-adding-meetings",
+          "icon": "fa-video",
+          "description": "Learn how to create and schedule Zoom meetings.",
+          "overviewcontent": "Meetings are where the magic happens. Here we discuss the difference between scheduled meetings and your personal meeting room. We will learn how to schedule class meetings as well as how to start spontaneous meetings.",
+          "videos": [
+            {
+              "title": "Adding Meetings Zoom",
+              "warpwire": "3wUCAA"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Meeting Preferences when Scheduling",
+                  "href": "https://udayton.warpwire.com/w/bQgCAA/"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Scheduling a Meeting in Google Calendar",
+                  "href": "https://udayton.warpwire.com/w/VnAAAA/"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "How to Create Meetings with Unique Start Times",
+                  "href": "https://udayton.warpwire.com/w/MVkCAA/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Starting and Managing Zoom Meetings",
+          "sublesson": true,
+          "anchor": "zoom-starting-and-managing",
+          "icon": "fa-video",
+          "description": "Learn how to start your scheduled meetings as the host.",
+          "overviewcontent": "It’s class time and you need to get things rolling. In this video we discuss how to access your previously scheduled meetings and ensure that you start the meeting as The Host with the Most.",
+          "videos": [
+            {
+              "title": "Starting and Managing Zoom Meetings",
+              "warpwire": "6QkCAA"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Checking attendance for Zoom classes/recordings",
+                  "href": "https://udayton.warpwire.com/w/-y0CAA/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Managing Recordings",
+          "sublesson": true,
+          "anchor": "zoom-recordings",
+          "icon": "fa-video",
+          "description": "Learn how record and share recordings for your Zoom meetings.",
+          "overviewcontent": "It is essential to record your synchronous sessions. This will provide a means for students who are unable to attend your live session to stay on top of their work. This session will show you where these recordings reside, how students access them, how to edit them, and how you can share in alternative ways if necessary.",
+          "videos": [
+            {
+              "title": "Managing Zoom Recordings",
+              "warpwire": "Uw8CAA"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Customizing your recording settings",
+                  "href": "https://udayton.warpwire.com/w/KQ8CAA/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Creating and Managing Breakout Rooms",
+          "sublesson": true,
+          "anchor": "zoom-breakout-rooms",
+          "icon": "fa-video",
+          "description": "Learn how to foster student engagement with Zoom breakout rooms.",
+          "overviewcontent": "If group work and discussion are integral to your class then you will need to make friends with the breakout rooms in zoom! Breakout rooms are a great way to have your students collaborate on solving a problem, engage in active learning, make application of new knowledge, discuss a topic, and make connections. This video will show you have to facilitate breakouts. Check out our additional resources for more ideas on how to effectively use breakouts for student engagement.",
+          "videos": [
+            {
+              "title": "Creating and Managing Zoom Breakout Rooms",
+              "warpwire": "IeEBAA"
+            }
+          ]
+        },
+        {
+          "title": "Virtual Office Hours",
+          "sublesson": true,
+          "anchor": "zoom-office-hours",
+          "icon": "fa-video",
+          "description": "Learn how to create office hours for multiple sections in Zoom or just one in Isidore.",
+          "overviewcontent": "Having multiple points of contact helps to reassure students that you are available for them and invested in their success. Virtual office hours is a great way to meet with students who need some individual or small group feedback. Here, we will demonstrate how to set up recurring office hours for an individual course in Isidore or set up in general for multiple course rosters.",
+          "videos": [
+            {
+              "title": "Virtual Office Hours",
+              "warpwire": "exUCAA"
+            }
+          ]
+        },
+        {
+          "title": "Leading a Class",
+          "sublesson": true,
+          "anchor": "zoom-leading-a-class",
+          "icon": "fa-video",
+          "description": "Learn how to make your synchronous sessions engaging.",
+          "overviewcontent": "Synchronous course sessions online should provide added value to your course. How do you motivate students to attend and be engaged with your live session? Here we will discuss practical uses of the Zoom features to help with engagement but more importantly valuable pedagogy for creating an engaging synchronous session.",
+          "videos": [
+            {
+              "title": "Leading a Class",
+              "warpwire": "uxsCAA"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Hosting an Engaging Zoom Session Recording",
+                  "href": "https://udayton.zoom.us/rec/play/v8ckJev5pz83SdfEtQSDV6IqW9W5L6qshChK_aYEnkjgBiVQNlejYeFANuTgXzNE1mrEkAh2ZtDaVcgp"
+                },
+                {
+                  "icon": "fa-graduation-cap",
+                  "title": "Synchronous Class Pedagogy",
+                  "href": "https://learn.udayton.edu/lessons/zoomteaching"
+                },
+                {
+                  "icon": "fa-chalkboard-teacher",
+                  "title": "Managing the Tools of the Zoom Room",
+                  "href": "https://learn.udayton.edu/lessons/zoomclassroombasics"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Why Video – Why Warpwire?",
+      "description": "<h4>What is Warpwire and why should I use video in my course site?</h4>Warpwire is a secure video storage and sharing product.  The tool is a great way to optimize your videos for easy streaming by students in your course site. Anyone with a valid UD username and password can easily upload videos and share them with UD and non-UD users — anywhere, anytime, on just about any modern device. Warpwire is accessible via a secure website or an Isidore course site.",
+      "time": "Est. 36 min",
+      "anchor": "warpwire",
+      "video": {
+        "title": "Introduction Learn Warpwire",
+        "description": "In this video we discuss how video can enhance your course site with video and how to share them via Warpwire. We provide a basic introduction to Warpwire and its most common uses and purpose.",
+        "warpwire": "y9oDAA"
+      },
+      "lessons": [
+        {
+          "title": "The Basics of Warpwire",
+          "anchor": "warpwire-basics",
+          "icon": "fa-video",
+          "description": "Learn how to add the Warpwire tool and upload content.",
+          "videos": [
+            {
+              "title": "Adding Warpwire to your Course site and Uploading/Copying Videos",
+              "warpwire": "p8QDAA"
+            }
+          ],
+          "overviewcontent": "Warpwire is a fairly simple tool to operate. Taking a bit of time to work through the lessons in this module will answer most questions that you might have or encounter as you use the tool. The main steps to use of Warpwire are to upload and share videos. Let’s learn how.",
+          "section1title": "Adding Warpwire to your Course site and Uploading / Copying Videos",
+          "section1content": "In this lesson we will cover how to install the Warpwire tool to your course site and upload your first video to Warpwire. We will show you how to copy your videos from one site to another.\n\n",
+          "section2title": "Practical Application",
+          "section2content": "<h5>Add Warpwire to one of your course sites and upload a video.</h5><p>To complete this task, please follow the instructions below. To receive credit, please submit the quick write question after completing the task.</p>",
+          "section2steps": [
+            {
+              "step": "Choose one of your current or past course sites for this task. If you have not taught a course in Isidore before and need a demo site created for you, please email onlinelearning@udayton.edu with a request for a site."
+            },
+            {
+              "step": "Click on “Add Tool” in the left hand menu of your course site under the “Site Info” heading."
+            },
+            {
+              "step": "Click the box to the left of the menu item “Warpwire” in the Core Tools section of the Add/Remove Tools menu."
+            },
+            {
+              "step": "Click Continue at the bottom of the page."
+            },
+            {
+              "step": "Click Finish at the bottom of the subsequent page. This will place Warpwire as a menu item in your course site."
+            },
+            {
+              "step": "Click on Warpwire Video in the left hand menu of your site."
+            },
+            {
+              "step": "Click the “+” sign in the upper right corner of the tool window to choose to upload a video."
+            },
+            {
+              "step": "Click the menu option “Upload Files”. This will open up the file picker on your computer."
+            },
+            {
+              "step": "Navigate to find the video you would like to upload, select, and click Open."
+            },
+            {
+              "step": "Rename the video if desired in the next screen and click “Start Uploading”. This will automatically upload your video to the Warpwire Library."
+            }
+          ],
+          "section3title": "Tell us about your experience",
+          "section3content": "Use the Quick Write below to tell us about your site and how easy or difficult you found this task.",
+          "lti": [
+            {
+              "header": "Quick Write",
+              "description": "Complete the following Quick Write task.",
+              "icon": "fa-pencil-square",
+              "title": "Add Warpwire and Upload a Video",
+              "launch": "mod/modquickwrite/",
+              "resource_link_id": "ww_add_upload_qw"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Online Learning Support Resources",
+              "references": [
+                {
+                  "icon": "fa-link",
+                  "title": "Warpwire Video",
+                  "href": "https://ewiki.udayton.edu/isidore/Warpwire_Video"
+                },
+                {
+                  "icon": "fa-link",
+                  "title": "Add the Warpwire Video tool",
+                  "href": "https://ewiki.udayton.edu/isidore/Add_the_Warpwire_Video_tool"
+                },
+                {
+                  "icon": "fa-link",
+                  "title": "Upload a video from my computer",
+                  "href": "https://ewiki.udayton.edu/isidore/Upload_a_video_from_my_computer"
+                },
+                {
+                  "icon": "fa-link",
+                  "title": "Upload a video from my phone or mobile device",
+                  "href": "https://ewiki.udayton.edu/isidore/Upload_a_video_from_my_phone_or_mobile_device"
+                },
+                {
+                  "icon": "fa-link",
+                  "title": "Record a video with my webcam",
+                  "href": "https://ewiki.udayton.edu/isidore/Record_a_video_with_my_web_cam"
+                },
+                {
+                  "icon": "fa-link",
+                  "title": "Record a video with my mobile device",
+                  "href": "https://ewiki.udayton.edu/isidore/Record_a_video_with_my_mobile_device"
+                },
+                {
+                  "icon": "fa-link",
+                  "title": "Copy a video between Isidore sites",
+                  "href": "https://ewiki.udayton.edu/isidore/Copy_a_video_between_Isidore_sites"
+                },
+                {
+                  "icon": "fa-link",
+                  "title": "Recording Videos for Online Classes",
+                  "href": "https://udayton.warpwire.com/w/8Q8CAA/"
+                }
+              ]
+            },
+            {
+              "header": "Warpwire Support",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Getting Started with Warpwire in Sakai (Isidore)",
+                  "href": "https://www.warpwire.com/support/getting-started/"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Upload and Insert Media in Sakai (Isidore)",
+                  "href": "https://www.warpwire.com/support/warpwire-in-sakai/upload-and-insert-media/"
+                }
+              ]
+            },
+            {
+              "header": "Additional Resources",
+              "references": [
+                {
+                  "icon": "fa-youtube-play",
+                  "title": "Combine Synchronous and Asynchronous Instruction During your Class Time",
+                  "href": "https://www.youtube.com/watch?v=qi4_KUYblcU"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Online Teaching Best Practices for Web Lectures and Presentations",
+                  "href": "https://www.codlearningtech.org/2020/06/15/online-teaching-best-practices-for-web-lectures-and-presentations/"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Creating Effective Educational Videos",
+                  "href": "https://www.ou.edu/cas/online/academic-technology/creating-effective-video"
+                }
+              ]
+            }
+          ],
+          "aside2title": "Potential Questions You May Have",
+          "aside2questions": [
+            {
+              "question": "How do I create my own videos?",
+              "answer": "You can create your own videos using any video recording tool you have access to. Popular ways of doing this is by using <a href='https://learn.udayton.edu/lessons/templatesites-coursecontent-sharingvideos' target='_blank'>Snagit</a> which is a screen capture software that we are happy to provide faculty a license for. Other alternatives are to use your camera phone, a camera with video recording capabilities, or other software that came with your computer. For suggestions on creating quality lecture videos <a href='https://udayton.warpwire.com/w/8Q8CAA/' target='_blank'>please see this help video</a>."
+            },
+            {
+              "question": "Do students view videos directly from the Warpwire tool?",
+              "answer": "Students can be directed to the Warpwire tool to view videos but we recommend embedding the videos or links to the videos within lessons. This is explained and demonstrated in Lesson four of this series."
+            },
+            {
+              "question": "How long can my videos be?",
+              "answer": "We recommend creating lecture videos that are no longer than 10-15 minutes, but acknowledge that sometimes it’s necessary for videos to be longer than this. The maximum file size that can be uploaded is 10 GB."
+            },
+            {
+              "question": "Can students upload videos to the Library?",
+              "answer": "Students can upload to the Warpwire tool. Before doing so, you must grant them permission to do so as directed in the <a href='https://ewiki.udayton.edu/isidore/Allow_students_to_upload_videos_to_Warpwire' target='_blank'>instructions on our eWiki page</a>. You will want to give students clear instructions on the correct labeling/naming procedure before uploading to help with organization."
+            }
+          ]
+        },
+        {
+          "title": "Settings and Organization",
+          "anchor": "warpwire-organizing",
+          "icon": "fa-video",
+          "description": "Learn how to rename, replace, tag, and sort the videos in your Warpwire libraries.",
+          "videos": [
+            {
+              "title": "Renaming, replacing, tagging, sorting, and changing the thumbnail for your videos.",
+              "warpwire": "TcIDAA"
+            }
+          ],
+          "overviewcontent": "Storing your videos in Warpwire is a great start, but there are many customization options in the settings of your library and in the settings of your individual videos.  Understanding the options and reasons behind different settings will help you make the most of your Warpwire library.",
+          "section1title": "Customization using Warpwire Settings",
+          "section1content": "In this lesson we will review how to organize and manage your Warpwire library by renaming videos, updating a video with a newer version, tagging videos with category names, and changing share and view settings.\n\n",
+          "section2title": "Practical Application",
+          "section2content": "<p>Let’s practice a couple of the organization techniques we reviewed in the video.</p><h5>Add a tag to a video in your Warpwire library.</h5>",
+          "section2steps": [
+            {
+              "step": "Navigate to the course site where you added Warpwire and uploaded a video in Lesson One."
+            },
+            {
+              "step": "Click on the circle with the three dots in the bottom right of the video and choose the menu option “settings”."
+            },
+            {
+              "step": "Click on the button link that says “Add” that is next to “Tags”"
+            },
+            {
+              "step": "Click “Create Tag”"
+            },
+            {
+              "step": "Type the name of the new tag in the text box window."
+            },
+            {
+              "step": "Click Create Tag."
+            },
+            {
+              "step": "Click X to log out of the tag management tool."
+            },
+            {
+              "step": "Add tags to any other videos you have added to your library."
+            },
+            {
+              "step": "To sort by tag - click the AZ button icon in the top right corner of your Warpwire library."
+            },
+            {
+              "step": "Choose to sort by tag."
+            },
+            {
+              "header": "Rename one of your videos."
+            },
+            {
+              "step": "Navigate to the course site where you added Warpwire and uploaded a video in Lesson One."
+            },
+            {
+              "step": "Click on the circle with the three dots in the bottom right of the video and choose the menu option \"settings\"."
+            },
+            {
+              "step": "Highlight the current name listed under “Title” and hit delete or start typing the new name."
+            },
+            {
+              "step": "Close the Settings Menu"
+            }
+          ],
+          "section3title": "Tell us about your experience",
+          "section3content": "Complete this two question survey to let us know about your experience organizing videos in Warpwire.",
+          "lti": {
+            "header": "Quick Survey",
+            "description": "Take the two question survey below to tell us about your experince.",
+            "icon": "fa-list-ol",
+            "title": "Organizing Your Warpwire Videos Survey",
+            "launch": "mod/learnquiz/index.php?quiz=ww_organize",
+            "resource_link_id": "ww_organize"
+          },
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Warpwire Support Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Choose custom thumbnail",
+                  "href": "https://www.warpwire.com/support/media-options/choose-custom-thumbnail/"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Replace existing Media",
+                  "href": "https://www.warpwire.com/support/media-options/replace-existing-media/"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Upload and insert media in Sakai (Isidore)",
+                  "href": "https://www.warpwire.com/support/warpwire-in-sakai/upload-and-insert-media/"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Understanding the Terminology of Warpwire Libraries",
+                  "href": "https://www.warpwire.com/support/organize/introduction/"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Sorting your library",
+                  "href": "https://www.warpwire.com/support/organize/sort/"
+                }
+              ]
+            }
+          ],
+          "aside2title": "Potential Questions You May Have",
+          "aside2questions": [
+            {
+              "question": "If I sort my videos by tag will students also see my library in the way I have organized it?",
+              "answer": "Each individual user has complete control over how they sort their Warpwire library. That means, that even though you are the administrator of your own library, those with access to it will see it in the order they choose. The default order is by date added to the library.  We highly recommend embedding your videos within the lessons tool so that students access the correct videos at the correct time. See Lesson three on embedding videos in lessons."
+            },
+            {
+              "question": "Can I change my Videos thumbnail?",
+              "answer": "A Warpwire video automatically selects a screen capture from the video to use as its thumbnail image. Sometimes this selected image is not an ideal choice, or captures one’s image in a non-flattering view. Luckily this can be changed in the Settings menu, allowing you to pick any screen capture from the video."
+            },
+            {
+              "question": "How do I rename my video?",
+              "answer": "When uploading videos to Warpwire, they are often populated with the default title of the video file. Oftentimes  this can be a series of letters and numbers, especially with Zoom downloads. You have the opportunity to change the title at the time of upload, however, if you forget to make this change, or wish to re-title your video later; you have the option to do so in the settings menu. For ease of use, we recommend using a standardized naming convention, such as: Module 1, Lesson 1- Introduction or M1 L1 Intro. This makes embedding videos much easier."
+            },
+            {
+              "question": "How do I update a setting on all my videos at once?",
+              "answer": "You can do a bulk update to videos by clicking on the open circle in the upper right corner of your Warpwire library, and then either click the  select all button underneath to select all videos in the library or  select few by clicking on the circle underneath the individual videos you wish to apply the setting to. Then in the batch actions drop down menu choose which action you would like to take."
+            }
+          ]
+        },
+        {
+          "title": "Embedding Videos in Isidore",
+          "anchor": "warpwire-sharing",
+          "icon": "fa-video",
+          "description": "Learn about the various ways you can embed Warpwire videos in Isidore.",
+          "videos": [
+            {
+              "title": "Sharing Videos: Embedding in Lessons and other tools",
+              "warpwire": "i8YDAA"
+            }
+          ],
+          "overviewcontent": "<h2 style=\"margin:0;\"><small>Embedding in Lessons and other tools</small></h2>If you use videos in your course on a weekly basis, embedding them into a weekly lesson plan is the best way to ensure your students find your videos easily at the right time. In fact, this allows you to embed them in context with application questions (see lesson four).Students appreciate finding their videos in context with the week’s topics, reading and resources.",
+          "section1title": "Embedding in Lessons and other tools",
+          "section1content": "This lesson steps you through the various ways to embed your videos in your lessons. We also discuss the importance of the settings for share and visibility in your Warpwire library.\n\n",
+          "section2title": "Practical Application",
+          "section2content": "Embed one video in a lessons page of a course site.",
+          "section2steps": [
+            {
+              "step": "Before completing this assignment, you will need to make sure you have a Lessons Tool included in your course site. If you do not, please <a href=\"https://ewiki.udayton.edu/isidore/Add_Multiple_Lessons_Tools\" target=\"_blank\">follow the directions found on this help page</a> to add Lessons. "
+            },
+            {
+              "step": "Go to Lessons in your course site."
+            },
+            {
+              "step": "Click the “Add Content” tab or click on the + sign at the top or bottom of a section on your lesson page."
+            },
+            {
+              "step": "Choose to add “text, video, or image”."
+            },
+            {
+              "step": "Click the circle icon with a W in the middle of it to the right of center in  the middle line of the editor. This will open your Warpwire library."
+            },
+            {
+              "step": "Click the circle next to the Warpwire video you want to embed on the page."
+            },
+            {
+              "step": "Click the “insert item” bar at the bottom of the window."
+            },
+            {
+              "step": "Click save on your text box."
+            },
+            {
+              "step": "Review your lessons page for your new embed."
+            }
+          ],
+          "section3title": "Let Us Check Your Work",
+          "section3content": "Please send us the address of your course site (or your course site name) along with the name of the lesson page on which you embedded your video.",
+          "lti": [
+            {
+              "header": "Quick Write",
+              "description": "Complete the following Quick Write task.",
+              "icon": "fa-pencil-square",
+              "title": "Embed a Warpwire Video in Lessons",
+              "launch": "mod/modquickwrite/",
+              "resource_link_id": "ww_embed_qw"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Online Learning Support Resources",
+              "references": [
+                {
+                  "icon": "fa-link",
+                  "title": "Embed a Video",
+                  "href": "https://ewiki.udayton.edu/isidore/Embed_a_video"
+                },
+                {
+                  "icon": "fa-link",
+                  "title": "Share Settings in Warpwire",
+                  "href": "https://ewiki.udayton.edu/isidore/Share_a_video"
+                },
+                {
+                  "icon": "fa-link",
+                  "title": "Insert a video into a forum post",
+                  "href": "https://ewiki.udayton.edu/isidore/Insert_a_video_into_a_forum_post"
+                }
+              ]
+            }
+          ],
+          "aside2title": "Potential Questions You May Have",
+          "aside2questions": [
+            {
+              "question": "Why is it better to embed my videos in lessons rather than directing students to view my video in the Warpwire library?",
+              "answer": "Placing your videos in the order they are to be watched and in the week or module of lessons in which they occur will help to increase viewership and eliminate confusion on part of the student."
+            },
+            {
+              "question": "Should I embed my Warpwire videos as a link or an embed?",
+              "answer": "This is your preference. Use the format that works best for your course layout on the site. The feedback we hear from students and instructors indicates that the embed is the preferred method as it is clear that there is a video to be watched. Links can be overlooked easily."
+            },
+            {
+              "question": "What if I need to share just a portion of my video?",
+              "answer": "You can make a clip of a video  or audio. <a href='https://www.warpwire.com/support/media-options/clipping/' target='_blank'>Follow the directions in this document</a>."
+            },
+            {
+              "question": "What if I would like to hide my Warpwire Tool in the menu so that students do not see the tool at all?",
+              "answer": "To hide Warpwire from your tool menu, Click on Site Info, then Manage Tools. Next to Warpwire Video, click the tool settings icon on the right and choose to “Make Tool Invisible to Students”."
+            }
+          ]
+        },
+        {
+          "title": "Increasing Interactivity with Videos",
+          "anchor": "warpwire-interactivity",
+          "icon": "fa-video",
+          "description": "Learn about the Interactive Video Learning App and explore analytics.",
+          "videos": [
+            {
+              "title": "Increasing Interactivity with Videos",
+              "warpwire": "mfYDAA"
+            }
+          ],
+          "overviewcontent": "<h2 style=\"margin:0\"><small>Interactive Video and Analytics</small></h1>Instructional videos are more effective when you include interactive components. You can do this with embedded questions within lessons or by using the interactive video tool. Instructors can check student analytics on video views through the Warpwire library as well.",
+          "section1title": "Increasing Interactivity with Videos",
+          "section1content": "In this video we will show you how to use the interactive video tool application, how to add questions within lessons associated with your video and how to check the analytics of viewership of your video lessons.\n\n",
+          "section2title": "Practical Application",
+          "section2content": "Using a video you uploaded to your site’s Warpwire library in Lesson One, embed the video within the lessons tool using the interactive video learning app.",
+          "section2steps": [
+            {
+              "step": "<a href='https://ewiki.udayton.edu/isidore/How_to_Install_Learning_Apps_in_Lessons' target='_blank'>Embed an Interactive Video Learning App into Your Lesson</a>"
+            },
+            {
+              "step": "<a href='https://ewiki.udayton.edu/isidore/Add/Edit/Delete_an_Interactive_Video' target='_blank'>Configure the Interactive Video</a>"
+            },
+            {
+              "step": "<a href='https://ewiki.udayton.edu/isidore/Preview_an_Interactive_Video' target='_blank'>Preview your Interactive Video</a>"
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Online Learning Support Resources",
+              "references": [
+                {
+                  "icon": "fa-link",
+                  "title": "How to utilize the Interactive Video learning app",
+                  "href": "https://ewiki.udayton.edu/isidore/Interactive_Video"
+                },
+                {
+                  "icon": "fa-link",
+                  "title": "How to embed a question in lessons after a video to assess learning",
+                  "href": "https://ewiki.udayton.edu/isidore/Add/Edit/Delete_Text,_Video,_or_Image"
+                },
+                {
+                  "icon": "fa-link",
+                  "title": "Embed through a learning app: Pre/Post Reflection",
+                  "href": "https://ewiki.udayton.edu/isidore/Pre/Post_Reflection"
+                },
+                {
+                  "icon": "fa-link",
+                  "title": "Embed through a learning app: Quick Write",
+                  "href": "https://ewiki.udayton.edu/isidore/Quick_Write"
+                },
+                {
+                  "icon": "fa-link",
+                  "title": "Embed through a learning app: Quick Quiz",
+                  "href": "https://ewiki.udayton.edu/isidore/Quick_Quiz"
+                }
+              ]
+            }
+          ],
+          "aside2title": "Potential Questions You May Have",
+          "aside2questions": [
+            {
+              "question": "Can you grade the questions or interactive video and send them to the gradebook?",
+              "answer": "You can send grades from the interactive video to the gradebook. To learn more about interactive video and how to use it, please see our <a href='https://ewiki.udayton.edu/isidore/Interactive_Video' target='_blank'>eWiki help site</a>."
+            },
+            {
+              "question": "Can I use the interactive video tool with a YouTube video?",
+              "answer": "That is another yes! You will be able to select either Warpwire or YouTube when setting up your interactive video."
+            },
+            {
+              "question": "What types of questions can I ask using the Interactive Video tool?",
+              "answer": "You can ask multiple choice questions, including true/false. If you want to utilize open ended questions, we recommend embedding the quick write or pre/post write learning apps in conjunction with your video."
+            }
+          ]
+        },
+        {
+          "title": "Creating Central Course Libraries",
+          "anchor": "warpwire-centrallibraries",
+          "icon": "fa-video",
+          "description": "Create a central library for your course videos.",
+          "videos": [
+            {
+              "title": "Creating Central Course Libraries",
+              "warpwire": "AfoDAA"
+            }
+          ],
+          "overviewcontent": "There can be some confusion about where your videos “live” once placed into a site and embedded into lessons. We recommend that if you plan on using the same or similar videos each term for the same course that you make a “Central Course Library” for your videos and use this each term for each course site. With this approach, you always know where to find your original video and can easily update any video without having to re-embed the video in your lessons tool of the site. This also makes checking the analytics for videos for all course sections at once a breeze!",
+          "section1title": "Creating Central Course Libraries",
+          "section1content": "In this lesson we show you how to create a central library for your course videos. We discuss how to embed videos from this library, update videos to newer versions, and check analytics for a specific date range.\n\n",
+          "section2title": "Practical Application",
+          "section2content": "Create a Central Library and Copy Videos from a Previous Course Site to the Library.",
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Support Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "How to create a Media Library",
+                  "href": "https://www.warpwire.com/support/getting-started/"
+                },
+                {
+                  "icon": "fa-external-link",
+                  "title": "Searching for a Library",
+                  "href": "https://www.warpwire.com/support/organize/find/"
+                },
+                {
+                  "icon": "fa-link",
+                  "title": "Copy a video between Isidore sites",
+                  "href": "https://ewiki.udayton.edu/isidore/Copy_a_video_between_Isidore_sites"
+                },
+                {
+                  "icon": "fa-link",
+                  "title": "How to grant students access to upload videos to Warpwire",
+                  "href": "https://ewiki.udayton.edu/isidore/Allow_students_to_upload_videos_to_Warpwire"
+                }
+              ]
+            }
+          ],
+          "aside2title": "Potential Questions You May Have",
+          "aside2questions": [
+            {
+              "question": "Why do I need a central course video library?",
+              "answer": "A central course library will help to keep track of where your videos are located and maintain them in one location for all of your course sites. When a video needs to be added or updated, it only needs to be added to this one library and then linked in your course site.  Using a Central Course Library for your course site also frees up the Warpwire library in your own site for student uploads of video presentations."
+            },
+            {
+              "question": "Can I still check analytics on a video within a Central Course Library?",
+              "answer": "Yes you can. Analytics can be filtered by date, exported and then sorted by viewer. This will help to give you current information on the engagement with videos within the library."
+            },
+            {
+              "question": "Can I use videos in a central course library with the interactive video tool?",
+              "answer": "Yes you can!  Videos in the central course library can be selected when setting up the interactive video tool in a course site. How to do this is demonstrated in the video in this lesson."
+            }
+          ]
+        },
+        {
+          "title": "Analytics in Warpwire",
+          "anchor": "warpwire-analytics",
+          "icon": "fa-video",
+          "description": "Learn how to see which students are watching which parts of your videos.",
+          "videos": [
+            {
+              "title": "Analytics in Warpwire",
+              "warpwire": "oRIEAA"
+            }
+          ],
+          "overviewcontent": "When you publish a video as part of your lesson, you want to ensure that students have taken the time to watch the instruction. Detailed analytics are available within Warpwire both as a quick view and as a detailed export. Reports allow you to see which students are watching the videos and which parts of the videos they are watching.",
+          "section1title": "Analytics in Warpwire",
+          "section1content": "In this lesson we will demonstrate how to check student viewership of Warpwire videos within a course site and how to embed videos as graded activities based on views.\n\n",
+          "section2title": "Practical Application",
+          "section2content": "Embed a Warpwire video in a lessons tool in your course site using the procedure below to make it a graded activity.",
+          "section2steps": [
+            {
+              "step": "Make sure that the Gradebook tool is already installed in your course site. If it is not, please install using the “Add Tool” function in the left hand menu of your course site."
+            },
+            {
+              "step": "Navigate to the location in lessons where you want to embed a Warpwire video that will be graded based on student viewership."
+            },
+            {
+              "step": "Click the add content button or the + button."
+            },
+            {
+              "step": "Choose to \"Add Learning App\"."
+            },
+            {
+              "step": "In the pop-up window, choose the Warpwire link."
+            },
+            {
+              "step": "Click Launch External Tool Configuration link."
+            },
+            {
+              "step": "Click the circle next to the video you would like to embed. If your video is in a different Warpwire library, navigate  to that library and then click the circle next to the correct video."
+            },
+            {
+              "step": "Click \"insert item\"."
+            },
+            {
+              "step": "If you would like to embed a video as a thumbnail, rather than a link, you will need to edit the settings of your newly created link by clicking on the edit icon next to the link, choosing display option, click on embed on page, and insert a value of 300-600 in the height box."
+            }
+          ],
+          "aside1title": "Additional Resources",
+          "aside1content": [
+            {
+              "header": "Support Resources",
+              "references": [
+                {
+                  "icon": "fa-external-link",
+                  "title": "Warpwire Guide to Video Analytics",
+                  "href": "https://www.warpwire.com/support/analytics/introduction/"
+                },
+                {
+                  "icon": "fa-video",
+                  "title": "How to install a Warpwire video with the grading feature",
+                  "href": "https://udayton.warpwire.com/w/_RMEAA/"
+                }
+              ]
+            }
+          ],
+          "aside2title": "Potential Questions You May Have",
+          "aside2questions": [
+            {
+              "question": "How reliable are the analytics on Warpwire videos?",
+              "answer": "The analytics on Warpwire videos are very reliable if students access videos directly through the embedded link of your video in lessons. If you share your video externally and it has a public setting, viewers may be listed as “anonymous” so avoid having students access the video outside of Isidore."
+            },
+            {
+              "question": "How do I know that my student watched the video while it played on their computer?",
+              "answer": "It is possible that even though a student’s analytics show that the student watched the full video, they may not have maintained full attention. We recommend that if you are concerned with this possibility you utilize the interactive video learning app discussed in Lesson 4."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
