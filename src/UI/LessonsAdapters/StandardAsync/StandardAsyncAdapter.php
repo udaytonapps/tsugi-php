@@ -28,7 +28,7 @@ class StandardAsyncAdapter extends AsyncBase
     /** The root path to the context-specific session data */
     public $contextRoot;
 
-    protected $category;
+    protected string $category;
 
     function __construct($relativeContext, $moduleAnchor = null, $pageAnchor = null, $index = null)
     {
@@ -123,15 +123,15 @@ class StandardAsyncAdapter extends AsyncBase
         $crumb = (object)['path' => $CFG->apphome, 'label' => 'Home'];
         array_push($breadcrumbs, $crumb);
         if (isset($this->category)) {
-            $crumb = (object)['path' => $CFG->apphome . '/categories' . '/' . $this->category, 'label' => $this->course->title];
+            $crumb = (object)['path' => $CFG->apphome . '/programs' . '/' . $this->category, 'label' => $this->course->title];
             array_push($breadcrumbs, $crumb);
 
             if (isset($this->activeModule)) {
-                $crumb = (object)['path' => $CFG->apphome . '/categories' . '/' . $this->category . '/' . $this->activeModule->anchor, 'label' => $this->activeModule->title];
+                $crumb = (object)['path' => $CFG->apphome . '/programs' . '/' . $this->category . '/' . $this->activeModule->anchor, 'label' => $this->activeModule->title];
                 array_push($breadcrumbs, $crumb);
 
                 if ($this->activePage) {
-                    $crumb = (object)['path' => $CFG->apphome . '/categories' . '/' . $this->category . '/' . $this->activeModule->anchor . '/' . $this->activePage->anchor, 'label' => $this->activePage->title];
+                    $crumb = (object)['path' => $CFG->apphome . '/programs' . '/' . $this->category . '/' . $this->activeModule->anchor . '/' . $this->activePage->anchor, 'label' => $this->activePage->title];
                     array_push($breadcrumbs, $crumb);
                 }
             }
@@ -150,8 +150,7 @@ class StandardAsyncAdapter extends AsyncBase
         $nextPage = $this->findNextPage($this->lessonIndex, $this->pageIndex, $this->activeModule);
 
         $rest_path = U::rest_path();
-        $launch_path = $rest_path->parent . '/categories' . '/' . $this->category . '/' . $rest_path->controller . '_launch'; // /resource_link_id
-
+        $launch_path = "{$rest_path->parent}/{$rest_path->controller}/{$this->category}/{$this->activeModule->anchor}/{$this->activePage->anchor}/lti-launch";
         echo $twig->render('async-module-lesson-page.twig', [
             'breadcrumbs' => $this->getBreadcrumbs(),
             'prevPage' => $prevPage,
@@ -159,7 +158,8 @@ class StandardAsyncAdapter extends AsyncBase
             'module' => (array)$this->activeModule,
             'page' => (array)$this->activePage,
             'lti_launch_path' => $launch_path,
-            // 'logged_in' => true, // TODO
+            'ltiRoot' => $launch_path,
+            'authorized' => true, // TODO
         ]);
     }
 
@@ -196,7 +196,7 @@ class StandardAsyncAdapter extends AsyncBase
                 'module' => $module,
                 'contextRoot' => $this->contextRoot,
                 // 'moduleUrl' => U::get_rest_path() . '/' . urlencode($module->anchor),
-                'moduleUrl' => "{$CFG->apphome}/categories/{$this->category}/{$encodedAnchor}",
+                'moduleUrl' => "{$CFG->apphome}/programs/{$this->category}/{$encodedAnchor}",
             ]);
         }
 

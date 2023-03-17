@@ -29,7 +29,7 @@ class LessonsUIHelper
     public static function renderMegaMenuOptions()
     {
         global $CFG;
-        $R = $CFG->apphome . '/categories/';
+        $R = $CFG->apphome . '/programs/';
         $twig = self::twig();
         $lessonsReference = LessonsOrchestrator::getLessonsReference();
 

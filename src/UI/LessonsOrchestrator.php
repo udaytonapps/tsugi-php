@@ -20,6 +20,7 @@ class LessonsOrchestrator
     public static function getLessonsReference()
     {
         global $CFG;
+        // Pull together any standard Async/Sync courses, and assign here with their adapters
         $adapterDirectory = $CFG->dirroot . '/vendor/tsugi/lib/src/UI/LessonsAdapters';
         $reference = (object)[
             'KoseuDefault' => (object)[
@@ -32,8 +33,8 @@ class LessonsOrchestrator
                 'adapter' => AtlsLessons::class,
                 'adapterPath' => $adapterDirectory . '/Atls/AtlsLessons.php'
             ],
-            'isidore' => (object)[
-                'displayLabel' => 'Isidore Training',
+            'col' => (object)[
+                'displayLabel' => 'Center for Online Learning',
                 'adapter' => StandardAsyncAdapter::class,
                 'adapterPath' => $adapterDirectory . '/StandardAsync/StandardAsyncAdapter.php'
             ],
@@ -95,6 +96,55 @@ class LessonsOrchestrator
         $url = trim($url);
         $url = self::expandLink($url);
         $url = U::absolute_url($url);
+    }
+
+    public function initContext($context_title)
+    {
+        global $CFG, $PDOX;
+
+        $oauth_consumer_key = 'google.com';
+
+        // First we make sure that there is a google.com key
+        $stmt = $PDOX->queryDie(
+            "SELECT key_id, secret FROM {$CFG->dbprefix}lti_key
+                WHERE key_sha256 = :SHA LIMIT 1",
+            array('SHA' => lti_sha256($oauth_consumer_key))
+        );
+        $key_row = $stmt->fetch(\PDO::FETCH_ASSOC);
+        if ($key_row === false) {
+            die_with_error_log('Error: No key defined for accounts from google.com');
+        }
+        $google_key_id = $key_row['key_id'] + 0;
+        $google_secret = $key_row['secret'];
+        if ($google_key_id < 1) {
+            die_with_error_log('Error: No key for accounts from google.com');
+        }
+        $context_key = false;
+        $context_id = false;
+        // If there is a global course, grab it or make it
+        $context_key = 'course:' . md5($context_title);
+
+        $row = $PDOX->rowDie(
+            "SELECT context_id FROM {$CFG->dbprefix}lti_context
+            WHERE context_sha256 = :SHA AND key_id = :KID LIMIT 1",
+            array(':SHA' => lti_sha256($context_key), ':KID' => $google_key_id)
+        );
+
+        if ($row != false) {
+            $context_id = $row['context_id'];
+        } else {
+            $sql = "INSERT INTO {$CFG->dbprefix}lti_context
+                ( context_key, context_sha256, title, key_id, created_at, updated_at ) VALUES
+                ( :context_key, :context_sha256, :title, :key_id, NOW(), NOW() )";
+            $PDOX->queryDie($sql, array(
+                ':context_key' => $context_key,
+                ':context_sha256' => lti_sha256($context_key),
+                ':title' => $context_title,
+                ':key_id' => $google_key_id
+            ));
+            $context_id = $PDOX->lastInsertId();
+        }
+        return $context_id;
     }
 
     /*
@@ -237,6 +287,7 @@ class LessonsOrchestrator
 
     public static function modifyLessonsAndLinks($lessons, $resource_links)
     {
+        global $CFG;
         if ($lessons === null) {
             echo ("<pre>\n");
             echo ("Problem parsing lessons.json: ");
@@ -285,7 +336,40 @@ class LessonsOrchestrator
             if (isset($lessons->modules[$i]->references)) self::adjustArray($lessons->modules[$i]->references);
             if (isset($lessons->modules[$i]->assignments)) self::adjustArray($lessons->modules[$i]->assignments);
             if (isset($lessons->modules[$i]->slides)) self::adjustArray($lessons->modules[$i]->slides);
-            if (isset($lessons->modules[$i]->lti)) self::adjustArray($lessons->modules[$i]->lti);
+
+            // TODO: Determine if needed - is tsugi deployed at the root level?
+            if (isset($lessons->modules[$i]->lti)) {
+                if (isset($CFG->local_dev_server) && $CFG->local_dev_server) {
+                    foreach ($lessons->modules[$i]->lti as $lti) {
+                        $lti->launch = "/tsugi{$lti->launch}";
+                    }
+                }
+                self::adjustArray($lessons->modules[$i]->lti);
+            }
+            // Look all the way down to modules->lessons->pages->contents - they may have LTI content
+            $module = $lessons->modules[$i];
+            if (isset($module->lessons)) {
+                foreach ($module->lessons as $lesson) {
+                    if (isset($lesson->pages)) {
+                        foreach ($lesson->pages as $page) {
+                            if (isset($page->contents)) {
+                                foreach ($page->contents as $content) {
+                                    if (isset($content->lti)) {
+                                        if (isset($CFG->external_store) && isset($content->lti->external) && $content->lti->external) {
+                                            $content->lti->launch = "{$CFG->external_store}{$content->lti->launch}";
+                                        } else {
+                                            if (isset($CFG->local_dev_server) && $CFG->local_dev_server) {
+                                                $content->lti->launch = "/tsugi{$content->lti->launch}";
+                                            }
+                                            self::absolute_url_ref($content->lti->launch);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             if (isset($lessons->modules[$i]->discussions)) self::adjustArray($lessons->modules[$i]->discussions);
 
             // Non arrays

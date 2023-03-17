@@ -36,7 +36,7 @@ class AtlsLessons extends SyncBase
     /** The root path to the context-specific session data */
     public $contextRoot;
 
-    protected $category;
+    protected string $category;
 
     /*
      ** Load up the JSON from the file
@@ -162,7 +162,7 @@ class AtlsLessons extends SyncBase
                 'module' => $module,
                 'contextRoot' => $this->contextRoot,
                 // 'moduleUrl' => U::get_rest_path() . '/' . urlencode($module->anchor),
-                'moduleUrl' => "{$CFG->apphome}/categories/{$this->category}/{$encodedAnchor}",
+                'moduleUrl' => "{$CFG->apphome}/programs/{$this->category}/{$encodedAnchor}",
             ]);
         }
 
@@ -352,6 +352,8 @@ class AtlsLessons extends SyncBase
                         // Register logged in
                         $btnreg = true;
                         $btnclass = 'btn-white';
+                        global $_SESSION;
+                        $_SESSION['context_key'] = 'test';
                         if (
                             isset($module->lti) && U::get($_SESSION, 'secret') && U::get($_SESSION, 'context_key')
                             && U::get($_SESSION, 'user_key') && U::get($_SESSION, 'displayname') && U::get($_SESSION, 'email')
@@ -381,7 +383,8 @@ class AtlsLessons extends SyncBase
                                 if (isset($lti->type)) {
                                     if (($btnreg && $lti->type == "REGISTRATION") || (!$btnreg && $lti->type == "FEEDBACK")) {
                                         $rest_path = U::rest_path();
-                                        $launch_path = $rest_path->parent . '/' . $rest_path->controller . '_launch/' . $lti->resource_link_id . '?redirect_url=' . $_SERVER['REQUEST_URI'];
+                                        // $launch_path = $rest_path->parent . '/' . $rest_path->controller . '_launch/' . $lti->resource_link_id . '?redirect_url=' . $_SERVER['REQUEST_URI'];
+                                        $launch_path = "{$rest_path->parent}/{$rest_path->controller}/{$this->category}/{$module->anchor}/lti-launch/" . $lti->resource_link_id . '?redirect_url=' . $_SERVER['REQUEST_URI'];
                                         echo '<a class="btn ' . $btnclass . ' btn-lg" href="' . $launch_path . '" role="button">' . $btncontent . '</a>';
                                     }
                                 }
