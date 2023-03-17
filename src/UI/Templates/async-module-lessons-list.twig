@@ -42,7 +42,7 @@
 
 <div class="async-module-lessons-list">
 	{% for idx, lesson in module.lessons %}
-		<h6 class="bg-light p-2 border expand-button" href="#!" role="button" data-mdb-toggle="collapse" data-mdb-target="#collapse-{{idx}}" aria-expanded={{collapsed ? "false" : "true"}} aria-controls="collapse-{{idx}}">
+		<h6 class="p-2 border expand-button" href="#!" role="button" data-mdb-toggle="collapse" data-mdb-target="#collapse-{{idx}}" aria-expanded={{collapsed ? "false" : "true"}} aria-controls="collapse-{{idx}}">
 			{% if page.anchor == lessonPage.anchor %}
 				<i class="fa fa-dot-circle-o text-primary"></i>
 			{% else %}

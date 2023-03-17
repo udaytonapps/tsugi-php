@@ -39,7 +39,7 @@ class DefaultLessons extends CourseBase
      */
     public $resource_links;
 
-    protected $category;
+    protected string $category;
     public $course;
 
     /**
@@ -1310,7 +1310,7 @@ class DefaultLessons extends CourseBase
                     'module' => $module,
                     'contextRoot' => $this->contextRoot,
                     // 'moduleUrl' => U::get_rest_path() . '/' . urlencode($module->anchor),
-                    'moduleUrl' => "{$CFG->apphome}/categories/{$this->category}/{$encodedAnchor}",
+                    'moduleUrl' => "{$CFG->apphome}/programs/{$this->category}/{$encodedAnchor}",
                 ]);
             }
 

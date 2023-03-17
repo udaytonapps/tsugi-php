@@ -3,7 +3,7 @@
 // Courses[] ~ [Isidore 101]
 //      -> Modules[] ~ [Isidore Onboarding]
 //          -> Lessons[] ~ [What is Isidore?, ..., Setting Up Your Course Site, ...]
-//              -> Page[] ~ [Site Creation, Overview, Syllabus and Schedule]
+//              -> AsyncPage[] ~ [Site Creation, Overview, Syllabus and Schedule]
 //                  -> Contents[] ~ [{Header, Description, Video}]
 //                  -> OR Exercises[] ~ [{Header, Description, LTI}]
 
@@ -11,13 +11,15 @@
 
 namespace Tsugi\UI\StandardAsync;
 
+use Badge;
+use Content;
 use CourseBase;
 
 class AsyncBase extends CourseBase
 {
     public AsyncCourse $course;
 
-    protected function findPreviousPage(int $lessonIndex, int $pageIndex, Module $module)
+    protected function findPreviousPage(int $lessonIndex, int $pageIndex, AsyncModule $module)
     {
         if ($pageIndex > 0) {
             // Paginate backward if prev page is there in same lesson
@@ -38,7 +40,7 @@ class AsyncBase extends CourseBase
         }
     }
 
-    protected function findNextPage(int $lessonIndex, int $pageIndex, Module $module)
+    protected function findNextPage(int $lessonIndex, int $pageIndex, AsyncModule $module)
     {
         if ($pageIndex < count($module->lessons[$lessonIndex]->pages) - 1) {
             // Paginate forward if next page is there in same lesson
@@ -68,7 +70,7 @@ class AsyncCourse
     public $description;
     /** @var Badge[] */
     public $badges;
-    /** @var Module[] */
+    /** @var AsyncModule[] */
     public $modules;
 
     function __construct($course)
@@ -84,39 +86,15 @@ class AsyncCourse
 
         $modules = array();
         foreach ($course->modules as $module) {
-            array_push($modules, new Module($module));
+            array_push($modules, new AsyncModule($module));
         }
         $this->modules = $modules;
     }
 }
 
-class Badge
-{
-    /** @var string */
-    public $title;
-    /** @var string */
-    public $description;
-    /** @var string */
-    public $image;
-    /** @var string */
-    public $anchor;
-    /** @var string */
-    public $threshold;
-    /** @var string[] */
-    public $assignments;
 
-    function __construct($badge)
-    {
-        $this->title = $badge->title;
-        $this->description = $badge->description;
-        $this->image = $badge->image;
-        $this->anchor = $badge->anchor;
-        $this->threshold = $badge->threshold;
-        $this->assignments = $badge->assignments;
-    }
-}
 
-class Module
+class AsyncModule
 {
     /** @var string */
     public $title;
@@ -124,7 +102,7 @@ class Module
     public $anchor;
     /** @var string */
     public $duration;
-    /** @var Lesson[] */
+    /** @var AsyncLesson[] */
     public $lessons;
     /** @var Content[] Typically a title, description, and video */
     public $landingContents;
@@ -148,7 +126,7 @@ class Module
         if (isset($module->lessons)) {
             foreach ($module->lessons as $lesson) {
                 if (!isset($lesson->sublesson) || $lesson->sublesson == false) { // TODO: Remove
-                    $newLesson = new Lesson($lesson);
+                    $newLesson = new AsyncLesson($lesson);
                     array_push($lessons, $newLesson);
                 }
             }
@@ -157,7 +135,7 @@ class Module
     }
 }
 
-class Lesson
+class AsyncLesson
 {
     /** @var string */
     public $title;
@@ -167,7 +145,7 @@ class Lesson
     public $icon;
     /** @var string */
     public $teaser;
-    /** @var Page[] */
+    /** @var AsyncPage[] */
     public $pages;
 
     function __construct($lesson)
@@ -180,7 +158,7 @@ class Lesson
         $pages = [];
         if (isset($lesson->pages)) {
             foreach ($lesson->pages as $page) {
-                $newPage = new Page($page);
+                $newPage = new AsyncPage($page);
                 array_push($pages, $newPage);
             }
         }
@@ -188,7 +166,7 @@ class Lesson
     }
 }
 
-class Page
+class AsyncPage
 {
     /** @var string */
     public $title;
@@ -213,125 +191,4 @@ class Page
     }
 }
 
-class Exercise
-{
-    /** @var 'QUICK_WRITE' | 'QUICK_QUIZ' | 'INTERACTIVE_VIDEO' | Other? */
-    public $type;
-    /** @var string */
-    public $header;
-    /** @var string[] */
-    public $text;
-    /** @var string */
-    public $ltiUrl;
 
-    function __construct($exercise)
-    {
-        // Need to build out what makes an exercise here...
-    }
-}
-
-class Content
-{
-    /** @var 'TEXT' | 'VIDEO' | 'LTI' | 'LINK' | 'UNORDERED_LIST' | 'ORDERED_LIST' */
-    public $type;
-    /** @var string[] */
-    public $paragraphs;
-    /** @var VideoContent */
-    public $video;
-    /** @var LtiContent */
-    public $lti;
-    /** @var LinkContent */
-    public $link;
-    /** @var Content[] */
-    public $unorderedList;
-    /** @var Content[] */
-    public $orderedList;
-
-    function __construct($content)
-    {
-        $this->type = $content->type;
-        if ($content->type == 'TEXT') {
-            $this->paragraphs = $content->paragraphs ?? [];
-        } else if ($content->type == 'VIDEO') {
-            $this->video = new VideoContent($content->video->title, $content->video->warpwire);
-        } else if ($content->type == 'LTI') {
-            $this->lti = new LtiContent($content->lti);
-        } else if ($content->type == 'LINK') {
-            $this->link = new LinkContent($content->title, $content->icon, $content->href);
-        } else if ($content->type == 'ORDERED_LIST') {
-            $this->orderedList = new ListContent($content->listItems);
-        }
-    }
-}
-
-class ListContent
-{
-    /** @var Content[] */
-    public $contents;
-
-    function __construct($contentItems)
-    {
-        $newContents = [];
-        foreach ($contentItems as $content) {
-            array_push($newContents, new Content($content));
-        }
-        $this->contents = $newContents;
-    }
-}
-
-class VideoContent
-{
-    /** @var string */
-    public $title;
-    /** @var string */
-    public $warpwire;
-
-    function __construct($title, $warpwire)
-    {
-        $this->title = $title ?? null;
-        $this->warpwire = $warpwire ?? null;
-    }
-}
-
-class LinkContent
-{
-    /** @var string */
-    public $title;
-    /** @var string */
-    public $icon;
-    /** @var string */
-    public $url;
-
-    function __construct($title, $icon, $url)
-    {
-        $this->title = $title ?? null;
-        $this->icon = $icon ?? null;
-        $this->url = $url ?? null;
-    }
-}
-
-class LtiContent
-{
-    /** @var string */
-    public $header;
-    /** @var string */
-    public $description;
-    /** @var string */
-    public $icon;
-    /** @var string */
-    public $title;
-    /** @var string */
-    public $launch;
-    /** @var string */
-    public $resource_link_id;
-
-    function __construct($lti)
-    {
-        $this->header = $lti->header ?? null;
-        $this->description = $lti->description ?? null;
-        $this->icon = $lti->icon ?? null;
-        $this->title = $lti->title ?? null;
-        $this->launch = $lti->launch ?? null;
-        $this->resource_link_id = $lti->resource_link_id ?? null;
-    }
-}

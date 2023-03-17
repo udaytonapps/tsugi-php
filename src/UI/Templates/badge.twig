@@ -1,0 +1,114 @@
+{# BADGE #}
+<div class="card text-center m-2 pt-4" data-mdb-toggle="modal" data-mdb-target="#{{badgeData.badge.anchor}}" style="cursor: pointer; width: 225px;">
+	<div class="bg-image">
+		<img src="{{badgeData.img}}" style="width:100%;max-width:90px;"/>
+	</div>
+	<div class="card-body d-flex flex-column align-items-stretch justify-content-between">
+		<h6 class="card-title pb-2">{{badgeData.badge.title}}</h6>
+		<div class="progress" style="height: 10px;">
+			<div class="progress-bar bg-{{badgeData.kind}}" role="progressbar" style="width: {{badgeData.progress}}%;" aria-valuenow="{{badgeData.progress}}" aria-valuemin="0" aria-valuemax="100"></div>
+		</div>
+	</div>
+</div>
+{# MODAL #}
+<div id="{{badgeData.badge.anchor}}" class="modal fade" role="dialog">
+	<div class="modal-dialog modal-xl">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">{{badgeData.badge.title}}</h5>
+				<button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="d-flex align-items-center align-content-center">
+							<div>
+								{% if badgeData.kind != 'success' %}
+									<img src="{{badgeUrl}}/not-earned.png" style="width:100%;max-width:120px;"/>
+								{% else %}
+									<img src="{{badgeData.badge.img}}" style="width:100%;max-width:120px;"/>
+								{% endif %}
+							</div>
+							<div style="flex-grow:2;padding-left:2rem;">
+								<h3>{{badgeData.badge.title}}</h3>
+								<div class="progress" style="max-width:150px;margin-bottom:0; height: 10px;">
+									<div class="progress-bar bg-{{badgeData.kind}}" style="width: {{badgeData.progress}}%"></div>
+								</div>
+								<strong>
+									{% if badgeData.kind == 'danger' %}
+										<span class="text-danger">Not Started</span>
+									{% elseif badgeData.kind == 'warning' %}
+										<span class="text-warning">In Progress</span>
+									{% elseif badgeData.kind == 'info' %}
+										<span class="text-info">In Progress</span>
+									{% elseif badgeData.kind == 'success' %}
+										<span class="text-success">Complete</span>
+									{% endif %}
+								</strong>
+							</div>
+						</div>
+						<h5 class="text-muted mt-4">Badge Details</h5>
+						<p>{{badgeData.badge.description}}</p>
+					</div>
+					<div class="col-sm-6">
+						<h5 class="text-muted">Session Tasks</h5>
+						{% for resource_link_id in badgeData.badge.assignments %}
+							{% set module = getModuleByRlid(badgeData.parentCourse, resource_link_id) %}
+							{% set lti = getLtiByRlid(badgeData.parentCourse, resource_link_id) %}
+
+							{% set score = allgrades[resource_link_id] is defined ? allgrades[resource_link_id] : 0 %}
+							{% set progress = score * 100 | trim %}
+							{% set progress = progress < 5 ? 5 : progress %}
+							{% set kind = progress >= 100 ? 'succes' : progress > 50 ? 'info' : progress > 5 ? 'warning' : 'danger' %}
+							<div class="d-flex">
+								<div>
+									{# $rest_path = U::rest_path();
+                                    $href = $rest_path->parent . '/sessions/' . urlencode($lesson->anchor); #}
+									{% if kind == 'success' %}
+										<span class="far fa-check-square text-success" aria-hidden="true" style="padding-right: 5px;"></span>
+									{% elseif kind == 'warning' or kind == 'info' %}
+										<span class="far fa-minus-square text-info" aria-hidden="true" style="padding-right: 5px;"></span>
+									{% else %}
+										<span class="far fa-square text-info" aria-hidden="true" style="padding-right: 5px;"></span>
+									{% endif %}
+								</div>
+								<a class="flex-grow-1" href="' . $href . '">
+									{% set title = module.title is defined ? module.title : module.session %}
+									{{ title | length > 30 ? title | slice(0, 30) ~ '...' : title  }}
+
+									-
+									{% set ltiTitle = lti.assignmenttitle is defined ? lti.assignmenttitle : lti.title %}
+									{{ ltiTitle | length > 30 ? ltiTitle | slice(0, 30) ~ '...' : ltiTitle  }}
+								</a>
+								<div class="text-right" style="font-weight: bold;">
+									<a href="' . $href . '">
+										{% if kind == 'danger' %}
+											<span class="text-danger">Not Started</span>
+										{% elseif kind == 'warning' %}
+											<span class="text-warning">In Progress</span>
+										{% elseif kind == 'info' %}
+											<span class="text-info">In Progress</span>
+										{% elseif kind == 'success' %}
+											<span class="text-success">Complete</span>
+										{% endif %}
+									</a>
+								</div>
+							</div>
+						{% endfor %}
+						{% if badgeData.badge.assignments | length == 0 %}
+							<p class="text-muted">
+								<em>This badge is earned through other actions not associated with an assignment.</em>
+							</p>
+						{% endif %}
+					</div>
+					<!-- End assignment column -->
+				</div>
+				<!-- End row -->
+			</div>
+			<!-- End modal body -->
+		</div>
+		<!-- End modal content -->
+	</div>
+	<!-- End modal dialog -->
+</div>
+<!-- End modal -->

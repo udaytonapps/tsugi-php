@@ -1,0 +1,93 @@
+<div class="container">
+	<h4>{{course.title}}
+		COURSE TITLE</h4>
+	<h1>Badges</h1>
+
+	<ul class="nav nav-tabs mb-3" id="badgetabs" role="tablist">
+		<li class="nav-item" role="presentation">
+			<a class="nav-link active" id="badgetabs-1" data-mdb-toggle="tab" href="#badge-tabs-1" role="tab" aria-controls="badge-tabs-1" aria-selected="true">
+				Badge Progress
+			</a>
+		</li>
+		<li class="nav-item" role="presentation">
+			<a class="nav-link" id="badgetabs-2" data-mdb-toggle="tab" href="#badge-tabs-2" role="tab" aria-controls="badge-tabs-2" aria-selected="false">
+				Badges Awarded
+			</a>
+		</li>
+	</ul>
+	<div id="badgeTabContent" class="tab-content mt-4 mb-4">
+		<div class="tab-pane fade show active" id="badge-tabs-1" role="tabpanel" aria-labelledby="badgetabs-1">
+            {% for badgeDataRows in allBadges %}
+                {% if badgeDataRows.badgeData | length %}
+                <div class="mb-3">
+                    <h4>{{badgeDataRows.title}}</h4>
+                </div>
+                <div class="d-flex flex-wrap align-items-stretch justify-content-center mb-5">
+                    {% for badgeData in badgeDataRows.badgeData %}                        
+                        {% include 'badge.twig' %}
+                    {% endfor %}
+                </div>
+                {% endif %}
+            {% endfor %}
+		</div>
+
+		<div class="tab-pane fade" id="badge-tabs-2" role="tabpanel" aria-labelledby="badgetabs-2">
+			<h4>Badges Awarded</h4>
+			<p>These badges contain the official Open Badge metadata. You can download the badge and put it 
+            on your own server, or add the badge to a "badge backpack". You could validate the badge using
+				<a href="http://www.dr-chuck.com/obi-sample/" target="_blank">A simple badge validator</a>.
+			</p>
+			{% if allAwarded | length < 1 %}
+				<p>No badges have been awarded yet.</p>
+			{% elseif loggedIn %}
+				<div class='row'>
+					{% for badge in allAwarded %}
+						<div class="col-sm-12 mb-4">
+							<div class='d-flex'>
+								<div style='padding-left:1rem;'>
+									{# $code = basename($badge->image, '.png #}
+									{# $decrypted = $_SESSION['id'] . ':' . $code . ':' . $_SESSION['context_id']; #}
+									{# $encrypted = bin2hex(AesOpenSSL::encrypt($decrypted, $CFG->badge_encrypt_password)); #}
+									{# <a href="' . $CFG->wwwroot . '/badges/images/' . $encrypted . '.png" target="_blank">
+                                    <img src="' . $CFG->wwwroot . '/badges/images/' . $encrypted . '.png" style="width:90px;"></a> #}
+										<a href="{{badge.img}}" target="_blank"> <img src="{{badge.img}}" style="width:90px;"></a>
+								</div>
+								<div
+									class='flex-grow-1' style='padding-left:1rem;'>
+									{# <a class="h5" href="' . $CFG->wwwroot . '/badges/images/' . $encrypted . '.png" target="_blank">{{badge.title}}</a> #}
+									<a class="h5" href="{{badge.img}}" target="_blank">{{badge.title}}</a>
+									<p>{{badge.description}}</p>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			{% else %}
+				<p>You must be logged in to see your badges.</p>
+			{% endif %}
+			{#
+			            if (count($awarded) < 1) {
+			                    echo ("<p>No badges have been awarded yet.</p>");
+			                } else if (!isset($_SESSION['id']) || !isset($_SESSION['context_id'])) {
+			                    echo ("<p>You must be logged in to see your badges.</p>\n");
+			                } else {
+			                    echo ("<div class='row'>\n");
+			                    foreach ($awarded as $badge) {
+			                        echo ('<div class="col-sm-12 mb-4">');
+			                        echo ("<div class='d-flex'><div style='padding-left:1rem;'>");
+			                        $code = basename($badge->image, '.png');
+			                        $decrypted = $_SESSION['id'] . ':' . $code . ':' . $_SESSION['context_id'];
+			                        $encrypted = bin2hex(AesOpenSSL::encrypt($decrypted, $CFG->badge_encrypt_password));
+			                        echo ('<a href="' . $CFG->wwwroot . '/badges/images/' . $encrypted . '.png" target="_blank">');
+			                        echo ('<img src="' . $CFG->wwwroot . '/badges/images/' . $encrypted . '.png" style="width:90px;"></a>');
+			                        echo ("</div><div class='flex-grow-1' style='padding-left:1rem;'>\n");
+			                        echo ('<a class="h5" href="' . $CFG->wwwroot . '/badges/images/' . $encrypted . '.png" target="_blank">' . $badge->title . '</a>');
+			                        echo ('<p>' . $badge->description . '</p>');
+			                        echo ('</div></div></div>'); // End flex 2, end flex container, end col
+			                    }
+			                    echo ("</div>\n");
+			                }
+			                #}
+		</div>
+	</div>
+</div>

@@ -166,9 +166,10 @@
                 {
                   "type": "LTI",
                   "lti": {
+                    "external": false,
                     "icon": "fa-list-ol",
                     "title": "Quiz: What is Isidore?",
-                    "launch": "mod/learnquiz/index.php?quiz=bn_whatisisidore",
+                    "launch": "/mod/learn-quiz/index.php?quiz=bn_whatisisidore",
                     "resource_link_id": "bn_whatisisidore"
                   }
                 }
@@ -239,7 +240,7 @@
                   "lti": {
                     "icon": "fa-list-ol",
                     "title": "Quiz: Getting Started with Isidore",
-                    "launch": "mod/learnquiz/index.php?quiz=bn_gettingstarted",
+                    "launch": "/mod/learn-quiz/index.php?quiz=bn_gettingstarted",
                     "resource_link_id": "bn_gettingstarted"
                   }
                 }
@@ -347,7 +348,7 @@
                   "lti": {
                     "icon": "fa-pencil-square",
                     "title": "Sight my Site!",
-                    "launch": "mod/modquickwrite/",
+                    "launch": "/mod/modquickwrite/",
                     "resource_link_id": "bn_sitecreation2"
                   }
                 }
@@ -368,7 +369,7 @@
                   "lti": {
                     "icon": "fa-list-ol",
                     "title": "Course Site Creation Quiz",
-                    "launch": "mod/learnquiz/index.php?quiz=bn_sitecreation",
+                    "launch": "/mod/learn-quiz/index.php?quiz=bn_sitecreation",
                     "resource_link_id": "bn_sitecreation"
                   }
                 }
@@ -420,7 +421,7 @@
                   "lti": {
                     "icon": "fa-list-ol",
                     "title": "Overview Quiz",
-                    "launch": "mod/learnquiz/index.php?quiz=101_overview",
+                    "launch": "/mod/learn-quiz/index.php?quiz=101_overview",
                     "resource_link_id": "101_overview"
                   }
                 }
@@ -579,7 +580,7 @@
               "description": "Check out the CK Editor article in the Wiki resources to help you answer the questions in the quiz.",
               "icon": "fa-list-ol",
               "title": "Text Editor Quiz",
-              "launch": "mod/learnquiz/index.php?quiz=101_ckeditor",
+              "launch": "/mod/learn-quiz/index.php?quiz=101_ckeditor",
               "resource_link_id": "101_ckeditor"
             }
           ],
@@ -648,7 +649,7 @@
               "description": "Take the three question quiz below to establish your Announcements expertise.",
               "icon": "fa-list-ol",
               "title": "Announcements Quiz",
-              "launch": "mod/learnquiz/index.php?quiz=101_announcements",
+              "launch": "/mod/learn-quiz/index.php?quiz=101_announcements",
               "resource_link_id": "101_announcements"
             }
           ],
@@ -707,7 +708,7 @@
               "description": "You know the drill! Answer 3 questions to prove you watched the video.",
               "icon": "fa-list-ol",
               "title": "Resources Quiz",
-              "launch": "mod/learnquiz/index.php?quiz=101_resources",
+              "launch": "/mod/learn-quiz/index.php?quiz=101_resources",
               "resource_link_id": "101_resources"
             }
           ],
@@ -766,7 +767,7 @@
               "description": "This quiz is easier than memorizing all your students' names, but you should probably do that, too.",
               "icon": "fa-list-ol",
               "title": "Roster Quiz",
-              "launch": "mod/learnquiz/index.php?quiz=101_roster",
+              "launch": "/mod/learn-quiz/index.php?quiz=101_roster",
               "resource_link_id": "101_roster"
             }
           ],
@@ -843,7 +844,7 @@
               "description": "You might be tempted to skip this quiz, but you shouldn’t. There’s a big time-saving tip in it!",
               "icon": "fa-list-ol",
               "title": "Attendance Quiz",
-              "launch": "mod/learnquiz/index.php?quiz=101_attendance",
+              "launch": "/mod/learn-quiz/index.php?quiz=101_attendance",
               "resource_link_id": "101_attendance"
             }
           ],
@@ -897,7 +898,7 @@
               "description": "It's important you prove to us you know the Calendar tool.",
               "icon": "fa-list-ol",
               "title": "Calendar Quiz",
-              "launch": "mod/learnquiz/index.php?quiz=101_calendar",
+              "launch": "/mod/learn-quiz/index.php?quiz=101_calendar",
               "resource_link_id": "101_calendar"
             }
           ],
@@ -1169,7 +1170,7 @@
               "description": "The following quiz will measure your understanding of the essential elements described in the video.",
               "icon": "fa-list-ol",
               "title": "Visual Disabilities Quiz",
-              "launch": "mod/learnquiz/index.php?quiz=acc_visual",
+              "launch": "/mod/learn-quiz/index.php?quiz=acc_visual",
               "resource_link_id": "acc_visual"
             },
             {
@@ -1177,7 +1178,7 @@
               "description": "Complete the following assignment.",
               "icon": "fa-pencil-square",
               "title": "Visual Disabilities Assignment",
-              "launch": "mod/modquickwrite/",
+              "launch": "/mod/modquickwrite/",
               "resource_link_id": "acc_visual_qw"
             }
           ],
@@ -1255,7 +1256,7 @@
               "description": "The following quiz will measure your understanding of the essential elements described in the video.",
               "icon": "fa-list-ol",
               "title": "Auditory Disabilities Quiz",
-              "launch": "mod/learnquiz/index.php?quiz=acc_auditory",
+              "launch": "/mod/learn-quiz/index.php?quiz=acc_auditory",
               "resource_link_id": "acc_auditory"
             },
             {
@@ -1263,7 +1264,7 @@
               "description": "Complete the following assignment.",
               "icon": "fa-pencil-square",
               "title": "Auditory Disabilities Assignment",
-              "launch": "mod/modquickwrite/",
+              "launch": "/mod/modquickwrite/",
               "resource_link_id": "acc_auditory_qw"
             }
           ],
@@ -1356,7 +1357,7 @@
               "description": "The following quiz will measure your understanding of the essential elements described in the video.",
               "icon": "fa-list-ol",
               "title": "Other Disabilities Quiz",
-              "launch": "mod/learnquiz/index.php?quiz=acc_cog",
+              "launch": "/mod/learn-quiz/index.php?quiz=acc_cog",
               "resource_link_id": "acc_cog"
             },
             {
@@ -1364,7 +1365,7 @@
               "description": "Complete the following assignment.",
               "icon": "fa-pencil-square",
               "title": "Other Disabilities Assignment",
-              "launch": "mod/modquickwrite/",
+              "launch": "/mod/modquickwrite/",
               "resource_link_id": "acc_cog_qw"
             }
           ],
@@ -1447,7 +1448,7 @@
               "description": "The following quiz will measure your understanding of the essential elements described in the video.",
               "icon": "fa-list-ol",
               "title": "Accessible Documents Quiz",
-              "launch": "mod/learnquiz/index.php?quiz=acc_files",
+              "launch": "/mod/learn-quiz/index.php?quiz=acc_files",
               "resource_link_id": "acc_files"
             },
             {
@@ -1455,7 +1456,7 @@
               "description": "Complete the following assignment.",
               "icon": "fa-pencil-square",
               "title": "Accessible Documents Assignment",
-              "launch": "mod/modquickwrite/",
+              "launch": "/mod/modquickwrite/",
               "resource_link_id": "acc_files_qw"
             }
           ],
@@ -1548,7 +1549,7 @@
               "description": "The following quiz will measure your understanding of the essential elements described in the video.",
               "icon": "fa-list-ol",
               "title": "Outside Materials Quiz",
-              "launch": "mod/learnquiz/index.php?quiz=acc_materials",
+              "launch": "/mod/learn-quiz/index.php?quiz=acc_materials",
               "resource_link_id": "acc_materials"
             },
             {
@@ -1556,7 +1557,7 @@
               "description": "Complete the following assignment.",
               "icon": "fa-pencil-square",
               "title": "Outside Materials Assignment",
-              "launch": "mod/modquickwrite/",
+              "launch": "/mod/modquickwrite/",
               "resource_link_id": "acc_materials_qw"
             }
           ],
@@ -1830,7 +1831,7 @@
               "description": "Use the link below to submit your response. You will be asked to answer the following two prompts.<ol><li>Have you already taught online before with a synchronous tool?  Discuss the challenges of maintaining student engagement in a tool like Zoom. What areas of improvement do you see that can be addressed and improved based on this training?</li><li>During a synchronous class session, you notice that one of your students is not participating. You have tried multiple ways to engage the class, including the chatbox, whiteboard, microphone and breakout rooms to no avail. How would you address the student and encourage a higher level of engagement?</li></ol>",
               "icon": "fa-pencil-square",
               "title": "Share your experience",
-              "launch": "mod/modquickwrite/",
+              "launch": "/mod/modquickwrite/",
               "resource_link_id": "zoom_teaching_qw"
             }
           ],
@@ -2166,7 +2167,7 @@
               "description": "Complete the following Quick Write task.",
               "icon": "fa-pencil-square",
               "title": "Add Warpwire and Upload a Video",
-              "launch": "mod/modquickwrite/",
+              "launch": "/mod/modquickwrite/",
               "resource_link_id": "ww_add_upload_qw"
             }
           ],
@@ -2343,7 +2344,7 @@
             "description": "Take the two question survey below to tell us about your experince.",
             "icon": "fa-list-ol",
             "title": "Organizing Your Warpwire Videos Survey",
-            "launch": "mod/learnquiz/index.php?quiz=ww_organize",
+            "launch": "/mod/learn-quiz/index.php?quiz=ww_organize",
             "resource_link_id": "ww_organize"
           },
           "aside1title": "Additional Resources",
@@ -2452,7 +2453,7 @@
               "description": "Complete the following Quick Write task.",
               "icon": "fa-pencil-square",
               "title": "Embed a Warpwire Video in Lessons",
-              "launch": "mod/modquickwrite/",
+              "launch": "/mod/modquickwrite/",
               "resource_link_id": "ww_embed_qw"
             }
           ],

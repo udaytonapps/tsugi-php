@@ -5,7 +5,7 @@ use Tsugi\UI\StandardAsync\Module;
 
 abstract class CourseBase
 {
-    protected $category;
+    protected string $category;
     protected string $base_url_warpwire = 'https://udayton.warpwire.com';
 
     public function header()
@@ -87,46 +87,170 @@ abstract class CourseBase
             'title' => $adapter->course->title
         ];
     }
+}
 
-    protected function findPreviousPage(int $lessonIndex, int $pageIndex, Module $module)
+class Badge
+{
+    /** @var string */
+    public $title;
+    /** @var string */
+    public $description;
+    /** @var string */
+    public $image;
+    /** @var string */
+    public $anchor;
+    /** @var string */
+    public $threshold;
+    /** @var string[] */
+    public $assignments;
+
+    function __construct($badge)
     {
-        if ($pageIndex > 0) {
-            // Paginate backward if prev page is there in same lesson
-            return $module->lessons[$lessonIndex]->pages[$pageIndex - 1];
-        } else if ($lessonIndex > 0) {
-            // Otherwise, look to the last page of the previous lesson
-            $prevLessonPages = $module->lessons[$lessonIndex - 1]->pages;
-            if (isset($prevLessonPages) && count($prevLessonPages) > 0) {
-                // If pages exist in prev lesson, get last one
-                return $prevLessonPages[count($prevLessonPages) - 1];
-            } else {
-                // Otherwise, go to the previous lesson
-                return $this->findPreviousPage($lessonIndex - 1, count($prevLessonPages) - 1, $module);
-            }
-        } else {
-            // No previous page found
-            return null;
+        $this->title = $badge->title;
+        $this->description = $badge->description;
+        $this->image = $badge->image;
+        $this->anchor = $badge->anchor;
+        $this->threshold = $badge->threshold;
+        $this->assignments = $badge->assignments;
+    }
+}
+
+class UserProfile
+{
+    // If Topic -> Author
+    // If Sync -> Facilitator or Instructor
+    // If Async -> Creator/Author/Instructor?
+    // They are still a Tsugi User, but this has a reference to any ancillary info
+}
+
+class CourseProgress
+{
+    // At the page-level to determine progress - do we need this?
+}
+
+class Exercise
+{
+    /** @var 'QUICK_WRITE' | 'QUICK_QUIZ' | 'INTERACTIVE_VIDEO' | Other? */
+    public $type;
+    /** @var string */
+    public $header;
+    /** @var string[] */
+    public $text;
+    /** @var string */
+    public $ltiUrl;
+
+    function __construct($exercise)
+    {
+        // Need to build out what makes an exercise here...
+        // ContextId? LinkId?
+    }
+}
+
+class Content
+{
+    /** @var 'TEXT' | 'VIDEO' | 'LTI' | 'LINK' | 'UNORDERED_LIST' | 'ORDERED_LIST' */
+    public $type;
+    /** @var string[] */
+    public $paragraphs;
+    /** @var VideoContent */
+    public $video;
+    /** @var LtiContent */
+    public $lti;
+    /** @var LinkContent */
+    public $link;
+    /** @var Content[] */
+    public $unorderedList;
+    /** @var Content[] */
+    public $orderedList;
+
+    function __construct($content)
+    {
+        $this->type = $content->type;
+        if ($content->type == 'TEXT') {
+            $this->paragraphs = $content->paragraphs ?? [];
+        } else if ($content->type == 'VIDEO') {
+            $this->video = new VideoContent($content->video->title, $content->video->warpwire);
+        } else if ($content->type == 'LTI') {
+            $this->lti = new LtiContent($content->lti);
+        } else if ($content->type == 'LINK') {
+            $this->link = new LinkContent($content->title, $content->icon, $content->href);
+        } else if ($content->type == 'ORDERED_LIST') {
+            $this->orderedList = new ListContent($content->listItems);
         }
     }
+}
 
-    protected function findNextPage(int $lessonIndex, int $pageIndex, Module $module)
+class ListContent
+{
+    /** @var Content[] */
+    public $contents;
+
+    function __construct($contentItems)
     {
-        if ($pageIndex < count($module->lessons[$lessonIndex]->pages) - 1) {
-            // Paginate forward if next page is there in same lesson
-            return $module->lessons[$lessonIndex]->pages[$pageIndex + 1];
-        } else if ($lessonIndex < count($module->lessons) - 1) {
-            // Otherwise, look to the first page of the next lesson
-            $nextLessonPages = $module->lessons[$lessonIndex + 1]->pages;
-            if (isset($nextLessonPages) && count($nextLessonPages) > 0) {
-                // If pages exist in the next lesson, get the first one
-                return $nextLessonPages[0];
-            } else {
-                // Otherwise, go to the next lesson
-                return $this->findNextPage($lessonIndex + 1, 0, $module);
-            }
-        } else {
-            // No next page found
-            return null;
+        $newContents = [];
+        foreach ($contentItems as $content) {
+            array_push($newContents, new Content($content));
         }
+        $this->contents = $newContents;
+    }
+}
+
+class VideoContent
+{
+    /** @var string */
+    public $title;
+    /** @var string */
+    public $warpwire;
+
+    function __construct($title, $warpwire)
+    {
+        $this->title = $title ?? null;
+        $this->warpwire = $warpwire ?? null;
+    }
+}
+
+class LinkContent
+{
+    /** @var string */
+    public $title;
+    /** @var string */
+    public $icon;
+    /** @var string */
+    public $url;
+
+    function __construct($title, $icon, $url)
+    {
+        $this->title = $title ?? null;
+        $this->icon = $icon ?? null;
+        $this->url = $url ?? null;
+    }
+}
+
+class LtiContent
+{
+    /** @var string */
+    public $header;
+    /** @var string */
+    public $description;
+    /** @var string */
+    public $icon;
+    /** @var string */
+    public $title;
+    /** @var string */
+    public $launch;
+    /** @var string */
+    public $resource_link_id;
+    /** @var boolean */
+    public $external;
+
+    function __construct($lti)
+    {
+        $this->header = $lti->header ?? null;
+        $this->description = $lti->description ?? null;
+        $this->icon = $lti->icon ?? null;
+        $this->title = $lti->title ?? null;
+        $this->launch = $lti->launch ?? null;
+        $this->external = $lti->external ?? null;
+        $this->resource_link_id = $lti->resource_link_id ?? null;
     }
 }

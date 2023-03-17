@@ -11,8 +11,8 @@
 {% endapply %}
 
 <div class="generic-lti d-flex">
-	{% if logged_in %}
-		<a class="btn btn-default" href="{{lti_launch_path}}/{{lti.resource_link_id}}">
+	{% if authorized %}
+		<a class="btn btn-default" href="{{ltiRoot}}/{{lti.resource_link_id}}">
 			<span class="fa fa-fw {{lti.icon}}"></span>
 			{{lti.title}}</a>
 	{% else %}

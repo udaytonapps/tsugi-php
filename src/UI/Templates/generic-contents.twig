@@ -7,7 +7,7 @@
 </style>
 {% endapply %}
 
-{% macro renderContent(content) %}
+{% macro renderContent(content, authorized, ltiRoot) %}
 	{% if content.type == "TEXT" %}
 		{% for text in content.paragraphs %}
 			<p>{{text}}</p>
@@ -37,7 +37,7 @@
 <div class="generic-contents">
 	{% for content in contents %}
 		<div class="content-item">
-			{{_self.renderContent(content)}}
+			{{_self.renderContent(content, authorized, ltiRoot)}}
 		</div>
 	{% endfor %}
 </div>
