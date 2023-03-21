@@ -1,0 +1,76 @@
+{% apply inline_css %}
+<style>
+	.program-container {
+		margin-bottom: 32px;
+	}
+	.grades-container {
+		width: 30%;
+	}
+	.grades-container li {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+</style>
+{% endapply %}
+<div class="container">
+	<br>
+	<h1>Progress</h1>
+	<br>
+	{% for moduleHolder in modules %}
+		{% if moduleHolder.moduleData %}
+			<div class="program-container">
+				<h4 class="bg-light p-2 border-top border-bottom">{{moduleHolder.courseTitle}}</h4>
+				<ul class="list-group list-group-light list-group-small">
+					{% for module in moduleHolder.moduleData %}
+						{% if module.ltiItems %}
+							<li class="list-group-item d-flex justify-content-between align-items-start">
+								<div class="ps-4">
+									{% if module.session %}
+										<span class="text-muted">{{module.session}}</span><br>
+									{% endif %}
+									<a href="{{module.url}}">{{module.title}}</a>
+								</div>
+								<div class='pe-4 grades-container'>
+									<ul class="list-group list-group-light list-group-small">
+										{% for lti in module.ltiItems %}
+											{% if lti.hidden != true %}
+												<li class="list-group-item">
+													{% set grade = getGradeByRlid(module.grades, lti.resource_link_id) %}
+													{% if grade %}
+														{% if grade == 1 %}
+															<a href="#" data-mdb-toggle="tooltip" title="Complete">
+																<i class="far fa-check-circle text-success" style="padding-right: 5px;"></i>
+															</a>
+														{% elseif grade > 0 %}
+															<a href="#" data-mdb-toggle="tooltip" title="In Progress">
+																<i class="fas fa-spinner text-info" aria-hidden="true" style="padding-right: 5px;"></i>
+															</a>
+														{% else %}
+															<a href="#" data-mdb-toggle="tooltip" title="Not started">
+																<i class="far fa-circle text-danger" aria-hidden="true" style="padding-right: 5px;"></i>
+															</a>
+														{% endif %}
+													{% else %}
+														<a href="#" data-mdb-toggle="tooltip" title="Not started">
+															<i class="far fa-circle text-danger" aria-hidden="true" style="padding-right: 5px;"></i>
+														</a>
+													{% endif %}
+													{% if lti.assignmenttitle %}
+														{{ lti.assignmenttitle}}
+													{% elseif lti.title %}
+														{{lti.title}}
+													{% endif %}
+												</li>
+											{% endif %}
+										{% endfor %}
+									</ul>
+								</div>
+							</li>
+						{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
+	{% endfor %}
+</div>

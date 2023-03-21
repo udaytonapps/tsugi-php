@@ -9,7 +9,7 @@
 		font-size: 14px;
 	}
 	.async-module-lessons-list .page-li {
-		padding-left: 24px;
+		padding-left: 38px;
 	}
 	.async-module-lessons-list .page-title {
 		margin-left: 10px;
@@ -29,6 +29,9 @@
 	.async-module-lessons-list .list-link {
 		border-radius: 0 !important;
 	}
+	.async-module-lessons-list .progress-icon {
+		padding-right: 5px;
+	}
 </style>
 {% endapply %}
 
@@ -43,36 +46,62 @@
 <div class="async-module-lessons-list">
 	{% for idx, lesson in module.lessons %}
 		<h6 class="p-2 border expand-button" href="#!" role="button" data-mdb-toggle="collapse" data-mdb-target="#collapse-{{idx}}" aria-expanded={{collapsed ? "false" : "true"}} aria-controls="collapse-{{idx}}">
-			{% if page.anchor == lessonPage.anchor %}
-				<i class="fa fa-dot-circle-o text-primary"></i>
-			{% else %}
-				{% set icon = random(['<i class="fas fa-check-circle text-success"></i>', '<i class="far fa-circle"></i>']) %}
-				{{icon | raw}}
-				{% if icon is null %}
-					<i class="fas fa-check-circle text-success"></i>
-					<i class="far fa-circle"></i>
-				{% endif %}
-			{% endif %}
 			<span class="expand-icon-wrapper">
 				<i class="fas fa-chevron-right"></i>
 				<i class="fas fa-chevron-down"></i>
 			</span>
+			{# PROGRESS INDICATOR FOR LESSON #}
+			{% set moduleProgress = attribute(progress, program ~ '_' ~ module.anchor) %}
+			{% set moduleProgress = attribute(progress, program ~ '_' ~ module.anchor) %}
+			{% set atLeastOneComplete = false %}
+			{% set atLeastOneNotComplete = false %}
+			{% if moduleProgress is null  %}
+				{% set icon = '<i class="far fa-circle progress-icon"></i>' %}
+			{% else %}
+				{# Check status of all pages to set lesson icon #}
+				{% for lessonPage in lesson.pages %}
+					{% set progressIndicator = attribute(moduleProgress, lessonPage.anchor) %}
+					{% if progressIndicator %}
+						{% set atLeastOneComplete = true %}
+					{% else %}
+						{% set atLeastOneNotComplete = true %}
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+			{% if icon %}
+				{{icon | raw}}
+			{% elseif atLeastOneComplete and atLeastOneNotComplete == false %}
+				<i class="far fa-check-circle text-success progress-icon"></i>
+			{% elseif atLeastOneComplete %}
+				<i class="fas fa-spinner text-info progress-icon"></i>
+			{% else %}
+				<i class="far fa-circle progress-icon"></i>
+			{% endif %}
 			{{lesson.title}}
 		</h6>
 		<ul class="list-group list-group-light mb-4 collapse {{_self.showClass(collapsed, page, lesson)}} mt-3" id="collapse-{{idx}}">
 			<li class="teaser-li list-group-item d-flex justify-content-between align-items-center">{{lesson.teaser}}</li>
 			{% for lessonPage in lesson.pages %}
 				<a href="{{linkRoot}}{{lessonPage.anchor}}" class="list-link {{page.anchor == lessonPage.anchor ? 'active' : ''}} page-li list-group-item d-flex justify-content-between align-items-center">
-					<div class="d-flex align-items-center">
-
+					<div
+						class="d-flex align-items-center">
+						{# PROGRESS INDICATOR FOR PAGE #}
 						{% if page.anchor == lessonPage.anchor %}
 							<i class="fa fa-dot-circle-o text-primary"></i>
 						{% else %}
-							{% set icon = random(['<i class="fas fa-check-circle text-success"></i>', '<i class="far fa-circle"></i>']) %}
-							{{icon | raw}}
-							{% if icon is null %}
-								<i class="fas fa-check-circle text-success"></i>
+							{% set moduleProgress = attribute(progress, program ~ '_' ~ module.anchor) %}
+							{% if moduleProgress is null %}
 								<i class="far fa-circle"></i>
+							{% else %}
+								{# A timestamp by default that indicates time accessed, otherwise false #}
+								{% set progressIndicator = attribute(moduleProgress, lessonPage.anchor) %}
+								{% if progressIndicator %}
+									<i class="far fa-check-circle text-success"></i>
+								{% elseif progressIndicator is not null %}
+									<i class="fas fa-spinner text-info"></i>
+								{% elseif progressIndicator is null %}
+									<i class="far fa-circle"></i>
+								{% endif %}
 							{% endif %}
 						{% endif %}
 						<span class="page-title">{{lessonPage.title}}</span>
