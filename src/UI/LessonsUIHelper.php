@@ -13,14 +13,20 @@ class LessonsUIHelper
 
     public static function twig()
     {
+        global $CFG;
         if (!isset($_loader) || !isset($_twig)) {
             self::$_loader = new \Twig\Loader\FilesystemLoader([
                 __DIR__ . '/Templates',
                 __DIR__ . '/Templates/pages',
             ]);
-            self::$_twig = new \Twig\Environment(self::$_loader, [
-                // 'cache' => __DIR__ . '/Templates/_cache',
-            ]);
+            // Don't use the twig cache locally
+            if (isset($CFG->local_dev_server) && $CFG->local_dev_server) {
+                self::$_twig = new \Twig\Environment(self::$_loader);
+            } else {
+                self::$_twig = new \Twig\Environment(self::$_loader, [
+                    'cache' => __DIR__ . '/Templates/_cache',
+                ]);
+            }
             self::$_twig->addExtension(new CssInlinerExtension());
         }
         return self::$_twig;
