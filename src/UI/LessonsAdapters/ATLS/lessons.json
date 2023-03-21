@@ -146,7 +146,8 @@
           "assignmenttitle": "Admin Only",
           "launch" : "/mod/learn-registration/?atls_session_id=core-1&atls_view=ADMINISTRATION",
           "resource_link_id" : "admin-core-1",
-          "type": "ADMINISTRATION"
+          "type": "ADMINISTRATION",
+          "hidden": true
         }
       ],
       "resources" : [

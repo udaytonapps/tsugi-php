@@ -144,9 +144,13 @@ class Output {
         <!-- Google Fonts Roboto -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
         <!-- MDB -->
-        <link rel="stylesheet" href="<?= $CFG->staticroot ?>/MDB5-STANDARD-UI-KIT-Free-6.1.0/css/custom.css" />
-        <!-- <link rel="stylesheet" href="<?= $CFG->staticroot ?>/MDB5-STANDARD-UI-KIT-Free-6.1.0/css/mdb.dark.min.css" /> -->
-
+        <?php if (isset($CFG->theme_dark_mode) && $CFG->theme_dark_mode) {
+            ?><link rel="stylesheet" href="<?= $CFG->staticroot ?>/MDB5-STANDARD-UI-KIT-Free-6.1.0/css/mdb.dark.min.css" /><?php
+        } else {
+            ?><link rel="stylesheet" href="<?= $CFG->staticroot ?>/MDB5-STANDARD-UI-KIT-Free-6.1.0/css/custom.css" /><?php
+        }
+        ?>
+        
         <link href="<?= $CFG->staticroot ?>/js/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
         <?php if ( strpos($CFG->fontawesome, 'free-5.') > 0 ) { ?>
         <link href="<?= $CFG->fontawesome ?>/css/all.css" rel="stylesheet">

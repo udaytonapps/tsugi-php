@@ -813,6 +813,15 @@ class ConfigInfo {
      */
     public $google_classroom_logo = null;
 
+    /** Added while building new LEARN platform */
+    public $lessons;
+    public $external_store;
+    public $external_store_key;
+    public $external_store_secret;
+    public $local_dev_server;
+    public $fontawesome;
+
+
     /**
      * Create the configuration object.
      *
