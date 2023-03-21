@@ -1,7 +1,7 @@
 <div class="container">
-	<h4>{{course.title}}
-		COURSE TITLE</h4>
+	<br>
 	<h1>Badges</h1>
+	<br>
 
 	<ul class="nav nav-tabs mb-3" id="badgetabs" role="tablist">
 		<li class="nav-item" role="presentation">
@@ -20,7 +20,8 @@
             {% for badgeDataRows in allBadges %}
                 {% if badgeDataRows.badgeData | length %}
                 <div class="mb-3">
-                    <h4>{{badgeDataRows.title}}</h4>
+                    {# <h4>{{badgeDataRows.title}}</h4> #}
+					<h4 class="bg-light p-2 border-top border-bottom">{{badgeDataRows.title}}</h4>
                 </div>
                 <div class="d-flex flex-wrap align-items-stretch justify-content-center mb-5">
                     {% for badgeData in badgeDataRows.badgeData %}                        

@@ -55,15 +55,13 @@
 						{% for resource_link_id in badgeData.badge.assignments %}
 							{% set module = getModuleByRlid(badgeData.parentCourse, resource_link_id) %}
 							{% set lti = getLtiByRlid(badgeData.parentCourse, resource_link_id) %}
-
-							{% set score = allgrades[resource_link_id] is defined ? allgrades[resource_link_id] : 0 %}
+							{% set score = badgeDataRows.programGrades[resource_link_id] is defined ? badgeDataRows.programGrades[resource_link_id] : 0 %}
 							{% set progress = score * 100 | trim %}
 							{% set progress = progress < 5 ? 5 : progress %}
-							{% set kind = progress >= 100 ? 'succes' : progress > 50 ? 'info' : progress > 5 ? 'warning' : 'danger' %}
+							{% set kind = progress >= 100 ? 'success' : progress > 50 ? 'info' : progress > 5 ? 'warning' : 'danger' %}
 							<div class="d-flex">
 								<div>
-									{# $rest_path = U::rest_path();
-                                    $href = $rest_path->parent . '/sessions/' . urlencode($lesson->anchor); #}
+									{% set url = getModuleUrl(badgeData.program, module.anchor) %}
 									{% if kind == 'success' %}
 										<span class="far fa-check-square text-success" aria-hidden="true" style="padding-right: 5px;"></span>
 									{% elseif kind == 'warning' or kind == 'info' %}
@@ -72,16 +70,15 @@
 										<span class="far fa-square text-info" aria-hidden="true" style="padding-right: 5px;"></span>
 									{% endif %}
 								</div>
-								<a class="flex-grow-1" href="' . $href . '">
-									{% set title = module.title is defined ? module.title : module.session %}
+								<a class="flex-grow-1" href="{{url}}">
+									{% set title = module.session is defined ? module.session : module.title %}
 									{{ title | length > 30 ? title | slice(0, 30) ~ '...' : title  }}
-
 									-
 									{% set ltiTitle = lti.assignmenttitle is defined ? lti.assignmenttitle : lti.title %}
 									{{ ltiTitle | length > 30 ? ltiTitle | slice(0, 30) ~ '...' : ltiTitle  }}
 								</a>
 								<div class="text-right" style="font-weight: bold;">
-									<a href="' . $href . '">
+									<a href="{{url}}">
 										{% if kind == 'danger' %}
 											<span class="text-danger">Not Started</span>
 										{% elseif kind == 'warning' %}
