@@ -9,13 +9,6 @@
 
 namespace Tsugi\UI\StandardSync;
 
-use CourseBase;
-
-class SyncBase extends CourseBase
-{
-    // protected SyncCourse $course;
-}
-
 class SyncCourse
 {
     // /** @var string */

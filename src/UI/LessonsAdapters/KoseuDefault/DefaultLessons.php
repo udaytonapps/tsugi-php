@@ -41,6 +41,7 @@ class DefaultLessons extends CourseBase
 
     protected string $category;
     public $course;
+    public $contextId;
 
     /**
      * get a setting for the lesson

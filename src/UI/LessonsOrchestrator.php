@@ -56,7 +56,7 @@ class LessonsOrchestrator
         }
     }
 
-    public static function getLessons($nameKey = 'ATLS', $moduleAnchor = null, $pageAnchor = null, $index = null): CourseBase
+    public static function getLessons($nameKey, $moduleAnchor = null, $pageAnchor = null, $index = null): CourseBase
     {
         try {
             // Instantiate and return the relevant Lessons class
@@ -96,55 +96,6 @@ class LessonsOrchestrator
         $url = trim($url);
         $url = self::expandLink($url);
         $url = U::absolute_url($url);
-    }
-
-    public function initContext($context_title)
-    {
-        global $CFG, $PDOX;
-
-        $oauth_consumer_key = 'google.com';
-
-        // First we make sure that there is a google.com key
-        $stmt = $PDOX->queryDie(
-            "SELECT key_id, secret FROM {$CFG->dbprefix}lti_key
-                WHERE key_sha256 = :SHA LIMIT 1",
-            array('SHA' => lti_sha256($oauth_consumer_key))
-        );
-        $key_row = $stmt->fetch(\PDO::FETCH_ASSOC);
-        if ($key_row === false) {
-            die_with_error_log('Error: No key defined for accounts from google.com');
-        }
-        $google_key_id = $key_row['key_id'] + 0;
-        $google_secret = $key_row['secret'];
-        if ($google_key_id < 1) {
-            die_with_error_log('Error: No key for accounts from google.com');
-        }
-        $context_key = false;
-        $context_id = false;
-        // If there is a global course, grab it or make it
-        $context_key = 'course:' . md5($context_title);
-
-        $row = $PDOX->rowDie(
-            "SELECT context_id FROM {$CFG->dbprefix}lti_context
-            WHERE context_sha256 = :SHA AND key_id = :KID LIMIT 1",
-            array(':SHA' => lti_sha256($context_key), ':KID' => $google_key_id)
-        );
-
-        if ($row != false) {
-            $context_id = $row['context_id'];
-        } else {
-            $sql = "INSERT INTO {$CFG->dbprefix}lti_context
-                ( context_key, context_sha256, title, key_id, created_at, updated_at ) VALUES
-                ( :context_key, :context_sha256, :title, :key_id, NOW(), NOW() )";
-            $PDOX->queryDie($sql, array(
-                ':context_key' => $context_key,
-                ':context_sha256' => lti_sha256($context_key),
-                ':title' => $context_title,
-                ':key_id' => $google_key_id
-            ));
-            $context_id = $PDOX->lastInsertId();
-        }
-        return $context_id;
     }
 
     /*
@@ -523,5 +474,93 @@ class LessonsOrchestrator
             }
         }
         return null;
+    }
+
+    public static function getModuleLtiItems($module)
+    {
+        $ltiItems = [];
+        // Sync
+        if (isset($module->lti)) {
+            foreach ($module->lti as $lti) {
+                $ltiItems[] = $lti;
+            }
+        }
+
+        // Async
+        if (isset($module->lessons)) {
+            foreach ($module->lessons as $lesson) {
+                if (isset($lesson->pages)) {
+                    foreach ($lesson->pages as $page) {
+                        if (isset($page->contents)) {
+                            foreach ($page->contents as $content) {
+                                if (isset($content->lti)) {
+                                    $ltiItems[] = $content->lti;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return $ltiItems;
+    }
+
+    public static function getOrInitAllAdapterContextIds($program, $adapter)
+    {
+        $contextIds = [];
+        foreach ($adapter->course->modules as $module) {
+            $contextKey = "{$program}_{$module->anchor}";
+            $contextId = self::getOrInitContextId($module->title, $contextKey);
+            $contextIds[] = (int)$contextId;
+        }
+        return $contextIds;
+    }
+
+    public static function getOrInitContextId($courseTitle, $contextKey)
+    {
+        global $CFG, $PDOX;
+        $oauth_consumer_key = 'google.com';
+
+        // First we make sure that there is a google.com key
+        $stmt = $PDOX->queryDie(
+            "SELECT key_id, secret FROM {$CFG->dbprefix}lti_key
+        WHERE key_sha256 = :SHA LIMIT 1",
+            array('SHA' => lti_sha256($oauth_consumer_key))
+        );
+        $key_row = $stmt->fetch(\PDO::FETCH_ASSOC);
+        if ($key_row === false) {
+            die_with_error_log('Error: No key defined for accounts from google.com');
+        }
+        $google_key_id = $key_row['key_id'] + 0;
+        $google_secret = $key_row['secret'];
+        if ($google_key_id < 1) {
+            die_with_error_log('Error: No key for accounts from google.com');
+        }
+
+        $context_key = false;
+        $context_id = false;
+        $context_key = 'course:' . md5($contextKey);
+
+        $row = $PDOX->rowDie(
+            "SELECT context_id FROM {$CFG->dbprefix}lti_context
+            WHERE context_sha256 = :SHA AND key_id = :KID LIMIT 1",
+            array(':SHA' => lti_sha256($context_key), ':KID' => $google_key_id)
+        );
+
+        if ($row != false) {
+            $context_id = $row['context_id'];
+        } else {
+            $sql = "INSERT INTO {$CFG->dbprefix}lti_context
+                ( context_key, context_sha256, title, key_id, created_at, updated_at ) VALUES
+                ( :context_key, :context_sha256, :title, :key_id, NOW(), NOW() )";
+            $PDOX->queryDie($sql, array(
+                ':context_key' => $context_key,
+                ':context_sha256' => lti_sha256($context_key),
+                ':title' => $courseTitle,
+                ':key_id' => $google_key_id
+            ));
+            $context_id = $PDOX->lastInsertId();
+        }
+        return $context_id;
     }
 }

@@ -2,13 +2,15 @@
 
 namespace Tsugi\UI\StandardAsync;
 
-use \Tsugi\Util\U;
+use CourseBase;
+use Tsugi\Util\U;
 use Tsugi\Core\LTIX;
 use Tsugi\UI\LessonsOrchestrator;
 use Tsugi\UI\LessonsUIHelper;
+use Tsugi\Grades\GradeUtil;
 
 
-class StandardAsyncAdapter extends AsyncBase
+class StandardAsyncAdapter extends CourseBase
 {
     public AsyncCourse $course;
     /** Index by resource_link */
@@ -28,6 +30,8 @@ class StandardAsyncAdapter extends AsyncBase
     /** The root path to the context-specific session data */
     public $contextRoot;
 
+    public $contextKey;
+    public int $contextId;
     protected string $category;
 
     function __construct($relativeContext, $moduleAnchor = null, $pageAnchor = null, $index = null)
@@ -54,9 +58,13 @@ class StandardAsyncAdapter extends AsyncBase
                     if ($index !== null && $index != $count) continue;
                     if ($moduleAnchor == null && isset($mod->anchor)) $moduleAnchor = $mod->anchor;
                     $this->activeModule = $mod;
+                    $this->contextKey = "{$this->category}_{$this->activeModule->anchor}";
                     $this->position = $count;
+                    // Set contextId
+                    $this->contextId = LessonsOrchestrator::getOrInitContextId($this->activeModule->title, $this->contextKey);
                 }
             }
+
 
             if (isset($pageAnchor)) {
                 foreach ($this->activeModule->lessons as $lessonIndex => $lesson) {
@@ -151,7 +159,12 @@ class StandardAsyncAdapter extends AsyncBase
 
         $rest_path = U::rest_path();
         $launch_path = "{$rest_path->parent}/{$rest_path->controller}/{$this->category}/{$this->activeModule->anchor}/{$this->activePage->anchor}/lti-launch";
+
+        $this->updatePagesProgress($this->category, $this->activeModule->anchor, $this->activePage->anchor);
+        $progress = $this->getPagesProgress();
+
         echo $twig->render('async-module-lesson-page.twig', [
+            'program' => $this->category,
             'breadcrumbs' => $this->getBreadcrumbs(),
             'prevPage' => $prevPage,
             'nextPage' => $nextPage,
@@ -160,6 +173,7 @@ class StandardAsyncAdapter extends AsyncBase
             'lti_launch_path' => $launch_path,
             'ltiRoot' => $launch_path,
             'authorized' => true, // TODO
+            'progress' => $progress,
         ]);
     }
 
@@ -167,10 +181,14 @@ class StandardAsyncAdapter extends AsyncBase
     {
         $twig = LessonsUIHelper::twig();
 
+        $progress = $this->getPagesProgress();
+
         echo $twig->render('async-module-landing-page.twig', [
+            'program' => $this->category,
             'breadcrumbs' => $this->getBreadcrumbs(),
             'base_url_warpwire' => $this->base_url_warpwire,
-            'module' => (array)$this->activeModule
+            'module' => (array)$this->activeModule,
+            'progress' => $progress,
         ]);
     }
 
@@ -217,14 +235,33 @@ class StandardAsyncAdapter extends AsyncBase
         echo $twig->render('async-all-modules-page.twig', (array)$allowedModules);
     }
 
+
+
+    public function getLtiContent($module = null)
+    {
+        $ltiContent = [];
+        if (isset($module)) {
+            $modules = [$module];
+        } else {
+            $modules = $this->course->modules;
+        }
+        foreach ($modules as $mod) {
+            foreach ($mod->lessons as $lesson) {
+                foreach ($lesson->pages as $page) {
+                    foreach ($page->contents as $content) {
+                        if (isset($content->lti)) {
+                            $ltiContent[] = $content->lti;
+                        }
+                    }
+                }
+            }
+        }
+        return $ltiContent;
+    }
+
     /** Get an LTI or Discussion associated with a resource link ID */
     public function getLtiByRlid($resource_link_id)
     {
-        // if (isset($this->lessons->discussions)) {
-        //     foreach ($this->lessons->discussions as $discussion) {
-        //         if ($discussion->resource_link_id == $resource_link_id) return $discussion;
-        //     }
-        // }
         foreach ($this->course->modules as $mod) {
             foreach ($mod->lessons as $lesson) {
                 foreach ($lesson->pages as $page) {
@@ -232,12 +269,6 @@ class StandardAsyncAdapter extends AsyncBase
                         if (isset($content->lti)) {
                             if ($content->lti->resource_link_id == $resource_link_id) return $content->lti;
                         }
-                        // if (isset($mod->discussions)) {
-                        //     foreach ($mod->discussions as $discussion) {
-                        //         if ($discussion->resource_link_id == $resource_link_id) return $discussion;
-                        //     }
-                        // }
-
                     }
                 }
             }
@@ -255,16 +286,139 @@ class StandardAsyncAdapter extends AsyncBase
                         if (isset($content->lti)) {
                             if ($content->lti->resource_link_id == $resource_link_id) return $mod;
                         }
-                        // if (isset($mod->discussions)) {
-                        //     foreach ($mod->discussions as $discussion) {
-                        //         if ($discussion->resource_link_id == $resource_link_id) return $discussion;
-                        //     }
-                        // }
-
                     }
                 }
             }
         }
         return null;
+    }
+
+    public function getPagesProgress()
+    {
+        global $CFG, $PDOX;
+        $progress = null;
+        // "asyncProgress": { "moduleAnchor": { "pageAnchor": "02-02-2023-01:02:12Z" }
+        if (isset($_SESSION) && isset($_SESSION['profile_id'])) {
+            // Standard retrieval of profile info
+            $stmt = $PDOX->queryDie(
+                "SELECT json FROM {$CFG->dbprefix}profile WHERE profile_id = :PID",
+                array('PID' => $_SESSION['profile_id'])
+            );
+            $profile_row = $stmt->fetch(\PDO::FETCH_ASSOC);
+            if (!empty($profile_row) && !is_null($profile_row['json'])) {
+                $profile = json_decode($profile_row['json']);
+                // If there is any progress, we need to check against LTI tools as well
+                if (isset($profile->asyncProgress)) {
+                    $grades = GradeUtil::loadGradesForCourse($_SESSION['id'], $this->contextId);
+                    $progress = $profile->asyncProgress;
+                    // Initialize the module anchor if it doesn't exist (it may be null in the json)
+                    if (!isset($progress->{$this->contextKey})) $progress->{$this->contextKey} = (object)[];
+                    foreach ($this->activeModule->lessons as $lesson) {
+                        foreach ($lesson->pages as $page) {
+                            // Initialize the page anchor if it doesn't exist (it may be null in the json)
+                            if (!isset($progress->{$this->contextKey}->{$page->anchor})) $progress->{$this->contextKey}->{$page->anchor} = null;
+                            foreach ($page->contents as $content) {
+                                if (isset($content->lti)) {
+                                    // Assume any LTI tool is ungraded - the grade rows will update the progress
+                                    $originalTimestamp = $progress->{$this->contextKey}->{$page->anchor};
+                                    if (isset($originalTimestamp)) {
+                                        $progress->{$this->contextKey}->{$page->anchor} = false;
+                                    } else {
+                                        $progress->{$this->contextKey}->{$page->anchor} = null;
+                                    }
+                                    foreach ($grades as $row) {
+                                        if ($row['resource_link_id'] == $content->lti->resource_link_id) {
+                                            if (isset($row['grade'])) {
+                                                $progress->{$this->contextKey}->{$page->anchor} = $originalTimestamp;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return $progress;
+    }
+
+    public function updatePagesProgress($program, $moduleAnchor, $pageAnchor)
+    {
+        global $CFG, $PDOX;
+        if (isset($_SESSION['profile_id'])) {
+            $stmt = $PDOX->queryDie(
+                "SELECT json FROM {$CFG->dbprefix}profile WHERE profile_id = :PID",
+                array('PID' => $_SESSION['profile_id'])
+            );
+            $profile_row = $stmt->fetch(\PDO::FETCH_ASSOC);
+            $profile = json_decode($profile_row['json']);
+
+            if (!is_object($profile)) $profile = (object)[];
+
+            if (!isset($profile->asyncProgress)) {
+                $profile->asyncProgress = (object)[];
+            }
+            $asyncProgress = $profile->asyncProgress;
+
+            $moduleKey = "{$program}_{$moduleAnchor}";
+            if (!isset($asyncProgress->{$moduleKey})) {
+                $asyncProgress->{$moduleKey} = (object)[];
+            }
+            $moduleProgress = $asyncProgress->{$moduleKey};
+
+            // Only update if it doesn't already exist at the page level
+            if (!isset($moduleProgress->{$pageAnchor})) {
+                $moduleProgress->{$pageAnchor} =  "02-02-2023-01:02:12";
+                $new_json = json_encode($profile);
+                $stmt = $PDOX->queryDie(
+                    "UPDATE {$CFG->dbprefix}profile SET json= :JSON
+                    WHERE profile_id = :PID",
+                    array('JSON' => $new_json, 'PID' => $_SESSION['profile_id'])
+                );
+            }
+        }
+    }
+
+    private function findPreviousPage(int $lessonIndex, int $pageIndex, AsyncModule $module)
+    {
+        if ($pageIndex > 0) {
+            // Paginate backward if prev page is there in same lesson
+            return $module->lessons[$lessonIndex]->pages[$pageIndex - 1];
+        } else if ($lessonIndex > 0) {
+            // Otherwise, look to the last page of the previous lesson
+            $prevLessonPages = $module->lessons[$lessonIndex - 1]->pages;
+            if (isset($prevLessonPages) && count($prevLessonPages) > 0) {
+                // If pages exist in prev lesson, get last one
+                return $prevLessonPages[count($prevLessonPages) - 1];
+            } else {
+                // Otherwise, go to the previous lesson
+                return $this->findPreviousPage($lessonIndex - 1, count($prevLessonPages) - 1, $module);
+            }
+        } else {
+            // No previous page found
+            return null;
+        }
+    }
+
+    private function findNextPage(int $lessonIndex, int $pageIndex, AsyncModule $module)
+    {
+        if ($pageIndex < count($module->lessons[$lessonIndex]->pages) - 1) {
+            // Paginate forward if next page is there in same lesson
+            return $module->lessons[$lessonIndex]->pages[$pageIndex + 1];
+        } else if ($lessonIndex < count($module->lessons) - 1) {
+            // Otherwise, look to the first page of the next lesson
+            $nextLessonPages = $module->lessons[$lessonIndex + 1]->pages;
+            if (isset($nextLessonPages) && count($nextLessonPages) > 0) {
+                // If pages exist in the next lesson, get the first one
+                return $nextLessonPages[0];
+            } else {
+                // Otherwise, go to the next lesson
+                return $this->findNextPage($lessonIndex + 1, 0, $module);
+            }
+        } else {
+            // No next page found
+            return null;
+        }
     }
 }

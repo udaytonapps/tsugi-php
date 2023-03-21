@@ -2,6 +2,7 @@
 
 namespace Tsugi\UI;
 
+use CourseBase;
 use \Tsugi\Util\U;
 use \Tsugi\Util\LTI;
 use \Tsugi\Core\LTIX;
@@ -12,7 +13,7 @@ use Tsugi\UI\LessonsOrchestrator;
 use Tsugi\UI\StandardSync\SyncBase;
 use Tsugi\UI\StandardSync\SyncCourse;
 
-class AtlsLessons extends SyncBase
+class AtlsLessons extends CourseBase
 {
 
     /** All the lessons */
@@ -37,6 +38,7 @@ class AtlsLessons extends SyncBase
     public $contextRoot;
 
     protected string $category;
+    public int $contextId;
 
     /*
      ** Load up the JSON from the file
@@ -63,6 +65,7 @@ class AtlsLessons extends SyncBase
                 if ($anchor == null && isset($mod->anchor)) $anchor = $mod->anchor;
                 $this->module = $mod;
                 $this->position = $count;
+                $this->contextId = LessonsOrchestrator::getOrInitContextId($this->module->title, "{$this->category}_{$this->module->anchor}");
                 if ($mod->anchor) $this->anchor = $mod->anchor;
             }
         }

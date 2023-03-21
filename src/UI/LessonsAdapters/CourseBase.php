@@ -1,7 +1,7 @@
 <?php
 
-use Tsugi\UI\LessonsUIHelper;
-use Tsugi\UI\StandardAsync\Module;
+use Tsugi\Grades\GradeUtil;
+use Tsugi\UI\LessonsOrchestrator;
 
 abstract class CourseBase
 {
@@ -10,39 +10,86 @@ abstract class CourseBase
 
     public function header()
     {
-        echo ("Did you set up header method for {$this->category} yet?");
+        echo ("Did you set up the header method for {$this->category} yet?");
     }
 
     public function render()
     {
-        echo ("Did you set up render method for {$this->category} yet?");
+        echo ("Did you set up the render method for {$this->category} yet?");
     }
 
     public function footer()
     {
-        echo ("Did you set up footer method for {$this->category} yet?");
+        echo ("Did you set up the footer method for {$this->category} yet?");
     }
 
     public function getModuleData()
     {
-        echo ("Did you set up getModules method for {$this->category} yet?");
+        echo ("Did you set up the getModules method for {$this->category} yet?");
     }
 
     public function getBadges()
     {
-        echo ("Did you set up getBadges method for {$this->category} yet?");
+        echo ("Did you set up the getBadges method for {$this->category} yet?");
     }
 
     public function getProgress()
     {
-        echo ("Did you set up getProgress method for {$this->category} yet?");
+        echo ("Did you set up the getProgress method for {$this->category} yet?");
     }
 
-    public function getBadgeData($adapter)
+    abstract public function getModuleByRlid($resource_link_id);
+    abstract public function getLtiByRlid($ltiAnchor);
+
+    public function getProgressData($program, $adapter)
+    {
+        global $CFG;
+        $ltiItems = [];
+        $moduleData = [];
+
+        foreach ($adapter->course->modules as $module) {
+            $moduleGrades = [];
+            $contextKey = "{$program}_{$module->anchor}";
+            $contextId = LessonsOrchestrator::getOrInitContextId($module->title, $contextKey);
+            $ltiItems = LessonsOrchestrator::getModuleLtiItems($module);
+            $rows = GradeUtil::loadGradesForCourse($_SESSION['id'], $contextId);
+            foreach ($rows as $row) {
+                $moduleGrades[$row['resource_link_id']] = $row['grade'];
+            }
+            if (count($ltiItems) > 0) {
+                $encodedAnchor = urlencode($module->anchor);
+                $moduleData[] = (object)[
+                    'title' => $module->title,
+                    'session'=> $module->session ?? null, // TODO: decide on naming
+                    'anchor' => $module->anchor,
+                    'ltiItems' => $ltiItems,
+                    'grades' => $moduleGrades,
+                    'url' => "{$CFG->apphome}/programs/{$program}/{$encodedAnchor}"
+                ];
+            }
+        }
+
+        return (object)[
+            'program' => $program,
+            'courseTitle' => $adapter->course->title,
+            'moduleData' => $moduleData,
+        ];
+    }
+
+    public function getBadgeData($program, $adapter)
     {
         global $CFG;
         $awarded = [];
         $badgeData = [];
+        $programGrades = [];
+        // Calculate contextIds
+        $contextIds = LessonsOrchestrator::getOrInitAllAdapterContextIds($program, $adapter);
+        if (isset($_SESSION['id']) && count($contextIds) > 0) {
+            $rows = GradeUtil::loadGradesForCourses($_SESSION['id'], $contextIds);
+            foreach ($rows as $row) {
+                $programGrades[$row['resource_link_id']] = $row['grade'];
+            }
+        }
         foreach ($adapter->course->badges as $badge) {
             $threshold = $badge->threshold;
             $count = 0;
@@ -50,7 +97,7 @@ abstract class CourseBase
             $scores = array();
             foreach ($badge->assignments as $resource_link_id) {
                 $score = 0;
-                if (isset($allgrades[$resource_link_id])) $score = 100 * $allgrades[$resource_link_id];
+                if (isset($programGrades[$resource_link_id])) $score = 100 * $programGrades[$resource_link_id];
                 $scores[$resource_link_id] = $score;
                 $total = $total + $score;
                 $count = $count + 1;
@@ -74,6 +121,7 @@ abstract class CourseBase
             }
 
             $badgeData[] = [
+                'program' => $program,
                 'badge' => $badge,
                 'progress' => $progress,
                 'kind' => $kind,
@@ -81,9 +129,11 @@ abstract class CourseBase
                 'parentCourse' => $adapter->course,
             ];
         }
+
         return (object)[
             'badgeData' => $badgeData,
             'awarded' => $awarded,
+            'programGrades' => $programGrades,
             'title' => $adapter->course->title
         ];
     }
