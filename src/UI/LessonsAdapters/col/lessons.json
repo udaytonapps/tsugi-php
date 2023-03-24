@@ -166,6 +166,7 @@
                 {
                   "type": "LTI",
                   "lti": {
+                    "threshold": 1,
                     "external": false,
                     "icon": "fa-list-ol",
                     "title": "Quiz: What is Isidore?",
@@ -238,6 +239,7 @@
                 {
                   "type": "LTI",
                   "lti": {
+                    "threshold": 1,
                     "icon": "fa-list-ol",
                     "title": "Quiz: Getting Started with Isidore",
                     "launch": "/mod/learn-quiz/index.php?quiz=bn_gettingstarted",
@@ -346,6 +348,7 @@
                 {
                   "type": "LTI",
                   "lti": {
+                    "threshold": 1,
                     "icon": "fa-pencil-square",
                     "title": "Sight my Site!",
                     "launch": "/mod/modquickwrite/",
@@ -367,6 +370,7 @@
                 {
                   "type": "LTI",
                   "lti": {
+                    "threshold": 1,
                     "icon": "fa-list-ol",
                     "title": "Course Site Creation Quiz",
                     "launch": "/mod/learn-quiz/index.php?quiz=bn_sitecreation",
@@ -419,6 +423,7 @@
                 {
                   "type": "LTI",
                   "lti": {
+                    "threshold": 1,
                     "icon": "fa-list-ol",
                     "title": "Overview Quiz",
                     "launch": "/mod/learn-quiz/index.php?quiz=101_overview",
@@ -2340,6 +2345,7 @@
           "section3title": "Tell us about your experience",
           "section3content": "Complete this two question survey to let us know about your experience organizing videos in Warpwire.",
           "lti": {
+            "threshold": 1,
             "header": "Quick Survey",
             "description": "Take the two question survey below to tell us about your experince.",
             "icon": "fa-list-ol",
