@@ -8,7 +8,7 @@
 				{% if loop.last %}
 					{{ crumb.label|length > 20 ? crumb.label|slice(0, 20) ~ '...' : crumb.label  }}
 				{% else %}
-					<a href="{{crumb.path | lower}}">{{ crumb.label|length > 20 ? crumb.label|slice(0, 20) ~ '...' : crumb.label  }}</a>
+					<a href="{{crumb.path}}">{{ crumb.label|length > 20 ? crumb.label|slice(0, 20) ~ '...' : crumb.label  }}</a>
 				{% endif %}
 			{% endfor %}
 		</li>

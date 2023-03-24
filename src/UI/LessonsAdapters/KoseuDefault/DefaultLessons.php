@@ -1289,11 +1289,23 @@ class DefaultLessons extends CourseBase
             return false;
         }
 
-        public function getModuleData()
+        public function getAllProgramsPageData()
+        {
+            global $CFG;
+            $modules = $this->getModuleCardData();
+            return (object)[
+                'genericImg' => $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.png',
+                // 'breadcrumbs' => $this->getBreadcrumbs(),
+                'course' => $this->course,
+                'moduleData' => $modules,
+            ];
+        }
+
+        public function getModuleCardData()
         {
             global $CFG;
 
-            $moduleCardData = (object)['moduleData' => []];
+            $moduleCardData = [];
             foreach ($this->lessons->modules as $module) {
 
                 // Don't render hidden or auth-only modules // TODO
@@ -1307,18 +1319,12 @@ class DefaultLessons extends CourseBase
 
                 $encodedAnchor = urlencode($module->anchor);
 
-                array_push($moduleCardData->moduleData, (object)[
+                array_push($moduleCardData, (object)[
                     'module' => $module,
                     'contextRoot' => $this->contextRoot,
-                    // 'moduleUrl' => U::get_rest_path() . '/' . urlencode($module->anchor),
                     'moduleUrl' => "{$CFG->apphome}/programs/{$this->category}/{$encodedAnchor}",
                 ]);
             }
-
-            // Assign default BG image, breadcrumbs and course info (for header)
-            $moduleCardData->genericImg = $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.png';
-            // $moduleCardData->breadcrumbs = $this->getBreadcrumbs();
-            $moduleCardData->course = $this->lessons;
 
             LessonsUIHelper::debugLog($moduleCardData);
 

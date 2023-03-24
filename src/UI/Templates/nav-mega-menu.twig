@@ -3,13 +3,19 @@
 	<!-- Dropdown -->
 	<li class="nav-item dropdown">
 		<a class="nav-link dropdown-toggle" href="#" id="mega-menu" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-			All Courses
+			Programs
 		</a>
 		<ul class="dropdown-menu" aria-labelledby="mega-menu">
-			{% for keyName, course in courses %}
+			<div class="pt-2">
+				<a class="dropdown-item" href="{{root}}">
+					All Programs
+				</a>
+				<li><hr class="dropdown-divider"/></li>
+			</div>
+			{% for keyName, program in programs %}
 				<li>
 					<a class="dropdown-item" href="{{root}}{{keyName}}">
-						{{course.displayLabel}}
+						{{program.displayLabel}}
 					</a>
 				</li>
 			{% endfor %}

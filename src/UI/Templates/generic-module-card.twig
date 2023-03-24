@@ -1,0 +1,99 @@
+{#
+'greeting' => $greeting,
+'regDate' => $regDate,
+'location' => $location,
+'buttonAction' => $buttonAction,
+'ltiUrl' => $buttonLtiUrl,
+'loginUrl' => $loginPath,
+'attended' => $attended,
+'absent' => $absent,
+'registered' => $registered,
+#}
+
+<div class="col-md-4 mb-2 p-2 d-flex align-items-stretch">
+	<div class="card w-100">
+		<div class="bg-image">
+			<img class="img-fluid" src="{{ card.module.image ? card.contextRoot ~ card.module.image : genericImg}}"/>
+			{% if card.moduleMetadata.registered or card.moduleMetadata.attended or card.moduleMetadata.absent %}
+				<div class="registration-info {{ card.moduleMetadata.absent ? 'absent-bg' : ''}} text-dark position-absolute top-0 start-0 h-100 w-100 d-flex align-items-center align-content-center">
+					<div class="text-center mx-auto">
+						<h5>
+							{% set status = card.moduleMetadata.attended ? 'Attended' : (card.moduleMetadata.registered ? 'Registered' : 'Absent') %}
+							<i class="fa {{card.moduleMetadata.absent ? 'fa-warning' : 'fa-check'}}" aria-hidden="true"></i>
+							{{status}}
+						</h5>
+						<p>
+							{{card.moduleMetadata.regDate | date('D, M j, Y g:i a')}}
+							<br/>{{card.moduleMetadata.location}}
+						</p>
+					</div>
+				</div>
+			{% endif %}
+			{% if card.module.calendar %}
+				<div class="card-time card-time-left">
+					<span class="far fa-calendar" aria-hidden="true"></span>
+					{{card.module.calendar}}
+				</div>
+			{% endif %}
+			{% if card.module.duration %}
+				<div class="card-time">
+					<span class="far fa-clock" aria-hidden="true"></span>
+					{{card.module.duration}}
+				</div>
+			{% endif %}
+		</div>
+		<div class="card-body pb-0">
+			<div>
+				{% if card.module.session %}
+					<h6 class="card-subtitle mt-1 mb-2 text-muted">
+						{% if card.module.icon %}
+							<i class="fa {{card.module.icon}} pe-1" aria-hidden="true"></i>
+						{% endif %}
+						{{card.module.session}}
+					</h6>
+				{% endif %}
+
+				<h5 class="card-title pb-2">{{card.module.title}}</h5>
+				{% if card.module.teaser %}
+					<p class="card-text">
+						{{ card.module.teaser|length > 50 ? card.module.teaser|slice(0, 50) ~ '...' :
+          card.module.teaser }}
+					</p>
+				{% endif %}
+			</div>
+		</div>
+		<div class="card-footer border-top-0 pt-0 d-flex align-">
+			<div style="display: flex">
+				{% if card.moduleMetadata.buttonAction %}
+					{% if card.moduleMetadata.buttonAction == 'LOGIN' %}
+						<a class="btn btn-primary" href="{{card.moduleMetadata.loginUrl}}" role="button">
+							<i class="fa fa-lock pe-1" aria-hidden="true"></i>
+							Login
+						</a>
+					{% elseif card.moduleMetadata.buttonAction == 'REGISTER' %}
+						<a class="btn btn-primary" href="{{card.moduleMetadata.ltiUrl}}" role="button">
+							Register
+						</a>
+					{% elseif card.moduleMetadata.buttonAction == 'COMPLETE' %}
+						<a class="btn btn-success" href="{{card.moduleMetadata.ltiUrl}}" role="button">
+							Complete
+						</a>
+					{% elseif card.moduleMetadata.buttonAction == 'FEEDBACK' %}
+						<a class="btn btn-primary" href="{{card.moduleMetadata.ltiUrl}}" role="button">
+							Provide Feedback
+						</a>
+					{% elseif card.moduleMetadata.buttonAction == 'CHANGE' %}
+						<a class="btn btn-link" href="{{card.moduleMetadata.ltiUrl}}" role="button">
+							Change Registration
+						</a>
+					{% else %}
+						<a class="btn btn-white" href="{{card.moduleMetadata.ltiUrl}}" role="button">
+							Register
+						</a>
+					{% endif %}
+				{% endif %}
+			</div>
+			<a href="{{card.moduleUrl}}" class="btn btn-link" data-mdb-ripple-color="dark">View Details</a>
+		</div>
+	</div>
+</div>

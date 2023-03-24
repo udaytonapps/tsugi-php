@@ -1,0 +1,90 @@
+<div class="container">
+	<br>
+	<h1>Browse Courses</h1>
+	<p class="lead">Explore self-paced courses as well as content on a variety of topics and technologies.</p>
+
+	<ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
+		<li class="nav-item" role="presentation">
+			<a class="nav-link active" id="browse-tab-1" data-mdb-toggle="tab" href="#browse-tab-content-1" role="tab" aria-controls="browse-tab-content-1" aria-selected="true">All Programs</a>
+		</li>
+		<li class="nav-item" role="presentation">
+			<a class="nav-link" id="browse-tab-2" data-mdb-toggle="tab" href="#browse-tab-content-2" role="tab" aria-controls="browse-tab-content-2" aria-selected="false">In Progress</a>
+		</li>
+		<li class="nav-item" role="presentation">
+			<a class="nav-link" id="browse-tab-3" data-mdb-toggle="tab" href="#browse-tab-content-3" role="tab" aria-controls="browse-tab-content-3" aria-selected="false">Completed</a>
+		</li>
+	</ul>
+	<!-- Tabs navs -->
+
+	<!-- Tabs content -->
+	<div class="tab-content" id="ex1-content">
+		<div class="tab-pane fade show active" id="browse-tab-content-1" role="tabpanel" aria-labelledby="browse-tab-1">
+			{% for courseData in allCourses %}
+				<div class="mt-4 mb-4">
+					<div class="d-flex align-items-center">
+						<h4 class="me-4">{{courseData.course.title}}</h4>
+						{# <a class="btn btn-link mb-1" href="{{''}}">View all</a> #}
+					</div>
+					<div class="d-flex flex-wrap justify-content-center align-content-center pt-4">
+						{% for card in courseData.moduleData %}
+							{% set genericImg = courseData.genericImg %}
+							{% include 'generic-module-card.twig' %}
+						{% endfor %}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="tab-pane fade" id="browse-tab-content-2" role="tabpanel" aria-labelledby="browse-tab-2">
+			{% for courseData in allCourses %}
+				{% set isHere = false %}
+				{% for card in courseData.moduleData %}
+					{% if card.moduleMetadata.status == 'IN_PROGRESS' %}
+						{% set isHere = true %}
+					{% endif %}
+				{% endfor %}
+				{% if isHere %}
+					<div class="mt-4 mb-4">
+						<div class="d-flex align-items-center">
+							<h4 class="me-4">{{courseData.course.title}}</h4>
+							{# <a class="btn btn-link mb-1" href="{{''}}">View all</a> #}
+						</div>
+						<div class="d-flex flex-wrap justify-content-center align-content-center pt-4">
+							{% for card in courseData.moduleData %}
+								{% if card.moduleMetadata.status == 'IN_PROGRESS' %}
+									{% set genericImg = courseData.genericImg %}
+									{% include 'generic-module-card.twig' %}
+								{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+		<div class="tab-pane fade" id="browse-tab-content-3" role="tabpanel" aria-labelledby="browse-tab-3">
+			{% for courseData in allCourses %}
+				{% set isHere = false %}
+				{% for card in courseData.moduleData %}
+					{% if card.moduleMetadata.status == 'COMPLETE' %}
+						{% set isHere = true %}
+					{% endif %}
+				{% endfor %}
+				{% if isHere %}
+					<div class="mt-4 mb-4">
+						<div class="d-flex align-items-center">
+							<h4 class="me-4">{{courseData.course.title}}</h4>
+							{# <a class="btn btn-link mb-1" href="{{''}}">View all</a> #}
+						</div>
+						<div class="d-flex flex-wrap justify-content-center align-content-center pt-4">
+							{% for card in courseData.moduleData %}
+								{% if card.moduleMetadata.status == 'COMPLETE' %}
+									{% set genericImg = courseData.genericImg %}
+									{% include 'generic-module-card.twig' %}
+								{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+</div>
