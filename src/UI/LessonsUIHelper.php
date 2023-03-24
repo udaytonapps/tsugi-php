@@ -19,14 +19,15 @@ class LessonsUIHelper
                 __DIR__ . '/Templates',
                 __DIR__ . '/Templates/pages',
             ]);
+            // Not using the cache for now - not working in deployed env
             // Don't use the twig cache locally
-            if (isset($CFG->local_dev_server) && $CFG->local_dev_server) {
+            // if (isset($CFG->local_dev_server) && $CFG->local_dev_server) {
                 self::$_twig = new \Twig\Environment(self::$_loader);
-            } else {
-                self::$_twig = new \Twig\Environment(self::$_loader, [
-                    'cache' => __DIR__ . '/Templates/_cache',
-                ]);
-            }
+            // } else {
+            //     self::$_twig = new \Twig\Environment(self::$_loader, [
+            //         'cache' => __DIR__ . '/Templates/_cache',
+            //     ]);
+            // }
             self::$_twig->addExtension(new CssInlinerExtension());
         }
         return self::$_twig;
