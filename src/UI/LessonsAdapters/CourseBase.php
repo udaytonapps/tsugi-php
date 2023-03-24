@@ -23,7 +23,12 @@ abstract class CourseBase
         echo ("Did you set up the footer method for {$this->category} yet?");
     }
 
-    public function getModuleData()
+    public function getAllProgramsPageData()
+    {
+        echo ("Did you set up the getAllProgramsPageData method for {$this->category} yet?");
+    }
+
+    public function getModuleCardData()
     {
         echo ("Did you set up the getModules method for {$this->category} yet?");
     }
@@ -60,7 +65,7 @@ abstract class CourseBase
                 $encodedAnchor = urlencode($module->anchor);
                 $moduleData[] = (object)[
                     'title' => $module->title,
-                    'session'=> $module->session ?? null, // TODO: decide on naming
+                    'session' => $module->session ?? null, // TODO: decide on naming
                     'anchor' => $module->anchor,
                     'ltiItems' => $ltiItems,
                     'grades' => $moduleGrades,
@@ -292,6 +297,11 @@ class LtiContent
     public $resource_link_id;
     /** @var boolean */
     public $external;
+    /** @var int */
+    public $threshold;
+    /** @var string */ // TODO: Remove
+    public $type; // TODO: remove
+
 
     function __construct($lti)
     {
@@ -302,5 +312,7 @@ class LtiContent
         $this->launch = $lti->launch ?? null;
         $this->external = $lti->external ?? null;
         $this->resource_link_id = $lti->resource_link_id ?? null;
+        $this->threshold = $lti->threshold ?? null;
+        $this->type = $lti->type ?? null; // TODO: remove
     }
 }

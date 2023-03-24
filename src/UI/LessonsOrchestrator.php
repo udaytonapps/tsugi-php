@@ -10,9 +10,19 @@ use CourseBase;
 use Tsugi\Util\U;
 use Tsugi\Core\LTIX;
 use Tsugi\UI\StandardAsync\StandardAsyncAdapter;
+use Tsugi\UI\StandardSync\StandardSyncAdapter;
 
 class LessonsOrchestrator
 {
+    public static function getOrchestratorRoot()
+    {
+        global $CFG;
+        return $CFG->dirroot . '/vendor/tsugi/lib/src/UI';
+    }
+    public static function getRelativeContext($program)
+    {
+        return '/LessonsAdapters' . '/' . $program;
+    }
     /**
      * New adapters should be added here
      * (In addition to the relevant files in the LessonsAdapters directory)
@@ -30,8 +40,8 @@ class LessonsOrchestrator
             ],
             'ATLS' => (object)[
                 'displayLabel' => 'ATLS',
-                'adapter' => AtlsLessons::class,
-                'adapterPath' => $adapterDirectory . '/Atls/AtlsLessons.php'
+                'adapter' => StandardSyncAdapter::class,
+                'adapterPath' => $adapterDirectory . '/StandardSync/StandardSyncAdapter.php'
             ],
             'col' => (object)[
                 'displayLabel' => 'Center for Online Learning',
@@ -56,14 +66,13 @@ class LessonsOrchestrator
         }
     }
 
-    public static function getLessons($nameKey, $moduleAnchor = null, $pageAnchor = null, $index = null): CourseBase
+    public static function getLessons($program, $moduleAnchor = null, $pageAnchor = null, $index = null): CourseBase
     {
         try {
             // Instantiate and return the relevant Lessons class
-            $relativeContext = '/LessonsAdapters' . '/' . $nameKey;
-            $adapterReference = self::getLessonsReference($nameKey);
-            require_once($adapterReference->{$nameKey}->adapterPath);
-            return new $adapterReference->{$nameKey}->adapter($relativeContext, $moduleAnchor, $pageAnchor);
+            $adapterReference = self::getLessonsReference($program);
+            require_once($adapterReference->{$program}->adapterPath);
+            return new $adapterReference->{$program}->adapter(self::getRelativeContext($program), $moduleAnchor, $pageAnchor);
         } catch (\Exception $e) {
             echo ('Unable to retrieve Lessons Adapter!</br>');
             echo ($e->getMessage());
@@ -72,11 +81,9 @@ class LessonsOrchestrator
 
     public static function getLessonsJson($relativeContext)
     {
-        global $CFG;
         // Require the relevant course PHP files
         try {
-            $orchestratorRoot = $CFG->dirroot . '/vendor/tsugi/lib/src/UI';
-            $json_str = file_get_contents($orchestratorRoot . $relativeContext . '/lessons.json');
+            $json_str = file_get_contents(self::getOrchestratorRoot() . $relativeContext . '/lessons.json');
             return json_decode($json_str);
         } catch (\Exception $e) {
             echo ('Unable to retrieve Lessons JSON!');

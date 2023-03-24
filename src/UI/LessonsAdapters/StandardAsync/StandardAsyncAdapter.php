@@ -90,7 +90,6 @@ class StandardAsyncAdapter extends CourseBase
     public function render($buffer = null)
     {
         LTIX::session_start();
-
         LessonsUIHelper::debugLog($this->course);
 
         // If logged in, get the user_id from the session data
@@ -113,7 +112,18 @@ class StandardAsyncAdapter extends CourseBase
         LessonsUIHelper::renderGeneralFooter();
     }
 
-    public function getModuleData()
+    public function getAllProgramsPageData()
+    {
+        global $CFG;
+        $modules = $this->assembleAllowedModules();
+        return (object)[
+            'genericImg' => $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.png',
+            'course' => $this->course,
+            'moduleData' => $modules,
+        ];
+    }
+
+    public function getModuleCardData()
     {
         return $this->assembleAllowedModules();
     }
@@ -129,18 +139,20 @@ class StandardAsyncAdapter extends CourseBase
 
         $breadcrumbs = [];
         $crumb = (object)['path' => $CFG->apphome, 'label' => 'Home'];
-        array_push($breadcrumbs, $crumb);
+        $breadcrumbs[] = $crumb;
+        $crumb = (object)['path' => $CFG->apphome . '/programs', 'label' => 'All Programs'];
+        $breadcrumbs[] = $crumb;
         if (isset($this->category)) {
             $crumb = (object)['path' => $CFG->apphome . '/programs' . '/' . $this->category, 'label' => $this->course->title];
-            array_push($breadcrumbs, $crumb);
+            $breadcrumbs[] = $crumb;
 
             if (isset($this->activeModule)) {
                 $crumb = (object)['path' => $CFG->apphome . '/programs' . '/' . $this->category . '/' . $this->activeModule->anchor, 'label' => $this->activeModule->title];
-                array_push($breadcrumbs, $crumb);
+                $breadcrumbs[] = $crumb;
 
                 if ($this->activePage) {
                     $crumb = (object)['path' => $CFG->apphome . '/programs' . '/' . $this->category . '/' . $this->activeModule->anchor . '/' . $this->activePage->anchor, 'label' => $this->activePage->title];
-                    array_push($breadcrumbs, $crumb);
+                    $breadcrumbs[] = $crumb;
                 }
             }
         }
@@ -161,16 +173,15 @@ class StandardAsyncAdapter extends CourseBase
         $launch_path = "{$rest_path->parent}/{$rest_path->controller}/{$this->category}/{$this->activeModule->anchor}/{$this->activePage->anchor}/lti-launch";
 
         $this->updatePagesProgress($this->category, $this->activeModule->anchor, $this->activePage->anchor);
-        $progress = $this->getPagesProgress();
+        $progress = $this->getPagesProgress($this->activeModule);
 
         echo $twig->render('async-module-lesson-page.twig', [
             'program' => $this->category,
             'breadcrumbs' => $this->getBreadcrumbs(),
             'prevPage' => $prevPage,
             'nextPage' => $nextPage,
-            'module' => (array)$this->activeModule,
-            'page' => (array)$this->activePage,
-            'lti_launch_path' => $launch_path,
+            'module' => $this->activeModule,
+            'page' => $this->activePage,
             'ltiRoot' => $launch_path,
             'authorized' => true, // TODO
             'progress' => $progress,
@@ -181,13 +192,13 @@ class StandardAsyncAdapter extends CourseBase
     {
         $twig = LessonsUIHelper::twig();
 
-        $progress = $this->getPagesProgress();
+        $progress = $this->getPagesProgress($this->activeModule);
 
         echo $twig->render('async-module-landing-page.twig', [
             'program' => $this->category,
             'breadcrumbs' => $this->getBreadcrumbs(),
             'base_url_warpwire' => $this->base_url_warpwire,
-            'module' => (array)$this->activeModule,
+            'module' => $this->activeModule,
             'progress' => $progress,
         ]);
     }
@@ -196,7 +207,7 @@ class StandardAsyncAdapter extends CourseBase
     {
         global $CFG;
 
-        $moduleCardData = (object)['moduleData' => []];
+        $moduleCardData = [];
         foreach ($this->course->modules as $module) {
 
             // Don't render hidden or auth-only modules // TODO
@@ -208,31 +219,100 @@ class StandardAsyncAdapter extends CourseBase
             //     $lti->calulated_launch_path = $launch_path;
             // }
 
+            $moduleMetadata = $this->getModuleMetadata($module);
+
             $encodedAnchor = urlencode($module->anchor);
 
-            array_push($moduleCardData->moduleData, (object)[
+            array_push($moduleCardData, (object)[
                 'module' => $module,
                 'contextRoot' => $this->contextRoot,
-                // 'moduleUrl' => U::get_rest_path() . '/' . urlencode($module->anchor),
                 'moduleUrl' => "{$CFG->apphome}/programs/{$this->category}/{$encodedAnchor}",
+                // Status as well as sync-specific, registration related data
+                'moduleMetadata' => $moduleMetadata,
             ]);
         }
-
-        // Assign default BG image, breadcrumbs and course info (for header)
-        $moduleCardData->genericImg = $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.png';
-        $moduleCardData->breadcrumbs = $this->getBreadcrumbs();
-        $moduleCardData->course = $this->course;
 
         LessonsUIHelper::debugLog($moduleCardData);
 
         return $moduleCardData;
     }
 
+    private function getModuleMetadata($module)
+    {
+        global $CFG, $PDOX;
+        $userId = isset($_SESSION['lti']['user_id']) ? $_SESSION['lti']['user_id'] : null;
+        if (!isset($this->contextId)) {
+            $contextKey = "{$this->category}_{$module->anchor}";
+            $contextId = LessonsOrchestrator::getOrInitContextId($module->title, $contextKey);
+        }
+
+        $pageStatus = null;
+        $ltiStatus = null;
+        $status = null;
+
+        
+        // Check page progress
+        $pageProgressObj = $this->getPagesProgress($module);
+        if (isset($pageProgressObj->{$contextKey})) {
+            $pageProgressCount = count((array)$pageProgressObj->{$contextKey});
+            $pageCount = 0;
+            foreach ($module->lessons as $lesson) {
+                foreach ($lesson->pages as $page) {
+                    $pageCount++;
+                }
+            }
+            if ($pageProgressCount == $pageCount) {
+                $pageStatus =  'COMPLETE';
+            } else if ($pageProgressCount > 0) {
+                $pageStatus =  'IN_PROGRESS';
+            }
+        }
+        
+        // Check lti assignment completion
+        if (isset($pageProgressObj->{$contextKey})) {
+            foreach ($pageProgressObj->{$contextKey} as $pageProgress) {
+                if ($pageProgress) {
+                    $ltiStatus = 'IN_PROGRESS';
+                    // echo (json_encode((array)$pageProgress));
+                    foreach ((array)$pageProgress as $progressIndicator) {
+                        if ($progressIndicator == 'LTI_UNATTEMPTED' || $progressIndicator == 'LTI_FAILED') {
+                            $ltiStatus = 'IN_PROGRESS';
+                        }
+                    }
+                }
+            }
+        }
+
+        // Determine overall status based on combination of page progress and lti completion
+        if ($pageStatus == 'COMPLETE' && $ltiStatus == 'COMPLETE') {
+            $status =  'COMPLETE';
+        } else if (
+            $pageStatus == 'COMPLETE' ||
+            $ltiStatus == 'COMPLETE' ||
+            $pageStatus == 'IN_PROGRESS' ||
+            $ltiStatus == 'IN_PROGRESS'
+        ) {
+            $status =  'IN_PROGRESS';
+        }
+
+        return (object)[
+            // Status to determine whether to render
+            'status' => $status,
+        ];
+    }
+
     private function renderAllModulesPage()
     {
+        global $CFG;
         $twig = LessonsUIHelper::twig();
         $allowedModules = $this->assembleAllowedModules();
-        echo $twig->render('async-all-modules-page.twig', (array)$allowedModules);
+
+        echo $twig->render('async-all-modules-page.twig', [
+            'genericImg' => $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.png',
+            'breadcrumbs' => $this->getBreadcrumbs(),
+            'course' => $this->course,
+            'moduleData' => $allowedModules,
+        ]);
     }
 
 
@@ -293,9 +373,14 @@ class StandardAsyncAdapter extends CourseBase
         return null;
     }
 
-    public function getPagesProgress()
+    public function getPagesProgress($module)
     {
         global $CFG, $PDOX;
+        $contextId = isset($this->contextId) ? $this->contextId : null;
+        if (!isset($this->contextId)) {
+            $contextKey = "{$this->category}_{$module->anchor}";
+            $contextId = LessonsOrchestrator::getOrInitContextId($module->title, $contextKey);
+        }
         $progress = null;
         // "asyncProgress": { "moduleAnchor": { "pageAnchor": "02-02-2023-01:02:12Z" }
         if (isset($_SESSION) && isset($_SESSION['profile_id'])) {
@@ -309,29 +394,38 @@ class StandardAsyncAdapter extends CourseBase
                 $profile = json_decode($profile_row['json']);
                 // If there is any progress, we need to check against LTI tools as well
                 if (isset($profile->asyncProgress)) {
-                    $grades = GradeUtil::loadGradesForCourse($_SESSION['id'], $this->contextId);
+                    $grades = GradeUtil::loadGradesForCourse($_SESSION['id'], $contextId);
                     $progress = $profile->asyncProgress;
                     // Initialize the module anchor if it doesn't exist (it may be null in the json)
                     if (!isset($progress->{$this->contextKey})) $progress->{$this->contextKey} = (object)[];
-                    foreach ($this->activeModule->lessons as $lesson) {
+                    foreach ($module->lessons as $lesson) {
                         foreach ($lesson->pages as $page) {
                             // Initialize the page anchor if it doesn't exist (it may be null in the json)
                             if (!isset($progress->{$this->contextKey}->{$page->anchor})) $progress->{$this->contextKey}->{$page->anchor} = null;
                             foreach ($page->contents as $content) {
+                                $gradeFound = false;
                                 if (isset($content->lti)) {
                                     // Assume any LTI tool is ungraded - the grade rows will update the progress
                                     $originalTimestamp = $progress->{$this->contextKey}->{$page->anchor};
-                                    if (isset($originalTimestamp)) {
-                                        $progress->{$this->contextKey}->{$page->anchor} = false;
-                                    } else {
-                                        $progress->{$this->contextKey}->{$page->anchor} = null;
-                                    }
+                                    $progress->{$this->contextKey}->{$page->anchor} = null;
                                     foreach ($grades as $row) {
                                         if ($row['resource_link_id'] == $content->lti->resource_link_id) {
+                                            $gradeFound = true;
                                             if (isset($row['grade'])) {
-                                                $progress->{$this->contextKey}->{$page->anchor} = $originalTimestamp;
+                                                if (isset($content->lti->threshold)) {
+                                                    if ($row['grade'] < $content->lti->threshold) {
+                                                        $progress->{$this->contextKey}->{$page->anchor} = 'LTI_FAILED';
+                                                    } else {
+                                                        $progress->{$this->contextKey}->{$page->anchor} = $originalTimestamp;
+                                                    }
+                                                } else {
+                                                    $progress->{$this->contextKey}->{$page->anchor} = $originalTimestamp;
+                                                }
                                             }
                                         }
+                                    }
+                                    if (!$gradeFound && $originalTimestamp) {
+                                        $progress->{$this->contextKey}->{$page->anchor} = 'LTI_UNATTEMPTED';
                                     }
                                 }
                             }

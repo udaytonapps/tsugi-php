@@ -41,21 +41,21 @@ class LessonsUIHelper
 
         ob_start();
         echo $twig->render('nav-mega-menu.twig', [
-            'courses' => (array)$lessonsReference,
+            'programs' => (array)$lessonsReference,
             'root' => $R
         ]);
         return ob_get_clean();
     }
 
-    public static function renderSessionCard($config)
+    public static function renderSessionCard($cardConfig)
     {
         global $CFG;
         $twig = self::twig();
 
         // Assign default BG image
-        $config->genericImg = $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.png';
+        $cardConfig->genericImg = $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.png';
 
-        echo $twig->render('session-card.html', (array)$config);
+        echo $twig->render('session-card.html', (array)$cardConfig);
     }
 
     public static function debugLog($data)
@@ -68,36 +68,37 @@ class LessonsUIHelper
         echo "<script>console.error('Error Helper: ', " . json_encode(['message' => $e->getMessage(), 'file' => $e->getFile(), 'line' => $e->getLine()]) . ");</script>";
     }
 
-    public static function renderGeneralHeader($adapter, $buffer = false)
+    public static function renderGeneralHeader($adapter = null, $buffer = false)
     {
         global $CFG;
-        ob_start();
-?>
+        ob_start(); ?>
         <style>
             <?php include 'Lessons.css'; ?>
         </style>
         <?php
-        // See if there are any carousels in the lessons
-        $carousel = false;
-        foreach ($adapter->course->modules as $module) {
-            if (isset($module->carousel)) $carousel = true;
-        }
-        if ($carousel) {
-        ?>
-            <link rel="stylesheet" href="<?= $CFG->staticroot ?>/plugins/jquery.bxslider/jquery.bxslider.css" type="text/css" />
-<?php
-        }
-        if (isset($adapter->course->headers) && is_array($adapter->course->headers)) {
-            foreach ($adapter->course->headers as $header) {
-                $header = LessonsOrchestrator::expandLink($header);
-                echo ($header);
-                echo ("\n");
+        if ($adapter) {
+            // See if there are any carousels in the lessons
+            $carousel = false;
+            foreach ($adapter->course->modules as $module) {
+                if (isset($module->carousel)) $carousel = true;
             }
+            if ($carousel) {
+        ?>
+                <link rel="stylesheet" href="<?= $CFG->staticroot ?>/plugins/jquery.bxslider/jquery.bxslider.css" type="text/css" />
+<?php
+            }
+            if (isset($adapter->course->headers) && is_array($adapter->course->headers)) {
+                foreach ($adapter->course->headers as $header) {
+                    $header = LessonsOrchestrator::expandLink($header);
+                    echo ($header);
+                    echo ("\n");
+                }
+            }
+            $ob_output = ob_get_contents();
+            ob_end_clean();
+            if ($buffer) return $ob_output;
+            echo ($ob_output);
         }
-        $ob_output = ob_get_contents();
-        ob_end_clean();
-        if ($buffer) return $ob_output;
-        echo ($ob_output);
     }
 
     public static function renderGeneralFooter()

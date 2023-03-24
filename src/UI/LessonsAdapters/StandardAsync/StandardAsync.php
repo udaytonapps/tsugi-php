@@ -57,18 +57,21 @@ class AsyncModule
     public $lessons;
     /** @var Content[] Typically a title, description, and video */
     public $landingContents;
+    /** @var string */
+    public $image;
 
     function __construct($module)
     {
         $this->title = $module->title ?? null;
         $this->anchor  = $module->anchor ?? null;
         $this->duration  = $module->duration ?? null;
+        $this->image = $module->image ?? null;
 
         $contents = [];
         if (isset($module->landingContents)) {
             foreach ($module->landingContents as $content) {
                 $newLesson = new Content($content);
-                array_push($contents, $content);
+                array_push($contents, $newLesson);
             }
         }
         $this->landingContents = $contents;
