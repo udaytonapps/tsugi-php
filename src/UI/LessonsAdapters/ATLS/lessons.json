@@ -130,21 +130,21 @@
         {
           "title" : "Register",
           "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?atls_session_id=core-1&atls_view=REGISTRATION",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-1&view=REGISTRATION",
           "resource_link_id" : "reg-core-1",
           "type": "REGISTRATION"
         },
         {
           "title" : "Provide Feedback",
           "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?atls_session_id=core-1&atls_view=FEEDBACK",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-1&view=FEEDBACK",
           "resource_link_id" : "feedback-core-1",
           "type": "FEEDBACK"
         },
         {
           "title" : "Admin View",
           "assignmenttitle": "Admin Only",
-          "launch" : "/mod/learn-registration/?atls_session_id=core-1&atls_view=ADMINISTRATION",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-1&view=ADMINISTRATION",
           "resource_link_id" : "admin-core-1",
           "type": "ADMINISTRATION",
           "hidden": true
@@ -207,14 +207,14 @@
         {
           "title" : "Register",
           "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?atls_session_id=core-2&atls_view=REGISTRATION",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-2&view=REGISTRATION",
           "resource_link_id" : "reg-core-2",
           "type": "REGISTRATION"
         },
         {
           "title" : "Provide Feedback",
           "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?atls_session_id=core-2&atls_view=FEEDBACK",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-2&view=FEEDBACK",
           "resource_link_id" : "feedback-core-2",
           "type": "FEEDBACK"
         }
@@ -276,14 +276,14 @@
         {
           "title" : "Register",
           "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?atls_session_id=core-3&atls_view=REGISTRATION",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-3&view=REGISTRATION",
           "resource_link_id" : "reg-core-3",
           "type": "REGISTRATION"
         },
         {
           "title" : "Provide Feedback",
           "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?atls_session_id=core-3&atls_view=FEEDBACK",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-3&view=FEEDBACK",
           "resource_link_id" : "feedback-core-3",
           "type": "FEEDBACK"
         }
@@ -334,14 +334,14 @@
         {
           "title" : "Register",
           "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?atls_session_id=core-4&atls_view=REGISTRATION",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-4&view=REGISTRATION",
           "resource_link_id" : "reg-core-4",
           "type": "REGISTRATION"
         },
         {
           "title" : "Provide Feedback",
           "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?atls_session_id=core-4&atls_view=FEEDBACK",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-4&view=FEEDBACK",
           "resource_link_id" : "feedback-core-4",
           "type": "FEEDBACK"
         }
@@ -392,14 +392,14 @@
         {
           "title" : "Register",
           "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?atls_session_id=core-5&atls_view=REGISTRATION",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-5&view=REGISTRATION",
           "resource_link_id" : "reg-core-5",
           "type": "REGISTRATION"
         },
         {
           "title" : "Provide Feedback",
           "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?atls_session_id=core-5&atls_view=FEEDBACK",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-5&view=FEEDBACK",
           "resource_link_id" : "feedback-core-5",
           "type": "FEEDBACK"
         }
@@ -449,14 +449,14 @@
         {
           "title" : "Register",
           "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?atls_session_id=core-6&atls_view=REGISTRATION",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-6&view=REGISTRATION",
           "resource_link_id" : "reg-core-6",
           "type": "REGISTRATION"
         },
         {
           "title" : "Provide Feedback",
           "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?atls_session_id=core-6&atls_view=FEEDBACK",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-6&view=FEEDBACK",
           "resource_link_id" : "feedback-core-6",
           "type": "FEEDBACK"
         }
@@ -501,14 +501,14 @@
         {
           "title" : "Register",
           "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?atls_session_id=core-7&atls_view=REGISTRATION",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-7&view=REGISTRATION",
           "resource_link_id" : "reg-core-7",
           "type": "REGISTRATION"
         },
         {
           "title" : "Provide Feedback",
           "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?atls_session_id=core-7&atls_view=FEEDBACK",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-7&view=FEEDBACK",
           "resource_link_id" : "feedback-core-7",
           "type": "FEEDBACK"
         }
@@ -548,14 +548,14 @@
         {
           "title" : "Register",
           "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?atls_session_id=core-8&atls_view=REGISTRATION",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-8&view=REGISTRATION",
           "resource_link_id" : "reg-core-8",
           "type": "REGISTRATION"
         },
         {
           "title" : "Provide Feedback",
           "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?atls_session_id=core-8&atls_view=FEEDBACK",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-8&view=FEEDBACK",
           "resource_link_id" : "feedback-core-8",
           "type": "FEEDBACK"
         }
