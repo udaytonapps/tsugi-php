@@ -67,8 +67,8 @@ class StandardSyncAdapter extends CourseBase
                 $userId = isset($_SESSION['lti']['user_id']) ? $_SESSION['lti']['user_id'] : null;
                 $allreg = $PDOX->allRowsDie(
                     "SELECT r.registration_id, i.module_launch_id, i.session_date, i.session_location, i.modality, r.attendance_status
-                    FROM {$CFG->dbprefix}atls_module_instance AS i
-                    INNER JOIN {$CFG->dbprefix}atls_registration AS r ON i.instance_id = r.instance_id
+                    FROM {$CFG->dbprefix}learn_module_instance AS i
+                    INNER JOIN {$CFG->dbprefix}learn_registration AS r ON i.instance_id = r.instance_id
                     WHERE r.user_id = :UID AND r.context_id = :contextId",
                     array(':UID' => $userId, ':contextId' => $this->contextId)
                 );
@@ -77,8 +77,8 @@ class StandardSyncAdapter extends CourseBase
                     foreach ($allreg as $reg) {
                         $allfeedback = $PDOX->rowDie(
                             "SELECT count(*) as NUM_FEEDBACK
-                        FROM {$CFG->dbprefix}atls_question_response AS r
-                        INNER JOIN {$CFG->dbprefix}atls_question AS q ON r.question_id = q.question_id
+                        FROM {$CFG->dbprefix}learn_question_response AS r
+                        INNER JOIN {$CFG->dbprefix}learn_question AS q ON r.question_id = q.question_id
                         WHERE r.registration_id = :RID AND r.context_id = :contextId AND q.question_type IN ('FEEDBACK', 'FEEDBACK_OUTCOME')",
                             array(':RID' => $reg["registration_id"], ':contextId' => $this->contextId)
                         );
@@ -249,7 +249,7 @@ class StandardSyncAdapter extends CourseBase
         // Concerning session timing
         $instances = $PDOX->allRowsDie(
             "SELECT session_date, session_location, duration_minutes, module_launch_id, capacity
-            FROM {$CFG->dbprefix}atls_module_instance
+            FROM {$CFG->dbprefix}learn_module_instance
             WHERE module_launch_id = :moduleId",
             array(':moduleId' => $module->anchor)
         );
@@ -265,8 +265,8 @@ class StandardSyncAdapter extends CourseBase
         // Concerning user registration
         $allreg = $PDOX->allRowsDie(
             "SELECT r.registration_id, i.module_launch_id, i.session_date, i.session_location, i.modality, r.attendance_status
-                FROM {$CFG->dbprefix}atls_module_instance AS i
-                INNER JOIN {$CFG->dbprefix}atls_registration AS r ON i.instance_id = r.instance_id
+                FROM {$CFG->dbprefix}learn_module_instance AS i
+                INNER JOIN {$CFG->dbprefix}learn_registration AS r ON i.instance_id = r.instance_id
                 WHERE r.user_id = :UID",
             array(':UID' => $userId)
         );
@@ -275,8 +275,8 @@ class StandardSyncAdapter extends CourseBase
             foreach ($allreg as $reg) {
                 $allfeedback = $PDOX->rowDie(
                     "SELECT count(*) as NUM_FEEDBACK
-                    FROM {$CFG->dbprefix}atls_question_response AS r
-                    INNER JOIN {$CFG->dbprefix}atls_question AS q ON r.question_id = q.question_id
+                    FROM {$CFG->dbprefix}learn_question_response AS r
+                    INNER JOIN {$CFG->dbprefix}learn_question AS q ON r.question_id = q.question_id
                     WHERE r.registration_id = :RID AND q.question_type IN ('FEEDBACK', 'FEEDBACK_OUTCOME')",
                     array(':RID' => $reg["registration_id"])
                 );
