@@ -10,7 +10,7 @@
 {% macro renderContent(content, authorized, ltiRoot) %}
 	{% if content.type == "TEXT" %}
 		{% for text in content.paragraphs %}
-			<p>{{text}}</p>
+			<p>{{text | raw}}</p>
 		{% endfor %}
 	{% elseif content.type == "VIDEO" %}
 		{% set video = content.video %}
@@ -22,12 +22,12 @@
 		{% if content.link.icon %}
 			<span class="fa {{content.link.icon}}" aria-hidden="true"></span>
 		{% endif %}
-		<a target="_blank" href="{{content.link.url}}">{{content.link.title}}</a>
+		<a target="_blank" href="{{content.link.url}}">{{content.link.title | raw}}</a>
 	{% elseif content.type == "ORDERED_LIST" %}
 		<ol>
 			{% for listContent in content.orderedList.contents %}
 				<li>
-					{{_self.renderContent(listContent)}}
+					{{_self.renderContent(listContent) | raw}}
 				</li>
 			{% endfor %}
 		</ol>
