@@ -212,10 +212,10 @@ class LessonsOrchestrator
         $p = $CFG->dbprefix;
 
         $sql = "SELECT u.user_id, ar.instance_id, mi.module_launch_id, ar.context_id, ar.link_id, reg.registration_id
-                FROM {$p}atls_auto_reg AS ar
+                FROM {$p}learn_auto_reg AS ar
                 INNER JOIN {$p}lti_user AS u ON ar.user_email = u.email
-                INNER JOIN {$p}atls_module_instance AS mi ON ar.instance_id = mi.instance_id
-                LEFT OUTER JOIN  {$p}atls_registration as reg ON ar.instance_id = reg.instance_id AND reg.user_id = u.user_id
+                INNER JOIN {$p}learn_module_instance AS mi ON ar.instance_id = mi.instance_id
+                LEFT OUTER JOIN  {$p}learn_registration as reg ON ar.instance_id = reg.instance_id AND reg.user_id = u.user_id
                 WHERE ar.auto_reg_key = :regKey";
         $row = $PDOX->rowDie($sql, array(':regKey' => $regKey));
 
@@ -229,13 +229,13 @@ class LessonsOrchestrator
 
             if (isset($regId)) {
                 // Record exists, need to update for some reason
-                $query = "  UPDATE {$p}atls_registration
+                $query = "  UPDATE {$p}learn_registration
                         SET attendance_status = 'ATTENDED' WHERE user_id = :userId AND instance_id = :instanceId;";
                 $arr = array(':userId' => $userId, ':instanceId' => $instanceId);
                 $PDOX->queryDie($query, $arr);
             } else {
                 // Record doesn't exist, create it
-                $query = "INSERT INTO {$p}atls_registration (user_id, context_id, link_id, module_launch_id, instance_id, attendance_status)
+                $query = "INSERT INTO {$p}learn_registration (user_id, context_id, link_id, module_launch_id, instance_id, attendance_status)
                 VALUES (:userId, :contextId, :linkId, :moduleLaunchId, :instanceId, :attendanceStatus);";
                 $arr = array(':userId' => $userId, ':contextId' => $contextId, ':linkId' => $linkId, ':moduleLaunchId' => $moduleLaunchId, ':instanceId' => $instanceId, ':attendanceStatus' => 'ATTENDED');
                 $PDOX->queryDie($query, $arr);
