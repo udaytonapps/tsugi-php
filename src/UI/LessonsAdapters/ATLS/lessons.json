@@ -1,6 +1,27 @@
 {
   "title": "Advancing Teaching & Learning Scholars (ATLS)",
   "description": "ATLS sessions are open to all instructors at the University of Dayton and may be taken in any order. Please click into a session below to read the description, view the facilitator(s), register, and provide feedback. There are eight core ATLS sessions. Elective sessions will be added in the future. ",
+  "splash": {
+    "title": "Advancing Teaching & Learning Scholars (ATLS)",
+    "image": "/images/main.jpg",
+    "video": "https://udayton.warpwire.com/w/20AFAA/?title=0",
+    "text": "A dynamic professional development program aimed at helping faculty understand UD, its systems, and key resources in and around the Ryan C. Harris Learning Teaching Center used to drive student success.",
+    "contents": [
+      {
+        "type": "TEXT",
+        "paragraphs": [
+          "<h5>Welcome!</h5>",
+          "Learning Matters! The Advancing Teaching & Learning Scholars Program (ATLS) is a professional learning program that was launched by the LTC during the fall 2022 semester. The University of Dayton is a Marianist institution founded on a teaching mission. This is a sacred duty for us all, and if done well, our graduates are positioned to become the lifelong learners we want them to be and that society needs.",
+          "The ATLS program will begin with eight core sessions designed to expose instructors to pertinent campus resources, pedagogy, and timely teaching topics that will increase teaching & learning effectiveness for instructors and students. These engaging 90-minute in-person sessions will be delivered by top instructors and staff at UD and will be primarily be held in the LTC.",
+          "<h5>Program Goals</h5>",
+          "The ATLS program centers around three goals:",
+          "<ol><li>Increasing a faculty member's knowledge of University of Dayton students and their learning needs, campus resources, and teaching strategies</li>",
+          "<li>Exposing faculty to services and people within the LTC as a support center for their continuing professional development at UD</li>",
+          "<li>Helping faculty meet one another and key colleagues on campus and build communities of practice, while building commitment to the institution</li></ol>"
+        ]
+      }
+    ]
+  },
   "discussions" : [
     {
       "title" : "Welcome to ATLS - General Discussion",
@@ -108,9 +129,9 @@
       "image": "/images/UD COL-342.jpg",
       "facilitators": [
         {
-          "displayname": "Dr. Michelle Pautz",
-          "title": "College of Arts & Sciences Associate Dean for Curriculum and Student Academic Success and Professor of Political Science",
-          "image": "https://udayton.edu/directory/provost/img/pautz-michelle-275x300.png"
+          "displayname": "Lee Dixon",
+          "title": "Associate Professor in Psychology; Associate Provost for Academic Affairs and Learning Initiatives (AALI)",
+          "image": "https://udayton.edu/directory/provost/img/dixon_lee.jpeg"
         }
       ],
       "learningoutcomes": [
@@ -175,19 +196,19 @@
           "image": "https://udayton.edu/directory//aali/ltc/img/harrelson_john_275.jpg"
         },
         {
-          "displayname": "Dr. Kim Trick",
-          "title": "Principal Lecturer of Chemistry & Assistant Dean for the College of Arts and Sciences",
-          "image": "https://udayton.edu/directory//artssciences/chemistry/images/trick_kim.jpg"
-        },
-        {
           "displayname": "Melissa Longino",
           "title": "Assistant Vice President for Health and Wellbeing and Executive Director, Campus Recreation",
           "image": "https://udayton.edu/directory//studev/campusrec/images/longino_melissa.jpg"
         },
         {
+          "displayname": "Dr. Kim Trick",
+          "title": "Principal Lecturer of Chemistry & Assistant Dean for the College of Arts and Sciences",
+          "image": "https://udayton.edu/directory//artssciences/chemistry/images/trick_kim.jpg"
+        },
+        {
           "displayname": "Christine Schramm",
           "title": "Associate Vice President & Dean of Students",
-          "image": "https://udayton.edu/directory/studev/dean/img/schramm.png"
+          "image": "https://udayton.edu/directory/studev/dean/schramm.png"
         }
       ],
       "learningoutcomes": [
@@ -244,19 +265,19 @@
       "image": "/images/UD COL-449.jpg",
       "facilitators": [
         {
-          "displayname": "Julianne Morgan",
-          "title": "Academic Engagement Lead, Center for Online Learning",
-          "image": "https://udayton.edu/directory//udit/img/morgan_julieanne_500x500.jpg"
-        },
-        {
           "displayname": "Paul Dagnall",
-          "title": "Assistant Director, Learning Innovation and Engagement, Center for Online Learning",
+          "title": "Associate Director of Online Programs and Instructional Design, Center for Online Learning",
           "image": "https://udayton.edu/directory//udit/img/dagnall_paul_275.jpg"
         },
         {
-          "displayname": "Dr. Judit Beagle",
-          "title": "Assistant Professor of Chemistry",
-          "image": "https://udayton.edu/directory//artssciences/chemistry/images/beagle-judit.jpg"
+          "displayname": "Micheline Kidwell",
+          "title": "Associate Professor of Academic Success; Director of Bar Preparation, School of Law",
+          "image": "https://udayton.edu/directory/law/images/kidwell_micheline.jpg"
+        },
+        {
+          "displayname": "Julianne Morgan",
+          "title": "Instructional Design Specialist, Center for Online Learning",
+          "image": "https://udayton.edu/directory//udit/img/morgan_julieanne_500x500.jpg"
         }
       ],
       "learningoutcomes": [
@@ -425,11 +446,6 @@
           "displayname": "Dr. Nicola Work",
           "title": "Associate Professor of French & Interim Assistant Provost for the Common Academic Program",
           "image": "https://udayton.edu/directory//artssciences/languages/images/work-nicola-2021.jpg"
-        },
-        {
-          "displayname": "Heidi Gauder",
-          "title": "Roesch Library Professor and Coordinator of Research & Instruction",
-          "image": "https://udayton.edu/directory//libraries/images/gauder.jpg"
         }
       ],
       "learningoutcomes": [

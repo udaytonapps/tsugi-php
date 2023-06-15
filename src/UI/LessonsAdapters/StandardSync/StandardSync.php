@@ -12,6 +12,7 @@ namespace Tsugi\UI\StandardSync;
 use Badge;
 use Content;
 use LtiContent;
+use Splash;
 
 class SyncCourse
 {
@@ -19,6 +20,8 @@ class SyncCourse
     public $title;
     /** @var string */
     public $description;
+    /** @var Splash */
+    public $splash;
     /** @var Badge[] */
     public $badges;
     /** @var Module[] */
@@ -30,6 +33,7 @@ class SyncCourse
     {
         $this->title = $course->title;
         $this->description = $course->description;
+        $this->splash = $course->splash ?? null;
 
         $badges = array();
         foreach ($course->badges as $badge) {

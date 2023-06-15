@@ -4,7 +4,12 @@
 <div class="container mt-4 mb-4">
 	{% set title = course.title %}
 	{% set description = course.description %}
-	{% include 'landing-banner.twig' %}
+	{% set splash = course.splash %}
+	{% if splash is not null %}
+		{% include 'generic-splash.twig' %}
+	{% else %}
+		{% include 'landing-banner.twig' %}
+	{% endif %}
 	<div class="d-flex flex-wrap justify-content-center align-content-center pt-4">
 		{% for card in moduleData %}
 			{% include 'generic-module-card.twig' %}

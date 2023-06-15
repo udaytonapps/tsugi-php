@@ -202,6 +202,7 @@ class StandardSyncAdapter extends CourseBase
         echo $twig->render('sync-all-modules-page.twig', [
             'genericImg' => $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.png',
             'breadcrumbs' => $this->getBreadcrumbs(),
+            'contextRoot' => $this->contextRoot,
             'course' => $this->course,
             'moduleData' => $allowedModuleData,
         ]);

@@ -170,6 +170,33 @@ class Badge
     }
 }
 
+class Splash
+{
+    /** @var string */
+    public $title;
+    /** @var string */
+    public $text;
+    /** @var string */
+    public $image;
+    /** @var Content[] */
+    public $contents;
+    /** @var Content */
+    public $video;
+
+    function __construct($splash)
+    {
+        $this->title = $splash->title;
+        $this->text = $splash->text;
+        $this->image = $splash->image;
+        $this->video = $splash->video;
+        $newContents = [];
+        foreach ($splash->contents as $content) {
+            array_push($newContents, new Content($content));
+        }
+        $this->contents = $newContents;
+    }
+}
+
 class UserProfile
 {
     // If Topic -> Author

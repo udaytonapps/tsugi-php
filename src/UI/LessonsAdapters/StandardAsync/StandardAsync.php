@@ -19,6 +19,8 @@ class AsyncCourse
     public $title;
     /** @var string */
     public $description;
+    /** @var Splash */
+    public $splash;
     /** @var Badge[] */
     public $badges;
     /** @var AsyncModule[] */
@@ -28,6 +30,7 @@ class AsyncCourse
     {
         $this->title = $course->title;
         $this->description = $course->description;
+        $this->splash = $course->splash ?? null;
 
         $badges = array();
         foreach ($course->badges as $badge) {
