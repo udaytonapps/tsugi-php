@@ -128,6 +128,7 @@ class StandardSyncAdapter extends CourseBase
             'genericImg' => $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.png',
             'course' => $this->course,
             'moduleData' => $modules,
+            'courseUrl' => $CFG->apphome . '/programs/' . $this->category 
         ];
     }
 
@@ -232,6 +233,7 @@ class StandardSyncAdapter extends CourseBase
                 'module' => $module,
                 'contextRoot' => $this->contextRoot,
                 'moduleUrl' => "{$CFG->apphome}/programs/{$this->category}/{$encodedAnchor}",
+                'moduletype' => 'sync',
                 // Status as well as sync-specific, registration related data
                 'moduleMetadata' => $moduleMetadata,
             ]);

@@ -1322,6 +1322,7 @@ class DefaultLessons extends CourseBase
                 array_push($moduleCardData, (object)[
                     'module' => $module,
                     'contextRoot' => $this->contextRoot,
+                    'moduletype' => 'async',
                     'moduleUrl' => "{$CFG->apphome}/programs/{$this->category}/{$encodedAnchor}",
                 ]);
             }

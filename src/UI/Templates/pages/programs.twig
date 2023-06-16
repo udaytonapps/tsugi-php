@@ -1,89 +1,77 @@
+<script>
+		function hideshow(showname,type) {
+			let allcards = $("div[data-tags*='allPrograms']");
+			allcards.addClass('d-none');
+			allcards.attr('aria-hidden','true');
+			if(type==='status'){
+				$('#filtertitle').attr('data-statusfilter',showname);
+			} else {
+				$('#filtertitle').attr('data-modefilter',showname);
+			}
+			let statusfilter = $('#filtertitle').attr('data-statusfilter');
+			let modefilter = $('#filtertitle').attr('data-modefilter');
+			allcards.each(function(index){
+				if($(this).attr('data-tags').indexOf(statusfilter)!=-1 && $(this).attr('data-tags').indexOf(modefilter)!=-1){
+					$(this).removeClass('d-none');
+					$(this).removeAttr('aria-hidden');
+				}
+			});
+		}
+
+		function hidemodules(togglename) {
+			$('.' + togglename).each(function(index){
+				if($(this).attr('class').indexOf('d-none') != -1){
+					$(this).removeClass('d-none');
+					$(this).removeAttr('aria-hidden');
+				} else {
+					$(this).addClass('d-none');
+					$(this).attr('aria-hidden','true');
+				}
+			});
+		}
+</script>
 <div class="container">
 	<br>
 	<h1>Browse Courses</h1>
 	<p class="lead">Explore self-paced courses as well as content on a variety of topics and technologies.</p>
 
-	<ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
-		<li class="nav-item" role="presentation">
-			<a class="nav-link active" id="browse-tab-1" data-mdb-toggle="tab" href="#browse-tab-content-1" role="tab" aria-controls="browse-tab-content-1" aria-selected="true">All Programs</a>
-		</li>
-		<li class="nav-item" role="presentation">
-			<a class="nav-link" id="browse-tab-2" data-mdb-toggle="tab" href="#browse-tab-content-2" role="tab" aria-controls="browse-tab-content-2" aria-selected="false">In Progress</a>
-		</li>
-		<li class="nav-item" role="presentation">
-			<a class="nav-link" id="browse-tab-3" data-mdb-toggle="tab" href="#browse-tab-content-3" role="tab" aria-controls="browse-tab-content-3" aria-selected="false">Completed</a>
-		</li>
-	</ul>
-	<!-- Tabs navs -->
+	<span id="filtertitle" data-statusfilter="allPrograms" data-modefilter="allModes">Filters: </span>
+	<select name="filter01" id="filter01" onchange="hideshow(this.value,'status')">
+		<option value="allPrograms" selected="selected">All Programs</option>
+		<option value="IN_PROGRESS">In Progress</option>
+		<option value="COMPLETED">Completed</option>
+	</select>
+	<select name="filter02" id="filter02" onchange="hideshow(this.value,'mode')">
+		<option value="allModes" selected="selected">All Modes</option>
+		<option value=" sync">Synchronous</option>
+		<option value=" async">Asynchronous</option>
+	</select>
 
 	<!-- Tabs content -->
 	<div class="tab-content" id="ex1-content">
-		<div class="tab-pane fade show active" id="browse-tab-content-1" role="tabpanel" aria-labelledby="browse-tab-1">
+		<div class="tab-pane fade active show" id="browse-tab-content-1" role="tabpanel" aria-labelledby="browse-tab-1" style="display:block;">
+			{% set coursenum = 0 %}
 			{% for courseData in allCourses %}
 				<div class="mt-4 mb-4">
 					<div class="d-flex align-items-center">
-						<h4 class="me-4">{{courseData.course.title}}</h4>
+						<button onclick="hidemodules('coursenum{{coursenum}}')" class="btn btn-secondary btn-sm hideModulesButton" >
+							<i class="fas fa-chevron-right d-none coursenum{{coursenum}}" ></i>
+							<i class="fas fa-chevron-down coursenum{{coursenum}}"></i>
+						</button>
+						<h4 class="me-4">
+							<a class="programPageLink" href="{{courseData.courseUrl}}">{{courseData.course.title}}</a>
+						</h4>
 						{# <a class="btn btn-link mb-1" href="{{''}}">View all</a> #}
 					</div>
-					<div class="d-flex flex-wrap justify-content-center align-content-center pt-4">
+					<div class="flex-wrap justify-content-center align-content-center pt-4 coursenum{{coursenum}}">
+					<div>{{courseData.course.description}}</div>
+						{% set coursenum = coursenum + 1 %}
 						{% for card in courseData.moduleData %}
 							{% set genericImg = courseData.genericImg %}
 							{% include 'generic-module-card.twig' %}
 						{% endfor %}
 					</div>
 				</div>
-			{% endfor %}
-		</div>
-		<div class="tab-pane fade" id="browse-tab-content-2" role="tabpanel" aria-labelledby="browse-tab-2">
-			{% for courseData in allCourses %}
-				{% set isHere = false %}
-				{% for card in courseData.moduleData %}
-					{% if card.moduleMetadata.status == 'IN_PROGRESS' %}
-						{% set isHere = true %}
-					{% endif %}
-				{% endfor %}
-				{% if isHere %}
-					<div class="mt-4 mb-4">
-						<div class="d-flex align-items-center">
-							<h4 class="me-4">{{courseData.course.title}}</h4>
-							{# <a class="btn btn-link mb-1" href="{{''}}">View all</a> #}
-						</div>
-						<div class="d-flex flex-wrap justify-content-center align-content-center pt-4">
-							{% for card in courseData.moduleData %}
-								{% if card.moduleMetadata.status == 'IN_PROGRESS' %}
-									{% set genericImg = courseData.genericImg %}
-									{% include 'generic-module-card.twig' %}
-								{% endif %}
-							{% endfor %}
-						</div>
-					</div>
-				{% endif %}
-			{% endfor %}
-		</div>
-		<div class="tab-pane fade" id="browse-tab-content-3" role="tabpanel" aria-labelledby="browse-tab-3">
-			{% for courseData in allCourses %}
-				{% set isHere = false %}
-				{% for card in courseData.moduleData %}
-					{% if card.moduleMetadata.status == 'COMPLETE' %}
-						{% set isHere = true %}
-					{% endif %}
-				{% endfor %}
-				{% if isHere %}
-					<div class="mt-4 mb-4">
-						<div class="d-flex align-items-center">
-							<h4 class="me-4">{{courseData.course.title}}</h4>
-							{# <a class="btn btn-link mb-1" href="{{''}}">View all</a> #}
-						</div>
-						<div class="d-flex flex-wrap justify-content-center align-content-center pt-4">
-							{% for card in courseData.moduleData %}
-								{% if card.moduleMetadata.status == 'COMPLETE' %}
-									{% set genericImg = courseData.genericImg %}
-									{% include 'generic-module-card.twig' %}
-								{% endif %}
-							{% endfor %}
-						</div>
-					</div>
-				{% endif %}
 			{% endfor %}
 		</div>
 	</div>
