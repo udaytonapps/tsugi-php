@@ -128,11 +128,8 @@
       "description": "Whether you’ve taught elsewhere for many years or are joining the professorial ranks for the first time, a key to being effective in helping students learn is understanding who our students are. In this session we will give you a sense of the Gen Z student in general, and more specifically, the population of students who call UD home. We will host a panel of UD students and give you the opportunity to ask them questions, and we will explore strategies for getting to know your students. Regardless of the setting for your course(s), whether required courses in large sections, upper level small seminars, graduate seminars, and more, you will get the chance to explore strategies for understanding and therefore connecting with our students.",
       "image": "/images/UD COL-342.jpg",
       "facilitators": [
-        {
-          "displayname": "Lee Dixon",
-          "title": "Associate Professor in Psychology; Associate Provost for Academic Affairs and Learning Initiatives (AALI)",
-          "image": "https://udayton.edu/directory/provost/img/dixon_lee.jpeg"
-        }
+        "ldixon1@udayton.edu",
+        "aniekamp1@udayton.edu"
       ],
       "learningoutcomes": [
         "Describe the demographic makeup of the UD student population.",
@@ -190,26 +187,10 @@
       "description": "Supporting today’s UD students goes way beyond simply providing academic support and office hours to make sure they do well in your classes. As our view of support has evolved over the years so has our network of support resources for students. This session will cover not just what support resources are available for our students but will more broadly cover how to create an accessible and equitable learning environment for all students. Participants will also learn how to engage various offices to activate support resources as well as the basics of facilitating accommodation requests from the Office of Learning Resources.",
       "image": "/images/UD COL-271.jpg",
       "facilitators": [
-        {
-          "displayname": "John Harrelson",
-          "title": "Director, Office of Learning Resources",
-          "image": "https://udayton.edu/directory//aali/ltc/img/harrelson_john_275.jpg"
-        },
-        {
-          "displayname": "Melissa Longino",
-          "title": "Assistant Vice President for Health and Wellbeing and Executive Director, Campus Recreation",
-          "image": "https://udayton.edu/directory//studev/campusrec/images/longino_melissa.jpg"
-        },
-        {
-          "displayname": "Dr. Kim Trick",
-          "title": "Principal Lecturer of Chemistry & Assistant Dean for the College of Arts and Sciences",
-          "image": "https://udayton.edu/directory//artssciences/chemistry/images/trick_kim.jpg"
-        },
-        {
-          "displayname": "Christine Schramm",
-          "title": "Associate Vice President & Dean of Students",
-          "image": "https://udayton.edu/directory/studev/dean/schramm.png"
-        }
+        "jharrelson1@udayton.edu",
+        "mlongino1@udayton.edu",
+        "ktrick1@udayton.edu",
+        "cschramm1@udayton.edu"
       ],
       "learningoutcomes": [
         "Create an accessible and equitable learning environment for all students.",
@@ -264,21 +245,9 @@
       "description": "So many learning technologies and so little time! Participants at this session will see student testimonials about their expectations for instructor usage of technologies like Isidore, Warpwire, Zoom, and more. We will recommend best practices with ed tech based on student feedback, and we will invite participants to learn by collaborating with the Center for Online Learning.",
       "image": "/images/UD COL-449.jpg",
       "facilitators": [
-        {
-          "displayname": "Paul Dagnall",
-          "title": "Associate Director of Online Programs and Instructional Design, Center for Online Learning",
-          "image": "https://udayton.edu/directory//udit/img/dagnall_paul_275.jpg"
-        },
-        {
-          "displayname": "Micheline Kidwell",
-          "title": "Associate Professor of Academic Success; Director of Bar Preparation, School of Law",
-          "image": "https://udayton.edu/directory/law/images/kidwell_micheline.jpg"
-        },
-        {
-          "displayname": "Julianne Morgan",
-          "title": "Instructional Design Specialist, Center for Online Learning",
-          "image": "https://udayton.edu/directory//udit/img/morgan_julieanne_500x500.jpg"
-        }
+        "pdagnall1@udayton.edu",
+        "kidwellm1@udayton.edu",
+        "jmorgan2@udayton.edu"
       ],
       "learningoutcomes": [
         "Access the learning technology systems available to support students.",
@@ -328,16 +297,8 @@
       "description": "Participants will understand the importance of advising/mentoring the whole student (and what that looks like). They will also be provided tools and resources to use to help mentor students through their academic journey, including technology and interpersonal strategies and techniques.",
       "image": "/images/UD COL-399.jpg",
       "facilitators": [
-        {
-          "displayname": "Aaron Witherspoon",
-          "title": "Director, University Advising Initiatives and Student Success",
-          "image": "https://udayton.edu/directory//aali/ltc/img/witherspoon_aaron_275.jpg"
-        },
-        {
-          "displayname": "Dr. Heather Parsons",
-          "title": "Coordinator of Academic Advising and Departmental Initiatives",
-          "image": "https://udayton.edu/directory//artssciences/communication/images/parsons_heather.jpg"
-        }
+        "awitherspoon1@udayton.edu",
+        "hparsons1@udayton.edu"
       ],
       "learningoutcomes": [
         "Explain the influential role faculty play in student success.",
@@ -386,16 +347,8 @@
       "description": "This session will allow participants to share and discuss practical strategies to incorporate learner-centered activities in their courses. We will also address common challenges faced by underrepresented instructors and students.",
       "image": "/images/UD COL-282.jpg",
       "facilitators": [
-        {
-          "displayname": "Dr. Yvonne Sun",
-          "title": "Associate Professor of Biology",
-          "image": "https://udayton.edu/directory//artssciences/biology/images/sun-yvonne.jpg"
-        },
-        {
-          "displayname": "Dr. Li-Yin Liu",
-          "title": "Assistant Professor of Political Science",
-          "image": "https://udayton.edu/directory//artssciences/politicalscience/images/liu-li-yin.jpg"
-        }
+        "ysun02@udayton.edu",
+        "lliu01@udayton.edu"
       ],
       "learningoutcomes": [
         "Design course activities that create reflective, engaged, and motivated students.",
@@ -437,16 +390,8 @@
       "description": "Assessment of student learning is frequently cited as a bane of teaching.  Despite the bad rap, gauging learning is critical for students to improve their study methods and just as critical for teachers to adjust pedagogical approaches and provide personalized feedback to students.  This session explores assessment from the perspectives of different disciplines with an eye to employing more joyful, effective and efficient assessment practices in your classes.",
       "image": "/images/UD COL-254.jpg",
       "facilitators": [
-        {
-          "displayname": "Dr. David Wright",
-          "title": "Director of Academic Technology and Curriculum Innovation, Associate Professor of Biology",
-          "image": "https://udayton.edu/directory//artssciences/biology/images/Wright_D.jpg"
-        },
-        {
-          "displayname": "Dr. Nicola Work",
-          "title": "Associate Professor of French & Interim Assistant Provost for the Common Academic Program",
-          "image": "https://udayton.edu/directory//artssciences/languages/images/work-nicola-2021.jpg"
-        }
+        "dwright1@udayton.edu",
+        "nwork1@udayton.edu"
       ],
       "learningoutcomes": [
         "Recognize the importance of assessing student learning.",
@@ -489,16 +434,8 @@
       "description": "Utilizing principles of backward design and UD’s diversity as an institutional learning goal (ILG), this session will introduce the basic tenets of inclusive pedagogy. The goal of this session is to guide attendees in the design of course goal objectives, materials, and approaches to instruction and content delivery.",
       "image": "/images/UD COL-433.jpg",
       "facilitators": [
-        {
-          "displayname": "Dr. Kenya Crosson",
-          "title": "Associate Dean for Faculty and Staff Development, School of Engineering",
-          "image": "https://udayton.edu/directory//engineering/civil/images/crosson-kenya.jpg"
-        },
-        {
-          "displayname": "Dr. Julio Quintero",
-          "title": "Director for Inclusive Excellence Strategy and Initiatives, Office of Diversity and Inclusion",
-          "image": "https://udayton.edu/directory//diversity-inclusion/img/quintero-julio-275x300.png"
-        }
+        "kcrosson1@udayton.edu",
+        "jquintero1@udayton.edu"
       ],
       "learningoutcomes": [
         "Identify teaching strategies and practices to promote an inclusive classroom environment.",
@@ -541,11 +478,7 @@
       "description": "In this session we will examine how we define our roles as teachers, why we entered the profession, what our professional goals are, and how we might attain them. Topics addressed will include vocational discernment, the purposes higher education serves today, and the scholarship of teaching and learning. The session will involve reflective writing exercises and peer discussion.",
       "image": "/images/UD COL-382.jpg",
       "facilitators": [
-        {
-          "displayname": "Dr. Steve Wilhoit",
-          "title": "English Professor",
-          "image": "https://udayton.edu/directory//aali/ltc/img/wilhoit_steve_275.jpg"
-        }
+        "swilhoit1@udayton.edu"
       ],
       "learningoutcomes": [
         "Reflect on your vocation as a teacher.",

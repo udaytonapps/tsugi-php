@@ -51,6 +51,14 @@ class StandardSyncAdapter extends CourseBase
                     if ($moduleAnchor !== null && isset($mod->anchor) && $moduleAnchor != $mod->anchor) continue;
                     if ($index !== null && $index != $count) continue;
                     if ($moduleAnchor == null && isset($mod->anchor)) $moduleAnchor = $mod->anchor;
+                    if (isset($mod->facilitators) && count($mod->facilitators)) {
+                        // Populate facilitator list
+                        $populatedList = [];
+                        foreach ($mod->facilitators as &$facilitator) {
+                            $populatedList[] = LessonsOrchestrator::getFacilitatorByEmail($facilitator);
+                        }
+                        $mod->facilitators = $populatedList;
+                    }
                     $this->activeModule = $mod;
                     $this->contextKey = "{$this->category}_{$this->activeModule->anchor}";
                     $this->position = $count;

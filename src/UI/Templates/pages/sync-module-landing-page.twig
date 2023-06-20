@@ -76,7 +76,7 @@
 	<ul class="list-group list-group-light list-group-small mb-4" style="margin-left:calc(1.25em + 11px);">
 		{% for facilitator in module.facilitators %}
 			<li class="list-group-item d-flex align-items-center">
-				<div class="image-container"><img class="profile" src="{{facilitator.image}}" alt="<?= $facilitator->displayname ?>"/></div>
+				<div class="image-container"><img class="profile" src="{{facilitator.image_url}}" alt="{{facilitator.displayname}}"/></div>
 				<div class="ms-3">
 					<h5 class="fw-normal mb-1">{{facilitator.displayname}}</h5>
 					<p class="text-muted mb-0">{{facilitator.title}}</p>

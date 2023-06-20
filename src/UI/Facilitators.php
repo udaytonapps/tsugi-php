@@ -13,7 +13,7 @@ class Facilitators {
     /**
      * All the facilitators
      */
-    public $all_facilitators = array();
+    public $all_facilitators = [];
 
     public $lessons;
 
@@ -75,16 +75,7 @@ class Facilitators {
             if ( isset($this->lessons->modules[$i]->facilitators) ) self::adjustArray($this->lessons->modules[$i]->facilitators);
         }
 
-        // Pull out all facilitators
-        foreach($lessons->modules as $module) {
-            if (isset($module->facilitators)) {
-                foreach ($module->facilitators as $facilitator) {
-                    $facilitator->session = $module->session . ' - ' . $module->title;
-                    $facilitator->url = U::get_rest_parent() . '/sessions/' . urlencode($module->anchor);
-                    array_push($this->all_facilitators, $facilitator);
-                }
-            }
-        }
+        $this->all_facilitators = LessonsOrchestrator::getAllFacilitatorsAndTheirModules();
 
         return true;
     }
@@ -121,19 +112,29 @@ class Facilitators {
             <tr>
             <td>
                 <div class="d-flex align-items-center">
-                    <img src="<?=$facilitator->image?>"
-                            alt="<?=$facilitator->displayname?>"
-                            style="width: 70px; height: 70px; object-fit: cover; object-position: 50% 30%;"
-                            class="rounded-circle"
+                    <img src="<?=$facilitator['image_url']?>"
+                            alt="<?=$facilitator['displayname']?>"
+                            style="object-fit: cover; object-position: 50% 30%; min-width: 70px; min-height: 70px; width: 70px; height: 70px;"
+                            class="rounded-circle shadow-4"
                     />
                     <div class="ms-3">
-                        <p class="fw-bold mb-1"><?=$facilitator->displayname?></p>
-                        <p class="text-muted mb-0"><?=$facilitator->title?></p>
+                        <p class="fw-bold mb-1"><?=$facilitator['displayname']?></p>
+                        <p class="text-muted mb-0"><?=$facilitator['title']?></p>
                     </div>
                 </div>
             </td>
             <td>
-                <a href="<?=$facilitator->url?>"><?=$facilitator->session?></a>
+                <ul class="list-group list-group-light list-group-small">
+                <?php
+                foreach ($facilitator['sessions'] as $session) {
+                ?>
+                <li class="list-group-item">
+                    <a href="<?=$session->url?>"><?=$session->title?></a>
+                </li>
+                <?php
+                }
+                ?>
+                </ul>
             </td>
             </tr>
             <?php
