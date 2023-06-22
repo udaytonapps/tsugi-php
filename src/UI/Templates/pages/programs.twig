@@ -36,16 +36,18 @@
 	<p class="lead">Explore self-paced courses as well as content on a variety of topics and technologies.</p>
 
 	<span id="filtertitle" data-statusfilter="allPrograms" data-modefilter="allModes">Filters: </span>
-	<select name="filter01" id="filter01" onchange="hideshow(this.value,'status')">
-		<option value="allPrograms" selected="selected">All Programs</option>
-		<option value="IN_PROGRESS">In Progress</option>
-		<option value="COMPLETED">Completed</option>
-	</select>
-	<select name="filter02" id="filter02" onchange="hideshow(this.value,'mode')">
-		<option value="allModes" selected="selected">All Modes</option>
-		<option value=" sync">Synchronous</option>
-		<option value=" async">Asynchronous</option>
-	</select>
+	<div class="d-flex" style="width: 400px;">
+		<select class="form-control me-2" name="filter01" id="filter01" onchange="hideshow(this.value,'status')">
+			<option value="allPrograms" selected="selected">All Programs</option>
+			<option value="IN_PROGRESS">In Progress</option>
+			<option value="COMPLETED">Completed</option>
+		</select>
+		<select class="form-control" name="filter02" id="filter02" onchange="hideshow(this.value,'mode')">
+			<option value="allModes" selected="selected">All Modes</option>
+			<option value=" sync">Synchronous</option>
+			<option value=" async">Asynchronous</option>
+		</select>
+	</div>
 
 	<!-- Tabs content -->
 	<div class="tab-content" id="ex1-content">
