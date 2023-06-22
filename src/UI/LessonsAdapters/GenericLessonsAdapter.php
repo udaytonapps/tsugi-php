@@ -1,22 +1,30 @@
 <?php
 
-namespace Tsugi\UI\StandardAsync;
-
-use CourseBase;
 use Tsugi\Util\U;
 use Tsugi\Core\LTIX;
 use Tsugi\UI\LessonsOrchestrator;
 use Tsugi\UI\LessonsUIHelper;
 use Tsugi\Grades\GradeUtil;
 
-
-class StandardAsyncAdapter extends CourseBase
+class GenericAdapter extends CourseBase
 {
-    public AsyncCourse $course;
+
+    // General Properties
     /** Index by resource_link */
     public $resource_links;
     /** The individual module */
     public $activeModule;
+
+    // Sync Properties
+    public Course $course;
+    /** The position of the module */
+    public $position;
+    /** The root path to the context-specific session data */
+    public $contextRoot;
+    /** All of the current user's registration information */
+    public $registrations = array();
+
+    // Async Properties
     /** The individual page */
     public $activePage;
     /** The anchor of the lesson page */
@@ -25,10 +33,6 @@ class StandardAsyncAdapter extends CourseBase
     public $pageIndex;
     /** The index of the active lesson */
     public $lessonIndex;
-    /** The position of the module */
-    public $position;
-    /** The root path to the context-specific session data */
-    public $contextRoot;
 
     public $contextKey;
     public int $contextId;
@@ -37,7 +41,7 @@ class StandardAsyncAdapter extends CourseBase
     function __construct($relativeContext, $moduleAnchor = null, $pageAnchor = null, $index = null)
     {
         try {
-            global $CFG;
+            global $CFG, $PDOX;
             $this->category = substr($relativeContext, strrpos($relativeContext, '/') + 1);
             $this->contextRoot = $CFG->wwwroot . '/vendor/tsugi/lib/src/UI' . $relativeContext;
             $courseObject =  LessonsOrchestrator::getLessonsJson($relativeContext);
@@ -47,7 +51,7 @@ class StandardAsyncAdapter extends CourseBase
             $moduleAnchor = isset($_GET['anchor']) ? $_GET['anchor'] : $moduleAnchor;
             $index = isset($_GET['index']) ? $_GET['index'] : $index;
 
-            $this->course = new AsyncCourse($courseObject);
+            $this->course = new Course($courseObject);
 
             // Search for the selected anchor or index position
             $count = 0;
@@ -57,6 +61,19 @@ class StandardAsyncAdapter extends CourseBase
                     if ($moduleAnchor !== null && isset($mod->anchor) && $moduleAnchor != $mod->anchor) continue;
                     if ($index !== null && $index != $count) continue;
                     if ($moduleAnchor == null && isset($mod->anchor)) $moduleAnchor = $mod->anchor;
+
+                    if (isset($mod->facilitators) && count($mod->facilitators)) {
+                        // Populate facilitator list
+                        $populatedList = [];
+                        foreach ($mod->facilitators as &$facilitator) {
+                            if (is_string($facilitator)) {
+                                $populatedList[] = LessonsOrchestrator::getFacilitatorByEmail($facilitator);
+                            } else {
+                                throw new ErrorException('Facilitators should be an array of email strings!');
+                            }
+                        }
+                        $mod->facilitators = $populatedList;
+                    }
                     $this->activeModule = $mod;
                     $this->contextKey = "{$this->category}_{$this->activeModule->anchor}";
                     $this->position = $count;
@@ -65,7 +82,35 @@ class StandardAsyncAdapter extends CourseBase
                 }
             }
 
-
+            // Populate registration data
+            if (isset($this->contextId)) {
+                // TODO: be sure to consider context - can we get rid of module_launch_id and use linkId?
+                // Get user's registration information
+                // If logged in, get the user_id from the session data
+                $userId = isset($_SESSION['lti']['user_id']) ? $_SESSION['lti']['user_id'] : null;
+                $allreg = $PDOX->allRowsDie(
+                    "SELECT r.registration_id, i.module_launch_id, i.session_date, i.session_location, i.modality, r.attendance_status
+                    FROM {$CFG->dbprefix}learn_module_instance AS i
+                    INNER JOIN {$CFG->dbprefix}learn_registration AS r ON i.instance_id = r.instance_id
+                    WHERE r.user_id = :UID AND r.context_id = :contextId",
+                    array(':UID' => $userId, ':contextId' => $this->contextId)
+                );
+                if ($allreg) {
+                    // Load all info into registrations
+                    foreach ($allreg as $reg) {
+                        $allfeedback = $PDOX->rowDie(
+                            "SELECT count(*) as NUM_FEEDBACK
+                        FROM {$CFG->dbprefix}learn_question_response AS r
+                        INNER JOIN {$CFG->dbprefix}learn_question AS q ON r.question_id = q.question_id
+                        WHERE r.registration_id = :RID AND r.context_id = :contextId AND q.question_type IN ('FEEDBACK', 'FEEDBACK_OUTCOME')",
+                            array(':RID' => $reg["registration_id"], ':contextId' => $this->contextId)
+                        );
+                        $didfeedback = $allfeedback && $allfeedback["NUM_FEEDBACK"] > 0;
+                        $reg["feedback"] = $didfeedback;
+                        $this->registrations[$reg["module_launch_id"]] = $reg;
+                    }
+                }
+            }
             if (isset($pageAnchor)) {
                 foreach ($this->activeModule->lessons as $lessonIndex => $lesson) {
                     foreach ($lesson->pages as $pageIndex => $page) {
@@ -89,8 +134,8 @@ class StandardAsyncAdapter extends CourseBase
 
     public function render($buffer = null)
     {
-        LTIX::session_start();
         LessonsUIHelper::debugLog($this->course);
+        LTIX::session_start();
 
         // If logged in, get the user_id from the session data
         $userId = isset($_SESSION['lti']['user_id']) ? $_SESSION['lti']['user_id'] : null;
@@ -116,11 +161,12 @@ class StandardAsyncAdapter extends CourseBase
     {
         global $CFG;
         $modules = $this->assembleAllowedModules();
+
         return (object)[
             'genericImg' => $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.png',
             'course' => $this->course,
             'moduleData' => $modules,
-            'courseUrl' => $CFG->apphome . '/programs/' . $this->category 
+            'courseUrl' => $CFG->apphome . '/programs/' . $this->category
         ];
     }
 
@@ -151,7 +197,7 @@ class StandardAsyncAdapter extends CourseBase
                 $crumb = (object)['path' => $CFG->apphome . '/programs' . '/' . $this->category . '/' . $this->activeModule->anchor, 'label' => $this->activeModule->title];
                 $breadcrumbs[] = $crumb;
 
-                if ($this->activePage) {
+                if (isset($this->activePage)) {
                     $crumb = (object)['path' => $CFG->apphome . '/programs' . '/' . $this->category . '/' . $this->activeModule->anchor . '/' . $this->activePage->anchor, 'label' => $this->activePage->title];
                     $breadcrumbs[] = $crumb;
                 }
@@ -160,22 +206,17 @@ class StandardAsyncAdapter extends CourseBase
         return $breadcrumbs;
     }
 
-
     private function renderLessonPage()
     {
         global $CFG;
         $twig = LessonsUIHelper::twig();
-
         // Find prev/next pages to populate anchors
         $prevPage = $this->findPreviousPage($this->lessonIndex, $this->pageIndex, $this->activeModule);
         $nextPage = $this->findNextPage($this->lessonIndex, $this->pageIndex, $this->activeModule);
-
         $rest_path = U::rest_path();
         $launch_path = "{$rest_path->parent}/{$rest_path->controller}/{$this->category}/{$this->activeModule->anchor}/{$this->activePage->anchor}/lti-launch";
-
         $this->updatePagesProgress($this->category, $this->activeModule->anchor, $this->activePage->anchor);
         $progress = $this->getPagesProgress($this->activeModule);
-
         echo $twig->render('async-module-lesson-page.twig', [
             'program' => $this->category,
             'breadcrumbs' => $this->getBreadcrumbs(),
@@ -191,16 +232,57 @@ class StandardAsyncAdapter extends CourseBase
 
     private function renderModuleLandingPage()
     {
+        if (isset($this->activeModule->async) && $this->activeModule->async) {
+            $twig = LessonsUIHelper::twig();
+            $progress = $this->getPagesProgress($this->activeModule);
+            echo $twig->render('async-module-landing-page.twig', [
+                'program' => $this->category,
+                'breadcrumbs' => $this->getBreadcrumbs(),
+                'base_url_warpwire' => $this->base_url_warpwire,
+                'module' => $this->activeModule,
+                'progress' => $progress,
+            ]);
+        } else {
+            // Find prev/next pages to populate anchors (using 0-index)
+            $prevModule = $this->findPreviousModule($this->position - 1);
+            $nextModule = $this->findNextModule($this->position - 1);
+
+            $restPath = U::rest_path();
+            $returnUrl = "{$restPath->parent}/{$restPath->controller}/{$this->category}/{$this->activeModule->anchor}";
+
+            $moduleMetadata = $this->getModuleMetadata($this->activeModule);
+
+            // Mock admin tool
+            // $_SESSION["admin"] = true;
+            // $buttonLtiUrl = $launchPath . "/admin-{$this->activeModule->anchor}";
+
+            $twig = LessonsUIHelper::twig();
+            echo $twig->render('sync-module-landing-page.twig', [
+                'program' => $this->category,
+                'prevModule' => $prevModule,
+                'nextModule' => $nextModule,
+                'contextRoot' => $this->contextRoot,
+                'returnUrl' => $returnUrl,
+                'breadcrumbs' => $this->getBreadcrumbs(),
+
+                'module' => (array)$this->activeModule,
+                'moduleMetadata' => $moduleMetadata,
+            ]);
+        }
+    }
+
+    private function renderAllModulesPage()
+    {
+        global $CFG;
         $twig = LessonsUIHelper::twig();
+        $allowedModules = $this->assembleAllowedModules();
 
-        $progress = $this->getPagesProgress($this->activeModule);
-
-        echo $twig->render('async-module-landing-page.twig', [
-            'program' => $this->category,
+        echo $twig->render('all-modules-page.twig', [
+            'genericImg' => $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.png',
             'breadcrumbs' => $this->getBreadcrumbs(),
-            'base_url_warpwire' => $this->base_url_warpwire,
-            'module' => $this->activeModule,
-            'progress' => $progress,
+            'contextRoot' => $this->contextRoot,
+            'course' => $this->course,
+            'moduleData' => $allowedModules,
         ]);
     }
 
@@ -224,11 +306,17 @@ class StandardAsyncAdapter extends CourseBase
 
             $encodedAnchor = urlencode($module->anchor);
 
+            if (isset($module->async) && $module->async) {
+                $type = 'async';
+            } else {
+                $type = 'sync';
+            }
+
             array_push($moduleCardData, (object)[
                 'module' => $module,
                 'contextRoot' => $this->contextRoot,
                 'moduleUrl' => "{$CFG->apphome}/programs/{$this->category}/{$encodedAnchor}",
-                'moduletype' => 'async',
+                'moduletype' => $type,
                 // Status as well as sync-specific, registration related data
                 'moduleMetadata' => $moduleMetadata,
             ]);
@@ -241,6 +329,119 @@ class StandardAsyncAdapter extends CourseBase
 
     private function getModuleMetadata($module)
     {
+        if (isset($module->async) && $module->async) {
+            return $this->getAsyncModuleMetadata($module);
+        } else {
+            return $this->getSyncModuleMetadata($module);
+        }
+    }
+
+    private function getSyncModuleMetadata($module)
+    {
+        global $CFG, $PDOX;
+        $userId = isset($_SESSION['lti']['user_id']) ? $_SESSION['lti']['user_id'] : null;
+
+        // Concerning session timing
+        $instances = $PDOX->allRowsDie(
+            "SELECT session_date, session_location, duration_minutes, module_launch_id, capacity
+            FROM {$CFG->dbprefix}learn_module_instance
+            WHERE module_launch_id = :moduleId",
+            array(':moduleId' => $module->anchor)
+        );
+        $upcoming = array();
+        foreach ($instances as $instance) {
+            $theDate = date('m/d', strtotime($instance['session_date']));
+            if (strtotime($instance['session_date']) >= strtotime('now')) {
+                array_push($upcoming, $theDate);
+            }
+        }
+        $isOver = count($upcoming) <= 0;
+
+        // Concerning user registration
+        $allreg = $PDOX->allRowsDie(
+            "SELECT r.registration_id, i.module_launch_id, i.session_date, i.session_location, i.modality, r.attendance_status
+                FROM {$CFG->dbprefix}learn_module_instance AS i
+                INNER JOIN {$CFG->dbprefix}learn_registration AS r ON i.instance_id = r.instance_id
+                WHERE r.user_id = :UID",
+            array(':UID' => $userId)
+        );
+        if ($allreg) {
+            // Load all info into registrations
+            foreach ($allreg as $reg) {
+                $allfeedback = $PDOX->rowDie(
+                    "SELECT count(*) as NUM_FEEDBACK
+                    FROM {$CFG->dbprefix}learn_question_response AS r
+                    INNER JOIN {$CFG->dbprefix}learn_question AS q ON r.question_id = q.question_id
+                    WHERE r.registration_id = :RID AND q.question_type IN ('FEEDBACK', 'FEEDBACK_OUTCOME')",
+                    array(':RID' => $reg["registration_id"])
+                );
+                $didfeedback = $allfeedback && $allfeedback["NUM_FEEDBACK"] > 0;
+                $reg["feedback"] = $didfeedback;
+                $this->registrations[$reg["module_launch_id"]] = $reg;
+            }
+        }
+
+        // Assemble template variables
+        $registered = array_key_exists($module->anchor, $this->registrations) && $this->registrations[$module->anchor]["attendance_status"] == "REGISTERED";
+        $attended = array_key_exists($module->anchor, $this->registrations) && ($this->registrations[$module->anchor]["attendance_status"] == "ATTENDED" || $this->registrations[$module->anchor]["attendance_status"] == "LATE");
+        $absent = isset($this->registrations[$module->anchor]["attendance_status"]) &&  $this->registrations[$module->anchor]["attendance_status"] === "ABSENT";
+
+        $greeting = $attended ? 'You attended the following session' : ($absent ? "We missed you at the session on" : "You are registered for");
+        $regDate = isset($this->registrations[$module->anchor]["session_date"]) ? new \DateTime($this->registrations[$module->anchor]["session_date"]) : null;
+        $regDate = isset($regData) ? $regDate->format("D. M j, Y - g:i a") : null;
+        $location = isset($this->registrations[$module->anchor]["session_location"]) ? $this->registrations[$module->anchor]["session_location"] : null;
+
+        $gaveFeedback = isset($this->registrations[$module->anchor]["feedback"]) ? $this->registrations[$module->anchor]["feedback"] : false;
+
+        $restPath = U::rest_path();
+        $loginPath = "{$restPath->parent}/tsugi/login.php";
+        $launchPath = "{$restPath->parent}/{$restPath->controller}/{$this->category}/{$module->anchor}/lti-launch";
+
+        $status = null;
+        // Choose button action
+        $buttonAction = null;
+        $buttonLtiUrl = $launchPath;
+        if (!isset($userId)) {
+            $buttonAction = 'LOGIN';
+        } else if ($registered) {
+            $buttonAction = 'CHANGE';
+            $buttonLtiUrl .= "/reg-{$module->anchor}";
+            $status = 'IN_PROGRESS';
+        } else if ($attended) {
+            if ($gaveFeedback) {
+                $buttonAction = 'COMPLETE';
+                $buttonLtiUrl .= "/reg-{$module->anchor}";
+                $status = 'COMPLETE';
+            } else {
+                $buttonAction = 'FEEDBACK';
+                $buttonLtiUrl .= "/feedback-{$module->anchor}";
+                $status = 'IN_PROGRESS';
+            }
+        } else if ($absent) {
+            $buttonAction = 'CHANGE';
+            $buttonLtiUrl .= "/reg-{$module->anchor}";
+        } else {
+            $buttonAction = 'REGISTER';
+            $buttonLtiUrl .= "/reg-{$module->anchor}";
+        }
+
+        return (object)[
+            'greeting' => $greeting,
+            'regDate' => $regDate,
+            'location' => $location,
+            'buttonAction' => $buttonAction,
+            'ltiUrl' => $buttonLtiUrl,
+            'loginUrl' => $loginPath,
+            'attended' => $attended,
+            'absent' => $absent,
+            'registered' => $registered,
+            // Status to determine whether to render
+            'status' => $status,
+        ];
+    }
+
+    private function getAsyncModuleMetadata($module)
+    {
         global $CFG, $PDOX;
         $userId = isset($_SESSION['lti']['user_id']) ? $_SESSION['lti']['user_id'] : null;
         if (!isset($this->contextId)) {
@@ -252,7 +453,7 @@ class StandardAsyncAdapter extends CourseBase
         $ltiStatus = null;
         $status = null;
 
-        
+
         // Check page progress
         $pageProgressObj = $this->getPagesProgress($module);
         if (isset($pageProgressObj->{$contextKey})) {
@@ -269,7 +470,7 @@ class StandardAsyncAdapter extends CourseBase
                 $pageStatus =  'IN_PROGRESS';
             }
         }
-        
+
         // Check lti assignment completion
         if (isset($pageProgressObj->{$contextKey})) {
             foreach ($pageProgressObj->{$contextKey} as $pageProgress) {
@@ -303,23 +504,6 @@ class StandardAsyncAdapter extends CourseBase
         ];
     }
 
-    private function renderAllModulesPage()
-    {
-        global $CFG;
-        $twig = LessonsUIHelper::twig();
-        $allowedModules = $this->assembleAllowedModules();
-
-        echo $twig->render('async-all-modules-page.twig', [
-            'genericImg' => $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.png',
-            'breadcrumbs' => $this->getBreadcrumbs(),
-            'contextRoot' => $this->contextRoot,
-            'course' => $this->course,
-            'moduleData' => $allowedModules,
-        ]);
-    }
-
-
-
     public function getLtiContent($module = null)
     {
         $ltiContent = [];
@@ -342,33 +526,67 @@ class StandardAsyncAdapter extends CourseBase
         return $ltiContent;
     }
 
-    /** Get an LTI or Discussion associated with a resource link ID */
+    /**
+     * Get an LTI or Discussion associated with a resource link ID
+     */
     public function getLtiByRlid($resource_link_id)
     {
+        if (isset($this->course->discussions)) {
+            foreach ($this->course->discussions as $discussion) {
+                if ($discussion->resource_link_id == $resource_link_id) return $discussion;
+            }
+        }
         foreach ($this->course->modules as $mod) {
-            foreach ($mod->lessons as $lesson) {
-                foreach ($lesson->pages as $page) {
-                    foreach ($page->contents as $content) {
-                        if (isset($content->lti)) {
-                            if ($content->lti->resource_link_id == $resource_link_id) return $content->lti;
+            if (isset($mod->async) && $mod->async) {
+                foreach ($mod->lessons as $lesson) {
+                    foreach ($lesson->pages as $page) {
+                        foreach ($page->contents as $content) {
+                            if (isset($content->lti)) {
+                                if ($content->lti->resource_link_id == $resource_link_id) return $content->lti;
+                            }
                         }
+                    }
+                }
+            } else {
+                if (isset($mod->lti)) {
+                    foreach ($mod->lti as $lti) {
+                        if ($lti->resource_link_id == $resource_link_id) return $lti;
+                    }
+                }
+                if (isset($mod->discussions)) {
+                    foreach ($mod->discussions as $discussion) {
+                        if ($discussion->resource_link_id == $resource_link_id) return $discussion;
                     }
                 }
             }
         }
-        return null;
     }
 
-    /** Get a module associated with a resource link ID */
+    /**
+     * Get a module associated with a resource link ID
+     */
     public function getModuleByRlid($resource_link_id)
     {
         foreach ($this->course->modules as $mod) {
-            foreach ($mod->lessons as $lesson) {
-                foreach ($lesson->pages as $page) {
-                    foreach ($page->contents as $content) {
-                        if (isset($content->lti)) {
-                            if ($content->lti->resource_link_id == $resource_link_id) return $mod;
+            if (isset($mod->async) && $mod->async) {
+                foreach ($mod->lessons as $lesson) {
+                    foreach ($lesson->pages as $page) {
+                        foreach ($page->contents as $content) {
+                            if (isset($content->lti)) {
+                                if ($content->lti->resource_link_id == $resource_link_id) return $mod;
+                            }
                         }
+                    }
+                }
+            } else {
+                if (isset($mod->lti)) {
+                    foreach ($mod->lti as $lti) {
+                        if ($lti->resource_link_id == $resource_link_id) return $mod;
+                    }
+                }
+                if (isset($mod->discussions)) {
+                    foreach ($mod->discussions as $discussion) {
+                        if ($discussion->resource_link_id == $resource_link_id) return $mod;
                     }
                 }
             }
@@ -450,20 +668,16 @@ class StandardAsyncAdapter extends CourseBase
             );
             $profile_row = $stmt->fetch(\PDO::FETCH_ASSOC);
             $profile = json_decode($profile_row['json']);
-
             if (!is_object($profile)) $profile = (object)[];
-
             if (!isset($profile->asyncProgress)) {
                 $profile->asyncProgress = (object)[];
             }
             $asyncProgress = $profile->asyncProgress;
-
             $moduleKey = "{$program}_{$moduleAnchor}";
             if (!isset($asyncProgress->{$moduleKey})) {
                 $asyncProgress->{$moduleKey} = (object)[];
             }
             $moduleProgress = $asyncProgress->{$moduleKey};
-
             // Only update if it doesn't already exist at the page level
             if (!isset($moduleProgress->{$pageAnchor})) {
                 $moduleProgress->{$pageAnchor} =  "02-02-2023-01:02:12";
@@ -477,7 +691,29 @@ class StandardAsyncAdapter extends CourseBase
         }
     }
 
-    private function findPreviousPage(int $lessonIndex, int $pageIndex, AsyncModule $module)
+    private function findPreviousModule(int $moduleIndex)
+    {
+        if ($moduleIndex > 0) {
+            // Paginate backward if prev page is there in same lesson
+            return $this->course->modules[$moduleIndex - 1];
+        } else {
+            // No previous page found
+            return null;
+        }
+    }
+
+    private function findNextModule(int $moduleIndex)
+    {
+        if ($moduleIndex < count($this->course->modules) - 1) {
+            // Paginate forward if next module
+            return $this->course->modules[$moduleIndex + 1];
+        } else {
+            // No next page found
+            return null;
+        }
+    }
+
+    private function findPreviousPage(int $lessonIndex, int $pageIndex, $module)
     {
         if ($pageIndex > 0) {
             // Paginate backward if prev page is there in same lesson
@@ -498,7 +734,7 @@ class StandardAsyncAdapter extends CourseBase
         }
     }
 
-    private function findNextPage(int $lessonIndex, int $pageIndex, AsyncModule $module)
+    private function findNextPage(int $lessonIndex, int $pageIndex, $module)
     {
         if ($pageIndex < count($module->lessons[$lessonIndex]->pages) - 1) {
             // Paginate forward if next page is there in same lesson

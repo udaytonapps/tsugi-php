@@ -3,14 +3,12 @@
 namespace Tsugi\UI;
 
 require_once(__DIR__ . '/LessonsAdapters/CourseBase.php');
-require_once(__DIR__ . '/LessonsAdapters/StandardAsync/StandardAsync.php');
-require_once(__DIR__ . '/LessonsAdapters/StandardSync/StandardSync.php');
+require_once(__DIR__ . '/LessonsAdapters/GenericLessonsAdapter.php');
 
 use CourseBase;
+use GenericAdapter;
 use Tsugi\Util\U;
 use Tsugi\Core\LTIX;
-use Tsugi\UI\StandardAsync\StandardAsyncAdapter;
-use Tsugi\UI\StandardSync\StandardSyncAdapter;
 
 class LessonsOrchestrator
 {
@@ -40,30 +38,17 @@ class LessonsOrchestrator
             ],
             'ATLS' => (object)[
                 'displayLabel' => 'ATLS',
-                'adapter' => StandardSyncAdapter::class,
-                'adapterPath' => $adapterDirectory . '/StandardSync/StandardSyncAdapter.php'
+                'adapter' => GenericAdapter::class,
+                'adapterPath' => $adapterDirectory . '/GenericLessonsAdapter.php',
             ],
             'col' => (object)[
                 'displayLabel' => 'Center for Online Learning',
-                'adapter' => StandardAsyncAdapter::class,
-                'adapterPath' => $adapterDirectory . '/StandardAsync/StandardAsyncAdapter.php'
-            ],
+                'adapter' => GenericAdapter::class,
+                'adapterPath' => $adapterDirectory . '/GenericLessonsAdapter.php',
+            ]
         ];
         // If not in object, error out?
         return $reference;
-    }
-
-    public static function getCategoryName($nameKey)
-    {
-        try {
-            // Instantiate and return the relevant Lessons class
-            $adapterReference = self::getLessonsReference($nameKey);
-            require_once($adapterReference->{$nameKey}->adapterPath);
-            return $adapterReference->{$nameKey}->adapter;
-        } catch (\Exception $e) {
-            echo ('Unable to retrieve Lessons Adapter!</br>');
-            echo ($e->getMessage());
-        }
     }
 
     public static function getLessons($program, $moduleAnchor = null, $pageAnchor = null, $index = null): CourseBase
@@ -142,8 +127,8 @@ class LessonsOrchestrator
                     if (isset($module->facilitators)) {
                         if (in_array($facilitator['email'], $module->facilitators)) {
                             $facilitator['sessions'][] = (object)[
-                                'title' => $reference->displayLabel . ': ' . $module->session . ' - ' . $module->title,
-                                'url' => U::get_rest_parent() . '/sessions/' . urlencode($module->anchor),
+                                'title' => $reference->displayLabel . (isset($module->session) && strlen($module->session) > 0 ? ' - ' . $module->session . ': ' : ': ') . $module->title,
+                                'url' => U::get_rest_parent() . "/programs/{$program}/" . urlencode($module->anchor),
                             ];
                         }
                     }

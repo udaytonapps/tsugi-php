@@ -144,6 +144,208 @@ abstract class CourseBase
     }
 }
 
+class Course
+{
+    /** @var string */
+    public $title;
+    /** @var string */
+    public $description;
+    /** @var Splash */
+    public $splash;
+    /** @var Badge[] */
+    public $badges;
+    /** @var Module[] */
+    public $modules;
+
+    public $discussions; // TODO
+
+    function __construct($course)
+    {
+        $this->title = $course->title;
+        $this->description = $course->description;
+        $this->splash = $course->splash ?? null;
+
+        $badges = array();
+        foreach ($course->badges as $badge) {
+            array_push($badges, new Badge($badge));
+        }
+        $this->badges = $badges;
+
+        $modules = array();
+        foreach ($course->modules as $module) {
+            if (isset($module->async) && $module->async) {
+                array_push($modules, new AsyncModule($module));
+            } else {
+                array_push($modules, new SyncModule($module));
+            }
+        }
+        $this->modules = $modules;
+    }
+}
+
+class AsyncModule
+{
+    /** @var string */
+    public $title;
+    /** @var string */
+    public $anchor;
+    /** @var string */
+    public $duration;
+    /** @var AsyncLesson[] */
+    public $lessons;
+    /** @var Content[] Typically a title, description, and video */
+    public $landingContents;
+    /** @var string */
+    public $image;
+    /** @var boolean */
+    public $async = true;
+
+    function __construct($module)
+    {
+        $this->title = $module->title ?? null;
+        $this->anchor  = $module->anchor ?? null;
+        $this->duration  = $module->duration ?? null;
+        $this->image = $module->image ?? null;
+
+        $contents = [];
+        if (isset($module->landingContents)) {
+            foreach ($module->landingContents as $content) {
+                $newLesson = new Content($content);
+                array_push($contents, $newLesson);
+            }
+        }
+        $this->landingContents = $contents;
+
+        $lessons = [];
+        if (isset($module->lessons)) {
+            foreach ($module->lessons as $lesson) {
+                if (!isset($lesson->sublesson) || $lesson->sublesson == false) { // TODO: Remove
+                    $newLesson = new AsyncLesson($lesson);
+                    array_push($lessons, $newLesson);
+                }
+            }
+        }
+        $this->lessons = $lessons;
+    }
+}
+
+class AsyncLesson
+{
+    /** @var string */
+    public $title;
+    /** @var string */
+    public $anchor;
+    /** @var string */
+    public $icon;
+    /** @var string */
+    public $teaser;
+    /** @var AsyncPage[] */
+    public $pages;
+
+    function __construct($lesson)
+    {
+        $this->title  = $lesson->title ?? null;
+        $this->anchor  = $lesson->anchor ?? null;
+        $this->icon  = $lesson->icon ?? null;
+        $this->teaser  = $lesson->teaser ?? null;
+
+        $pages = [];
+        if (isset($lesson->pages)) {
+            foreach ($lesson->pages as $page) {
+                $newPage = new AsyncPage($page);
+                array_push($pages, $newPage);
+            }
+        }
+        $this->pages = $pages;
+    }
+}
+
+class AsyncPage
+{
+    /** @var string */
+    public $title;
+    /** @var string */
+    public $anchor;
+    /** @var Content[]|Exercise[] */
+    public $contents;
+
+    function __construct($page)
+    {
+        $this->title  = $page->title ?? null;
+        $this->anchor  = $page->anchor ?? null;
+
+        $contents = [];
+        if (isset($page->contents)) {
+            foreach ($page->contents as $content) {
+                $newContent = new Content($content);
+                array_push($contents, $newContent);
+            }
+        }
+        $this->contents = $contents;
+    }
+}
+
+class SyncModule
+{
+    /** @var string */
+    public $title;
+    /** @var string */
+    public $description;
+    /** @var string */
+    public $session;
+    /** @var string */
+    public $anchor;
+    /** @var string */
+    public $duration;
+    /** @var string */
+    public $image;
+    /** @var string */
+    public $icon;
+    /** @var string */
+    public $calendar;
+    // /** @var Content[] Typically a title, description, and video */
+    // public $landingContents;
+    /** @var LtiContent[] */
+    public $lti;
+    //   "core": true,
+    public $learningoutcomes;
+    public $facilitators;
+    public $resources;
+    /** @var boolean */
+    public $async = false;
+
+    function __construct($module)
+    {
+        $this->title = $module->title ?? null;
+        $this->description = $module->description ?? null;
+        $this->session = $module->session ?? null;
+        $this->anchor  = $module->anchor ?? null;
+        $this->duration  = $module->duration ?? null;
+        $this->image = $module->image ?? null;
+        $this->icon = $module->icon ?? null;
+        $this->calendar = $module->calendar ?? null;
+        $this->learningoutcomes = $module->learningoutcomes ?? null;
+        $this->facilitators = $module->facilitators ?? null;
+        $this->resources = $module->resources ?? null;
+
+        $contents = [];
+        // if (isset($module->landingContents)) {
+        //     foreach ($module->landingContents as $content) {
+        //         $newLesson = new Content($content);
+        //         array_push($contents, $newLesson);
+        //     }
+        // }
+        $ltiContent = [];
+        if (isset($module->lti)) {
+            foreach ($module->lti as $lti) {
+                $newLti = new LtiContent($lti);
+                $ltiContent[] = $newLti;
+            }
+        }
+        $this->lti = $ltiContent;
+    }
+}
+
 class Badge
 {
     /** @var string */
