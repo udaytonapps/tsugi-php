@@ -41,42 +41,7 @@ class Facilitators {
      **/
     public function __construct($name='lessons.json', $anchor=null, $index=null)
     {
-        global $CFG;
-
-        $lessons = LessonsOrchestrator::getLessonsJson('/LessonsAdapters/ATLS'); // TODO: Update
-        $this->resource_links = array();
-
-        if ( $lessons === null ) {
-            echo("<pre>\n");
-            echo("Problem parsing lessons.json: ");
-            echo(json_last_error_msg());
-            echo("\n");
-            echo($name);
-            die();
-        }
-
-        // Filter modules based on login
-        if ( !isset($_SESSION['id']) ) {
-            $filtered_modules = array();
-            $filtered = false;
-            foreach($lessons->modules as $module) {
-	            if ( isset($module->login) && $module->login ) {
-                    $filtered = true;
-                    continue;
-                }
-                $filtered_modules[] = $module;
-            }
-            if ( $filtered ) $lessons->modules = $filtered_modules;
-        }
-        $this->lessons = $lessons;
-
-        // Pretty up the data structure
-        for($i=0;$i<count($this->lessons->modules);$i++) {
-            if ( isset($this->lessons->modules[$i]->facilitators) ) self::adjustArray($this->lessons->modules[$i]->facilitators);
-        }
-
         $this->all_facilitators = LessonsOrchestrator::getAllFacilitatorsAndTheirModules();
-
         return true;
     }
 
@@ -96,12 +61,12 @@ class Facilitators {
     public function render($buffer=false) {
         ob_start();
 
-        echo '<h4>'.$this->lessons->title.'</h4><h1>All Facilitators</h1>';
+        echo '</br><h1>Authors and Facilitators</h1>';
         ?>
         <table class="table align-middle mb-0 bg-white">
             <thead class="bg-light">
             <tr>
-                <th>Facilitator</th>
+                <th>Author/Facilitator</th>
                 <th>Session(s)</th>
             </tr>
             </thead>
