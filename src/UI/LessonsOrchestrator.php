@@ -31,11 +31,6 @@ class LessonsOrchestrator
         // Pull together any standard Async/Sync courses, and assign here with their adapters
         $adapterDirectory = $CFG->dirroot . '/vendor/tsugi/lib/src/UI/LessonsAdapters';
         $reference = (object)[
-            'KoseuDefault' => (object)[
-                'displayLabel' => 'Koseu Default',
-                'adapter' => DefaultLessons::class,
-                'adapterPath' => $adapterDirectory . '/KoseuDefault/DefaultLessons.php'
-            ],
             'ATLS' => (object)[
                 'displayLabel' => 'ATLS',
                 'adapter' => GenericAdapter::class,
