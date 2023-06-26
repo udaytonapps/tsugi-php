@@ -36,7 +36,7 @@
 	<p class="lead">Explore self-paced courses as well as content on a variety of topics and technologies.</p>
 
 	<span id="filtertitle" data-statusfilter="allPrograms" data-modefilter="allModes">Filters: </span>
-	<div class="d-flex" style="width: 400px;">
+	<div class="d-flex" style="max-width: 400px;">
 		<select class="form-control me-2" name="filter01" id="filter01" onchange="hideshow(this.value,'status')">
 			<option value="allPrograms" selected="selected">All Programs</option>
 			<option value="IN_PROGRESS">In Progress</option>
@@ -66,7 +66,7 @@
 						{# <a class="btn btn-link mb-1" href="{{''}}">View all</a> #}
 					</div>
 					<div class="flex-wrap justify-content-center align-content-center pt-4 coursenum{{coursenum}}">
-					<div>{{courseData.course.description}}</div>
+					<div class="mb-4">{{courseData.course.description}}</div>
 						{% set coursenum = coursenum + 1 %}
 						{% for card in courseData.moduleData %}
 							{% set genericImg = courseData.genericImg %}

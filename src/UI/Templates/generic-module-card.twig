@@ -10,15 +10,15 @@
 'registered' => $registered,
 #}
 
-<div class="col-md-12 mb-2 p-2 d-flex align-items-stretch" data-tags="{{card.moduleMetadata.status}} {{card.moduletype}} allModes allPrograms">
+<div class="col-md-12 pb-1 d-flex align-items-stretch" data-tags="{{card.moduleMetadata.status}} {{card.moduletype}} allModes allPrograms">
 	<div class="card w-100">
 		<div class="allprograms-card-body pb-0">
 			<span class="card-title-area">
-				<h5 class="card-title pb-2 d-block">
+				<h5 class="card-title d-block">
 					<a class="modulePageLink" href="{{card.moduleUrl}}">{{card.module.title}}</a>
 				</h5>
 				{% if card.module.session %}
-					<div class="d-block">
+					<div class="d-block pb-1">
 						{% if card.module.icon %}
 							<i class="fa {{card.module.icon}} pe-1" aria-hidden="true"></i>
 						{% endif %}
@@ -31,14 +31,14 @@
 					</p>
 				{% endif %}
 			</span>
-			<span class="card-data-area">
+			<span class="card-data-area d-flex flex-wrap">
 				{% if card.module.duration %}
-                    <span class="card-data-span ">
+                    <span class="card-data-span">
                         <span class="far fa-clock" aria-hidden="true"></span>
                         {{card.module.duration}}
                     </span>
                 {% endif %}
-				<span class="card-data-span ">
+				<span class="card-data-span">
 					{% if card.moduletype == 'sync' %}
 						<span class="fas fa-users" aria-hidden="true"></span>
 						Synchronous
@@ -55,7 +55,11 @@
 					{% elseif card.moduleMetadata.status == 'COMPLETE' %}
 						<span class="badge badge-success">Completed</span>
 					{% else %}
-						<span class="badge badge-warning">Not Registered</span>
+						{% if card.moduletype == 'sync' %}
+							<span class="badge badge-warning">Not Registered</span>
+						{% else %}
+							<span class="badge badge-warning">Not Started</span>
+						{% endif %}
 					{% endif %}					
 				</span>	
 			</span>

@@ -1,6 +1,23 @@
 {
-  "title": "Center for Online Learning - Isidore Training Modules",
+  "title": "Center for Online Learning",
   "description": "Below are training modules and lessons developed by the Center for Online Learning to help folks use Isidore, UD's learning management system.",
+  "splash": {
+    "title": "Center for Online Learning",
+    "image": "/assets/col-landing.jpeg",
+    "video": "https://udayton.warpwire.com/w/20AFAA/?title=0",
+    "text": "Below are training modules and lessons developed by the Center for Online Learning to help folks use Isidore, UD's learning management system.",
+    "contents": [
+      {
+        "type": "TEXT",
+        "paragraphs": [
+          "<h5>Welcome!</h5>",
+          "Welcome to the Center for Online Learning, where we bring you a range of innovative and exciting sessions to enhance your teaching experience. Join us for a Backstage Tour of our state-of-the-art Media Studio, learn more about ChatGPT, or get help with Isidore, or learn about presentation slide best practices.",
+          "In addition, don't miss our Tuesday Drop-In options, offering you the chance to engage with colleagues and the Center for Online Learning team. Join the \"First Tuesday Blog Read\" for insightful conversations inspired by recent pedagogy topics, or stop by the \"Faculty Lounge\" to relax with a cup of coffee while discussing various pedagogical and technological matters. You can also participate in \"Tuesday Topics in Teaching & Tech\" for stimulating conversations on instructional design and pedagogical innovation, accompanied by delicious coffee and donuts.",
+          "Experience the Center for Online Learning's diverse range of sessions and take your teaching to new heights. Join us today and unlock the full potential of your online teaching journey."
+        ]
+      }
+    ]
+  },
   "badges": [
     {
       "title": "Participation Trophy",
@@ -109,8 +126,9 @@
   ],
   "modules": [
     {
+      "async": true,
       "title": "Isidore Onboarding",
-      "time": "Est. 45 min",
+      "duration": "Est. 45 min",
       "anchor": "onboarding",
       "landingContents": [
         {
@@ -1376,8 +1394,9 @@
       ]
     },
     {
+      "async": true,
       "title": "Accessibility",
-      "time": "Est. 35 min",
+      "duration": "Est. 35 min",
       "anchor": "accessibility",
       "landingContents": [
         {
@@ -2112,483 +2131,9 @@
       ]
     },
     {
-      "title": "Zoom Video Conferencing",
-      "description": "Let us introduce you to Zoom, the University of Dayton’s chosen platform for video conferencing. While Zoom is primarily used for synchronous learning and web conferencing, there are some unique ways you can use Zoom to enhance your face to face class and increase student engagement. This training module will explain the potential uses, how to acquire zoom, navigate the zoom room, and utilize the best practices for facilitating a synchronous session.",
-      "time": "Est. 20 min",
-      "anchor": "zoom",
-      "video": {
-        "title": "What's Zoom Got to Do with Me?",
-        "warpwire": "RU8BAA"
-      },
-      "lessons": [
-        {
-          "title": "Getting Ready to Zoom",
-          "anchor": "zoomgettingready",
-          "icon": "fa-video",
-          "description": "Activating your account and downloading Zoom.",
-          "videos": [
-            {
-              "title": "Getting Started with Zoom",
-              "warpwire": "QU8BAA"
-            }
-          ],
-          "overviewcontent": "Whether you are planning on teaching online, adding interactivity to your face to face course, or just want to check out video conferencing, this lesson will help you to activate your Zoom account, download the client app, schedule/manage meetings, and tell you how to get support.",
-          "section1title": "Step 1: Activating and Installing Zoom",
-          "section1content": "Watch this video for information on how to get started using Zoom.\n\n",
-          "section2title": "Practical Application",
-          "section2content": "Personalize your Zoom settings to prepare for your first facilitation.<ol><li>Log into your zoom account at <a href=\"https://go.udayton.edu/zoom\" target=\"_blank\">https://go.udayton.edu/zoom</a>.</li><li>Upload an image for your profile in your profile settings.</li><li>Explore the settings menu and customize in the manner that works best for your needs.</li></ol>",
-          "aside1title": "Additional Resources",
-          "aside1content": [
-            {
-              "header": "Support",
-              "references": [
-                {
-                  "icon": "fa-link",
-                  "title": "Center for Online Learning: Zoom Help",
-                  "href": "https://ewiki.udayton.edu/isidore/Zoom"
-                },
-                {
-                  "icon": "fa-link",
-                  "title": "UDit: Using Zoom at UD",
-                  "href": "https://udayton.teamdynamix.com/TDClient/1868/Portal/KB/ArticleDet?ID=88426"
-                },
-                {
-                  "icon": "fa-external-link",
-                  "title": "Zoom: Help Center",
-                  "href": "https://support.zoom.us/hc/en-us"
-                }
-              ]
-            },
-            {
-              "header": "Downloads",
-              "references": [
-                {
-                  "icon": "fa-file-pdf",
-                  "title": "Installing Zoom",
-                  "href": "https://drive.google.com/open?id=1JK9vY6FfApozV-JQXA9ekawLeCkyaFhh"
-                },
-                {
-                  "icon": "fa-file-pdf",
-                  "title": "Quick Start in Isidore",
-                  "href": "https://drive.google.com/open?id=1w-Ia1MBewixN_QQare7okg_1GyLEx_LC"
-                },
-                {
-                  "icon": "fa-file-pdf",
-                  "title": "Quick Start Outside of Isidore",
-                  "href": "https://drive.google.com/open?id=1uTbiQwi12mwhQZNXkooX2DfTKFXuVa7H"
-                },
-                {
-                  "icon": "fa-file-pdf",
-                  "title": "Sharing Recordings",
-                  "href": "https://drive.google.com/open?id=1qcY9vsoI05dhicJaEoWfa486pc2nW3at"
-                },
-                {
-                  "icon": "fa-file-pdf",
-                  "title": "Zoom Meetings Training Reference Guide",
-                  "href": "https://support.zoom.us/hc/en-us/article_attachments/360047188071/Zoom_Meetings_Training_Reference_Guide.pdf"
-                }
-              ]
-            },
-            {
-              "header": "Related Lessons",
-              "references": [
-                {
-                  "icon": "fa-video",
-                  "title": "Facilitating Zoom Sessions",
-                  "href": "/lessons/templatesites-zoom"
-                }
-              ]
-            }
-          ],
-          "aside2title": "Potential Questions You May Have",
-          "aside2questions": [
-            {
-              "question": "Do I need to activate my Zoom account if I am also teaching with 2U and use Zoom for that platform?",
-              "answer": "The University of Dayton provisioned faculty with Zoom accounts separate from the ones provided by 2U for the online program. However, Zoom will only allow you to register one account with each email.  Registering your University of Dayton Zoom account will disconnect your 2U account. If you have a 2U account, please use your 2U account for all Zoom activity."
-            },
-            {
-              "question": "Do I need to download my Zoom video recording and upload them into the Warpwire video tool for students to access?",
-              "answer": "No, this is not necessary if you are using Zoom within Isidore (recommend for class meetings). Students can access the video recordings from the Zoom tool in the Isidore course site.  All recordings are automatically closed captioned with timestamps."
-            },
-            {
-              "question": "Do I have to send an invite out to all my students if I hold an online session?",
-              "answer": "Nope!  Students will be able to view the links to upcoming sessions and click “join” right from Isidore (if you are using Zoom within Isidore, which is HIGHLY recommended). Yet another benefit of utilizing UD’s awesome LMS! You may want to send a friendly reminder to students though --just in case."
-            }
-          ],
-          "aside3title": "Did you know?",
-          "aside3content": "The first concepts of video conferencing were developed in the 1870s, as part of an extension of audio devices. The first actual developments of the video telephone began in the late 1920s with the AT&T company Bell Labs and John Logie Baird. AT&T experimented with video phones in 1927. (Business Matters, https://www.bmmagazine.co.uk/tech/history-video-conferencing/_)."
-        },
-        {
-          "title": "Zoom Classroom Basics",
-          "anchor": "zoomclassroombasics",
-          "icon": "fa-chalkboard-teacher",
-          "description": "Learn the basic tools of the Zoom classroom.",
-          "videos": [
-            {
-              "title": "Zoom Classroom Basics",
-              "warpwire": "Q08BAA"
-            }
-          ],
-          "overviewcontent": "All set up and ready to go?  In this lesson we will review the basic features of the Zoom classroom.  Once you have these down, adding the advanced features will be a simple feat.",
-          "section1title": "Zooming In!",
-          "section1content": "Get ready to take flight in your online classroom. This video will explain all the basic tools you will need to facilitate a quality class or meeting.",
-          "section2title": "Practical Application",
-          "section2content": "<h5>Try out your new skills as a Zoom facilitator.</h5><p>Schedule a meeting for Zoom and invite a friend. Record the session and review the recording afterward to identify any changes in approach you may need in your next use of Zoom. While in the session, ensure you can be heard and seen well with your webcam. Play around with the features and ensure that you feel comfortable using them. Alternatively, contact Center for Online Learning support (onlinelearning@udyaton.edu) to schedule a test meeting.</p>",
-          "aside1title": "Additional Resources",
-          "aside1content": [
-            {
-              "header": "Downloadable Resources",
-              "references": [
-                {
-                  "icon": "fa-file-pdf",
-                  "title": "Take Flight Checklist",
-                  "href": "https://drive.google.com/file/d/1ul2s9EphiyCaljnlV2mKWSQU0o8KFot2/view"
-                }
-              ]
-            },
-            {
-              "header": "More Zoom Features",
-              "references": [
-                {
-                  "icon": "fa-external-link",
-                  "title": "Zoom Video Tutorials",
-                  "href": "https://support.zoom.us/hc/en-us/articles/206618765-Zoom-Video-Tutorials"
-                },
-                {
-                  "icon": "fa-external-link",
-                  "title": "Managing Breakout Rooms",
-                  "href": "https://support.zoom.us/hc/en-us/articles/206476313-Managing-Video-Breakout-Rooms"
-                },
-                {
-                  "icon": "fa-external-link",
-                  "title": "Creating and Using Polls",
-                  "href": "https://support.zoom.us/hc/en-us/articles/213756303-Polling-for-Meetings"
-                },
-                {
-                  "icon": "fa-external-link",
-                  "title": "Webinar Recording: Improve Your Virtual Presentation Skills",
-                  "href": "http://blog.zoom.us/wordpress/2017/01/31/webinar-recording-improve-your-virtual-presentation-skills/"
-                }
-              ]
-            },
-            {
-              "header": "Related Lessons",
-              "references": [
-                {
-                  "icon": "fa-video",
-                  "title": "Facilitating Zoom Sessions",
-                  "href": "/lessons/templatesites-zoom"
-                }
-              ]
-            }
-          ],
-          "aside2title": "Potential Questions You May Have",
-          "aside2questions": [
-            {
-              "question": "I’m ready to try the more challenging aspects of managing a live Zoom session. How do I manage creating and using polls and breakout rooms?",
-              "answer": "Super! Zoom has great training on these topics. Check out the links in resources."
-            },
-            {
-              "question": "Should I manage my settings from the Zoom tool itself or from my Zoom account at go.udayton.edu/zoom?",
-              "answer": "You can manage settings from either location but please be aware that there are more settings in your online account than are available through the Zoom tool itself. You cannot manage settings from the Zoom tool in Isidore."
-            }
-          ],
-          "aside3title": "Did you know?",
-          "aside3content": "The class session report in “Past Meetings” tab will tell you how long your students were present in your class session and how engaged they were during that session.  The attentiveness rating is based on participation in the chat box, polls, discussion, video, etc."
-        },
-        {
-          "title": "Synchronous Teaching Pedagogy",
-          "anchor": "zoomteaching",
-          "icon": "fa-graduation-cap",
-          "description": "How to ensure student engagement and collaboration are a part of your synchronous teaching.",
-          "videos": [
-            {
-              "title": "Pedagogy for Synchronous Class Facilitation",
-              "warpwire": "R08BAA"
-            }
-          ],
-          "overviewcontent": "It takes a significant effort to convert quality instructional plans into well-designed, high-engagement synchronous learning experiences. In this lesson, we will talk about some of the top skills that keep students active and learning in a synchronous session.",
-          "section1title": "Pedagogy for Synchronous Class Facilitation",
-          "section1content": "Facilitating a synchronous class takes careful planning to provide for the necessary student engagement and collaboration. Find out more by watching the video below.",
-          "section2title": "Practical Application",
-          "lti": [
-            {
-              "header": "Quick Write - Share your experience",
-              "description": "Use the link below to submit your response. You will be asked to answer the following two prompts.<ol><li>Have you already taught online before with a synchronous tool?  Discuss the challenges of maintaining student engagement in a tool like Zoom. What areas of improvement do you see that can be addressed and improved based on this training?</li><li>During a synchronous class session, you notice that one of your students is not participating. You have tried multiple ways to engage the class, including the chatbox, whiteboard, microphone and breakout rooms to no avail. How would you address the student and encourage a higher level of engagement?</li></ol>",
-              "icon": "fa-pencil-square",
-              "title": "Share your experience",
-              "launch": "/mod/modquickwrite/",
-              "resource_link_id": "zoom_teaching_qw"
-            }
-          ],
-          "aside1title": "Additional Resources",
-          "aside1content": [
-            {
-              "header": "Zoom Specific Resources",
-              "references": [
-                {
-                  "icon": "fa-file-pdf",
-                  "title": "Zoom Study Group Guide",
-                  "href": "https://drive.google.com/file/d/1tDaJSyNUvmKdR6_1_63G0ow0qVbs28_u/view"
-                },
-                {
-                  "icon": "fa-external-link",
-                  "title": "3 Ways To Use Polls In Meetings",
-                  "href": "http://blog.zoom.us/wordpress/2016/09/20/3-ways-to-use-polls-in-meetings/"
-                },
-                {
-                  "icon": "fa-external-link",
-                  "title": "Enhanced Productivity Via Shared Screen Annotation",
-                  "href": "http://blog.zoom.us/wordpress/2016/07/22/productivity-via-shared-screen-annotation/"
-                }
-              ]
-            },
-            {
-              "header": "Downloadable Resources",
-              "references": [
-                {
-                  "icon": "fa-file-powerpoint",
-                  "title": "PPT Template for AV Support and Agenda ",
-                  "href": "https://drive.google.com/file/d/1AfngkALUIfBBZqPrlMXPmemdUf08aD2i/view"
-                },
-                {
-                  "icon": "fa-file-pdf",
-                  "title": "Synchronous Online Teaching Evaluation Rubric",
-                  "href": "https://drive.google.com/file/d/1ccL0dwFe72NAErE5yFyn4mp1C0vJxwuA/view"
-                }
-              ]
-            },
-            {
-              "header": "Related Lessons",
-              "references": [
-                {
-                  "icon": "fa-video",
-                  "title": "Facilitating Zoom Sessions",
-                  "href": "/lessons/templatesites-zoom"
-                }
-              ]
-            },
-            {
-              "header": "Additional Training",
-              "references": [
-                {
-                  "icon": "fa-external-link",
-                  "title": "Learning to Teach Online – Coursera Course",
-                  "href": "https://www.coursera.org/learn/teach-online"
-                }
-              ]
-            },
-            {
-              "header": "Articles",
-              "references": [
-                {
-                  "icon": "fa-external-link",
-                  "title": "Improve Student Success with an Online Learning Community",
-                  "href": "https://www.wbtsystems.com/learning-hub/blogs/improve-student-success-online-learning-community"
-                },
-                {
-                  "icon": "fa-external-link",
-                  "title": "9 Proven Ways for Instructors to Address Online Student Retention",
-                  "href": "https://teachonline.asu.edu/2015/08/9-proven-ways-for-instructors-to-address-online-student-retention/#more-3162"
-                },
-                {
-                  "icon": "fa-external-link",
-                  "title": "Breakout rooms in virtual classrooms: why and how.",
-                  "href": "https://blog.wiziq.com/breakout-rooms-in-virtual-classrooms/"
-                }
-              ]
-            }
-          ],
-          "aside2title": "Potential Questions You May Have",
-          "aside2questions": [
-            {
-              "question": "What is the recommended ratio of instructor lecture to student contribution in the online classroom?",
-              "answer": "Answers on this vary but the consensus is that lecture by the instructor should never exceed the amount of time spent participating in interactive tasks such as questioning and discussion, group work, or other learning that is active for students."
-            },
-            {
-              "question": "What is a creative activity to utilize in a breakout room?",
-              "answer": "A current trend in online learning is to create an actual “Breakout Room” room.  The instructor builds a series of puzzles and questions, centered on the learning topic, that have to be solved by the students. This is  similar to the Escape and Breakout rooms that are popular group outing activities. Different groups can race against one another to see who solves the breakout first."
-            }
-          ]
-        },
-        {
-          "title": "Facilitating Zoom Sessions",
-          "anchor": "facilitating-zoom",
-          "icon": "fa-video",
-          "description": "A quick dive into the different ways to access Zoom and how to create and schedule meetings.",
-          "overviewcontent": "Synchronous classes, one-on-one meetings, office hours, brainstorming, group work, presentations and more are essential parts to your course and your student’s growth in knowledge and skill. Zoom allows these to take place when distance is required. If you are just getting started or if you just need some additional information, this lesson will get you up and running in Zoom."
-        },
-        {
-          "title": "Accessing Zoom",
-          "sublesson": true,
-          "anchor": "accessing-zoom",
-          "icon": "fa-video",
-          "description": "Learn about the different ways to access Zoom.",
-          "overviewcontent": "There are three ways you can access Zoom. In this video we will discuss what these three ways are, the differences between them, and how to know which is the best way to access and utilize Zoom for your particular purpose.",
-          "videos": [
-            {
-              "title": "Accessing Zoom",
-              "warpwire": "YwMCAA"
-            }
-          ]
-        },
-        {
-          "title": "Adding Meetings",
-          "sublesson": true,
-          "anchor": "zoom-adding-meetings",
-          "icon": "fa-video",
-          "description": "Learn how to create and schedule Zoom meetings.",
-          "overviewcontent": "Meetings are where the magic happens. Here we discuss the difference between scheduled meetings and your personal meeting room. We will learn how to schedule class meetings as well as how to start spontaneous meetings.",
-          "videos": [
-            {
-              "title": "Adding Meetings Zoom",
-              "warpwire": "3wUCAA"
-            }
-          ],
-          "aside1title": "Additional Resources",
-          "aside1content": [
-            {
-              "references": [
-                {
-                  "icon": "fa-external-link",
-                  "title": "Meeting Preferences when Scheduling",
-                  "href": "https://udayton.warpwire.com/w/bQgCAA/"
-                },
-                {
-                  "icon": "fa-external-link",
-                  "title": "Scheduling a Meeting in Google Calendar",
-                  "href": "https://udayton.warpwire.com/w/VnAAAA/"
-                },
-                {
-                  "icon": "fa-external-link",
-                  "title": "How to Create Meetings with Unique Start Times",
-                  "href": "https://udayton.warpwire.com/w/MVkCAA/"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "title": "Starting and Managing Zoom Meetings",
-          "sublesson": true,
-          "anchor": "zoom-starting-and-managing",
-          "icon": "fa-video",
-          "description": "Learn how to start your scheduled meetings as the host.",
-          "overviewcontent": "It’s class time and you need to get things rolling. In this video we discuss how to access your previously scheduled meetings and ensure that you start the meeting as The Host with the Most.",
-          "videos": [
-            {
-              "title": "Starting and Managing Zoom Meetings",
-              "warpwire": "6QkCAA"
-            }
-          ],
-          "aside1title": "Additional Resources",
-          "aside1content": [
-            {
-              "references": [
-                {
-                  "icon": "fa-external-link",
-                  "title": "Checking attendance for Zoom classes/recordings",
-                  "href": "https://udayton.warpwire.com/w/-y0CAA/"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "title": "Managing Recordings",
-          "sublesson": true,
-          "anchor": "zoom-recordings",
-          "icon": "fa-video",
-          "description": "Learn how record and share recordings for your Zoom meetings.",
-          "overviewcontent": "It is essential to record your synchronous sessions. This will provide a means for students who are unable to attend your live session to stay on top of their work. This session will show you where these recordings reside, how students access them, how to edit them, and how you can share in alternative ways if necessary.",
-          "videos": [
-            {
-              "title": "Managing Zoom Recordings",
-              "warpwire": "Uw8CAA"
-            }
-          ],
-          "aside1title": "Additional Resources",
-          "aside1content": [
-            {
-              "references": [
-                {
-                  "icon": "fa-external-link",
-                  "title": "Customizing your recording settings",
-                  "href": "https://udayton.warpwire.com/w/KQ8CAA/"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "title": "Creating and Managing Breakout Rooms",
-          "sublesson": true,
-          "anchor": "zoom-breakout-rooms",
-          "icon": "fa-video",
-          "description": "Learn how to foster student engagement with Zoom breakout rooms.",
-          "overviewcontent": "If group work and discussion are integral to your class then you will need to make friends with the breakout rooms in zoom! Breakout rooms are a great way to have your students collaborate on solving a problem, engage in active learning, make application of new knowledge, discuss a topic, and make connections. This video will show you have to facilitate breakouts. Check out our additional resources for more ideas on how to effectively use breakouts for student engagement.",
-          "videos": [
-            {
-              "title": "Creating and Managing Zoom Breakout Rooms",
-              "warpwire": "IeEBAA"
-            }
-          ]
-        },
-        {
-          "title": "Virtual Office Hours",
-          "sublesson": true,
-          "anchor": "zoom-office-hours",
-          "icon": "fa-video",
-          "description": "Learn how to create office hours for multiple sections in Zoom or just one in Isidore.",
-          "overviewcontent": "Having multiple points of contact helps to reassure students that you are available for them and invested in their success. Virtual office hours is a great way to meet with students who need some individual or small group feedback. Here, we will demonstrate how to set up recurring office hours for an individual course in Isidore or set up in general for multiple course rosters.",
-          "videos": [
-            {
-              "title": "Virtual Office Hours",
-              "warpwire": "exUCAA"
-            }
-          ]
-        },
-        {
-          "title": "Leading a Class",
-          "sublesson": true,
-          "anchor": "zoom-leading-a-class",
-          "icon": "fa-video",
-          "description": "Learn how to make your synchronous sessions engaging.",
-          "overviewcontent": "Synchronous course sessions online should provide added value to your course. How do you motivate students to attend and be engaged with your live session? Here we will discuss practical uses of the Zoom features to help with engagement but more importantly valuable pedagogy for creating an engaging synchronous session.",
-          "videos": [
-            {
-              "title": "Leading a Class",
-              "warpwire": "uxsCAA"
-            }
-          ],
-          "aside1title": "Additional Resources",
-          "aside1content": [
-            {
-              "references": [
-                {
-                  "icon": "fa-external-link",
-                  "title": "Hosting an Engaging Zoom Session Recording",
-                  "href": "https://udayton.zoom.us/rec/play/v8ckJev5pz83SdfEtQSDV6IqW9W5L6qshChK_aYEnkjgBiVQNlejYeFANuTgXzNE1mrEkAh2ZtDaVcgp"
-                },
-                {
-                  "icon": "fa-graduation-cap",
-                  "title": "Synchronous Class Pedagogy",
-                  "href": "https://learn.udayton.edu/lessons/zoomteaching"
-                },
-                {
-                  "icon": "fa-chalkboard-teacher",
-                  "title": "Managing the Tools of the Zoom Room",
-                  "href": "https://learn.udayton.edu/lessons/zoomclassroombasics"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
+      "async": true,
       "title": "Why Video – Why Warpwire?",
-      "time": "Est. 36 min",
+      "duration": "Est. 36 min",
       "anchor": "warpwire",
       "landingContents": [
         {
@@ -3538,6 +3083,280 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "session": "",
+      "title": "Backstage Tour: Media Studio",
+      "anchor": "tour-media-studio",
+      "icon": "fa-medal",
+      "duration": "1hr",
+      "calendar": "Oct.",
+      "description": "Come see the LTC's new video production lab and podcast studio and learn about the media innovation opportunities that await you.",
+      "image": "/assets/media.jpeg",
+      "facilitators": [
+        "pdagnall1@udayton.edu"
+      ],
+      "learningoutcomes": [
+        "Be familiar with the video production lab and podcast studio",
+        "Understand the media resources that are available"
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=col&session_id=tour-media-studio&view=REGISTRATION",
+          "resource_link_id" : "reg-tour-media-studio",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=col&session_id=tour-media-studio&view=FEEDBACK",
+          "resource_link_id" : "feedback-tour-media-studio",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=col&session_id=tour-media-studio&view=ADMINISTRATION",
+          "resource_link_id" : "admin-tour-media-studio",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "session": "ChatGPT 1",
+      "title": "Students are Cheating with ChatGPT. Now What?",
+      "anchor": "chat-gpt-1",
+      "icon": "fa-robot",
+      "duration": "1hr",
+      "calendar": "Sep.",
+      "description": "It’s likely you’ve already encountered AI-generated writing in assignment submissions - or suspect they have. We’ll provide an overview of how these tools work and invite faculty to share your tales of woe and wisdom in dealing with ChatGPT over the past year.",
+      "image": "/assets/chat-gpt-1.png",
+      "facilitators": [
+        "pdagnall1@udayton.edu"
+      ],
+      "learningoutcomes": [
+        "Example outcome 1",
+        "Example outcome 2",
+        "Example outcome 3"
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-1&view=REGISTRATION",
+          "resource_link_id" : "reg-chat-gpt-1",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-1&view=FEEDBACK",
+          "resource_link_id" : "feedback-chat-gpt-1",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-1&view=ADMINISTRATION",
+          "resource_link_id" : "admin-chat-gpt-1",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "session": "ChatGPT 2",
+      "title": "Are Written Assignments Dead?",
+      "anchor": "chat-gpt-2",
+      "icon": "fa-robot",
+      "duration": "1hr",
+      "calendar": "Oct.",
+      "description": "Our instructional designers will share what the current research has to say about writing in an AI world. Together we’ll (re)think about how we create and grade written assessments and consider some alternatives.",
+      "image": "/assets/chat-gpt-2.jpeg",
+      "facilitators": [
+        "pdagnall1@udayton.edu"
+      ],
+      "learningoutcomes": [
+        "Example outcome 1",
+        "Example outcome 2",
+        "Example outcome 3"
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-2&view=REGISTRATION",
+          "resource_link_id" : "reg-chat-gpt-2",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-2&view=FEEDBACK",
+          "resource_link_id" : "feedback-chat-gpt-2",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-2&view=ADMINISTRATION",
+          "resource_link_id" : "admin-chat-gpt-2",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "session": "ChatGPT 3",
+      "title": "Student Centered AI Learning",
+      "anchor": "chat-gpt-3",
+      "icon": "fa-robot",
+      "duration": "1hr",
+      "calendar": "Nov.",
+      "description": "If AI isn’t going anywhere, how can we teach in harmony with this powerful new tool? We’ll consider the ethics of AI-informed teaching and learning, ways to prepare your course for AI and strategies for using AI tools in ways that will benefit your students.",
+      "image": "/assets/chat-gpt-3.jpeg",
+      "facilitators": [
+        "pdagnall1@udayton.edu"
+      ],
+      "learningoutcomes": [
+        "Example outcome 1",
+        "Example outcome 2",
+        "Example outcome 3"
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-3&view=REGISTRATION",
+          "resource_link_id" : "reg-chat-gpt-3",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-3&view=FEEDBACK",
+          "resource_link_id" : "feedback-chat-gpt-3",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-3&view=ADMINISTRATION",
+          "resource_link_id" : "admin-chat-gpt-3",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "title": "Isidore Help Lab",
+      "anchor": "isidore-help-lab",
+      "duration": "1hr",
+      "calendar": "Aug.",
+      "description": "During these virtual drop-in hours, our support team will be on hand to answer any questions you have about Isidore as you prep your class for the upcoming semester.",
+      "image": "/assets/isidore-help-lab.jpeg",
+      "facilitators": [
+        "pdagnall1@udayton.edu"
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=col&session_id=isidore-help-lab&view=REGISTRATION",
+          "resource_link_id" : "reg-isidore-help-lab",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=col&session_id=isidore-help-lab&view=FEEDBACK",
+          "resource_link_id" : "feedback-isidore-help-lab",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=col&session_id=isidore-help-lab&view=ADMINISTRATION",
+          "resource_link_id" : "admin-isidore-help-lab",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "session": "Isidore",
+      "title": "Tools for Teaching: What’s New?",
+      "anchor": "tools-for-teaching",
+      "duration": "1hr",
+      "calendar": "Aug. / Nov.",
+      "description": "As you prepare for your next batch of students, consider adding these snazzy Isidore tools to your pedagogical repertoire: tokens, gradescope, rubrics, video feedback tool, syllabus",
+      "image": "/assets/tools-for-teaching.jpeg",
+      "facilitators": [
+        "pdagnall1@udayton.edu"
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=col&session_id=tools-for-teaching&view=REGISTRATION",
+          "resource_link_id" : "reg-tools-for-teaching",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=col&session_id=tools-for-teaching&view=FEEDBACK",
+          "resource_link_id" : "feedback-tools-for-teaching",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=col&session_id=tools-for-teaching&view=ADMINISTRATION",
+          "resource_link_id" : "admin-tools-for-teaching",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "title": "Slide Best Practices Workshop",
+      "anchor": "slide-workshop",
+      "icon": "fa-robot",
+      "duration": "1hr",
+      "calendar": "Sep.",
+      "description": "If you’re a person, your slide design is probably awful. Let Sarah show you how to make your slides less awful. We’ll cover slide layout, font and color selection, content tips and more.",
+      "image": "/assets/slide-workshop.png",
+      "facilitators": [
+        "pdagnall1@udayton.edu"
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=col&session_id=slide-workshop&view=REGISTRATION",
+          "resource_link_id" : "reg-slide-workshop",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=col&session_id=slide-workshop&view=FEEDBACK",
+          "resource_link_id" : "feedback-slide-workshop",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=col&session_id=slide-workshop&view=ADMINISTRATION",
+          "resource_link_id" : "admin-slide-workshop",
+          "type": "ADMINISTRATION",
+          "hidden": true
         }
       ]
     }
