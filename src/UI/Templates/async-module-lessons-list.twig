@@ -32,6 +32,9 @@
 	.async-module-lessons-list .progress-icon {
 		padding-right: 5px;
 	}
+	.lesson-subpage {
+		margin-left: 1.5em;
+	}
 </style>
 {% endapply %}
 
@@ -43,9 +46,15 @@
 	{% endfor %}
 {% endmacro %}
 
+{% macro showExpanded(activePage, lesson) %}
+	{% for lessonPage in lesson.pages %}
+		{% if lessonPage.anchor == activePage.anchor %}true{% endif %}
+	{% endfor %}
+{% endmacro %}
+
 <div class="async-module-lessons-list">
 	{% for idx, lesson in module.lessons %}
-		<h6 class="p-2 border expand-button" href="#!" role="button" data-mdb-toggle="collapse" data-mdb-target="#collapse-{{idx}}" aria-expanded={{collapsed ? "false" : "true"}} aria-controls="collapse-{{idx}}">
+		<h6 class="p-2 border expand-button" href="#!" role="button" data-mdb-toggle="collapse" data-mdb-target="#collapse-{{idx}}" aria-expanded="{{'show' in _self.showClass(collapsed, page, lesson) ? 'true' : 'false'}}" aria-controls="collapse-{{idx}}">
 			<span class="expand-icon-wrapper">
 				<i class="fas fa-chevron-right"></i>
 				<i class="fas fa-chevron-down"></i>
@@ -82,7 +91,7 @@
 		<ul class="list-group list-group-light mb-4 collapse {{_self.showClass(collapsed, page, lesson)}} mt-3" id="collapse-{{idx}}">
 			<li class="teaser-li list-group-item d-flex justify-content-between align-items-center">{{lesson.teaser}}</li>
 			{% for lessonPage in lesson.pages %}
-				<a href="{{linkRoot}}{{lessonPage.anchor}}" class="list-link {{page.anchor == lessonPage.anchor ? 'active' : ''}} page-li list-group-item d-flex justify-content-between align-items-center">
+				<a href="{{linkRoot}}{{lessonPage.anchor}}" class="list-link {{page.anchor == lessonPage.anchor ? 'active' : ''}} {{lessonPage.subpage}} page-li list-group-item d-flex justify-content-between align-items-center">
 					<div
 						class="d-flex align-items-center">
 						{# PROGRESS INDICATOR FOR PAGE #}

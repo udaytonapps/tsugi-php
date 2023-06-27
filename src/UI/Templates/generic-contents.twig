@@ -7,7 +7,7 @@
 </style>
 {% endapply %}
 
-{% macro renderContent(content, authorized, ltiRoot) %}
+{% macro renderContent(content, authorized, ltiRoot, urlRoot) %}
 	{% if content.type == "TEXT" %}
 		{% for text in content.paragraphs %}
 			<p>{{text | raw}}</p>
@@ -22,7 +22,7 @@
 		{% if content.link.icon %}
 			<span class="fa {{content.link.icon}}" aria-hidden="true"></span>
 		{% endif %}
-		<a target="_blank" href="{{content.link.url}}">{{content.link.title | raw}}</a>
+		<a target="_blank" data-twigstuff="{{urlRoot}}" href="{{urlRoot}}{{content.link.url}}">{{content.link.title | raw}}</a>
 	{% elseif content.type == "ORDERED_LIST" %}
 		<ol>
 			{% for listContent in content.orderedList.contents %}
@@ -37,7 +37,7 @@
 <div class="generic-contents">
 	{% for content in contents %}
 		<div class="content-item">
-			{{_self.renderContent(content, authorized, ltiRoot)}}
+			{{_self.renderContent(content, authorized, ltiRoot, urlRoot)}}
 		</div>
 	{% endfor %}
 </div>

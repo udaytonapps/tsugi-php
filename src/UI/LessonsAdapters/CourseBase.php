@@ -268,11 +268,13 @@ class AsyncPage
     public $anchor;
     /** @var Content[]|Exercise[] */
     public $contents;
+    public $subpage;
 
     function __construct($page)
     {
         $this->title  = $page->title ?? null;
         $this->anchor  = $page->anchor ?? null;
+        $this->subpage  = $page->subpage ?? null;
 
         $contents = [];
         if (isset($page->contents)) {

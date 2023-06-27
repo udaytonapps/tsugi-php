@@ -227,6 +227,7 @@ class GenericAdapter extends CourseBase
             'ltiRoot' => $launch_path,
             'authorized' => true, // TODO
             'progress' => $progress,
+            'urlRoot' => $CFG->apphome
         ]);
     }
 

@@ -319,6 +319,7 @@
             {
               "title": "Try It",
               "anchor": "onboarding-creating-sites-try-it",
+              "subpage": "lesson-subpage",
               "contents": [
                 {
                   "type": "TEXT",
@@ -356,6 +357,7 @@
             {
               "title": "Submit Your Site",
               "anchor": "onboarding-creating-sites-submit",
+              "subpage": "lesson-subpage",
               "contents": [
                 {
                   "type": "TEXT",
@@ -378,6 +380,7 @@
             {
               "title": "Quiz",
               "anchor": "onboarding-creating-sites-quiz",
+              "subpage": "lesson-subpage",
               "contents": [
                 {
                   "type": "TEXT",
@@ -400,6 +403,7 @@
             {
               "title": "Additional Resources",
               "anchor": "onboarding-creating-sites-resources",
+              "subpage": "lesson-subpage",
               "contents": [
                 {
                   "type": "LINK",
@@ -431,6 +435,7 @@
             {
               "title": "Quiz",
               "anchor": "onboarding-creating-sites-site-overview-quiz",
+              "subpage": "lesson-subpage",
               "contents": [
                 {
                   "type": "TEXT",
@@ -453,6 +458,7 @@
             {
               "title": "Additional Resources",
               "anchor": "onboarding-creating-sites-site-overview-resources",
+              "subpage": "lesson-subpage",
               "contents": [
                 {
                   "type": "TEXT",
@@ -484,7 +490,7 @@
                   "type": "LINK",
                   "icon": "fa-map",
                   "title": "Syllabus And Schedule",
-                  "href": "/lessons/onboarding-creating-sites-syllabus-and-schedule"
+                  "href": "/programs/col/onboarding/onboarding-creating-sites-syllabus-and-schedule"
                 },
                 {
                   "type": "TEXT",
@@ -529,6 +535,7 @@
             {
               "title": "Additional Resources",
               "anchor": "onboarding-creating-syllabus-resources",
+              "subpage": "lesson-subpage",
               "contents": [
                 {
                   "type": "LINK",
@@ -580,6 +587,7 @@
             },
             {
               "title": "Additional Resources",
+              "subpage": "lesson-subpage",
               "anchor": "onboarding-creating-sites-site-info-resources",
               "contents": [
                 {
@@ -605,11 +613,9 @@
           ]
         },
         {
-          "title": "Essential Isidore Tools",
-          "anchor": "onboarding-essential-tools",
+          "title": "Text Editor",
+          "anchor": "onboarding-tools-text",
           "icon": "fa-tools",
-          "teaser": "Learn the basics of some of the most essential Isidore tools.",
-          "overviewcontent": "There are many tools in Isidore, but the tools covered in this Lesson are some of the most important for instructors to understand. You will be off to a good start with your site if you understand the basics of these essential tools.",
           "pages": [
             {
               "title": "Text Editor",
@@ -682,7 +688,7 @@
                   "type": "LINK",
                   "icon": "fa-eye",
                   "title": "Accessibility Module",
-                  "href": "/lessons#accessibility"
+                  "href": "/programs/col/accessibility"
                 },
                 {
                   "type": "TEXT",
@@ -701,7 +707,14 @@
                   "href": "https://udayton.edu/blogs/onlinelearning/2021/07_07_2021_alttext.php"
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "title": "Announcements Tool",
+          "anchor": "onboarding-tools-announcements",
+          "icon": "fa-tools",        
+          "pages": [
             {
               "title": "Announcements",
               "anchor": "onboarding-essential-tools-announcements",
@@ -784,7 +797,14 @@
                   "href": "https://learn.udayton.edu/topics/arcscommunication"
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "title": "Resources Tool",
+          "anchor": "onboarding-tools-resources",
+          "icon": "fa-tools",
+          "pages": [
             {
               "title": "Resources",
               "anchor": "onboarding-essential-tools-resources",
@@ -839,7 +859,7 @@
                 {
                   "type": "LINK",
                   "icon": "fa-external-link",
-                  "title": "Announcements Help",
+                  "title": "Resources Help",
                   "href": "https://ewiki.udayton.edu/isidore/Resources"
                 },
                 {
@@ -850,7 +870,7 @@
                   "type": "LINK",
                   "icon": "fa-file-alt",
                   "title": "Lessons Template",
-                  "href": "/lessons/onboarding-common-tools-lessons-template"
+                  "href": "/programs/col/onboarding/onboarding-common-tools-lessons "
                 },
                 {
                   "type": "TEXT",
@@ -863,7 +883,14 @@
                   "href": "https://udayton.edu/0/onlinelearning/learn/studentsurveyresponses.pdf"
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "title": "Roster Tool",
+          "anchor": "onboarding-tools-roster",
+          "icon": "fa-tools",
+          "pages": [
             {
               "title": "Roster",
               "anchor": "onboarding-essential-tools-roster",
@@ -944,7 +971,14 @@
                   "href": "https://www.facultyfocus.com/articles/effective-teaching-strategies/importance-learning-students-names/"
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "title": "Attendance Tool",
+          "anchor": "onboarding-essential-tools",
+          "icon": "fa-tools",
+          "pages": [
             {
               "title": "Attendance",
               "anchor": "onboarding-essential-tools-attendance",
@@ -1062,7 +1096,14 @@
                   "href": "https://www.facultyfocus.com/articles/effective-teaching-strategies/roll-call-for-learning-putting-a-new-twist-on-an-old-administrative-chore/"
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "title": "Calendar Tool",
+          "anchor": "onboarding-tools-calendar",
+          "icon": "fa-tools",
+          "pages": [            
             {
               "title": "Calendar",
               "anchor": "onboarding-essential-tools-calendar",
@@ -1128,18 +1169,17 @@
                   "type": "LINK",
                   "icon": "fa-bullhorn",
                   "title": "Announcements",
-                  "href": "/lessons/onboarding-essential-tools-announcements"
+                  "href": "/programs/col/onboarding/onboarding-essential-tools-announcements "
                 }
               ]
             }
           ]
         },
         {
-          "title": "Common Isidore Tools",
-          "anchor": "onboarding-common-tools",
+          "title": "Assignments Tool",
+          "anchor": "onboarding-tools-assignments",
           "icon": "fa-tools",
-          "teaser": "Learn about Assignments, Tests & Quizzes, Lessons, and Gradebook.",
-          "overviewcontent": "Some of the most commonly used tools are slightly  advanced as they involve more setup and require more engagement from students. In this Lesson, we’ll review how to use the Assignments, Tests & Quizzes, Lessons, and Gradebook tools.",
+          "teaser": "Learn about Assignments.",
           "pages": [
             {
               "title": "Assignments",
@@ -1184,7 +1224,7 @@
                   "type": "LINK",
                   "icon": "fa-book",
                   "title": "Gradebook",
-                  "href": "/lessons/onboarding-common-tools-gradebook"
+                  "href": "/programs/col/onboarding/onboarding-common-tools-gradebook "
                 },
                 {
                   "type": "TEXT",
@@ -1203,7 +1243,15 @@
                   "href": "https://www.facultyfocus.com/articles/online-education/online-assessment-grading-and-feedback/how-to-give-your-students-better-feedback-in-less-time/"
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "title": "Tests & Quizzes Tool",
+          "anchor": "onboarding-tools-tests",
+          "icon": "fa-tools",
+          "teaser": "Learn about Tests & Quizzes.",
+          "pages": [
             {
               "title": "Tests & Quizzes",
               "anchor": "onboarding-common-tools-tests",
@@ -1247,7 +1295,7 @@
                   "type": "LINK",
                   "icon": "fa-book",
                   "title": "Gradebook",
-                  "href": "/lessons/onboarding-common-tools-gradebook"
+                  "href": "/programs/col/onboarding/onboarding-common-tools-gradebook"
                 },
                 {
                   "type": "TEXT",
@@ -1266,7 +1314,15 @@
                   "href": "https://cft.vanderbilt.edu/guides-sub-pages/writing-good-multiple-choice-test-questions/"
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "title": "Lessons Tool",
+          "anchor": "onboarding-tools-lessons",
+          "icon": "fa-tools",
+          "teaser": "Learn about Lessons.",
+          "pages": [
             {
               "title": "Lessons Template",
               "anchor": "onboarding-common-tools-lessons",
@@ -1313,7 +1369,15 @@
                   "href": "https://udayton.edu/blogs/onlinelearning/2020/2020_12_07_checklist.php"
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "title": "Gradebook Tool",
+          "anchor": "onboarding-tools-gradebook",
+          "icon": "fa-tools",
+          "teaser": "Learn about Gradebook.",
+          "pages": [
             {
               "title": "Gradebook",
               "anchor": "onboarding-common-tools-gradebook",
@@ -1369,13 +1433,13 @@
                   "type": "LINK",
                   "icon": "fa-file-alt",
                   "title": "Assignments",
-                  "href": "/lessons/onboarding-common-tools-assignments"
+                  "href": "/programs/col/onboarding/onboarding-common-tools-assignments "
                 },
                 {
                   "type": "LINK",
                   "icon": "fa-check-square",
                   "title": "Tests & Quizzes",
-                  "href": "/lessons/onboarding-common-tools-tests-and-quizzes"
+                  "href": "/programs/col/onboarding/onboarding-common-tools-tests "
                 },
                 {
                   "type": "TEXT",
@@ -1478,13 +1542,13 @@
                   "type": "LINK",
                   "icon": "fa-sign-in-alt",
                   "title": "Isidore Text Editor",
-                  "href": "/lessons/texteditor"
+                  "href": "/programs/col/onboarding/onboarding-essential-tools-text-editor"
                 },
                 {
                   "type": "LINK",
                   "icon": "fa-sign-in-alt",
                   "title": "Accessible Documents",
-                  "href": "/lessons/accessibledocs"
+                  "href": "/programs/col/accessibility/accessibledocs-video"
                 }
               ]
             },
@@ -1537,8 +1601,18 @@
                     "<h5>How detailed should I be when writing alt text for an image?</h5>",
                     "Be brief, but be sure to describe the essential elements of the image. If the graphic is supposed to make the audience think or feel something, be sure your alt text leads that direction.",
                     "<h5>Should I always start with H1?</h5>",
-                    "This gets tricky. The main thing is that you use header tags. That's 99% of the battle. Often Isidore has existing headers already in place. In most cases in Isidore, it's recommended you start with H2.",
-                    "<h5>Did you know?</h5>",
+                    "This gets tricky. The main thing is that you use header tags. That's 99% of the battle. Often Isidore has existing headers already in place. In most cases in Isidore, it's recommended you start with H2."                   
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Did You Know?",
+              "anchor": "visualdisabilities-know",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [                  
                     "The Center for Online Learning has invited expert screen-reader users to evaluate Isidore. Additionally, Isidore is based on the open source LMS Sakai, which has accessibility as crucial foundation of the software."
                   ]
                 }
@@ -1628,13 +1702,13 @@
                   "type": "LINK",
                   "icon": "fa-sign-in-alt",
                   "title": "Accessibility of Outside Materials",
-                  "href": "/lessons/accessiblematerials"
+                  "href": "/programs/col/accessibility/accessiblematerials-video"
                 },
                 {
                   "type": "LINK",
                   "icon": "fa-sign-in-alt",
                   "title": "Isidore Text Editor",
-                  "href": "/lessons/texteditor"
+                  "href": "/programs/col/onboarding/onboarding-essential-tools-text-editor"
                 }
               ]
             },
@@ -1687,8 +1761,18 @@
                     "<h5>Do I have to pay for captions?</h5>",
                     "Not if it's for a course. If you upload videos to Warpwire for the purpose of providing instructional content, the Center for Online Learning will take care of the captions for you.",
                     "<h5>How can I ensure the captions are accurate?</h5>",
-                    "You are still responsible for the accuracy of the captions, so please check them. If you find inaccuracies please contact the Center for Online Learning.",
-                    "<h5>Did you know?</h5>",
+                    "You are still responsible for the accuracy of the captions, so please check them. If you find inaccuracies please contact the Center for Online Learning."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Did You Know?",
+              "anchor": "auditorydisabilities-know",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [                  
                     "Warpwire videos can actually be searched. For example, if you wanted to search a video for the moment the speaker says the word, 'Malaysia', you just click the search icon type 'Malaysia'. This is possible due to the presence of captions."
                   ]
                 }
@@ -1766,13 +1850,13 @@
                   "type": "LINK",
                   "icon": "fa-sign-in-alt",
                   "title": "Isidore Text Editor",
-                  "href": "/lessons/texteditor"
+                  "href": "/programs/col/onboarding/onboarding-essential-tools-text-editor"
                 },
                 {
                   "type": "LINK",
                   "icon": "fa-sign-in-alt",
                   "title": "Accessible Documents",
-                  "href": "/lessons/accessibledocs"
+                  "href": "/programs/col/accessibility/accessibledocs-video"
                 }
               ]
             },
@@ -1825,8 +1909,18 @@
                     "<h5>What if my content is inherently complex?</h5>",
                     "It's not about how complicated your content is, but rather how clearly you present it. Be organized. Use headers and spacing appropriately.",
                     "<h5>What if a student is lacking in basic study skills?</h5>",
-                    "Direct them to contact the Office of Learning Resources or contact the Student Success Team.",
-                    "<h5>Did you know?</h5>",
+                    "Direct them to contact the Office of Learning Resources or contact the Student Success Team."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Did You Know?",
+              "anchor": "cogdisabilities-know",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
                     "A study revealed that simply presenting the same instructions in an easier to read font, caused students to see the tasks as easier. Clarity and organization make a difference."
                   ]
                 }
@@ -1922,7 +2016,7 @@
                   "type": "LINK",
                   "icon": "fa-sign-in-alt",
                   "title": "Accessibility of Outside Materials",
-                  "href": "/lessons/accessiblematerials"
+                  "href": "/programs/col/accessibility/accessiblematerials-video"
                 }
               ]
             },
@@ -1975,8 +2069,18 @@
                     "<h5>What do I do if my existing documents are not accessible?</h5>",
                     "In the Additional Resources, you'll see a link to Sensus Access. This can be very useful in terms of converting text that is unreadable to readable text. It will not necessarily convert all headings and it certainly won't put alt text in there, but it gives you a good base to start from.",
                     "<h5>I don't like the way the headers look in MS Word, can I change the look?</h5>",
-                    "You bet! In the ribbon you can right mouse click on the header you want to change and it will change it for all instances of the header.",
-                    "<h5>Did you know?</h5>",
+                    "You bet! In the ribbon you can right mouse click on the header you want to change and it will change it for all instances of the header."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Did You Know?",
+              "anchor": "accessibledocs-know",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
                     "Google Docs and Slides also have the same general accessible properties as their Microsoft Office counterparts."
                   ]
                 }
@@ -2060,13 +2164,13 @@
                   "type": "LINK",
                   "icon": "fa-sign-in-alt",
                   "title": "Auditory Disabilities",
-                  "href": "/lessons/auditorydisabilities"
+                  "href": "/programs/col/accessibility/auditorydisabilities-video"
                 },
                 {
                   "type": "LINK",
                   "icon": "fa-sign-in-alt",
                   "title": "Accessible Documents",
-                  "href": "/lessons/accessibledocs"
+                  "href": "/programs/col/accessibility/accessibledocs-video"
                 }
               ]
             },
@@ -2119,8 +2223,18 @@
                     "<h5>My chair picked my materials, what if they're not accessible?</h5>",
                     "Say something, but be tactful about it. Offer to contact the vendor or publisher. Your chair can later decide whether you'll continue with those materials.",
                     "<h5>How can I ensure the captions are accurate?</h5>",
-                    "You are still responsible for the accuracy of the captions, so please check them. If you find inaccuracies please contact the Center for Online Learning.",
-                    "<h5>Did you know?</h5>",
+                    "You are still responsible for the accuracy of the captions, so please check them. If you find inaccuracies please contact the Center for Online Learning."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Did You Know?",
+              "anchor": "accessiblematerials-know",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
                     "Most electronic textbooks are accessible, and they also tend to be cheaper. Just remember to check before you buy."
                   ]
                 }
