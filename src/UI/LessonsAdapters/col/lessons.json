@@ -1,11 +1,11 @@
 {
   "title": "Center for Online Learning",
-  "description": "Below are training modules and lessons developed by the Center for Online Learning to help folks use Isidore, UD's learning management system.",
+  "description": "Training modules and lessons developed by the Center for Online Learning to help folks use Isidore, UD's learning management system.",
   "splash": {
     "title": "Center for Online Learning",
     "image": "/assets/col-landing.jpeg",
     "video": "https://udayton.warpwire.com/w/20AFAA/?title=0",
-    "text": "Below are training modules and lessons developed by the Center for Online Learning to help folks use Isidore, UD's learning management system.",
+    "text": "Training modules and lessons developed by the Center for Online Learning to help folks use Isidore, UD's learning management system.",
     "contents": [
       {
         "type": "TEXT",

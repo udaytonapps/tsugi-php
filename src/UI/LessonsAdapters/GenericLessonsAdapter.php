@@ -36,7 +36,7 @@ class GenericAdapter extends CourseBase
 
     public $contextKey;
     public int $contextId;
-    protected string $category;
+    public string $category;
 
     function __construct($relativeContext, $moduleAnchor = null, $pageAnchor = null, $index = null)
     {
