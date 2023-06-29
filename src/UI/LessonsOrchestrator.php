@@ -41,6 +41,11 @@ class LessonsOrchestrator
                 'displayLabel' => 'Center for Online Learning',
                 'adapter' => GenericAdapter::class,
                 'adapterPath' => $adapterDirectory . '/GenericLessonsAdapter.php',
+            ],
+            'topics' => (object)[
+                'displayLabel' => 'Topics and Deep Dives',
+                'adapter' => Topics::class,
+                'adapterPath' => $adapterDirectory . '/topics/Topics.php',
             ]
         ];
         // If not in object, error out?

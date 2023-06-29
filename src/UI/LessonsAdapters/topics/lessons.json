@@ -1,0 +1,435 @@
+{
+    "title": "Topics and Deep-Dives",
+    "description": "Below are a collection of videos on different topics. Some are introductions and some are deep-dives.",
+    "badges": [],
+    "splash": {
+      "title": "Topics and Deep-Dives",
+      "image": "/assets/topics.jpeg",
+      "text": "Below are a collection of videos on different topics. Some are introductions and some are deep-dives."
+    },
+    "modules": [
+      {
+        "async": true,
+        "title": "Best Practices to Build Multiple Choice Question",
+        "description": "Multiple choice questions offer instructors a testing tool that is widely known and used, easy to administer, and painless to score.",
+        "category": "Instructional Design",
+        "thumbnail": "mc-best-practices.jpg",
+        "content": "Multiple choice questions offer instructors a testing tool that is widely known and used, easy to administer, and painless to score. However, not all multiple choice questions are inherently valuable assessment tools! This video will give some best practices for building quality questions and obtaining assessment data that is both valid and reliable.",
+        "time": "Est. 9 min",
+        "author": "Hannah Jackson, Center for Online Learning",
+        "authors": [
+          "hjackson1@udayton.edu"
+        ],
+        "anchor": "multiple-choice-best-practices",
+        "videos": [
+          {
+            "title": "Best Practices to Build Multiple Choice Question",
+            "warpwire": "14sFAA"
+          }
+        ]
+      },
+      {
+        "async": true,
+        "title": "Using Roundabout Design to Develop your Course",
+        "description": "How is your course like a roundabout? Find out what traffic circles have to do with course design in this video.",
+        "category": "Instructional Design",
+        "thumbnail": "roundabout.png",
+        "content": "You may have heard of the phrase backward design, but most folks probably haven’t heard of roundabout design - at least not outside the context of traffic safety. <a href=\"https://www.facultyfocus.com/articles/online-education/online-course-design-and-preparation/planning-a-great-online-class-through-roundabout-design/\" target=\"_blank\">Roundabout design is a phrase coined by Flower Darby</a> as her response to backward design. She claims that thinking of your course as a roundabout is more realistic than the linear setup favored by backward design proponents. In this video, I compare roundabout design to backward design and offer my thoughts on where the value lies in each approach.",
+        "time": "Est. 8 min",
+        "author": "Julianne Morgan, Center for Online Learning",
+        "authors": [
+          "jmorgan2@udayton.edu"
+        ],
+        "anchor": "roundabout",
+        "videos": [
+          {
+            "title": "Using Roundabout Design to Develop your Course",
+            "warpwire": "PaAEAA"
+          }
+        ],
+        "references": {
+          "header": "Additional Resources",
+          "links": [
+            {
+              "icon": "fa-external-link",
+              "title": "Course Planning Guide",
+              "href": "https://isidore.udayton.edu/access/content/public/TeachingOnlineResources/Course%20Planning%20Guide-FULL.docx"
+            },
+            {
+              "icon": "fa-external-link",
+              "title": "Module Alignment Table",
+              "href": "https://isidore.udayton.edu/access/content/public/TeachingOnlineResources/Module%20Alignment%20Table.docx"
+            },
+            {
+              "icon": "fa-external-link",
+              "title": "Course Alignment Table",
+              "href": "https://isidore.udayton.edu/access/content/public/TeachingOnlineResources/Course%20Alignment%20Table.docx"
+            },
+            {
+              "icon": "fa-external-link",
+              "title": "Roundabout Design Plan",
+              "href": "https://isidore.udayton.edu/access/content/public/TeachingOnlineResources/Roundabout%20Design%20Plan.pdf"
+            }
+          ]
+        }
+      },
+      {
+        "async": true,
+        "title": "Teaching Using the Power of Storytelling",
+        "description": "Discover the power stories have to increase your students' buy-in, comprehension, and retention.",
+        "category": "Student Engagement",
+        "thumbnail": "storyTopicImage.jpg",
+        "content": "What differentiates your teaching from what students could learn on their own? Your personality, your experience, and your stories. This topic video will establish the power that stories have to increase your students' buy-in, comprehension, and retention. Learn about four levels of storytelling that each can progressively elevate your teaching.",
+        "time": "Est. 25 min",
+        "author": "Paul Dagnall, Center for Online Learning",
+        "authors": [
+          "pdagnall1@udayton.edu"
+        ],
+        "anchor": "storytelling",
+        "videos": [
+          {
+            "title": "Teaching Using the Power of Storytelling",
+            "warpwire": "ZZcEAA"
+          }
+        ]
+      },
+      {
+        "async": true,
+        "title": "4 Ways to Use Study Questions for Exam Preparation",
+        "description": "Help students prepare for exams by facilitating studying exercises using the Study Questions tool.",
+        "category": "Instructional Design",
+        "thumbnail": "4-ways-study-questions.png",
+        "content": "Many students have not learned study skills and thus struggle with fatiguing all-nighters, poor exam performance, and test anxiety. All of these things can be somewhat mitigated if students learn the skills to study properly. Help students begin studying earlier for an upcoming exam by using the <a href=\"https://ewiki.udayton.edu/isidore/Study_Questions\" target=\"_blank\">Study Questions tool</a> to conduct studying activities. In this video, we share 4 strategies for using this tool that will motivate students to start their test preparation early.",
+        "time": "Est. 2 min",
+        "author": "Julianne Morgan, Center for Online Learning",
+        "authors": [
+          "jmorgan2@udayton.edu"
+        ],
+        "anchor": "4-ways-study-questions",
+        "videos": [
+          {
+            "title": "4 Ways to Use Study Questions for Exam Preparation",
+            "warpwire": "-X8EAA"
+          }
+        ]
+      },
+      {
+        "async": true,
+        "title": "Pruning Your Isidore Sites: Preparing for the Semester",
+        "description": "Start the semester off right by pruning your course site of extraneous tools, materials, or directions that were built for hybrid or flexible courses during the pandemic.",
+        "category": "Instructional Design",
+        "thumbnail": "pruning-your-sites.png",
+        "content": "During the pandemic, you likely created and posted instructions, activities and more in your Isidore sites to help students stay on pace, no matter their location or ability to attend class. This was meaningful and important work. As you duplicate your Isidore sites in preparation for returning to face-to-face teaching, though, some of these items could confuse students as they might be unsure if the activity is to be completed online or during your face-to-face class. This video will help guide you through the decision making process for what should be removed and what should stay in Isidore.",
+        "time": "Est. 10 min",
+        "author": "Kent Darr, Center for Online Learning",
+        "authors": [
+          "kdarr1@udayton.edu"
+        ],
+        "anchor": "pruning-your-sites",
+        "videos": [
+          {
+            "title": "Pruning Your Isidore Sites: Preparing for the Semester",
+            "warpwire": "0xYEAA"
+          }
+        ]
+      },
+      {
+        "async": true,
+        "title": "Forming Faculty E-Learning Groups, Interview Dr. Andy Slade",
+        "description": "Dr. Andy Slade, English Department Chair, shares the approach he established during the summer of 2020 to create faculty teams and maintain engagement.",
+        "category": "Blended Teaching & Learning",
+        "thumbnail": "slade-interview.jpg",
+        "content": "Faculty dug deep during the summer of 2020 as the prepared for a fall semester like they had never seen before. The task surely felt daunting and monumental on top of the stress the pandemic was already causing. How could faculty make sense of the huge amount of information that was being shared with them to guide their work? In our interview with Dr. Andy Slade, Chair of the English Department, we learned how he helped English faculty support each other by creating \"E-Learning development groups\" where they shared their struggles, their successes, and their questions. <a href=\"https://udayton.edu/blogs/onlinelearning/2020/2020_12_14_interview.php\" target=\"_blank\">Read a summary of the interview with Dr. Slade</a>.",
+        "time": "Est. 23 min",
+        "author": "Ryan Allen, Center for Online Learning and Dr. Andy Slade, Department of English",
+        "authors": [
+          "rallen1@udayton.edu",
+          "aslade1@udayton.edu"
+        ],
+        "anchor": "faculty-elearning-groups-interview",
+        "videos": [
+          {
+            "title": "Forming Faculty E-Learning Groups, Interview Dr. Andy Slade",
+            "warpwire": "XwMDAA"
+          }
+        ]
+      },
+      {
+        "async": true,
+        "title": "Five Considerations When Facilitating Dialogue Virtually",
+        "description": "Conduct a productive dialogue in an online environment by establishing ground rules, acknowledging trigger points, and equalizing the conversation space.",
+        "category": "Student Engagement",
+        "thumbnail": "virtual-dialog.jpg",
+        "content": "Facilitating an effective in-class dialogue may seem daunting, especially in an online environment. In this video, colleagues from across the University share five tips for success in guiding an online discussion. From technology considerations to steps to evaluate the balance of speaking power, the advice in this video will set you on the right track for online dialogue success.",
+        "time": "Est. 6 min",
+        "author": "Dr. Jason Combs, Ione Damasco, Sangita Gosalia, Brenna Seifried, Merida Allen, Dr. Sandra Yocum, and Dr. Julio Quintero",
+        "authors": [
+          "jcombs1@udayton.edu",
+          "idamasco1@udayton.edu",
+          "sgosalia1@udayton.edu",
+          "bseifried1@udayton.edu",
+          "mallen2@udayton.edu",
+          "syocum1@udayton.edu",
+          "jquintero1@udayton.edu"
+        ],
+        "anchor": "facilitating-virtual-dialog",
+        "videos": [
+          {
+            "title": "Five Considerations When Facilitating Dialogue Virtually",
+            "warpwire": "w98CAA"
+          }
+        ]
+      },
+      {
+        "async": true,
+        "title": "Academic Integrity Part 1: Defining the Problem & First Steps",
+        "description": "Promoting Academic Integrity Part 1: Defining the Problem & First Steps",
+        "category": "Academic Integrity",
+        "thumbnail": "academic-integrity-p1.jpg",
+        "content": "Why do students cheat? Can we convince them not to? Learn how communication and adjustments to assessment strategy can help.",
+        "time": "Est. 16 min",
+        "author": "Dr. David Wright, Paul Dagnall, and Dr. Steve Wilhoit<br>Ryan C. Harris Learning Teaching Center",
+        "authors": [
+          "dwright1@udayton.edu",
+          "pdagnall1@udayton.edu",
+          "swilhoit1@udayton.edu"
+        ],
+        "anchor": "academic-integrity-part1",
+        "videos": [
+          {
+            "title": "Promoting Academic Integrity - Part 1: Defining the Problem and Taking the First Steps",
+            "warpwire": "vdYCAA"
+          }
+        ]
+      },
+      {
+        "async": true,
+        "title": "Academic Integrity Part 2: Tools in Isidore",
+        "description": "Promoting Academic Integrity Part 2: Tools in Isidore",
+        "category": "Academic Integrity",
+        "thumbnail": "academic-integrity-p2.jpg",
+        "content": "The Isidore Learning Management System is loaded with features to steer your students away from cheating. Take advantage of the options that increase the integrity of your assessments.",
+        "time": "Est. 15 min",
+        "author": "Dr. David Wright, Paul Dagnall, and Dr. Steve Wilhoit<br>Ryan C. Harris Learning Teaching Center",
+        "authors": [
+          "dwright1@udayton.edu",
+          "pdagnall1@udayton.edu",
+          "swilhoit1@udayton.edu"
+        ],
+        "anchor": "academic-integrity-part2",
+        "videos": [
+          {
+            "title": "Promoting Academic Integrity - Part 2: Tools in Isidore",
+            "warpwire": "y9YCAA"
+          }
+        ]
+      },
+      {
+        "async": true,
+        "title": "Academic Integrity Part 3: Plagiarism & Contract Cheating",
+        "description": "Promoting Academic Integrity Part 3: Plagiarism & Contract Cheating",
+        "category": "Academic Integrity",
+        "thumbnail": "academic-integrity-p3.jpg",
+        "content": "Plagiarism can be addressed with communication and well crafted assessments. Contract cheating is a problem that often starts with innocent beginnings.",
+        "time": "Est. 15 min",
+        "author": "Dr. David Wright, Paul Dagnall, and Dr. Steve Wilhoit<br>Ryan C. Harris Learning Teaching Center",
+        "authors": [
+          "dwright1@udayton.edu",
+          "pdagnall1@udayton.edu",
+          "swilhoit1@udayton.edu"
+        ],
+        "anchor": "academic-integrity-part3",
+        "videos": [
+          {
+            "title": "Promoting Academic Integrity - Part 3: Plagiarism and Contract Cheating",
+            "warpwire": "19YCAA"
+          }
+        ]
+      },
+      {
+        "async": true,
+        "title": "Taking Attendance in the Blended Classroom",
+        "description": "Tracking attendance in a blended class can be tricky. See 4 different approaches for recording attendance in a blended environment.",
+        "category": "Blended Teaching & Learning",
+        "thumbnail": "taking-attendance-blended.jpg",
+        "content": "Depending on how you are conducting your blended class, you may need to consider creative approaches for taking attendance. In this video, Dr. Julio Quintero and Brenna Seifried present 4 different approaches for taking attendance - some methods even enhance student engagement with the class! However you track attendance, make sure your approach aligns with the <a href=\"https://ewiki.udayton.edu/isidore/Flex_Teaching_FAQs#Attendance\" target=\"_blank\">University's attendance guidance</a> for the blended semester.",
+        "time": "Est. 9 min",
+        "author": "Brenna Seifried and Dr. Julio Quintero<br />Center for International Programs and Office of Diversity, Equity, and Inclusion",
+        "authors": [
+          "bseifried1@udayton.edu",
+          "jquintero1@udayton.edu"
+        ],
+        "anchor": "taking-attendance-blended",
+        "videos": [
+          {
+            "title": "Taking Attendance in the Blended Classroom",
+            "warpwire": "n4QCAA"
+          }
+        ]
+      },
+      {
+        "async": true,
+        "title": "Starting the Semester Off Right",
+        "description": "First impressions are critical! Listen to two UD instructors share 5 strategies for an engaging first day of class.",
+        "category": "Student Engagement",
+        "thumbnail": "starting-right.jpg",
+        "content": "You only get one chance at that first impression with your students. In this video, the presenters cover five key strategies to help you create an engaging session that will start the semester off right and have your students looking forward to your next class.",
+        "time": "Est. 8 min",
+        "author": "Sangita Gosalia and Brenna Seifried<br />Center for International Programs",
+        "authors": [
+          "bseifried1@udayton.edu",
+          "sgosalia1@udayton.edu"
+        ],
+        "anchor": "starting-the-semester-right",
+        "videos": [
+          {
+            "title": "Starting the Semester Off Right",
+            "warpwire": "1TICAA"
+          }
+        ]
+      },
+      {
+        "async": true,
+        "title": "Blended Teaching: Interview with the Experts",
+        "description": "Listen to UD's resident experts in blended teaching, Dr. Kellie Schneider and Dr. Ed Mykytka, share their advice for teaching face-to-face and online at the same time.",
+        "category": "Blended Teaching & Learning",
+        "thumbnail": "blended-interview.jpg",
+        "content": "Instructors in the Department of Engineering Management, Systems, and Technology have been delivering their classes in a blended format for almost a decade. In this interview, Dr. Kellie Schneider and Dr. Ed Mykytka share their experiences and advice for instructors who are new to this style of teaching.",
+        "time": "Est. 23 min",
+        "author": "Dr. Kellie Schneider and Dr. Ed Mykytka<br />Department of Engineering Management, Systems, and Technology",
+        "authors": [
+          "kschneider2@udayton.edu",
+          "emykytka1@udayton.edu"
+        ],
+        "anchor": "blended-teaching-interview",
+        "videos": [
+          {
+            "title": "Blended Teaching: Interview with the Experts",
+            "warpwire": "GyACAA"
+          }
+        ]
+      },
+      {
+        "async": true,
+        "title": "Equity in the Blended Classroom",
+        "description": "Equalize the playing field in a blended class by utilizing resources prepared by Dr. Julio Quintero in the Office of Diversity, Equity, and Inclusion.",
+        "category": "Blended Teaching & Learning",
+        "thumbnail": "equity-blended-classroom.jpg",
+        "content": "The pandemic has revealed systemic differences in access to technology and safe learning environments for some students. Small modifications in your teaching in the blended classroom can dramatically help remote students who may not have access to the same technology, same resources, or same learning environments as their on-campus peers. The Office of Diversity, Equity, and Inclusion has prepared resources to help you ensure your class is as inclusive as possible.",
+        "time": "Est. 7 min",
+        "author": "Dr. Julio Quintero<br />Office of Diversity, Equity, and Inclusion",
+        "authors": [
+          "jquintero1@udayton.edu"
+        ],
+        "anchor": "equity-blended-classroom",
+        "videos": [
+          {
+            "title": "Equity in the Blended Classroom",
+            "warpwire": "HyACAA"
+          }
+        ]
+      },
+      {
+        "async": true,
+        "title": "Reducing Your Grading Load with Strategic Discussions",
+        "description": "Learn how to utilize strategic discussion strategies that engage your students and reduce your overall grading load.",
+        "category": "Grading",
+        "thumbnail": "strategicdiscussions.jpg",
+        "content": "Are you worried that evaluating and grading online discussions will require a disproportionate amount of your time when planning an online class? In this video, you will discover three instructional design methods - spaced discussions, embedded discussions, and narrowed evaluation - that you can utilize in your course to reduce your grading load while assuring that your students are engaging in robust social learning activities with their peers.",
+        "time": "Est. 5 min",
+        "author": "Kent Darr<br />Center for Online Learning",
+        "authors": [
+          "kdarr1@udayton.edu"
+        ],
+        "anchor": "reducing-grading-load-strategic-discussions",
+        "videos": [
+          {
+            "title": "Reducing Your Grading Load with Strategic Discussions",
+            "warpwire": "ESACAA"
+          }
+        ]
+      },
+      {
+        "async": true,
+        "title": "Reducing Your Grading Load with Model Answers",
+        "description": "Learn how to reduce your grading time while assuring that your students are completing rigorous learning exercises.",
+        "category": "Grading",
+        "thumbnail": "modelanswers.jpg",
+        "content": "Looking for a way to reduce your grading time while assuring that your students are completing rigorous learning exercises? In this video, you'll learn about how you can use the Model Answers feature in Isidore's assignments tool to create a two-part reflective activity that assists students to scaffold themselves up to the next level of expertise so that you can free up time to focus on maximizing your course facilitation time with those who need your help the most.",
+        "time": "Est. 6 min",
+        "author": "Kent Darr<br />Center for Online Learning",
+        "authors": [
+          "kdarr1@udayton.edu"
+        ],
+        "anchor": "reducing-grading-load-model-answers",
+        "videos": [
+          {
+            "title": "Reducing Your Grading Load with Model Answers",
+            "warpwire": "eRACAA"
+          }
+        ]
+      },
+      {
+        "async": true,
+        "title": "Small Group Collaboration in a Blended Class",
+        "description": "Encourage active learning in your blended classes by using collaboration tools such as murals and Zoom breakout rooms.",
+        "category": "Blended Teaching & Learning",
+        "thumbnail": "iact-smallgroup.jpg",
+        "content": "A blended class presents an opportunity for you to foster creativity and collaboration among your students. Using group collaboration tools, you can split your in-person and online students into small groups to work on contributing to a shared resource, such as a mural or Google Doc. In this video, we will show you how to split your students into small groups and how to set up a Mural for your students to develop. If you need more help on how create and manage breakout rooms in Zoom, please see <a href=\"https://udayton.warpwire.com/w/IeEBAA/\" target=\"_blank\">this video demonstration</a>.",
+        "time": "Est. 14 min",
+        "author": "Brian LaDuca and Adrienne Ausdenmoore<br />Institute of Applied Creativity for Transformation (IACT)",
+        "authors": [
+          "bladuca1@udayton.edu",
+          "aausdenmoore1@udayton.edu"
+        ],
+        "anchor": "iact-smallgroup-collaboration-blended",
+        "videos": [
+          {
+            "title": "Small Group Collaboration in a Blended Class",
+            "warpwire": "GwkCAA"
+          }
+        ]
+      },
+      {
+        "async": true,
+        "title": "Intrinsic Motivation & Course Communication",
+        "description": "Incorporating the ARCS method of motivation into your course communications to help increase student intrinsic motivation.",
+        "category": "Student Engagement",
+        "thumbnail": "arcscommunication.JPG",
+        "content": "Students are more successful in courses where they have a higher level of intrinsic motivation. The ARCS Model of Motivation focuses on Attention, Relevance, Confidence, and Satisfaction. In this video we talk about a very simple way to incorporate ARCS components into your course communication to increase student intrinsic motivation.",
+        "time": "Est. 6 min",
+        "author": "Katie Reynolds<br />Center for Online Learning",
+        "authors": [
+          "kreynolds3@udayton.edu"
+        ],
+        "anchor": "arcscommunication",
+        "videos": [
+          {
+            "title": "Student Intrinsic Motivation and Course Communication",
+            "warpwire": "D-wBAA"
+          }
+        ]
+      },
+      {
+        "async": true,
+        "title": "Beat the Boss Monster!",
+        "description": "Enhance course engagement and learning outcomes using gamification techniques.",
+        "category": "Gamification",
+        "thumbnail": "bossmonster.jpg",
+        "content": "Games operate off of fairly simple mechanics - beat the boss monster, save the world - yet they offer some of the most engaging and immersive learning experiences on the planet. Join Instructional Designer Kent Darr to discuss three gamification techniques that you can build into your course to enhance engagement and learning outcomes while also preparing students to be a source of common good now and after graduation.",
+        "time": "Est. 9 min",
+        "author": "Kent Darr<br />Center for Online Learning",
+        "authors": [
+          "kdarr1@udayton.edu"
+        ],
+        "anchor": "bossmonster",
+        "videos": [
+          {
+            "title": "Beat the Boss Monster!",
+            "warpwire": "_-sBAA"
+          }
+        ]
+      }
+    ]
+  }
+  
