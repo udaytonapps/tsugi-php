@@ -448,7 +448,7 @@ class Topics extends CourseBase
         }
         $all = U::get_rest_parent();
         ?>
-        <div class="container mt-4 mb-4">
+        <div class="container mb-4">
             <?php
             $twig = LessonsUIHelper::twig();
             echo $twig->render('breadcrumbs.twig', [
@@ -589,11 +589,12 @@ class Topics extends CourseBase
             echo $twig->render('breadcrumbs.twig', [
                 'breadcrumbs' => $this->getBreadcrumbs(),
             ]);
-            echo('<div>');
+            echo('<div class="pt-4">');
             echo $twig->render('generic-splash.twig', [
                 'contextRoot' => $this->contextRoot,
                 'splash' => $this->course->splash
             ]);
+            echo('<div>');
             echo '<form class="form-inline text-right mt-3" style="padding-bottom: 1rem;">
                 <div class="form-group" style="display: flex; justify-content: flex-end; align-items: center; gap: 20px;">
                     <label for="categorySelect">Filter Topics by Category: </label>
