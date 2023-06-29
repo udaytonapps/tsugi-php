@@ -49,10 +49,12 @@
 			{% set contents = splash.contents %}
 			{% include 'generic-contents.twig' %}
 		</div>
-		<div class="video-container col-md-5 pt-5">
-			<div class="videoWrapper">
-				<iframe allowfullscreen src="{{splash.video}}" title="ATLS Promo Video"></iframe>
+		{% if splash.video %}
+			<div class="video-container col-md-5 pt-5">
+				<div class="videoWrapper">
+					<iframe allowfullscreen src="{{splash.video}}" title="Promo Video"></iframe>
+				</div>
 			</div>
-		</div>
+		{% endif %}
 	</div>
 </div>
