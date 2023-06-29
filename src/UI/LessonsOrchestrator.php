@@ -4,6 +4,7 @@ namespace Tsugi\UI;
 
 require_once(__DIR__ . '/LessonsAdapters/CourseBase.php');
 require_once(__DIR__ . '/LessonsAdapters/GenericLessonsAdapter.php');
+require_once(__DIR__ . '/LessonsAdapters/topics/Topics.php');
 
 use CourseBase;
 use GenericAdapter;
@@ -101,8 +102,34 @@ class LessonsOrchestrator
         if ($tsugiUser) {
             $learnFacilitator['displayname'] = $tsugiUser['displayname'];
             $learnFacilitator['image_url'] = $tsugiUser['image'];
-        } else {
         }
+        return $learnFacilitator;
+    }
+
+    public static function getFacilitatorWithModulesById($facilitatorId)
+    {
+        global $CFG;
+
+        // Check our Learn record (for title, at least)
+        $PDOX = LTIX::getConnection();
+        $p = $CFG->dbprefix;
+        $sql = "SELECT *
+        FROM {$p}learn_facilitator WHERE facilitator_id = :id";
+        $learnFacilitator = $PDOX->rowDie($sql, [':id' => $facilitatorId]);
+
+        // Check against Tsugi record
+        if ($learnFacilitator && $learnFacilitator['email']) {
+            $PDOX = LTIX::getConnection();
+            $p = $CFG->dbprefix;
+            $sql = "SELECT *
+            FROM {$p}lti_user WHERE email = :email";
+            $tsugiUser = $PDOX->rowDie($sql, [':email' => $learnFacilitator['email']]);
+            if ($tsugiUser) {
+                $learnFacilitator['displayname'] = $tsugiUser['displayname'];
+                $learnFacilitator['image_url'] = $tsugiUser['image'];
+            }
+        }
+        $learnFacilitator = self::setFacilitatorModules($learnFacilitator);
         return $learnFacilitator;
     }
 
@@ -110,27 +137,41 @@ class LessonsOrchestrator
     {
         $facilitators = self::getAllFacilitators();
         foreach ($facilitators as &$facilitator) {
-            $facilitator['sessions'] = [];
-            // Loop over all lessons and check Facilitator references
-            $references = self::getLessonsReference();
-            foreach ($references as $program => $reference) {
-                $context = self::getRelativeContext($program);
-                $lessons = self::getLessonsJson($context);
-                // Find all modules related to that facilitator
-                // If module has facilitator email, add that module name to the facilitators module array
-                foreach ($lessons->modules as $module) {
-                    if (isset($module->facilitators)) {
-                        if (in_array($facilitator['email'], $module->facilitators)) {
-                            $facilitator['sessions'][] = (object)[
-                                'title' => $reference->displayLabel . (isset($module->session) && strlen($module->session) > 0 ? ' - ' . $module->session . ': ' : ': ') . $module->title,
-                                'url' => U::get_rest_parent() . "/programs/{$program}/" . urlencode($module->anchor),
-                            ];
-                        }
+            $facilitator = self::setFacilitatorModules($facilitator);
+        }
+        return $facilitators;
+    }
+
+    private static function setFacilitatorModules($facilitator)
+    {
+        $facilitator['sessions'] = [];
+        // Loop over all lessons and check Facilitator references
+        $references = self::getLessonsReference();
+        foreach ($references as $program => $reference) {
+            $context = self::getRelativeContext($program);
+            $lessons = self::getLessonsJson($context);
+            // Find all modules related to that facilitator
+            // If module has facilitator email, add that module name to the facilitators module array
+            foreach ($lessons->modules as $module) {
+                if (isset($module->facilitators)) {
+                    if (in_array($facilitator['email'], $module->facilitators)) {
+                        $facilitator['sessions'][] = (object)[
+                            'title' => $reference->displayLabel . (isset($module->session) && strlen($module->session) > 0 ? ' - ' . $module->session . ': ' : ': ') . $module->title,
+                            'url' => U::get_rest_parent() . "/programs/{$program}/" . urlencode($module->anchor),
+                        ];
+                    }
+                }
+                if (isset($module->authors)) {
+                    if (in_array($facilitator['email'], $module->authors)) {
+                        $facilitator['sessions'][] = (object)[
+                            'title' => $reference->displayLabel . (isset($module->session) && strlen($module->session) > 0 ? ' - ' . $module->session . ': ' : ': ') . $module->title,
+                            'url' => U::get_rest_parent() . "/programs/{$program}/" . urlencode($module->anchor),
+                        ];
                     }
                 }
             }
         }
-        return $facilitators;
+        return $facilitator;
     }
 
     public static function isInstructor()

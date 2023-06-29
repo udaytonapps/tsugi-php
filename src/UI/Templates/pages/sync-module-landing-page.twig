@@ -8,6 +8,7 @@
 'attended' => $attended,
 'absent' => $absent,
 'registered' => $registered,
+'moduleMetadata.facilitatorBasePath',
 #}
 
 {% set prevPage = prevModule %}
@@ -78,7 +79,7 @@
 			<li class="list-group-item d-flex align-items-center">
 				<div class="image-container"><img class="profile" src="{{facilitator.image_url}}" alt="{{facilitator.displayname}}"/></div>
 				<div class="ms-3">
-					<h5 class="fw-normal mb-1">{{facilitator.displayname}}</h5>
+					<h5 class="fw-normal mb-1"><a href="{{moduleMetadata.facilitatorBasePath}}/{{facilitator.facilitator_id}}">{{facilitator.displayname}}</a></h5>
 					<p class="text-muted mb-0">{{facilitator.title}}</p>
 				</div>
 			</li>
