@@ -289,8 +289,10 @@ class GenericAdapter extends CourseBase
 
     private function assembleAllowedModules()
     {
-        global $CFG;
-
+        global $CFG, $PDOX;
+        $instances = $PDOX->allRowsDie(
+            "SELECT session_date, session_location, duration_minutes, module_launch_id, module_program, capacity FROM {$CFG->dbprefix}learn_module_instance ORDER BY session_date ASC"
+        );
         $moduleCardData = [];
         foreach ($this->course->modules as $module) {
 
@@ -306,7 +308,19 @@ class GenericAdapter extends CourseBase
             $moduleMetadata = $this->getModuleMetadata($module);
 
             $encodedAnchor = urlencode($module->anchor);
-
+            $instancesNow = array_keys(array_column($instances, 'module_launch_id'),$module->anchor);
+            $monthString = '';
+            $monthNowPretty = '';
+            foreach ($instancesNow as $instanceKey) {
+                $lastMonth = $monthNowPretty;
+                $monthNow = isset($instances[$instanceKey]['session_date']) ? new \DateTime($instances[$instanceKey]['session_date']) : null;
+                $monthNowPretty = isset($monthNow) ? $monthNow->format("M").'.' : null;
+                if(empty($monthString)){
+                    $monthString = $monthNowPretty;
+                } else if ($lastMonth <> $monthNowPretty) {
+                    $monthString = $monthString.' / '.$monthNowPretty;
+                }
+            }
             if (isset($module->async) && $module->async) {
                 $type = 'async';
             } else {
@@ -315,6 +329,7 @@ class GenericAdapter extends CourseBase
 
             array_push($moduleCardData, (object)[
                 'module' => $module,
+                'moduleMonthString' => $monthString,
                 'contextRoot' => $this->contextRoot,
                 'moduleUrl' => "{$CFG->apphome}/programs/{$this->category}/{$encodedAnchor}",
                 'moduletype' => $type,
