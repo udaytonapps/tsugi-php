@@ -615,7 +615,7 @@ class Topics extends CourseBase
                                 <div class="topiccard-header">
                                     <div class="topiccard-image" style="background-image: url('<?= $CFG->apphome; ?>/thumbnails/<?= $topic->thumbnail ?>');">
                                         <div class="topiccard-time">
-                                            <span class="far fa-clock" aria-hidden="true"></span> <?= $topic->time ?>
+                                            <span class="far fa-clock" aria-hidden="true"></span> <?= $topic->duration ?>
                                         </div>
                                     </div>
                                 </div>

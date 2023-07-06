@@ -5,7 +5,7 @@ use Tsugi\UI\LessonsOrchestrator;
 
 abstract class CourseBase
 {
-    protected string $category;
+    public string $category;
     protected string $base_url_warpwire = 'https://udayton.warpwire.com';
 
     public function header()
@@ -382,6 +382,7 @@ class Splash
     public $text;
     /** @var string */
     public $image;
+    public $alttext;
     /** @var Content[] */
     public $contents;
     /** @var Content */
@@ -392,6 +393,7 @@ class Splash
         $this->title = $splash->title;
         $this->text = $splash->text;
         $this->image = $splash->image;
+        $this->alttext = $splash->alttext;
         $this->video = $splash->video;
         $newContents = [];
         foreach ($splash->contents as $content) {

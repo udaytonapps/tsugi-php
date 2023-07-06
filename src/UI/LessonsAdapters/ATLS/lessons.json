@@ -4,6 +4,7 @@
   "splash": {
     "title": "Advancing Teaching & Learning Scholars (ATLS)",
     "image": "/images/main.jpg",
+    "alttext": "A smiling instructor calls on one of multiple students, whose hands are raised, while remote students look on via a Zoom call.",
     "video": "https://udayton.warpwire.com/w/20AFAA/?title=0",
     "text": "A dynamic professional development program aimed at helping faculty understand UD, its systems, and key resources in and around the Ryan C. Harris Learning Teaching Center used to drive student success.",
     "contents": [
@@ -183,6 +184,7 @@
       "icon": "fa-medal",
       "duration": "1hr 30min",
       "calendar": "Oct. / Feb.",
+      "featured": "true",
       "description": "Supporting today’s UD students goes way beyond simply providing academic support and office hours to make sure they do well in your classes. As our view of support has evolved over the years so has our network of support resources for students. This session will cover not just what support resources are available for our students but will more broadly cover how to create an accessible and equitable learning environment for all students. Participants will also learn how to engage various offices to activate support resources as well as the basics of facilitating accommodation requests from the Office of Learning Resources.",
       "image": "/images/UD COL-271.jpg",
       "facilitators": [
