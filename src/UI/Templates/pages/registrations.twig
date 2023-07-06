@@ -1,0 +1,10 @@
+<h4>Active Registrations</h4>
+<div class="col-md-12 pb-5 d-flex align-items-stretch">
+	{% set registrations = activeRegistrations %}
+	{% include 'registrations-table.twig' %}
+</div>
+<h4>Previous Registrations</h4>
+<div class="col-md-12 pb-5 d-flex align-items-stretch">
+	{% set registrations = previousRegistrations %}
+	{% include 'registrations-table.twig' %}
+</div>

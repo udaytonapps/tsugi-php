@@ -1,0 +1,60 @@
+{% if registrations | length == 0 %}
+	<h6 style="text-align: center;" class="p-5 w-100">No registrations found.</h6>
+{% else %}
+	<table class="table">
+		<tbody>
+			{% for registration in registrations %}
+				<tr>
+					<th scope="row">
+						<h5 class="card-title d-block">
+							<a class="modulePageLink" href="{{registration.moduleUrl}}">{{registration.title}}</a>
+						</h5>
+						{% if registration.session %}
+							<div>
+								{% if registration.icon %}
+									<i class="fa {{registration.icon}} pe-1" aria-hidden="true"></i>
+								{% endif %}
+								{{registration.session}}
+							</div>
+						{% endif %}
+						<h6>
+							<a href="{{registration.programUrl}}">{{registration.program}}</a>
+						</h6>
+					</th>
+					<td>
+						{% if registration.duration %}
+							<span class="card-data-span">
+								<span class="far fa-clock" aria-hidden="true"></span>
+								{{registration.duration}}
+							</span>
+						{% endif %}
+					</td>
+					<td>
+						<div class="d-flex flex-column align-items-center">
+							<span>{{registration.displaydate}}</span>
+							<span>{{registration.displaytime}}</span>
+						</div>
+					</td>
+					<td>
+						<div class="d-flex align-items-center">
+							{{registration.session_location}}
+						</div>
+					</td>
+					<td style="vertical-align: middle;">
+						<div class="d-flex justify-content-center">
+							<h5>
+								{% if registration.attendance_status == 'REGISTERED' %}
+									<span class="badge badge-primary">Registered</span>
+								{% elseif registration.attendance_status == 'ATTENDED' %}
+									<span class="badge badge-success">Attended</span>
+								{% elseif registration.attendance_status == 'ABSENT' %}
+									<span class="badge badge-danger">Absent</span>
+								{% endif %}
+							</h5>
+						</div>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endif %}
