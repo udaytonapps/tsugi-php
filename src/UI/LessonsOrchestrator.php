@@ -77,6 +77,19 @@ class LessonsOrchestrator
         }
     }
 
+    public static function getUserRegistrations($userId)
+    {
+        global $CFG;
+        $PDOX = LTIX::getConnection();
+        $p = $CFG->dbprefix;
+        $sql = "SELECT *
+        FROM {$p}learn_registration reg
+        JOIN {$p}learn_module_instance ins
+        ON reg.instance_id = ins.instance_id
+        WHERE reg.user_id = :userId ORDER BY ins.session_date ASC";
+        return $PDOX->allRowsDie($sql, [':userId' => $userId]);
+    }
+
     public static function getAllFacilitators()
     {
         global $CFG;
