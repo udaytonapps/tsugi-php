@@ -97,7 +97,19 @@ class LessonsOrchestrator
         $p = $CFG->dbprefix;
         $sql = "SELECT *
         FROM {$p}learn_facilitator ORDER BY SUBSTRING_INDEX(displayname, ' ', -1)";
-        return $PDOX->allRowsDie($sql, []);
+        $rows = $PDOX->allRowsDie($sql, []);
+
+        foreach ($rows as &$facilitator) {
+            // Check against Tsugi record
+            $sql = "SELECT *
+                    FROM {$p}lti_user WHERE email = :email";
+            $tsugiUser = $PDOX->rowDie($sql, [':email' => $facilitator['email']]);
+            if ($tsugiUser) {
+                $facilitator['displayname'] = $tsugiUser['displayname'];
+                $facilitator['image_url'] = $tsugiUser['image'];
+            }
+        }
+        return $rows;
     }
 
     public static function getFacilitatorByEmail($facilitatorEmail)
