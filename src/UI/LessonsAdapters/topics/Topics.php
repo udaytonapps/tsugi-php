@@ -261,14 +261,23 @@ class Topics extends CourseBase
                 width: -webkit-max-content;
             }
 
+            #topics {
+                display: flex;
+                justify-content: center;
+            }
+
+            .topic-card-parent {
+                display: none;
+                padding: 20px;
+            }
+
             .topiccard {
-                height: 400px;
-                margin-bottom: 15px;
+                height: 415px;
                 vertical-align: top;
                 white-space: normal;
                 cursor: pointer;
                 border: 1px solid rgba(0, 0, 0, .2);
-                box-shadow: 0 8px 6px -6px #111;
+                box-shadow: 0 4px 6px -6px #111;
                 overflow: hidden;
             }
 
@@ -608,7 +617,7 @@ class Topics extends CourseBase
             echo ('<div id="topics" class="row">' . "\n");
             foreach ($this->course->modules as $topic) {
             ?>
-                <div class="col-sm-4">
+                <div class="col-sm-12 col-md-6 col-lg-4 topic-card-parent">
                     <div class="topiccard" data-category="<?= $topic->category ?>">
                         <a href="<?= U::get_rest_path() . '/' . urlencode($topic->anchor) ?>">
                             <div class="topiccard-container">
@@ -676,16 +685,15 @@ class Topics extends CourseBase
                 <script>
                     $(document).ready(function() {
                         function handleCategoryChange() {
-                            let selectedCat = $('#categorySelect').val();
-                            $(".topiccard").each(function() {
-                                if (selectedCat == "all") {
-                                    $(this).parent().fadeIn();
+                            var selectedCat = $('#categorySelect').val();
+                            $('.topiccard').each(function() {
+                                var category = $(this).data('category');
+                                var $parent = $(this).parent();
+
+                                if (selectedCat === 'all' || category === selectedCat) {
+                                    $parent.fadeIn();
                                 } else {
-                                    if ($(this).data("category") == selectedCat) {
-                                        $(this).parent().fadeIn();
-                                    } else {
-                                        $(this).parent().hide();
-                                    }
+                                    $parent.hide();
                                 }
                             });
                         }
@@ -696,14 +704,19 @@ class Topics extends CourseBase
                                 categories.push(cat);
                             }
                         });
+
+                        var select = $('#categorySelect');
                         categories.sort();
                         categories.forEach(cat => {
-                            $("#categorySelect").append('<option value="' + cat + '">' + cat + '</option>');
+                            select.append('<option value="' + cat + '">' + cat + '</option>');
                         });
-                        // Check if the page is being shown again after navigating back
-                        $(window).on('load', handleCategoryChange);
-                        // Register the on change handler
+
                         $("#categorySelect").on("change", handleCategoryChange);
+
+                        setTimeout(function() {
+                            $('#categorySelect').val('all');
+                        }, 10);
+                        handleCategoryChange();
                     });
                 </script>
     <?php
