@@ -589,12 +589,12 @@ class Topics extends CourseBase
             echo $twig->render('breadcrumbs.twig', [
                 'breadcrumbs' => $this->getBreadcrumbs(),
             ]);
-            echo('<div class="pt-4">');
+            echo ('<div class="pt-4">');
             echo $twig->render('generic-splash.twig', [
                 'contextRoot' => $this->contextRoot,
                 'splash' => $this->course->splash
             ]);
-            echo('<div>');
+            echo ('<div>');
             echo '<form class="form-inline text-right mt-3" style="padding-bottom: 1rem;">
                 <div class="form-group" style="display: flex; justify-content: flex-end; align-items: center; gap: 20px;">
                     <label for="categorySelect">Filter Topics by Category: </label>
@@ -675,20 +675,8 @@ class Topics extends CourseBase
             ?>
                 <script>
                     $(document).ready(function() {
-                        let categories = [];
-                        $(".topiccard").each(function() {
-                            let cat = $(this).data("category");
-                            console.log("cat " + cat);
-                            if (!categories.includes(cat)) {
-                                categories.push(cat);
-                            }
-                        });
-                        categories.sort();
-                        categories.forEach(cat => {
-                            $("#categorySelect").append('<option value="' + cat + '">' + cat + '</option>');
-                        });
-                        $("#categorySelect").on("change", function() {
-                            let selectedCat = $(this).val();
+                        function handleCategoryChange() {
+                            let selectedCat = $('#categorySelect').val();
                             $(".topiccard").each(function() {
                                 if (selectedCat == "all") {
                                     $(this).parent().fadeIn();
@@ -700,7 +688,22 @@ class Topics extends CourseBase
                                     }
                                 }
                             });
+                        }
+                        let categories = [];
+                        $(".topiccard").each(function() {
+                            let cat = $(this).data("category");
+                            if (!categories.includes(cat)) {
+                                categories.push(cat);
+                            }
                         });
+                        categories.sort();
+                        categories.forEach(cat => {
+                            $("#categorySelect").append('<option value="' + cat + '">' + cat + '</option>');
+                        });
+                        // Check if the page is being shown again after navigating back
+                        $(window).on('load', handleCategoryChange);
+                        // Register the on change handler
+                        $("#categorySelect").on("change", handleCategoryChange);
                     });
                 </script>
     <?php
