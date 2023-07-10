@@ -1463,7 +1463,6 @@
       "title": "Accessibility",
       "duration": "Est. 35 min",
       "anchor": "accessibility",
-      "featured": "true",
       "landingContents": [
         {
           "type": "TEXT",
@@ -3291,7 +3290,6 @@
       "anchor": "chat-gpt-2",
       "icon": "fa-robot",
       "duration": "1hr",
-      "featured": "true",
       "calendar": "Oct.",
       "description": "Our instructional designers will share what the current research has to say about writing in an AI world. Together we’ll (re)think about how we create and grade written assessments and consider some alternatives.",
       "image": "/assets/chat-gpt-2.jpeg",
@@ -3411,7 +3409,6 @@
       "anchor": "tools-for-teaching",
       "duration": "1hr",
       "calendar": "Aug. / Nov.",
-      "featured": "true",
       "description": "As you prepare for your next batch of students, consider adding these snazzy Isidore tools to your pedagogical repertoire: tokens, gradescope, rubrics, video feedback tool, syllabus",
       "image": "/assets/tools-for-teaching.jpeg",
       "facilitators": [
