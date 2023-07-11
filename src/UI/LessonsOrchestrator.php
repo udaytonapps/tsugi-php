@@ -8,6 +8,7 @@ require_once(__DIR__ . '/LessonsAdapters/topics/Topics.php');
 
 use CourseBase;
 use GenericAdapter;
+use Tsugi\Blob\BlobUtil;
 use Tsugi\Util\U;
 use Tsugi\Core\LTIX;
 
@@ -90,6 +91,28 @@ class LessonsOrchestrator
         return $PDOX->allRowsDie($sql, [':userId' => $userId]);
     }
 
+    private static function overrideFacilitatorData($facilitator)
+    {
+        // LTIX::session_start();
+        // Check against Tsugi record
+        global $CFG;
+        if ($facilitator && $facilitator['email']) {
+            $PDOX = LTIX::getConnection();
+            $p = $CFG->dbprefix;
+            $sql = "SELECT * FROM {$p}lti_user WHERE email = :email";
+            $tsugiUser = $PDOX->rowDie($sql, [':email' => $facilitator['email']]);
+            if ($tsugiUser) {
+                $facilitator['displayname'] = $tsugiUser['displayname'];
+                $facilitator['image_url'] = $tsugiUser['image'];
+            }
+            if (isset($facilitator['image_blob_id'])) {
+                $url = U::addSession(BlobUtil::getAccessUrlForBlob($facilitator['image_blob_id'], false, true), true);
+                $facilitator['image_url'] = $url;
+            }
+        }
+        return $facilitator;
+    }
+
     public static function getAllFacilitators()
     {
         global $CFG;
@@ -100,14 +123,7 @@ class LessonsOrchestrator
         $rows = $PDOX->allRowsDie($sql, []);
 
         foreach ($rows as &$facilitator) {
-            // Check against Tsugi record
-            $sql = "SELECT *
-                    FROM {$p}lti_user WHERE email = :email";
-            $tsugiUser = $PDOX->rowDie($sql, [':email' => $facilitator['email']]);
-            if ($tsugiUser) {
-                $facilitator['displayname'] = $tsugiUser['displayname'];
-                $facilitator['image_url'] = $tsugiUser['image'];
-            }
+            $facilitator = self::overrideFacilitatorData($facilitator);
         }
         return $rows;
     }
@@ -124,15 +140,7 @@ class LessonsOrchestrator
         $learnFacilitator = $PDOX->rowDie($sql, [':email' => $facilitatorEmail]);
 
         // Check against Tsugi record
-        $PDOX = LTIX::getConnection();
-        $p = $CFG->dbprefix;
-        $sql = "SELECT *
-        FROM {$p}lti_user WHERE email = :email";
-        $tsugiUser = $PDOX->rowDie($sql, [':email' => $facilitatorEmail]);
-        if ($tsugiUser) {
-            $learnFacilitator['displayname'] = $tsugiUser['displayname'];
-            $learnFacilitator['image_url'] = $tsugiUser['image'];
-        }
+        $learnFacilitator = self::overrideFacilitatorData($learnFacilitator);
         return $learnFacilitator;
     }
 
