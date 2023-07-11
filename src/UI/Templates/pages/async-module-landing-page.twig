@@ -37,7 +37,7 @@
 				{% if content.type == "TEXT" %}
 					<div class="d-flex flex-column justify-content-center">
 						{% for paragraph in content.paragraphs %}
-							<p>{{paragraph}}</p>
+							<p>{{paragraph | raw}}</p>
 						{% endfor %}
 					</div>
 				{% endif %}

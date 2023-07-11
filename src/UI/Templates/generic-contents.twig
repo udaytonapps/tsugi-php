@@ -22,7 +22,11 @@
 		{% if content.link.icon %}
 			<span class="fa {{content.link.icon}}" aria-hidden="true"></span>
 		{% endif %}
-		<a target="_blank" data-twigstuff="{{urlRoot}}" href="{{urlRoot}}{{content.link.url}}">{{content.link.title | raw}}</a>
+		{% if 'http' in content.link.url %}
+			<a target="_blank" href="{{content.link.url}}">{{content.link.title | raw}}</a>
+		{% else %}
+			<a target="_blank" href="{{urlRoot}}{{content.link.url}}">{{content.link.title | raw}}</a>
+		{% endif %}	
 	{% elseif content.type == "ORDERED_LIST" %}
 		<ol>
 			{% for listContent in content.orderedList.contents %}
