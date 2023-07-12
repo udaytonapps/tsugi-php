@@ -108,7 +108,7 @@ class Facilitators
                                     <img src="<?= $facilitator['image_url'] ? $facilitator['image_url'] : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" ?>" alt="<?= $facilitator['displayname'] ?>" style="object-fit: cover; object-position: 50% 30%; min-width: 70px; min-height: 70px; width: 70px; height: 70px;" class="rounded-circle shadow-4" />
                                     <div class="ms-3">
                                         <a href="./facilitators/<?= $facilitator['facilitator_id']; ?>" class="fw-bold mb-1"><?= $facilitator['displayname'] ?></a>
-                                        <p class="text-muted mb-0"><?= $facilitator['title'] ?></p>
+                                        <p class="text-muted mb-0"><?= $facilitator['title'] . ($facilitator['department'] ? ', ' . $facilitator['department'] : '') ?></p>
                                     </div>
                                 </div>
                             </td>

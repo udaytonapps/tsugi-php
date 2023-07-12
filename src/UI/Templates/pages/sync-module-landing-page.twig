@@ -80,7 +80,11 @@
 				<div class="image-container"><img class="profile" src="{{facilitator.image_url}}" alt="{{facilitator.displayname}}"/></div>
 				<div class="ms-3">
 					<h5 class="fw-normal mb-1"><a href="{{moduleMetadata.facilitatorBasePath}}/{{facilitator.facilitator_id}}">{{facilitator.displayname}}</a></h5>
-					<p class="text-muted mb-0">{{facilitator.title}}</p>
+					{% if facilitator.department %}
+						<p class="text-muted mb-0">{{facilitator.title}}, {{facilitator.department}}</p>
+					{% else %}
+						<p class="text-muted mb-0">{{facilitator.title}}</p>
+					{% endif %}
 				</div>
 			</li>
 		{% endfor %}
