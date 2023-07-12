@@ -404,7 +404,6 @@ class GenericAdapter extends CourseBase
 
         $greeting = $attended ? 'You attended the following session' : ($absent ? "We missed you at the session on" : "You are registered for");
         $regDate = isset($this->registrations[$module->anchor]["session_date"]) ? new \DateTime($this->registrations[$module->anchor]["session_date"]) : null;
-        $regDate = isset($regData) ? $regDate->format("D. M j, Y - g:i a") : null;
         $location = isset($this->registrations[$module->anchor]["session_location"]) ? $this->registrations[$module->anchor]["session_location"] : null;
 
         $gaveFeedback = isset($this->registrations[$module->anchor]["feedback"]) ? $this->registrations[$module->anchor]["feedback"] : false;
