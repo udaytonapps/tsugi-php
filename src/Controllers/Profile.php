@@ -10,8 +10,6 @@ use Tsugi\Core\LTIX;
 use Tsugi\UI\LessonsOrchestrator;
 use Tsugi\Util\U;
 
-LTIX::session_start();
-
 class Profile extends Controller {
 
     const ROUTE = '/profile';
@@ -38,7 +36,8 @@ class Profile extends Controller {
     }
     public static function getProfile(Application $app)
     {
-        global $CFG, $PDOX, $OUTPUT, $USER;
+
+        global $CFG, $PDOX, $OUTPUT;
         $home = isset($CFG->apphome) ? $CFG->apphome : $CFG->wwwroot;
 
         if ( ! isset($_SESSION['profile_id']) ) {
@@ -124,7 +123,7 @@ google.maps.event.addListener(marker, 'dragend', function (event) {
     <?php
         $person = LessonsOrchestrator::getFacilitatorByEmail($_SESSION['email']);
 
-        if ($person && $person['displayname']) {
+        if ($person && isset($person['displayname'])) {
             echo "</br><h1></h1></br>";
         ?>
             <div class="d-flex flex-column align-items-center gap-3">
@@ -138,7 +137,7 @@ google.maps.event.addListener(marker, 'dragend', function (event) {
                     <?php
                     }
                     ?>
-                    <img src="<?= $person['image_url'] ? $person['image_url'] : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" ?>" alt="<?= $person['displayname'] ?>" style="object-fit: cover; object-position: 50% 30%; min-width: 150px; min-height: 150px; width: 150px; height: 150px;" class="rounded-circle shadow-4" />
+                    <img src="<?= isset($person['image_url']) ? $person['image_url'] : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" ?>" alt="<?= $person['displayname'] ?>" style="object-fit: cover; object-position: 50% 30%; min-width: 150px; min-height: 150px; width: 150px; height: 150px;" class="rounded-circle shadow-4" />
                 </div>
                 <h1 class="fw-bold mb-0"><?= $_SESSION['displayname'] ?? '' ?></h1>
                 <?php
@@ -160,45 +159,45 @@ google.maps.event.addListener(marker, 'dragend', function (event) {
                 
                 <span class="mb-5"></span>
             </div>
+            <div class="modal fade" id="profile-modal" tabindex="-1" aria-labelledby="profile-modal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="profile-modal">Edit Profile</h5>
+                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex flex-column gap-4 p-5">
+                        <div>
+                            <div class="d-flex justify-content-center pb-3">
+                                <img id="profile-preview" src="<?= isset($person['image_url']) ? $person['image_url'] : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" ?>" alt="<?= $person['displayname'] ?>" style="object-fit: cover; object-position: 50% 30%; min-width: 100px; min-height: 100px; width: 100px; height: 100px;" class="rounded-circle shadow-4" />
+                            </div>
+                            <label class="form-label" for="profile-image-file">Profile Image</label>
+                            <input type="file" class="form-control" id="profile-image-file" />
+                        </div>
+                        <!-- <div>
+                            <label for="profile-name">Name</label>
+                            <input type="text" id="profile-name" class="form-control" value="<?= $person['displayname'] ?? '' ?>" />
+                        </div> -->
+                        <div>
+                            <label for="profile-title">Title</label>
+                            <input type="text" id="profile-title" class="form-control" value="<?= $person['title'] ?? '' ?>" />
+                        </div>
+                        <div>
+                            <label for="profile-department">Department</label>
+                            <input type="text" id="profile-department" class="form-control" value="<?= $person['department'] ?? '' ?>" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Cancel</button>
+                        <button id="profile-modal-save" type="button" class="btn btn-primary">Save</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
             <?php
         }
         ?>
 
-        <div class="modal fade" id="profile-modal" tabindex="-1" aria-labelledby="profile-modal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="profile-modal">Edit Profile</h5>
-                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body d-flex flex-column gap-4 p-5">
-                    <div>
-                        <div class="d-flex justify-content-center pb-3">
-                            <img id="profile-preview" src="<?= $person['image_url'] ? $person['image_url'] : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" ?>" alt="<?= $person['displayname'] ?>" style="object-fit: cover; object-position: 50% 30%; min-width: 100px; min-height: 100px; width: 100px; height: 100px;" class="rounded-circle shadow-4" />
-                        </div>
-                        <label class="form-label" for="profile-image-file">Profile Image</label>
-                        <input type="file" class="form-control" id="profile-image-file" />
-                    </div>
-                    <!-- <div>
-                        <label for="profile-name">Name</label>
-                        <input type="text" id="profile-name" class="form-control" value="<?= $person['displayname'] ?? '' ?>" />
-                    </div> -->
-                    <div>
-                        <label for="profile-title">Title</label>
-                        <input type="text" id="profile-title" class="form-control" value="<?= $person['title'] ?? '' ?>" />
-                    </div>
-                    <div>
-                        <label for="profile-department">Department</label>
-                        <input type="text" id="profile-department" class="form-control" value="<?= $person['department'] ?? '' ?>" />
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Cancel</button>
-                    <button id="profile-modal-save" type="button" class="btn btn-primary">Save</button>
-                </div>
-                </div>
-            </div>
-        </div>
 
         <form method="POST" style="display: <?= self::SHOW_FORM ? 'block' : 'none'; ?>">
             <div style="display: flex; justify-content: space-between;">
@@ -371,7 +370,7 @@ google.maps.event.addListener(marker, 'dragend', function (event) {
 
     public static function postProfile(Application $app)
     {
-        global $CFG, $PDOX, $USER;
+        global $CFG, $PDOX;
         $p = $CFG->dbprefix;
 
         $home = isset($CFG->apphome) ? $CFG->apphome : $CFG->wwwroot;
@@ -440,7 +439,7 @@ google.maps.event.addListener(marker, 'dragend', function (event) {
                 // Get the previous blob_id (if it exists)
                 $query = "SELECT * FROM {$p}learn_facilitator
                 WHERE email = :email";
-                $arr = array(':email' => $USER->email);
+                $arr = array(':email' => $_SESSION['email']);
                 $row = $PDOX->rowDie($query, $arr);
                 
                 // If it exists, delete previous blob image from blob_blob and blob_file
@@ -452,14 +451,14 @@ google.maps.event.addListener(marker, 'dragend', function (event) {
                 $query = "UPDATE {$p}learn_facilitator
                 SET image_blob_id = :blob_id
                 WHERE email = :email";
-                $arr = array(':blob_id' => $blob_id, ':email' => $USER->email);
+                $arr = array(':blob_id' => $blob_id, ':email' => $_SESSION['email']);
                 $PDOX->queryDie($query, $arr);
             }
 
             $query = "UPDATE {$p}learn_facilitator
             SET title = :title, department = :department
             WHERE email = :email";
-            $arr = array(':title' => $_POST['title'], ':department' => $_POST['department'], ':email' => $USER->email);
+            $arr = array(':title' => $_POST['title'], ':department' => $_POST['department'], ':email' => $_SESSION['email']);
             $PDOX->queryDie($query, $arr);
         }
     }
