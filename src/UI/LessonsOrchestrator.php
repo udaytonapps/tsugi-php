@@ -7,6 +7,7 @@ require_once(__DIR__ . '/LessonsAdapters/GenericLessonsAdapter.php');
 require_once(__DIR__ . '/LessonsAdapters/topics/Topics.php');
 
 use CourseBase;
+use finfo;
 use GenericAdapter;
 use Tsugi\Blob\BlobUtil;
 use Tsugi\Util\U;
@@ -103,11 +104,23 @@ class LessonsOrchestrator
             $tsugiUser = $PDOX->rowDie($sql, [':email' => $facilitator['email']]);
             if ($tsugiUser) {
                 $facilitator['displayname'] = $tsugiUser['displayname'];
-                $facilitator['image_url'] = $tsugiUser['image'];
+                // Override our image link with LTI launch user image
+                if (isset($tsugiUser['image'])) {
+                    $facilitator['image_url'] = $tsugiUser['image'];
+                }
             }
             if (isset($facilitator['image_blob_id'])) {
-                $url = U::addSession(BlobUtil::getAccessUrlForBlob($facilitator['image_blob_id'], false, true), true);
-                $facilitator['image_url'] = $url;
+
+                $blob = BlobUtil::getBlobById($facilitator['image_blob_id']);
+                $blobString = implode('', $blob);
+
+                $finfo = new finfo(FILEINFO_MIME_TYPE);
+                $mimeType = $finfo->buffer($blobString);
+                
+                if ($blob) {
+                    $url = "data:" . $mimeType . ";base64," . base64_encode($blobString);
+                    $facilitator['image_url'] = $url;
+                }
             }
         }
         return $facilitator;
@@ -130,7 +143,7 @@ class LessonsOrchestrator
 
     public static function getFacilitatorByEmail($facilitatorEmail)
     {
-        global $CFG;
+        global $CFG, $USER;
 
         // Check our Learn record (for title, at least)
         $PDOX = LTIX::getConnection();
@@ -140,8 +153,13 @@ class LessonsOrchestrator
         $learnFacilitator = $PDOX->rowDie($sql, [':email' => $facilitatorEmail]);
 
         // Check against Tsugi record
-        $learnFacilitator = self::overrideFacilitatorData($learnFacilitator);
-        return $learnFacilitator;
+        if ($learnFacilitator) {
+            return self::overrideFacilitatorData($learnFacilitator);
+        } else {
+            $sql = "SELECT *
+            FROM {$p}lti_user WHERE email = :email";
+            return $PDOX->rowDie($sql, [':email' => $facilitatorEmail]);
+        }
     }
 
     public static function getFacilitatorWithModulesById($facilitatorId)
