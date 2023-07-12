@@ -274,8 +274,8 @@ class BlobUtil {
                     (context_id, link_id, file_sha256, file_name, contenttype, path, backref, blob_id, created_at)
                     VALUES (:CID, :LID, :SHA, :NAME, :TYPE, :PATH, :BACKREF, :BID, NOW())",
                 array(
-                    ":CID" => $CONTEXT->id,
-                    ":LID" => $LINK->id,
+                    ":CID" => is_int($CONTEXT->id) ? $CONTEXT->id : null,
+                    ":LID" => $LINK ? $LINK->id : null,
                     ":SHA" => $sha256,
                     ":NAME" => $filename,
                     ":TYPE" => $FILE_DESCRIPTOR['type'],
@@ -517,6 +517,18 @@ class BlobUtil {
         if ( $serv_file !== false ) return $serv_file . '?id='.$blob_id;
         $url = Output::getUtilUrl('/blob_serve.php?id='.$blob_id);
         return $url;
+    }
+
+    public static function getBlobById($blob_file_id)
+    {
+        global $CFG, $PDOX;
+        return $PDOX->rowDie(
+            "SELECT bb.content FROM {$CFG->dbprefix}blob_blob bb
+            JOIN {$CFG->dbprefix}blob_file bf
+            ON bb.blob_id = bf.blob_id
+            WHERE bf.file_id = :blob_file_id",
+            array(":blob_file_id" => $blob_file_id)
+        );
     }
 
     // Legacy maxUpload
