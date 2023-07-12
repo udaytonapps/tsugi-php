@@ -532,6 +532,8 @@ class LtiContent
     public $external;
     /** @var int */
     public $threshold;
+    /** @var boolean */
+    public $hidden;
     /** @var string */ // TODO: Remove
     public $type; // TODO: remove
 
@@ -546,6 +548,7 @@ class LtiContent
         $this->external = $lti->external ?? null;
         $this->resource_link_id = $lti->resource_link_id ?? null;
         $this->threshold = $lti->threshold ?? null;
+        $this->hidden = $lti->hidden ?? null;
         $this->type = $lti->type ?? null; // TODO: remove
     }
 }
