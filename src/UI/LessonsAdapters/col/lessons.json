@@ -3208,10 +3208,11 @@
       "icon": "fa-medal",
       "duration": "1hr",
       "calendar": "Oct.",
-      "description": "Come see the LTC's new video production lab and podcast studio and learn about the media innovation opportunities that await you.",
+      "description": "Come try out the LTC’s new video production lab and podcast studio and learn how you can take your teaching to the next level with media innovation.",
       "image": "/assets/media.jpeg",
       "facilitators": [
-        "pdagnall1@udayton.edu"
+        "pdagnall1@udayton.edu",
+        "acurran1@udayton.edu"
       ],
       "learningoutcomes": [
         "Be familiar with the video production lab and podcast studio",
@@ -3243,21 +3244,18 @@
       ]
     },
     {
-      "session": "ChatGPT 1",
-      "title": "Students are Cheating with ChatGPT. Now What?",
+      "session": "Students are Cheating with ChatGPT. Now What? (ChatGPT 1)",
+      "title": "How Do You Solve A Problem Like ChatGPT?",
       "anchor": "chat-gpt-1",
       "icon": "fa-robot",
       "duration": "1hr",
       "calendar": "Sep.",
-      "description": "It’s likely you’ve already encountered AI-generated writing in assignment submissions - or suspect they have. We’ll provide an overview of how these tools work and invite faculty to share your tales of woe and wisdom in dealing with ChatGPT over the past year.",
+      "description": "<p>It’s likely you’ve already encountered AI-generated writing in assignment submissions - or suspect they have. We’ll provide an overview of how these tools work and invite faculty to share your tales of woe and wisdom in dealing with ChatGPT over the past year.</p><p>AI writing tools are here for good (or ill). In this three-part series we’ll explore teaching in an AI world: How do natural language processing tools work? What do they mean for written assessment and academic honesty? How can we adapt our academic endeavors to capitalize on the benefits and minimize the risks?</p>",
       "image": "/assets/chat-gpt-1.png",
       "facilitators": [
-        "pdagnall1@udayton.edu"
-      ],
-      "learningoutcomes": [
-        "Example outcome 1",
-        "Example outcome 2",
-        "Example outcome 3"
+        "pdagnall1@udayton.edu",
+        "stangeman1@udayton.edu",
+        "dwright1@udayton.edu"
       ],
       "lti" : [
         {
@@ -3285,21 +3283,18 @@
       ]
     },
     {
-      "session": "ChatGPT 2",
-      "title": "Are Written Assignments Dead?",
+      "session": "Are Written Assignments Dead? (ChatGPT 2)",
+      "title": "How Do You Solve A Problem Like ChatGPT?",
       "anchor": "chat-gpt-2",
       "icon": "fa-robot",
       "duration": "1hr",
       "calendar": "Oct.",
-      "description": "Our instructional designers will share what the current research has to say about writing in an AI world. Together we’ll (re)think about how we create and grade written assessments and consider some alternatives.",
+      "description": "<p>Our instructional designers will share what the current research has to say about writing in an AI world. Together we’ll (re)think about creating and grading written assessments and consider some alternatives.</p><p>AI writing tools are here for good (or ill). In this three-part series we’ll explore teaching in an AI world: How do natural language processing tools work? What do they mean for written assessment and academic honesty? How can we adapt our academic endeavors to capitalize on the benefits and minimize the risks?</p>",
       "image": "/assets/chat-gpt-2.jpeg",
       "facilitators": [
-        "pdagnall1@udayton.edu"
-      ],
-      "learningoutcomes": [
-        "Example outcome 1",
-        "Example outcome 2",
-        "Example outcome 3"
+        "pdagnall1@udayton.edu",
+        "stangeman1@udayton.edu",
+        "dwright1@udayton.edu"
       ],
       "lti" : [
         {
@@ -3327,21 +3322,18 @@
       ]
     },
     {
-      "session": "ChatGPT 3",
-      "title": "Student Centered AI Learning",
+      "session": "Joining Forces with ChatGPT (ChatGPT 3)",
+      "title": "How Do You Solve A Problem Like ChatGPT?",
       "anchor": "chat-gpt-3",
       "icon": "fa-robot",
       "duration": "1hr",
       "calendar": "Nov.",
-      "description": "If AI isn’t going anywhere, how can we teach in harmony with this powerful new tool? We’ll consider the ethics of AI-informed teaching and learning, ways to prepare your course for AI and strategies for using AI tools in ways that will benefit your students.",
+      "description": "<p>If AI-generated writing isn’t going anywhere, how can we work in harmony with this powerful new tool? We’ll consider the ethics of AI-informed teaching, learning and scholarship; ways to prepare your course for AI; and strategies for using AI tools in ways that will benefit your students and research.</p><p>AI writing tools are here for good (or ill). In this three-part series we’ll explore teaching in an AI world: How do natural language processing tools work? What do they mean for written assessment and academic honesty? How can we adapt our academic endeavors to capitalize on the benefits and minimize the risks?</p>",
       "image": "/assets/chat-gpt-3.jpeg",
       "facilitators": [
-        "pdagnall1@udayton.edu"
-      ],
-      "learningoutcomes": [
-        "Example outcome 1",
-        "Example outcome 2",
-        "Example outcome 3"
+        "pdagnall1@udayton.edu",
+        "stangeman1@udayton.edu",
+        "dwright1@udayton.edu"
       ],
       "lti" : [
         {
@@ -3376,7 +3368,8 @@
       "description": "During these virtual drop-in hours, our support team will be on hand to answer any questions you have about Isidore as you prep your class for the upcoming semester.",
       "image": "/assets/isidore-help-lab.jpeg",
       "facilitators": [
-        "pdagnall1@udayton.edu"
+        "lbergman1@udayton.edu",
+        "wmcclure1@udayton.edu"
       ],
       "lti" : [
         {
@@ -3405,14 +3398,16 @@
     },
     {
       "session": "Isidore",
-      "title": "Tools for Teaching: What’s New?",
+      "title": "Tools for Teaching: Lightning Round",
       "anchor": "tools-for-teaching",
       "duration": "1hr",
       "calendar": "Aug. / Nov.",
-      "description": "As you prepare for your next batch of students, consider adding these snazzy Isidore tools to your pedagogical repertoire: tokens, gradescope, rubrics, video feedback tool, syllabus",
+      "featured": "true",
+      "description": "As you prepare your class for a new cohort of students, consider adding a tool or two to your pedagogical repertoire. In this fast-paced session, our instructional designers will cover 10 topics, each in 5 minutes. You’re sure to leave with something new to try!",
       "image": "/assets/tools-for-teaching.jpeg",
       "facilitators": [
-        "pdagnall1@udayton.edu"
+        "pdagnall1@udayton.edu",
+        "stangeman1@udayton.edu"
       ],
       "lti" : [
         {
@@ -3440,15 +3435,15 @@
       ]
     },
     {
-      "title": "Slide Best Practices Workshop",
+      "title": "Mastering Slide Design: Impactful Visuals",
       "anchor": "slide-workshop",
       "icon": "fa-robot",
       "duration": "1hr",
       "calendar": "Sep.",
-      "description": "If you’re a person, your slide design is probably awful. Let Sarah show you how to make your slides less awful. We’ll cover slide layout, font and color selection, content tips and more.",
+      "description": "Truth? Most people are bad at slide design. But we don’t have to be. In this session we’ll look at statistically-backed best practices in slide design, including layout, font / color selection, and custom backgrounds. We’ll even look at some AI design options. Bring your laptop and a slide presentation you’d like to improve and practice as we go.",
       "image": "/assets/slide-workshop.png",
       "facilitators": [
-        "pdagnall1@udayton.edu"
+        "stangeman1@udayton.edu"
       ],
       "lti" : [
         {
