@@ -156,7 +156,7 @@ class LessonsOrchestrator
         if ($learnFacilitator) {
             return self::overrideFacilitatorData($learnFacilitator);
         } else {
-            $sql = "SELECT *
+            $sql = "SELECT displayname, `image` AS image_url
             FROM {$p}lti_user WHERE email = :email";
             return $PDOX->rowDie($sql, [':email' => $facilitatorEmail]);
         }
