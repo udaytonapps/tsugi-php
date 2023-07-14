@@ -142,6 +142,213 @@ abstract class CourseBase
             'title' => $adapter->course->title
         ];
     }
+
+    public function renderLilBadge($badge)
+    {
+        global $CFG;
+        $img = $CFG->badge_url . '/' . $badge->image;
+    ?>
+        <div class="m-1" data-mdb-toggle="tooltip" title="<?= $badge->title ?>">
+            <div class="bg-image">
+                <img src="<?= $img ?>" style="width:40px;" />
+            </div>
+        </div>
+    <?php
+
+    }
+
+    public function renderBadgeAdmin($gradeMap, $adapter, $buffer = false)
+    {
+        ob_start();
+        global $CFG, $PDOX;
+        echo ('<style type="text/css">
+                div.the-badge {
+                    padding-top: 1rem;
+                }
+                div.the-badge:hover {
+                    cursor: pointer;
+                    opacity: 0.7;
+                }
+              </style>');
+    ?>
+        <div class="container pb-4">
+            <h1><?= $adapter->course->title ?></h1>
+            <ul class="nav nav-tabs mb-3" id="badgeadmin" role="tablist">
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="#badgeadmin-by-badge" data-mdb-toggle="tab" aria-controls="badgeadmin-by-badge" aria-selected="true">By Badge</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#badgeadmin-by-user" data-mdb-toggle="tab" aria-controls="badgeadmin-by-user" aria-selected="false">By User</a></li>
+            </ul>
+            <div id="badgeadmin-content" class="tab-content">
+                <div class="tab-pane fade show active" id="badgeadmin-by-badge" role="tabpanel" aria-labelledby="badgeadmin-by-badge">
+                    <?php
+                    echo ('<div class="row d-flex flex-wrap justify-content-center">' . "\n");
+                    foreach ($adapter->course->badges as $badge) {
+                        $threshold = $badge->threshold;
+                        $awardedUsers = array();
+                        foreach ($gradeMap as $user => $userGrades) {
+                            $count = 0;
+                            $total = 0;
+                            $scores = array();
+                            foreach ($badge->assignments as $resource_link_id) {
+                                $score = 0;
+                                if (isset($userGrades[$resource_link_id])) $score = 100 * $userGrades[$resource_link_id];
+                                $scores[$resource_link_id] = $score;
+                                $total = $total + $score;
+                                $count = $count + 1;
+                            }
+                            $max = $count * 100;
+                            $progress = $max <= 0 ? 100 : ($total / $max) * 100;
+                            if ($progress >= $threshold * 100) {
+                                $awardedUsers[] = $user;
+                            }
+                        }
+
+                        echo ('<div class="col-sm-3 m-3"><div class="text-center the-badge" data-mdb-toggle="modal" data-mdb-target="#' . $badge->anchor . '">');
+                        if (!isset($CFG->badge_url)) {
+                            echo ('<img src="' . $CFG->badge_url . '/NA-new.png" style="width:100%;max-width:120px;"/> ');
+                        } else {
+                            /** TODO: Update badge image URLs to work */
+                            $image = $CFG->badge_url . '/' . $badge->image;
+                            echo ('<img src="' . $image . '" style="width:100%;max-width:120px;"/> <span style="position: absolute;background-color: var(--primary)" class="badge">' . count($awardedUsers) . '</span>');
+                        }
+                        echo ('<h5 class="pt-2 pb-2">' . $badge->title . '</h5>');
+                        echo ('</div>');
+                    ?>
+                        <div id="<?= $badge->anchor ?>" class="modal fade" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="flx-cntnr flx-row flx-nowrap">
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <div class="d-flex justify-content-end">
+                                                            <button type="button" class="btn-close" data-mdb-dismiss="modal"></button>
+                                                        </div>
+                                                        <div class="d-flex flex-column align-items-center">
+                                                            <?php
+                                                            if (!isset($CFG->badge_url)) {
+                                                                echo ('<img src="' . $CFG->badge_url . '/NA-new.png" style="width:100%;max-width:120px;"/> ');
+                                                            } else {
+                                                                $image = $CFG->badge_url . '/' . $badge->image;
+                                                                echo ('<img src="' . $image . '" style="width:100%;max-width:120px;"/> ');
+                                                            }
+                                                            ?>
+                                                            <div style="flex-grow:2; margin: 25px">
+                                                                <h3><?= $badge->title ?></h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <h4 class="inline text-muted">Awarded To</h4>
+                                                <div class="table-resposive">
+                                                    <table class="table table-condensed table-striped">
+                                                        <thead>
+                                                            <th>Name</th>
+                                                            <th>Email</th>
+                                                        </thead>
+                                                        <tbody>
+                                                            <?php
+                                                            foreach ($awardedUsers as $award) {
+                                                                $namequery = "SELECT displayname, email FROM {$CFG->dbprefix}lti_user WHERE user_id = :user_id;";
+                                                                $namearr = array(':user_id' => $award);
+                                                                $userInfo = $PDOX->rowDie($namequery, $namearr);
+                                                                echo ('<tr>');
+                                                                echo ('<td>' . $userInfo["displayname"] . '</td>');
+                                                                echo ('<td>' . $userInfo["email"] . '</td>');
+                                                                echo ('</tr>');
+                                                            }
+                                                            ?>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div> <!-- End awarded column -->
+                                        </div> <!-- End row -->
+                                    </div> <!-- End modal body -->
+                                </div> <!-- End modal content -->
+                            </div> <!-- End modal dialog -->
+                        </div> <!-- End modal -->
+                    <?php
+                        echo ('</div>'); // end column
+                    }
+                    echo ('</div>' . "\n");
+                    ?>
+                </div>
+                <div class="tab-pane fade" id="badgeadmin-by-user" role="tabpanel" aria-labelledby="badgeadmin-by-user">
+                    <h3>By User Page</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Badges</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            // Loop over user grades (and keep track of userId)
+                            foreach ($gradeMap as $user => $userGrades) {
+                                $awardedBadges = array();
+                                // Loop over all lesson badges to check what was earned
+                                foreach ($adapter->course->badges as $badge) {
+                                    $threshold = $badge->threshold;
+                                    $count = 0;
+                                    $total = 0;
+                                    $scores = array();
+                                    foreach ($badge->assignments as $resource_link_id) {
+                                        $score = 0;
+                                        if (isset($userGrades[$resource_link_id])) $score = 100 * $userGrades[$resource_link_id];
+                                        $scores[$resource_link_id] = $score;
+                                        $total = $total + $score;
+                                        $count = $count + 1;
+                                    }
+                                    $max = $count * 100;
+                                    $progress = $max <= 0 ? 100 : ($total / $max) * 100;
+                                    if ($progress >= $threshold * 100) {
+
+                                        $awardedBadges[] = $badge;
+                                    }
+                                }
+                                $namequery = "SELECT displayname, email FROM {$CFG->dbprefix}lti_user WHERE user_id = :user_id;";
+                                $namearr = array(':user_id' => $user);
+                                $userData = $PDOX->rowDie($namequery, $namearr);
+                                if (count($awardedBadges) > 0) {
+                            ?>
+                                    <tr>
+                                        <th scope="row" style="vertical-align: middle;">
+                                            <?= $userData["displayname"] ?>
+                                        </th>
+                                        <td style="vertical-align: middle;">
+                                            <?= $userData["email"] ?>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex flex-wrap">
+                                                <?php
+                                                foreach ($awardedBadges as $badge) {
+                                                    self::renderLilBadge($badge);
+                                                }
+                                                ?>
+                                            </div>
+                                        </td>
+                                    </tr>
+                            <?php
+                                }
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+<?php
+        $ob_output = ob_get_contents();
+        ob_end_clean();
+        if ($buffer) {
+            return $ob_output;
+        }
+        echo ($ob_output);
+    }
 }
 
 class Course
