@@ -189,7 +189,7 @@
                     "external": false,
                     "icon": "fa-list-ol",
                     "title": "Quiz: What is Isidore?",
-                    "launch": "/mod/learn-quiz/index.php?quiz=bn_whatisisidore",
+                    "launch": "/mod/learnquiz/index.php?quiz=bn_whatisisidore",
                     "resource_link_id": "bn_whatisisidore"
                   }
                 }
@@ -261,7 +261,7 @@
                     "threshold": 1,
                     "icon": "fa-list-ol",
                     "title": "Quiz: Getting Started with Isidore",
-                    "launch": "/mod/learn-quiz/index.php?quiz=bn_gettingstarted",
+                    "launch": "/mod/learnquiz/index.php?quiz=bn_gettingstarted",
                     "resource_link_id": "bn_gettingstarted"
                   }
                 }
@@ -395,7 +395,7 @@
                     "threshold": 1,
                     "icon": "fa-list-ol",
                     "title": "Course Site Creation Quiz",
-                    "launch": "/mod/learn-quiz/index.php?quiz=bn_sitecreation",
+                    "launch": "/mod/learnquiz/index.php?quiz=bn_sitecreation",
                     "resource_link_id": "bn_sitecreation"
                   }
                 }
@@ -450,7 +450,7 @@
                     "threshold": 1,
                     "icon": "fa-list-ol",
                     "title": "Overview Quiz",
-                    "launch": "/mod/learn-quiz/index.php?quiz=101_overview",
+                    "launch": "/mod/learnquiz/index.php?quiz=101_overview",
                     "resource_link_id": "101_overview"
                   }
                 }
@@ -655,7 +655,7 @@
                     "threshold": 1,
                     "icon": "fa-list-ol",
                     "title": "Quiz: Text Editor",
-                    "launch": "/mod/learn-quiz/index.php?quiz=101_ckeditor",
+                    "launch": "/mod/learnquiz/index.php?quiz=101_ckeditor",
                     "resource_link_id": "101_ckeditor"
                   }
                 }
@@ -755,7 +755,7 @@
                       "threshold": 1,
                       "icon": "fa-list-ol",
                       "title": "Quiz: Announcements",
-                      "launch": "/mod/learn-quiz/index.php?quiz=101_announcements",
+                      "launch": "/mod/learnquiz/index.php?quiz=101_announcements",
                       "resource_link_id": "101_announcements"
                   }
                 }
@@ -843,7 +843,7 @@
                     "threshold": 1,
                     "icon": "fa-list-ol",
                     "title": "Quiz: Resources",
-                    "launch": "/mod/learn-quiz/index.php?quiz=101_resources",
+                    "launch": "/mod/learnquiz/index.php?quiz=101_resources",
                     "resource_link_id": "101_resources"
                   }
                 }
@@ -929,7 +929,7 @@
                     "threshold": 1,
                     "icon": "fa-list-ol",
                     "title": "Quiz: Roster",
-                    "launch": "/mod/learn-quiz/index.php?quiz=101_roster",
+                    "launch": "/mod/learnquiz/index.php?quiz=101_roster",
                     "resource_link_id": "101_roster"
                   }
                 }
@@ -1060,7 +1060,7 @@
                     "threshold": 1,
                     "icon": "fa-list-ol",
                     "title": "Quiz: Attendance",
-                    "launch": "/mod/learn-quiz/index.php?quiz=101_attendance",
+                    "launch": "/mod/learnquiz/index.php?quiz=101_attendance",
                     "resource_link_id": "101_attendance"
                   }
                 }
@@ -1142,7 +1142,7 @@
                     "threshold": 1,
                     "icon": "fa-list-ol",
                     "title": "Quiz: Calendar",
-                    "launch": "/mod/learn-quiz/index.php?quiz=101_calendar",
+                    "launch": "/mod/learnquiz/index.php?quiz=101_calendar",
                     "resource_link_id": "101_calendar"
                   }
                 }
@@ -1572,7 +1572,7 @@
                     "description": "The following quiz will measure your understanding of the essential elements described in the video.",
                     "icon": "fa-list-ol",
                     "title": "Visual Disabilities Quiz",
-                    "launch": "/mod/learn-quiz/index.php?quiz=acc_visual",
+                    "launch": "/mod/learnquiz/index.php?quiz=acc_visual",
                     "resource_link_id": "acc_visual"
                   }
                 },
@@ -1732,7 +1732,7 @@
                     "description": "The following quiz will measure your understanding of the essential elements described in the video.",
                     "icon": "fa-list-ol",
                     "title": "Auditory Disabilities Quiz",
-                    "launch": "/mod/learn-quiz/index.php?quiz=acc_auditory",
+                    "launch": "/mod/learnquiz/index.php?quiz=acc_auditory",
                     "resource_link_id": "acc_auditory"
                   }
                 },
@@ -1880,7 +1880,7 @@
                     "description": "The following quiz will measure your understanding of the essential elements described in the video.",
                     "icon": "fa-list-ol",
                     "title": "Other Disabilities Quiz",
-                    "launch": "/mod/learn-quiz/index.php?quiz=acc_cog",
+                    "launch": "/mod/learnquiz/index.php?quiz=acc_cog",
                     "resource_link_id": "acc_cog"
                   }
                 },
@@ -2040,7 +2040,7 @@
                     "description": "The following quiz will measure your understanding of the essential elements described in the video.",
                     "icon": "fa-list-ol",
                     "title": "Accessible Documents Quiz",
-                    "launch": "/mod/learn-quiz/index.php?quiz=acc_files",
+                    "launch": "/mod/learnquiz/index.php?quiz=acc_files",
                     "resource_link_id": "acc_files"
                   }
                 },
@@ -2194,7 +2194,7 @@
                     "description": "The following quiz will measure your understanding of the essential elements described in the video.",
                     "icon": "fa-list-ol",
                     "title": "Outside Materials Quiz",
-                    "launch": "/mod/learn-quiz/index.php?quiz=acc_materials",
+                    "launch": "/mod/learnquiz/index.php?quiz=acc_materials",
                     "resource_link_id": "acc_materials"
                   }
                 },
@@ -2619,7 +2619,7 @@
                     "description": "Take the two question survey below to tell us about your experience.",
                     "icon": "fa-list-ol",
                     "title": "Organizing Your Warpwire Videos Survey",
-                    "launch": "/mod/learn-quiz/index.php?quiz=ww_organize",
+                    "launch": "/mod/learnquiz/index.php?quiz=ww_organize",
                     "resource_link_id": "ww_organize"
                   }
                 }
