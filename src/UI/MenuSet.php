@@ -134,15 +134,19 @@ class MenuSet {
     private static function importRecurse($entry, $depth) {
         if ( isset($entry->menu) ) $entry = $entry->menu; // Skip right past these
         if ( ! is_array($entry) ) {
-            $link = $entry->link;
-            $href = $entry->href;
-            $attr = $entry->attr;
-            $disabled = $entry->disabled;
-            if ( is_string($href) ) {
-                return new \Tsugi\UI\MenuEntry($link, $href, $attr, $disabled);
+            if ( $entry->link == MenuEntry::$SEPARATOR ) {
+                return new \Tsugi\UI\MenuEntry(MenuEntry::$SEPARATOR);
+            } else {
+                $link = $entry->link;
+                $href = $entry->href;
+                $attr = $entry->attr;
+                $disabled = $entry->disabled;
+                if ( is_string($href) ) {
+                    return new \Tsugi\UI\MenuEntry($link, $href, $attr, $disabled);
+                }
+                $submenu = self::importRecurse($href, $depth+1);
+                return new \Tsugi\UI\MenuEntry($link, $submenu);
             }
-            $submenu = self::importRecurse($href, $depth+1);
-            return new \Tsugi\UI\MenuEntry($link, $submenu);
         }
 
         $submenu = new \Tsugi\UI\Menu();

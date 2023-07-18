@@ -943,32 +943,36 @@ $('a').each(function (x) {
         $pad = str_repeat('    ',$depth);
         if ( $depth > 10 ) return $retval;
         if ( !is_array($entry->href) ) {
-            $target = '';
-            $url = $entry->href;
-            $attr = $entry->attr;
-            $disabled = $entry->disabled;
-            if ( $url === false ) {
-                $retval .= $pad.'<span class="navbar-text">'.$entry->link.'</span>'."\n";
-                return $retval;
+            if ($entry->link == MenuEntry::$SEPARATOR) {
+                $retval .= $pad.'<li><hr class="dropdown-divider" /></li>'."\n";
+            } else {
+                $target = '';
+                $url = $entry->href;
+                $attr = $entry->attr;
+                $disabled = $entry->disabled;
+                if ( $url === false ) {
+                    $retval .= $pad.'<span class="navbar-text">'.$entry->link.'</span>'."\n";
+                    return $retval;
+                }
+                if ( (strpos($url,'http:') === 0 || strpos($url,'https:') === 0 ) &&
+                    ( ! is_string($CFG->apphome) || strpos($url, $CFG->apphome) === false ) &&
+                    ( ! is_string($CFG->wwwroot) || strpos($url, $CFG->wwwroot) === false ) ) {
+                    $target = ' target="_blank"';
+                }
+                $active = '';
+                if ( $current_url == substr($url, strpos($url, "//") + 2) ) {
+                    $active = ' active';
+                }
+                if ($disabled) {
+                    $disabled = ' disabled';
+                    // Set attributes for list element
+                    $disabled_class = $attr;
+                }
+                $list_class = $depth > 2 ? ' class="nav-item"' : '';
+                $list_class = $disabled ? $list_class.' '.$disabled_class : $list_class;
+                $link_class = $depth > 2 ? 'dropdown-item' : 'nav-link';
+                $retval .= $pad.'<li'.$list_class.'><a data-current-url="'.$current_url.'" class="'.$link_class.$active.$disabled.'" href="'.$url.'"'.$target.' '.$attr.'>'.$entry->link.'</a></li>'."\n";
             }
-            if ( (strpos($url,'http:') === 0 || strpos($url,'https:') === 0 ) &&
-                ( ! is_string($CFG->apphome) || strpos($url, $CFG->apphome) === false ) &&
-                ( ! is_string($CFG->wwwroot) || strpos($url, $CFG->wwwroot) === false ) ) {
-                $target = ' target="_blank"';
-            }
-            $active = '';
-            if ( $current_url == substr($url, strpos($url, "//") + 2) ) {
-                $active = ' active';
-            }
-            if ($disabled) {
-                $disabled = ' disabled';
-                // Set attributes for list element
-                $disabled_class = $attr;
-            }
-            $list_class = $depth > 2 ? ' class="nav-item"' : '';
-            $list_class = $disabled ? $list_class.' '.$disabled_class : $list_class;
-            $link_class = $depth > 2 ? 'dropdown-item' : 'nav-link';
-            $retval .= $pad.'<li'.$list_class.'><a data-current-url="'.$current_url.'" class="'.$link_class.$active.$disabled.'" href="'.$url.'"'.$target.' '.$attr.'>'.$entry->link.'</a></li>'."\n";
             return $retval;
         }
         $retval .= $pad.'<li class="nav-item dropdown">'."\n";
