@@ -39,9 +39,11 @@
 {% endapply %}
 
 {% macro showClass(collapsed, activePage, lesson) %}
+	{% set break = false %}
 	{% for lessonPage in lesson.pages %}
-		{% if collapsed == false or (lessonPage.anchor == activePage.anchor) %}
+		{% if not break and (collapsed == false or (lessonPage.anchor == activePage.anchor)) %}
 			show
+			{% set break = true %}
 		{% endif %}
 	{% endfor %}
 {% endmacro %}
@@ -54,7 +56,7 @@
 
 <div class="async-module-lessons-list">
 	{% for idx, lesson in module.lessons %}
-		<h6 class="p-2 border expand-button" href="#!" role="button" data-mdb-toggle="collapse" data-mdb-target="#collapse-{{idx}}" aria-expanded="{{'show' in _self.showClass(collapsed, page, lesson) ? 'true' : 'false'}}" aria-controls="collapse-{{idx}}">
+		<h6 class="p-2 border expand-button" href="#!" role="button" data-mdb-toggle="collapse" data-mdb-target="#collapse-{{idx}}" aria-expanded="{{'show' in _self.showClass('false', page, lesson) ? 'true' : 'false'}}" aria-controls="collapse-{{idx}}">
 			<span class="expand-icon-wrapper">
 				<i class="fas fa-chevron-right"></i>
 				<i class="fas fa-chevron-down"></i>
@@ -88,7 +90,7 @@
 			{% endif %}
 			{{lesson.title}}
 		</h6>
-		<ul class="list-group list-group-light mb-4 collapse {{_self.showClass(collapsed, page, lesson)}} mt-3" id="collapse-{{idx}}">
+		<ul class="list-group list-group-light mb-4 collapse {{_self.showClass('false', page, lesson)}} mt-3" id="collapse-{{idx}}">
 			<li class="teaser-li list-group-item d-flex justify-content-between align-items-center">{{lesson.teaser}}</li>
 			{% for lessonPage in lesson.pages %}
 				<a href="{{linkRoot}}{{lessonPage.anchor}}" class="list-link {{page.anchor == lessonPage.anchor ? 'active' : ''}} {{lessonPage.subpage}} page-li list-group-item d-flex justify-content-between align-items-center">

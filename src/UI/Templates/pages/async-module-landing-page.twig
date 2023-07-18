@@ -3,7 +3,7 @@
 	.async-module {}
 	.async-module .landing-video {
 		min-width: 45%;
-		padding: 20px 15px;
+		padding: 0 15px 20px;
 	}
 	.async-module .videoWrapper {
 		position: relative;
@@ -27,22 +27,29 @@
 </div>
 <div class="container async-module mt-4 mb-4">
 	<div>
-		{# PAGE TITLE #}
-		{% if module.title %}
-			<h1>{{module.title}}</h1>
-		{% endif %}
 		{# LANDING CONTENT #}
 		<div class="d-flex landing-content flex-wrap flex-md-nowrap">
 			{% for content in module.landingContents %}
 				{% if content.type == "TEXT" %}
-					<div class="d-flex flex-column justify-content-center">
+					<div class="d-flex flex-column">
+						{# PAGE TITLE #}
+						{% if module.title %}
+							<h1>{{module.title}}</h1>
+						{% endif %}
 						{% for paragraph in content.paragraphs %}
 							<p>{{paragraph | raw}}</p>
 						{% endfor %}
+						<p>
+							{% set lesson = module.lessons|first %}
+							{% set lessonPage = lesson.pages|first %}
+							<a href="{{linkRoot}}{{module.anchor}}/{{lessonPage.anchor}}" class="btn btn-primary">
+								Get Started <span class="fa fa-arrow-right" aria-hidden="true"></span>
+							</a>
+						</p>
 					</div>
 				{% endif %}
 				{% if content.type == "VIDEO" %}
-					<div class="d-flex flex-column landing-video flex-grow-1 justify-content-center">
+					<div class="d-flex flex-column landing-video flex-grow-1">
 						{% if content.video.warpwire %}
 							<div class="videoWrapper">
 								<iframe class="d-flex" src="{{base_url_warpwire}}/w/{{content.video.warpwire}}/?share=0&title=0" frameborder="0" scrolling="0" allow="autoplay; encrypted-media; fullscreen;  picture-in-picture;" allowfullscreen></iframe>
@@ -52,6 +59,7 @@
 				{% endif %}
 			{% endfor %}
 		</div>
+		<h4>Lessons in this Module</h4>
 	</div>
 	{% set linkRoot = module.anchor ~ '/' %}
 	{% include 'async-module-lessons-list.twig' %}
