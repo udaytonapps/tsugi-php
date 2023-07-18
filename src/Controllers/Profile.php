@@ -189,7 +189,7 @@ google.maps.event.addListener(marker, 'dragend', function (event) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Cancel</button>
-                        <button id="profile-modal-save" type="button" class="btn btn-primary">Save</button>
+                        <button id="profile-modal-save" onclick="saveProfileInformation()" type="button" class="btn btn-primary">Save</button>
                     </div>
                     </div>
                 </div>
@@ -312,39 +312,42 @@ google.maps.event.addListener(marker, 'dragend', function (event) {
                 reader.readAsDataURL(file);
             });
 
-            // Save button click event
-            $('#profile-modal-save').on('click', function() {
-                var profileImage = $('#profile-image-file').val();
-                // var name = $('#profile-name').val();
-                var title = $('#profile-title').val();
-                var department = $('#profile-department').val();
-
-                var fileInput = $('#profile-image-file')[0];
-                var file = fileInput.files[0];
-                var formData = new FormData();
-
-                formData.append('profileImage', file);
-                // formData.append('name', name);
-                formData.append('title', title);
-                formData.append('department', department);
-
-                // Perform AJAX request to send the form data to the server
-                $.ajax({
-                    url: '<?= U::addSession($CFG->apphome."/profile") ?>',
-                    type: 'POST',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        location.reload();
-                    },
-                    error: function(xhr, status, error) {
-                        // Handle the error
-                        console.error(error);
-                    }
-                });
-            });
         });
+
+        // Save button click event
+        function saveProfileInformation() {
+            console.log("reached Profile Save");
+            var profileImage = $('#profile-image-file').val();
+            // var name = $('#profile-name').val();
+            var title = $('#profile-title').val();
+            var department = $('#profile-department').val();
+
+            var fileInput = $('#profile-image-file')[0];
+            var file = fileInput.files[0];
+            var formData = new FormData();
+
+            formData.append('profileImage', file);
+            // formData.append('name', name);
+            formData.append('title', title);
+            formData.append('department', department);
+
+            // Perform AJAX request to send the form data to the server
+            $.ajax({
+                url: '<?= U::addSession($CFG->apphome."/profile") ?>',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    location.reload();
+                },
+                error: function(xhr, status, error) {
+                    // Handle the error
+                    console.error(error);
+                }
+            });
+        };
+
         </script>
         <?php
         $OUTPUT->footerEnd();
