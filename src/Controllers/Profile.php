@@ -166,6 +166,9 @@ google.maps.event.addListener(marker, 'dragend', function (event) {
                         <h5 class="modal-title" id="profile-modal">Edit Profile</h5>
                         <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <div id="profile-image-error-banner" class="alert alert-danger alert-banner" style="display:none;">
+                        File is too large. Please try again with a smaller file.
+                    </div>
                     <div class="modal-body d-flex flex-column gap-4 p-5">
                         <div>
                             <div class="d-flex justify-content-center pb-3">
@@ -323,6 +326,10 @@ google.maps.event.addListener(marker, 'dragend', function (event) {
 
             var fileInput = $('#profile-image-file')[0];
             var file = fileInput.files[0];
+            if(file.size > <?= \intval(ltrim(strtolower(ini_get('upload_max_filesize'))),32) * 1024 ?>){    //calculate image upload limit
+                $('#profile-image-error-banner').show();
+                return;
+            }
             var formData = new FormData();
 
             formData.append('profileImage', file);
