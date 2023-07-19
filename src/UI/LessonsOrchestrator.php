@@ -184,9 +184,41 @@ class LessonsOrchestrator
                 $learnFacilitator['displayname'] = $tsugiUser['displayname'];
                 $learnFacilitator['image_url'] = $tsugiUser['image'];
             }
+            if (isset($learnFacilitator['image_blob_id'])) {    //use custom profile image if set by user
+                $blob = BlobUtil::getBlobById($learnFacilitator['image_blob_id']);
+                $blobString = implode('', $blob);
+                $finfo = new finfo(FILEINFO_MIME_TYPE);
+                $mimeType = $finfo->buffer($blobString);
+                if ($blob) {
+                    $url = "data:" . $mimeType . ";base64," . base64_encode($blobString);
+                    $learnFacilitator['image_url'] = $url;
+                }
+            }
         }
         $learnFacilitator = self::setFacilitatorModules($learnFacilitator);
         return $learnFacilitator;
+    }
+
+    public static function getFacilitatorProfileImageUrlByEmail($emailAddress){
+        $PDOX = LTIX::getConnection();
+        global $CFG;
+        $p = $CFG->dbprefix;
+        $sql = "SELECT * FROM {$p}learn_facilitator WHERE email = :email";
+        $learnFacilitator = $PDOX->rowDie($sql, [':email' => $emailAddress]);
+        if ($learnFacilitator) {
+            if(isset($learnFacilitator['image_blob_id'])){
+                $blob = BlobUtil::getBlobById($learnFacilitator['image_blob_id']);
+                $blobString = implode('', $blob);
+                $finfo = new finfo(FILEINFO_MIME_TYPE);
+                $mimeType = $finfo->buffer($blobString);
+                if ($blob) {
+                    $url = "data:" . $mimeType . ";base64," . base64_encode($blobString);
+                    return $url;
+                }
+            }
+            return $learnFacilitator['image_url'];
+        }
+        return "";
     }
 
     public static function getAllFacilitatorsAndTheirModules()

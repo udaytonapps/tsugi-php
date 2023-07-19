@@ -316,7 +316,6 @@ google.maps.event.addListener(marker, 'dragend', function (event) {
 
         // Save button click event
         function saveProfileInformation() {
-            console.log("reached Profile Save");
             var profileImage = $('#profile-image-file').val();
             // var name = $('#profile-name').val();
             var title = $('#profile-title').val();
