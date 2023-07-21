@@ -463,7 +463,7 @@ google.maps.event.addListener(marker, 'dragend', function (event) {
                 $arr = array(':blob_id' => $blob_id, ':email' => $_SESSION['email']);
                 $PDOX->queryDie($query, $arr);
 
-                $_SESSION['avatar'] = LessonsOrchestrator::getFacilitatorProfileImageUrlByBlobId($blob_id);    //reset session avatar for user.
+                $_SESSION['profilePicture'] = LessonsOrchestrator::getFacilitatorProfileImageUrlByBlobId($blob_id);    //reset session avatar for user.
             }
 
             $query = "UPDATE {$p}learn_facilitator
