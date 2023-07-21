@@ -185,18 +185,23 @@ class LessonsOrchestrator
                 $learnFacilitator['image_url'] = $tsugiUser['image'];
             }
             if (isset($learnFacilitator['image_blob_id'])) {    //use custom profile image if set by user
-                $blob = BlobUtil::getBlobById($learnFacilitator['image_blob_id']);
-                $blobString = implode('', $blob);
-                $finfo = new finfo(FILEINFO_MIME_TYPE);
-                $mimeType = $finfo->buffer($blobString);
-                if ($blob) {
-                    $url = "data:" . $mimeType . ";base64," . base64_encode($blobString);
-                    $learnFacilitator['image_url'] = $url;
-                }
+                $learnFacilitator['image_url'] = self::getFacilitatorProfileImageUrlByBlobId($learnFacilitator['image_blob_id']);
             }
         }
         $learnFacilitator = self::setFacilitatorModules($learnFacilitator);
         return $learnFacilitator;
+    }
+
+    public static function getFacilitatorProfileImageUrlByBlobId($blobId){
+        $blob = BlobUtil::getBlobById($blobId);
+        $blobString = implode('', $blob);
+        $finfo = new finfo(FILEINFO_MIME_TYPE);
+        $mimeType = $finfo->buffer($blobString);
+        if ($blob) {
+            $url = "data:" . $mimeType . ";base64," . base64_encode($blobString);
+            return $url;
+        }
+        return "";
     }
 
     public static function getFacilitatorProfileImageUrlByEmail($emailAddress){
@@ -207,18 +212,13 @@ class LessonsOrchestrator
         $learnFacilitator = $PDOX->rowDie($sql, [':email' => $emailAddress]);
         if ($learnFacilitator) {
             if(isset($learnFacilitator['image_blob_id'])){
-                $blob = BlobUtil::getBlobById($learnFacilitator['image_blob_id']);
-                $blobString = implode('', $blob);
-                $finfo = new finfo(FILEINFO_MIME_TYPE);
-                $mimeType = $finfo->buffer($blobString);
-                if ($blob) {
-                    $url = "data:" . $mimeType . ";base64," . base64_encode($blobString);
-                    return $url;
-                }
+                return self::getFacilitatorProfileImageUrlByBlobId($learnFacilitator['image_blob_id']);
             }
-            return $learnFacilitator['image_url'];
+            if(!empty($learnFacilitator['image_url'])){
+                return $learnFacilitator['image_url'];
+            }            
         }
-        return "";
+        return null;
     }
 
     public static function getAllFacilitatorsAndTheirModules()

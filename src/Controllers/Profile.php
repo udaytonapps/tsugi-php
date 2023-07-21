@@ -167,7 +167,7 @@ google.maps.event.addListener(marker, 'dragend', function (event) {
                         <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div id="profile-image-error-banner" class="alert alert-danger alert-banner" style="display:none;">
-                        File is too large. Please try again with a smaller file.
+                        File is too large. Please try again with a file smaller than <?= ini_get('upload_max_filesize') ?>B.
                     </div>
                     <div class="modal-body d-flex flex-column gap-4 p-5">
                         <div>
@@ -326,7 +326,7 @@ google.maps.event.addListener(marker, 'dragend', function (event) {
 
             var fileInput = $('#profile-image-file')[0];
             var file = fileInput.files[0];
-            if(file.size > <?= \intval(ltrim(strtolower(ini_get('upload_max_filesize'))),32) * 1024 ?>){    //calculate image upload limit
+            if(file.size > <?= \intval(ltrim(strtolower(ini_get('upload_max_filesize'))),32) * 1024 ?>){    //calculate image upload limit. Relies on current limit being in MB.
                 $('#profile-image-error-banner').show();
                 return;
             }
@@ -462,6 +462,8 @@ google.maps.event.addListener(marker, 'dragend', function (event) {
                 WHERE email = :email";
                 $arr = array(':blob_id' => $blob_id, ':email' => $_SESSION['email']);
                 $PDOX->queryDie($query, $arr);
+
+                $_SESSION['avatar'] = LessonsOrchestrator::getFacilitatorProfileImageUrlByBlobId($blob_id);    //reset session avatar for user.
             }
 
             $query = "UPDATE {$p}learn_facilitator
