@@ -1,14 +1,22 @@
 {% if registrations | length == 0 %}
 	<h6 style="text-align: center;" class="p-5 w-100">No registrations found.</h6>
 {% else %}
-	<table class="table">
+	<table class="table" aria-label="{{whichKind}} registrations">
 		<tbody>
+			<tr class="align-items-center">
+				<th></th>
+				<th>
+					{% if registration.duration %}
+						Duration
+					{% endif %}
+				</th>
+				<th class="registrationTableHeader" scope="col">Date & Time</th>
+				<th class="registrationTableHeader" scope="col">Location</th>
+				<th class="registrationTableHeader" scope="col">Registration Status</th>
+			</tr>
 			{% for registration in registrations %}
 				<tr>
-					<th scope="row">
-						<h5 class="card-title d-block">
-							<a class="modulePageLink" href="{{registration.moduleUrl}}">{{registration.title}}</a>
-						</h5>
+					<th class="registrationModuleTitle" scope="row">
 						{% if registration.session %}
 							<div>
 								{% if registration.icon %}
@@ -17,8 +25,11 @@
 								{{registration.session}}
 							</div>
 						{% endif %}
+						<h5 class="card-title d-block">
+							<a class="modulePageLink" href="{{registration.moduleUrl}}">{{registration.title}}</a>
+						</h5>
 						<h6>
-							<a href="{{registration.programUrl}}">{{registration.program}}</a>
+							<a class="programPageLink" href="{{registration.programUrl}}">{{registration.program}}</a>
 						</h6>
 					</th>
 					<td>
@@ -36,7 +47,7 @@
 						</div>
 					</td>
 					<td>
-						<div class="d-flex align-items-center">
+						<div class="d-flex justify-content-center">
 							{{registration.session_location}}
 						</div>
 					</td>

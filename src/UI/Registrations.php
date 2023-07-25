@@ -24,7 +24,10 @@ class Registrations
     public function header($buffer = false)
     {
         global $CFG;
-        ob_start();
+        ob_start(); ?>
+        <style>
+            <?php include 'tsugi/vendor/tsugi/lib/src/UI/Lessons.css'; ?>
+        </style><?php
         if (isset($this->lessons->headers) && is_array($this->lessons->headers)) {
             foreach ($this->lessons->headers as $header) {
                 $header = self::expandLink($header);
@@ -99,7 +102,7 @@ class Registrations
                                 $registration['moduletype'] = isset($module->async) && $module->async ? 'async' : 'sync';
                                 $registration['moduleUrl'] = "{$CFG->apphome}/programs/{$program}/{$encodedAnchor}";
                                 $registration['programUrl'] = "{$CFG->apphome}/programs/{$program}";
-
+                                $registration['icon'] = $module->icon ?? null;
                                 if ($registration['attendance_status'] == 'REGISTERED') {
                                     $activeRegistrations[] = $registration;
                                 } else {
@@ -170,8 +173,8 @@ class Registrations
         $endDateTime->add(new \DateInterval('PT' . $durationMinutes . 'M'));
 
         // Format the date, start time, and end time as strings
-        $formattedStartTime = $startDateTime->format('H:i A');
-        $formattedEndTime = $endDateTime->format('H:i A');
+        $formattedStartTime = $startDateTime->format('g:i A');
+        $formattedEndTime = $endDateTime->format('g:i A');
 
         // Construct the final formatted string
         $formattedString = $formattedStartTime . ' - ' . $formattedEndTime;

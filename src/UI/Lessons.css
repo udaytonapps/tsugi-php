@@ -59,6 +59,14 @@ a.programPageLink:hover, a.modulePageLink:hover {
     text-decoration: underline;
 }
 
+th.registrationModuleTitle {
+    width: 50%;
+}
+
+th.registrationTableHeader {
+    text-align: center;
+}
+
 .registration-info {
     background: rgba(255, 255, 255, .85);
     z-index: 1000;
