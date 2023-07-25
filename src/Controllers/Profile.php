@@ -323,16 +323,16 @@ google.maps.event.addListener(marker, 'dragend', function (event) {
             // var name = $('#profile-name').val();
             var title = $('#profile-title').val();
             var department = $('#profile-department').val();
-
-            var fileInput = $('#profile-image-file')[0];
-            var file = fileInput.files[0];
-            if(file.size > <?= \intval(ltrim(strtolower(ini_get('upload_max_filesize'))),32) * 1024 ?>){    //calculate image upload limit. Relies on current limit being in MB.
-                $('#profile-image-error-banner').show();
-                return;
-            }
             var formData = new FormData();
-
-            formData.append('profileImage', file);
+            var fileInput = $('#profile-image-file')[0];
+            if(fileInput.files[0]){
+                var file = fileInput.files[0];
+                if(file.size > <?= \intval(ltrim(strtolower(ini_get('upload_max_filesize'))),32) * 1024 ?>){    //calculate image upload limit. Relies on current limit being in MB.
+                    $('#profile-image-error-banner').show();
+                    return;
+                }
+                formData.append('profileImage', file);
+            }                      
             // formData.append('name', name);
             formData.append('title', title);
             formData.append('department', department);
