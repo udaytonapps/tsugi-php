@@ -97,7 +97,13 @@ class Facilitators
         } else {
             echo '</br><h1>Experts</h1></br>';
             ?>
-            <table class="table align-middle mb-0 bg-white">
+            <table class="table align-middle mb-0 bg-white" aria-label="A list of every subject matter expert who facilitates a session or authored content." >
+                <thead>
+                    <tr>
+                        <th scope="col">Name, Title, & Department</th>
+                        <th scope="col">Sessions Facilitated</th>
+                    </tr>
+                </thead>    
                 <tbody>
                     <?php
                     foreach ($this->all_facilitators as $facilitator) {
