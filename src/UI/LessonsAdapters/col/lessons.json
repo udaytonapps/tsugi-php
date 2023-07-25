@@ -3210,6 +3210,7 @@
       "calendar": "Oct.",
       "description": "Come try out the LTC’s new video production lab and podcast studio and learn how you can take your teaching to the next level with media innovation.",
       "image": "/assets/media.jpeg",
+      "imagealt": "A person looking at two computer monitors.",
       "facilitators": [
         "pdagnall1@udayton.edu",
         "acurran1@udayton.edu"
@@ -3252,6 +3253,7 @@
       "calendar": "Sep.",
       "description": "<p>It’s likely you’ve already encountered AI-generated writing in assignment submissions - or suspect they have. We’ll provide an overview of how these tools work and invite faculty to share your tales of woe and wisdom in dealing with ChatGPT over the past year.</p><p>AI writing tools are here for good (or ill). In this three-part series we’ll explore teaching in an AI world: How do natural language processing tools work? What do they mean for written assessment and academic honesty? How can we adapt our academic endeavors to capitalize on the benefits and minimize the risks?</p>",
       "image": "/assets/chat-gpt-1.png",
+      "imagealt": "Young adults sitting in a group smiling on a porch.",
       "facilitators": [
         "pdagnall1@udayton.edu",
         "stangeman1@udayton.edu",
@@ -3291,6 +3293,7 @@
       "calendar": "Oct.",
       "description": "<p>Our instructional designers will share what the current research has to say about writing in an AI world. Together we’ll (re)think about creating and grading written assessments and consider some alternatives.</p><p>AI writing tools are here for good (or ill). In this three-part series we’ll explore teaching in an AI world: How do natural language processing tools work? What do they mean for written assessment and academic honesty? How can we adapt our academic endeavors to capitalize on the benefits and minimize the risks?</p>",
       "image": "/assets/chat-gpt-2.jpeg",
+      "imagealt": "Three people looking at laptops sitting at the same table.",
       "facilitators": [
         "pdagnall1@udayton.edu",
         "stangeman1@udayton.edu",
@@ -3330,6 +3333,7 @@
       "calendar": "Nov.",
       "description": "<p>If AI-generated writing isn’t going anywhere, how can we work in harmony with this powerful new tool? We’ll consider the ethics of AI-informed teaching, learning and scholarship; ways to prepare your course for AI; and strategies for using AI tools in ways that will benefit your students and research.</p><p>AI writing tools are here for good (or ill). In this three-part series we’ll explore teaching in an AI world: How do natural language processing tools work? What do they mean for written assessment and academic honesty? How can we adapt our academic endeavors to capitalize on the benefits and minimize the risks?</p>",
       "image": "/assets/chat-gpt-3.jpeg",
+      "imagealt": "A person showing their laptop screen to another person.",
       "facilitators": [
         "pdagnall1@udayton.edu",
         "stangeman1@udayton.edu",
@@ -3367,6 +3371,7 @@
       "calendar": "Aug.",
       "description": "During these virtual drop-in hours, our support team will be on hand to answer any questions you have about Isidore as you prep your class for the upcoming semester.",
       "image": "/assets/isidore-help-lab.jpeg",
+      "imagealt": "A person sitting at a table and discussing something with another person.",
       "facilitators": [
         "lbergman1@udayton.edu",
         "wmcclure1@udayton.edu"
@@ -3405,6 +3410,7 @@
       "featured": "true",
       "description": "As you prepare your class for a new cohort of students, consider adding a tool or two to your pedagogical repertoire. In this fast-paced session, our instructional designers will cover 10 topics, each in 5 minutes. You’re sure to leave with something new to try!",
       "image": "/assets/tools-for-teaching.jpeg",
+      "imagealt": "A person sitting an smiling at the camera with a classroom in the background.",
       "facilitators": [
         "pdagnall1@udayton.edu",
         "stangeman1@udayton.edu"
@@ -3442,6 +3448,7 @@
       "calendar": "Sep.",
       "description": "Truth? Most people are bad at slide design. But we don’t have to be. In this session we’ll look at statistically-backed best practices in slide design, including layout, font / color selection, and custom backgrounds. We’ll even look at some AI design options. Bring your laptop and a slide presentation you’d like to improve and practice as we go.",
       "image": "/assets/slide-workshop.png",
+      "imagealt": "A teacher pointing to a screen in front of a class of young students.",
       "facilitators": [
         "stangeman1@udayton.edu"
       ],

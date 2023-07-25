@@ -622,7 +622,7 @@ class Topics extends CourseBase
                         <a href="<?= U::get_rest_path() . '/' . urlencode($topic->anchor) ?>">
                             <div class="topiccard-container">
                                 <div class="topiccard-header">
-                                    <div class="topiccard-image" style="background-image: url('<?= $CFG->apphome; ?>/thumbnails/<?= $topic->thumbnail ?>');">
+                                    <div class="topiccard-image" style="background-image: url('<?= $CFG->apphome; ?>/thumbnails/<?= $topic->thumbnail ?>');" aria-label="<?= $topic->thumbnailalt ?>">
                                         <div class="topiccard-time">
                                             <span class="far fa-clock" aria-hidden="true"></span> <?= $topic->duration ?>
                                         </div>
@@ -792,6 +792,7 @@ class Topics extends CourseBase
 
             return (object)[
                 'genericImg' => $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.png',
+                'genericImgAlt' => 'University of Dayton Chapel',
                 'course' => $this->course,
                 'moduleData' => $modules,
                 'courseUrl' => $CFG->apphome . '/programs/' . $this->category

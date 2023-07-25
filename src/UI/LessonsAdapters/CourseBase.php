@@ -413,6 +413,7 @@ class AsyncModule
         $this->anchor  = $module->anchor ?? null;
         $this->duration  = $module->duration ?? null;
         $this->image = $module->image ?? null;
+        $this->imagealt = $module->imagealt ?? null;
 
         $contents = [];
         if (isset($module->landingContents)) {
@@ -509,6 +510,8 @@ class SyncModule
     /** @var string */
     public $image;
     /** @var string */
+    public $imagealt;
+    /** @var string */
     public $icon;
     /** @var string */
     public $calendar;
@@ -531,6 +534,7 @@ class SyncModule
         $this->anchor  = $module->anchor ?? null;
         $this->duration  = $module->duration ?? null;
         $this->image = $module->image ?? null;
+        $this->imagealt = $module->imagealt ?? null;
         $this->icon = $module->icon ?? null;
         $this->calendar = $module->calendar ?? null;
         $this->learningoutcomes = $module->learningoutcomes ?? null;

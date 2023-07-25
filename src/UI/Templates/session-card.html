@@ -4,6 +4,7 @@
       <img
         class="img-fluid"
         src="{{ module.image ? contextRoot ~ module.image : genericImg}}"
+        alt="{{ module.imagealt ? module.imagealt : genericImgAlt }}"
       />
       {% if registered %}
       <div
