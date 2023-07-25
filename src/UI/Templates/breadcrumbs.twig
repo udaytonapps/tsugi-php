@@ -6,7 +6,7 @@
 		{% for crumb in breadcrumbs %}
 			<li class="breadcrumb-item">
 				{% if loop.last %}
-					{{ crumb.label|length > 20 ? crumb.label|slice(0, 20) ~ '...' : crumb.label  }}
+					{{ crumb.label  }}
 				{% else %}
 					<a href="{{crumb.path}}">{{ crumb.label|length > 20 ? crumb.label|slice(0, 20) ~ '...' : crumb.label  }}</a>
 				{% endif %}

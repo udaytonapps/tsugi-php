@@ -9,60 +9,55 @@
 'absent' => $absent,
 'registered' => $registered,
 #}
-
-<div class="col-md-12 pb-1 d-flex align-items-stretch" data-tags="{{card.moduleMetadata.status}} {{card.moduletype}} allModes allPrograms">
-	<div class="card w-100">
-		<div class="allprograms-card-body pb-0">
-			<span class="card-title-area">
-				<h5 class="card-title d-block">
-					<a class="modulePageLink" href="{{card.moduleUrl}}">{{card.module.title}}</a>
-				</h5>
-				{% if card.module.session %}
-					<div class="d-block pb-1">
-						{% if card.module.icon %}
-							<i class="fa {{card.module.icon}} pe-1" aria-hidden="true"></i>
-						{% endif %}
-						{{card.module.session}}
-					</div>
+<div class="d-flex flex-wrap border-bottom mb-2" data-tags="{{card.moduleMetadata.status}} {{card.moduletype}} allModes allPrograms">
+	<div class="p-2 flex-grow-1">
+		{% if card.module.session %}
+			<p class="pb-1 mb-0 small">
+				{% if card.module.icon %}
+					<i class="fa {{card.module.icon}} pe-1" aria-hidden="true"></i>
 				{% endif %}
-				{% if card.module.teaser %}
-					<p class="card-text">
-						{{ card.module.teaser|length > 50 ? card.module.teaser|slice(0, 50) ~ '...' : card.module.teaser }}
-					</p>
+				{{card.module.session}}
+			</p>
+		{% endif %}
+		<h5 class="fw-normal">
+			<a class="modulePageLink" class="text-decoration-underline" href="{{card.moduleUrl}}">{{card.module.title}}</a>
+		</h5>
+		{% if card.module.teaser %}
+			<p>
+				{{ card.module.teaser|length > 50 ? card.module.teaser|slice(0, 50) ~ '...' : card.module.teaser }}
+			</p>
+		{% endif %}
+	</div>
+	<div class="p-2 mb-2 d-flex justify-content-between align-items-center">
+		{% if card.module.duration %}
+			<div class="px-2">
+				<span class="far fa-clock" aria-hidden="true"></span>
+				{{card.module.duration}}
+			</div>
+		{% endif %}
+		<div class="px-3">
+			{% if card.moduletype == 'sync' %}
+				<span class="fas fa-users" aria-hidden="true"></span>
+				With Others
+			{% else %}
+				<span class="fas fa-desktop" aria-hidden="true"></span>
+				At-Your-Own-Pace
+			{% endif %}
+		</div>
+		<div class="px-3">
+			{% if card.moduleMetadata.status == 'IN_PROGRESS' and card.moduletype == 'async' %}
+				<span class="badge badge-primary">In Progress</span>
+			{% elseif card.moduleMetadata.status == 'IN_PROGRESS' and card.moduletype == 'sync' %}
+				<span class="badge badge-primary">Registered</span>
+			{% elseif card.moduleMetadata.status == 'COMPLETE' %}
+				<span class="badge badge-success">Completed</span>
+			{% else %}
+				{% if card.moduletype == 'sync' %}
+					<span class="badge badge-warning">Not Registered</span>
+				{% else %}
+					<span class="badge badge-warning">Not Started</span>
 				{% endif %}
-			</span>
-			<span class="card-data-area d-flex flex-wrap">
-				{% if card.module.duration %}
-                    <span class="card-data-span">
-                        <span class="far fa-clock" aria-hidden="true"></span>
-                        {{card.module.duration}}
-                    </span>
-                {% endif %}
-				<span class="card-data-span">
-					{% if card.moduletype == 'sync' %}
-						<span class="fas fa-users" aria-hidden="true"></span>
-						Synchronous
-					{% else %}
-						<span class="fas fa-desktop" aria-hidden="true"></span>
-						Asynchronous
-					{% endif %}
-				</span>
-				<span class="card-data-span">
-					{% if card.moduleMetadata.status == 'IN_PROGRESS' and card.moduletype == 'async' %}
-						<span class="badge badge-primary">In Progress</span>
-					{% elseif card.moduleMetadata.status == 'IN_PROGRESS' and card.moduletype == 'sync' %}
-						<span class="badge badge-primary">Registered</span>	
-					{% elseif card.moduleMetadata.status == 'COMPLETE' %}
-						<span class="badge badge-success">Completed</span>
-					{% else %}
-						{% if card.moduletype == 'sync' %}
-							<span class="badge badge-warning">Not Registered</span>
-						{% else %}
-							<span class="badge badge-warning">Not Started</span>
-						{% endif %}
-					{% endif %}					
-				</span>	
-			</span>
+			{% endif %}
 		</div>
 	</div>
 </div>

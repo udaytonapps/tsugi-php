@@ -18,59 +18,66 @@
 	{% include 'breadcrumbs.twig' %}
 	{% include 'generic-prev-next-nav.twig' %}
 </div>
-<div class="container mt-4 mb-5">
-	<div class="p-5 text-center bg-image" style="background-image: url('{{contextRoot ~ module.image}}');height: 400px;" aria-label="{{ module.imagealt }}">
-		<div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
-			<div class="d-flex justify-content-center align-items-center h-100">
-				<div class="text-white">
-					<h4 property="oer:name" class="tsugi-lessons-module-title mb-3">{{module.session}}</h4>
-					<h1 class="mb-3">{{module.title}}</h1>
-					{% if moduleMetadata.registered or moduleMetadata.absent or moduleMetadata.attended %}
-						<h5 class="fw-normal">{{moduleMetadata.greeting}}</h5>
-						<p class="mb-4">
-							{{moduleMetadata.regDate | date('D, M j, Y g:i a')}}
-							-
-							{{moduleMetadata.location}}
-						</p>
+<div class="container mb-5">
+	<!--Grid row-->
+	<div class="row">
+		<!--Grid column-->
+		<div class="bg-image rounded" style="background-image:url('{{contextRoot ~ module.image}}');" aria-label="{{ module.imagealt }}">
+			<!--Content-->
+			<div class="m-4 p-4 rounded text-white" style="background: linear-gradient(45deg,rgba(29, 236, 197, 0.8),rgba(91, 14, 214, 0.8) 100%);">
+				<p class="lead mb-0" property="oer:name">
+					{% if module.icon %}
+						<i class="fa {{module.icon}} pe-1" aria-hidden="true"></i>
 					{% endif %}
-					{% if moduleMetadata.buttonAction == 'LOGIN' %}
-						<a class="btn btn-outline-light btn-lg" href="{{loginUrl}}" role="button">
-							<i class="fa fa-lock" aria-hidden="true"></i>
-							Login to Register
-						</a>
-					{% elseif moduleMetadata.buttonAction == 'REGISTER' %}
-						<a class="btn btn-white btn-lg" href="{{moduleMetadata.ltiUrl}}" role="button">
-							Register
-							<i class="fa fa-arrow-right" aria-hidden="true"></i>
-						</a>
-					{% elseif moduleMetadata.buttonAction == 'COMPLETE' %}
-						<a class="btn btn-success btn-lg" href="{{moduleMetadata.ltiUrl}}" role="button">
-							<i class="fas fa-check-circle" aria-hidden="true"></i>
-							Complete
-						</a>
-					{% elseif moduleMetadata.buttonAction == 'FEEDBACK' %}
-						<a class="btn btn-primary btn-lg" href="{{moduleMetadata.ltiUrl}}" role="button">
-							Provide Feedback
-							<i class="fa fa-arrow-right" aria-hidden="true"></i>
-						</a>
-					{% elseif moduleMetadata.buttonAction == 'CHANGE' %}
-						<a class="btn btn-white btn-lg" href="{{moduleMetadata.ltiUrl}}" role="button">
-							Change Registration
-							<i class="fa fa-arrow-right" aria-hidden="true"></i>
-						</a>
-					{% else %}
-						<a class="btn btn-white btn-lg" href="{{moduleMetadata.ltiUrl}}" role="button">
-							Register
-							<i class="fa fa-arrow-right" aria-hidden="true"></i>
-						</a>
-					{% endif %}
-				</div>
+					<span>{{module.session}}</span>
+				</p>
+				<h3 class="fw-normal">{{module.title}}</h3>
+				<p property="oer:description" class="tsugi-lessons-module-description">{{module.description | raw}}</p>
+				{% if moduleMetadata.registered or moduleMetadata.absent or moduleMetadata.attended %}
+					<h5 class="fw-normal">{{moduleMetadata.greeting}}</h5>
+					<p class="mb-4">
+						{{moduleMetadata.regDate | date('D, M j, Y g:i a')}}
+						-
+						{{moduleMetadata.location}}
+					</p>
+				{% endif %}
+				{% if moduleMetadata.buttonAction == 'LOGIN' %}
+					<a class="btn btn-outline-light" href="{{loginUrl}}" role="button">
+						<i class="fa fa-lock" aria-hidden="true"></i>
+						Login to Register
+					</a>
+				{% elseif moduleMetadata.buttonAction == 'REGISTER' %}
+					<a class="btn btn-white" href="{{moduleMetadata.ltiUrl}}" role="button">
+						Register
+						<i class="fa fa-arrow-right" aria-hidden="true"></i>
+					</a>
+				{% elseif moduleMetadata.buttonAction == 'COMPLETE' %}
+					<a class="btn btn-success" href="{{moduleMetadata.ltiUrl}}" role="button">
+						<i class="fas fa-check-circle" aria-hidden="true"></i>
+						Complete
+					</a>
+				{% elseif moduleMetadata.buttonAction == 'FEEDBACK' %}
+					<a class="btn btn-primary" href="{{moduleMetadata.ltiUrl}}" role="button">
+						Provide Feedback
+						<i class="fa fa-arrow-right" aria-hidden="true"></i>
+					</a>
+				{% elseif moduleMetadata.buttonAction == 'CHANGE' %}
+					<a class="btn btn-white" href="{{moduleMetadata.ltiUrl}}" role="button">
+						Change Registration
+						<i class="fa fa-arrow-right" aria-hidden="true"></i>
+					</a>
+				{% else %}
+					<a class="btn btn-white" href="{{moduleMetadata.ltiUrl}}" role="button">
+						Register
+						<i class="fa fa-arrow-right" aria-hidden="true"></i>
+					</a>
+				{% endif %}
 			</div>
+			<!--Content-->
 		</div>
+		<!--Grid column-->
 	</div>
-	<h5 class="mt-4">Session Description</h5>
-	<p property="oer:description" class="tsugi-lessons-module-description">{{module.description | raw}}</p>
-	<h5>
+	<h5 class="mt-4">
 		<i class='fa fa-group fa-fw' aria-hidden='true'></i>
 		Session Facilitator(s)
 	</h5>

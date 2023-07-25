@@ -3,13 +3,13 @@
 <style>
 	/* Default height for small devices */
 	#intro {
-		height: 400px;
+		height: 300px;
 	}
 
 	/* Height for devices larger than 992px */
 	@media(min-width: 992px) {
 		#intro {
-			height: 600px;
+			height: 400px;
 		}
 	}
 	div.videoWrapper {
@@ -29,7 +29,7 @@
 	{% endapply %}
 </style>
 <div id="intro" class="p-2 text-center bg-image" style="background-image: url({{ splash.image ? contextRoot ~ splash.image : genericImg }});margin-top:-2rem;">
-	<div class="mask" style="background-color: rgba(0, 0, 0, 0.7);">
+	<div class="mask" style="background: linear-gradient(45deg,rgba(29, 236, 197, 0.7),rgba(91, 14, 214, 0.7) 100%);">
 		<div class="d-flex justify-content-center align-items-center h-100">
 			<div class="text-white">
 				<h1 class="mb-3">{{splash.title}}</h1>

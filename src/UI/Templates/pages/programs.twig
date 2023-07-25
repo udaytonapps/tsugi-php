@@ -1,80 +1,78 @@
-<script>
-		function hideshow(showname,type) {
-			let allcards = $("div[data-tags*='allPrograms']");
-			allcards.addClass('d-none');
-			allcards.attr('aria-hidden','true');
-			if(type==='status'){
-				$('#filtertitle').attr('data-statusfilter',showname);
-			} else {
-				$('#filtertitle').attr('data-modefilter',showname);
-			}
-			let statusfilter = $('#filtertitle').attr('data-statusfilter');
-			let modefilter = $('#filtertitle').attr('data-modefilter');
-			allcards.each(function(index){
-				if($(this).attr('data-tags').indexOf(statusfilter)!=-1 && $(this).attr('data-tags').indexOf(modefilter)!=-1){
-					$(this).removeClass('d-none');
-					$(this).removeAttr('aria-hidden');
-				}
-			});
-		}
-
-		function hidemodules(togglename) {
-			$('.' + togglename).each(function(index){
-				if($(this).attr('class').indexOf('d-none') != -1){
-					$(this).removeClass('d-none');
-					$(this).removeAttr('aria-hidden');
-				} else {
-					$(this).addClass('d-none');
-					$(this).attr('aria-hidden','true');
-				}
-			});
-		}
-</script>
-<div class="container">
-	<br>
-	<h1>Browse Courses</h1>
-	<p class="lead">Explore self-paced courses as well as content on a variety of topics and technologies.</p>
-
-	<span id="filtertitle" data-statusfilter="allPrograms" data-modefilter="allModes">Filters: </span>
-	<div class="d-flex" style="max-width: 400px;">
-		<select class="form-control me-2" name="filter01" id="filter01" onchange="hideshow(this.value,'status')">
-			<option value="allPrograms" selected="selected">All Programs</option>
-			<option value="IN_PROGRESS">In Progress/Registered</option>
-			<option value="COMPLETED">Completed</option>
-		</select>
-		<select class="form-control" name="filter02" id="filter02" onchange="hideshow(this.value,'mode')">
-			<option value="allModes" selected="selected">All Modes</option>
-			<option value=" sync">Synchronous</option>
-			<option value=" async">Asynchronous</option>
-		</select>
-	</div>
-
-	<!-- Tabs content -->
-	<div class="tab-content" id="ex1-content">
-		<div class="tab-pane fade active show" id="browse-tab-content-1" role="tabpanel" aria-labelledby="browse-tab-1" style="display:block;">
-			{% set coursenum = 0 %}
-			{% for courseData in allCourses %}
-				<div class="mt-4 mb-4">
-					<div class="d-flex align-items-center">
-						<button onclick="hidemodules('coursenum{{coursenum}}')" class="btn btn-secondary btn-sm hideModulesButton" >
-							<i class="fas fa-chevron-right d-none coursenum{{coursenum}}" ></i>
-							<i class="fas fa-chevron-down coursenum{{coursenum}}"></i>
-						</button>
-						<h4 class="me-4">
-							<a class="programPageLink" href="{{courseData.courseUrl}}">{{courseData.course.title}}</a>
-						</h4>
-						{# <a class="btn btn-link mb-1" href="{{''}}">View all</a> #}
-					</div>
-					<div class="flex-wrap justify-content-center align-content-center pt-4 coursenum{{coursenum}}">
-					<div class="mb-4">{{courseData.course.description}}</div>
-						{% set coursenum = coursenum + 1 %}
-						{% for card in courseData.moduleData %}
-							{% set genericImg = courseData.genericImg %}
-							{% include 'generic-module-card.twig' %}
-						{% endfor %}
-					</div>
-				</div>
-			{% endfor %}
+<div class="p-5 text-center bg-image" style="background-image: url('{{ allProgramsImage }}');height: 400px;background-position: top left;margin-top:-2rem;">
+	<div class="mask" style="background: linear-gradient(45deg,rgba(29, 236, 197, 0.7),rgba(91, 14, 214, 0.7) 100%);">
+		<div class="d-flex justify-content-center align-items-center h-100">
+			<div class="text-white">
+				<h1 class="mb-3 display-4">Browse Programs</h1>
+				<p class="lead my-4">Explore self-paced and synchronous programming on a variety of topics and technologies.</p>
+			</div>
 		</div>
 	</div>
 </div>
+<div class="container p-4">
+	<div class="text-center d-flex justify-content-end align-items-center">
+		<p class="m-0" id="filtertitle" data-statusfilter="allPrograms" data-modefilter="allModes">Filter Program Modules: </p>
+		<div class="d-flex justify-content-center ps-4">
+			<select class="form-control me-2" name="filter01" id="filter01" onchange="hideshow(this.value,'status')">
+				<option value="allPrograms" selected="selected">All Modules</option>
+				<option value="IN_PROGRESS">In Progress/Registered</option>
+				<option value="COMPLETED">Completed</option>
+			</select>
+			<select class="form-control" name="filter02" id="filter02" onchange="hideshow(this.value,'mode')">
+				<option value="allModes" selected="selected">Any Mode</option>
+				<option value=" sync">With Others</option>
+				<option value=" async">At-Your-Own-Pace</option>
+			</select>
+		</div>
+	</div>
+	{% set coursenum = 0 %}
+	{% for courseData in allCourses %}
+		<div class="card mt-2">
+			<div class="card-body pb-2">
+				<h4>
+					<a class="text-decoration-underline" href="{{courseData.courseUrl}}">{{courseData.course.title}}</a>
+				</h4>
+				<p class="card-text">{{courseData.course.description}}</p>
+				<p>
+					<button
+							class="btn btn-sm btn-outline-primary"
+							type="button"
+							data-mdb-toggle="collapse"
+							data-mdb-target="#collapse{{ coursenum }}"
+							aria-expanded="false"
+							aria-controls="collapse{{ coursenum }}"
+					>
+						Show Modules
+					</button>
+				</p>
+				<div class="collapse coursenum{{ coursenum }}" id="collapse{{ coursenum }}">
+					{% set coursenum = coursenum + 1 %}
+					{% for card in courseData.moduleData %}
+						{% set genericImg = courseData.genericImg %}
+						{% include 'generic-module-card.twig' %}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>
+<script>
+	function hideshow(showname,type) {
+		let allcards = $("div[data-tags*='allPrograms']");
+		allcards.addClass('d-none');
+		allcards.attr('aria-hidden','true');
+		if(type==='status'){
+			$('#filtertitle').attr('data-statusfilter',showname);
+		} else {
+			$('#filtertitle').attr('data-modefilter',showname);
+		}
+		let statusfilter = $('#filtertitle').attr('data-statusfilter');
+		let modefilter = $('#filtertitle').attr('data-modefilter');
+		allcards.each(function(index){
+			if($(this).attr('data-tags').indexOf(statusfilter)!=-1 && $(this).attr('data-tags').indexOf(modefilter)!=-1){
+				$(this).removeClass('d-none');
+				$(this).removeAttr('aria-hidden');
+			}
+		});
+		$(".collapse").addClass("show");
+	}
+</script>
