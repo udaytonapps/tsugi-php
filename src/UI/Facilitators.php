@@ -69,7 +69,7 @@ class Facilitators
 
             $facilitator = LessonsOrchestrator::getFacilitatorWithModulesById($facilitatorId);
             if ($facilitator && $facilitator['displayname']) {
-                echo '</br><h1></h1></br>';
+                echo '<h3></h3>';
 ?>
                 <div class="d-flex flex-column align-items-center gap-3">
                     <img src="<?= $facilitator['image_url'] ? $facilitator['image_url'] : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" ?>" alt="<?= $facilitator['displayname'] ?>" style="object-fit: cover; object-position: 50% 30%; min-width: 150px; min-height: 150px; width: 150px; height: 150px;" class="rounded-circle shadow-4" />
@@ -95,13 +95,13 @@ class Facilitators
             <?php
             }
         } else {
-            echo '</br><h1>Experts</h1></br>';
+            echo '<h3>Experts</h3>';
             ?>
             <table class="table align-middle mb-0 bg-white" aria-label="A list of every subject matter expert who facilitates a session or authored content." >
                 <thead>
                     <tr>
-                        <th scope="col">Name, Title, & Department</th>
-                        <th scope="col">Sessions Facilitated</th>
+                        <th scope="col">Facilitator</th>
+                        <th scope="col">Sessions</th>
                     </tr>
                 </thead>    
                 <tbody>

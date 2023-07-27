@@ -1,12 +1,12 @@
 {
-    "title": "Topics and Deep-Dives",
-    "description": "A collection of videos on different topics. Some are introductions and some are deep-dives.",
+    "title": "Video Library",
+    "description": "A collection of videos by UD experts on topics ranging from student engagement to instructional design.",
     "badges": [],
     "splash": {
-      "title": "Topics and Deep-Dives",
+      "title": "Video Library",
       "image": "/assets/topics.jpeg",
       "alttext": "A group of people having a discussion in an art gallery; one waves a hand toward something offscreen to the right.",
-      "text": "A collection of videos on different topics. Some are introductions and some are deep-dives."
+      "text": "A collection of videos by UD experts on topics ranging from student engagement to instructional design."
     },
     "modules": [
       {

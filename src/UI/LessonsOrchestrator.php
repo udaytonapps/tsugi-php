@@ -4,7 +4,7 @@ namespace Tsugi\UI;
 
 require_once(__DIR__ . '/LessonsAdapters/CourseBase.php');
 require_once(__DIR__ . '/LessonsAdapters/GenericLessonsAdapter.php');
-require_once(__DIR__ . '/LessonsAdapters/topics/Topics.php');
+require_once(__DIR__ . '/LessonsAdapters/videos/Topics.php');
 
 use CourseBase;
 use finfo;
@@ -44,10 +44,10 @@ class LessonsOrchestrator
                 'adapter' => GenericAdapter::class,
                 'adapterPath' => $adapterDirectory . '/GenericLessonsAdapter.php',
             ],
-            'topics' => (object)[
-                'displayLabel' => 'Topics and Deep Dives',
+            'videos' => (object)[
+                'displayLabel' => 'Video Library',
                 'adapter' => Topics::class,
-                'adapterPath' => $adapterDirectory . '/topics/Topics.php',
+                'adapterPath' => $adapterDirectory . '/videos/Topics.php',
             ]
         ];
         // If not in object, error out?

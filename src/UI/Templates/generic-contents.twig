@@ -10,7 +10,7 @@
 {% macro renderContent(content, authorized, ltiRoot, urlRoot) %}
 	{% if content.type == "TEXT" %}
 		{% for text in content.paragraphs %}
-			<p>{{text | raw}}</p>
+			<div>{{text | raw}}</div>
 		{% endfor %}
 	{% elseif content.type == "VIDEO" %}
 		{% set video = content.video %}

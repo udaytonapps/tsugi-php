@@ -67,10 +67,10 @@ class Topics extends CourseBase
         // Demand that every topic have required elments
         foreach ($course->modules as $topic) {
             if (!isset($topic->title)) {
-                die_with_error_log('All topics in a course must have a title');
+                die_with_error_log('All videos in a course must have a title');
             }
             if (!isset($topic->anchor)) {
-                die_with_error_log('All topics must have an anchor: ' . $topic->title);
+                die_with_error_log('All videos must have an anchor: ' . $topic->title);
             }
             // Populate authors array with data from db
             if (isset($topic->authors) && count($topic->authors)) {
@@ -606,7 +606,7 @@ class Topics extends CourseBase
             echo ('<div>');
             echo '<form class="form-inline text-right mt-3" style="padding-bottom: 1rem;">
                 <div class="form-group" style="display: flex; justify-content: flex-end; align-items: center; gap: 20px;">
-                    <label for="categorySelect">Filter Topics by Category: </label>
+                    <label for="categorySelect">Filter Videos by Category: </label>
                     <div>
                         <select class="form-control" id="categorySelect">
                             <option value="all">All Categories</option>

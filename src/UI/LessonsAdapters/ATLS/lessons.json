@@ -1,24 +1,21 @@
 {
   "title": "Advancing Teaching & Learning Scholars (ATLS)",
-  "description": "ATLS sessions are open to all instructors at the University of Dayton and may be taken in any order. Please click into a session below to read the description, view the facilitator(s), register, and provide feedback. There are eight core ATLS sessions. Elective sessions will be added in the future. ",
+  "description": "A dynamic professional development program to help faculty understand UD and the campus systems and resources for driving student success in and around the Ryan C. Harris Learning Teaching Center.",
   "splash": {
     "title": "Advancing Teaching & Learning Scholars (ATLS)",
     "image": "/images/main.jpg",
     "alttext": "A smiling instructor calls on one of multiple students, whose hands are raised, while remote students look on via a Zoom call.",
     "video": "https://udayton.warpwire.com/w/20AFAA/?title=0",
-    "text": "A dynamic professional development program aimed at helping faculty understand UD, its systems, and key resources in and around the Ryan C. Harris Learning Teaching Center used to drive student success.",
+    "text": "A dynamic professional development program to help faculty understand UD and the campus systems and resources for driving student success in and around the Ryan C. Harris Learning Teaching Center.",
     "contents": [
       {
         "type": "TEXT",
         "paragraphs": [
-          "<h5>Welcome!</h5>",
-          "Learning Matters! The Advancing Teaching & Learning Scholars Program (ATLS) is a professional learning program that was launched by the LTC during the fall 2022 semester. The University of Dayton is a Marianist institution founded on a teaching mission. This is a sacred duty for us all, and if done well, our graduates are positioned to become the lifelong learners we want them to be and that society needs.",
-          "The ATLS program will begin with eight core sessions designed to expose instructors to pertinent campus resources, pedagogy, and timely teaching topics that will increase teaching & learning effectiveness for instructors and students. These engaging 90-minute in-person sessions will be delivered by top instructors and staff at UD and will be primarily be held in the LTC.",
+          "<h4 class=\"pt-3\">About ATLS</h4>",
+          "<p>The Advancing Teaching & Learning Scholars Program (ATLS) was launched by the LTC in 2022 to support faculty in advancing the University of Dayton’s Marianist teaching mission. Education in the Marianist spirit is a sacred duty for us all and, if done well, positions our graduates to become the lifelong learners that we want them to be and that our world needs.</p>",
+          "<p>The core ATLS program comprises eight sessions designed to introduce instructors to campus resources, pedagogy strategies, and timely teaching topics to increase teaching and learning effectiveness for instructors and students. These engaging 90-minute, in-person sessions are delivered by UD’s expert instructors and staff and ATLS sessions and may be taken in any order.</p>",
           "<h5>Program Goals</h5>",
-          "The ATLS program centers around three goals:",
-          "<ol><li>Increasing a faculty member's knowledge of University of Dayton students and their learning needs, campus resources, and teaching strategies</li>",
-          "<li>Exposing faculty to services and people within the LTC as a support center for their continuing professional development at UD</li>",
-          "<li>Helping faculty meet one another and key colleagues on campus and build communities of practice, while building commitment to the institution</li></ol>"
+          "<ol><li>Increase faculty knowledge about UD students and their learning needs, campus resources, and teaching strategies</li><li>Expose faculty to services and people within the LTC as a support center for their continuing professional development at UD</li><li>Connect faculty with one another and key campus colleagues to build communities of practice and commitment to the institution</li></ol>"
         ]
       }
     ]

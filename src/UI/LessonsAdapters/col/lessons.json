@@ -1,20 +1,18 @@
 {
   "title": "Center for Online Learning",
-  "description": "These training sessions and modules were developed by the Center for Online Learning for instructors at the University of Dayton. Training is available for a wide variety of topics, including learning technologies and pedagogy. Click into a module or session to learn more.",
+  "description": "Training modules and professional development sessions for UD instructors on a wide variety of topics, including learning technologies and pedagogy.",
   "splash": {
     "title": "Center for Online Learning",
     "image": "/assets/col-landing.jpeg",
     "alttext": "A view of the Roesch Library's west entrance, looking up at the detached semicircle of columns next to the building.",
     "video": "https://udayton.warpwire.com/w/20AFAA/?title=0",
-    "text": "These training sessions and modules were developed by the Center for Online Learning for instructors at the University of Dayton. Training is available for a wide variety of topics, including learning technologies and pedagogy. Click into a module or session to learn more.",
+    "text": "Training modules and professional development sessions for UD instructors on a wide variety of topics, including learning technologies and pedagogy.",
     "contents": [
       {
         "type": "TEXT",
         "paragraphs": [
-          "<h5>Welcome!</h5>",
-          "Welcome to the Center for Online Learning, where we bring you a range of innovative and exciting sessions to enhance your teaching experience. Join us for a Backstage Tour of our state-of-the-art Media Studio, learn more about ChatGPT, or get help with Isidore, or learn about presentation slide best practices.",
-          "In addition, don't miss our Tuesday Drop-In options, offering you the chance to engage with colleagues and the Center for Online Learning team. Join the \"First Tuesday Blog Read\" for insightful conversations inspired by recent pedagogy topics, or stop by the \"Faculty Lounge\" to relax with a cup of coffee while discussing various pedagogical and technological matters. You can also participate in \"Tuesday Topics in Teaching & Tech\" for stimulating conversations on instructional design and pedagogical innovation, accompanied by delicious coffee and donuts.",
-          "Experience the Center for Online Learning's diverse range of sessions and take your teaching to new heights. Join us today and unlock the full potential of your online teaching journey."
+          "<p class=\"pt-5\">Whether you’re a full professor or an adjunct, your teaching has a powerful impact on our students. Today’s students have expectations around how learning technologies can augment their learning. The Center for Online Learning is here to support you in meeting your students’ needs, whether you’re teaching on-campus or asynchronously online.</p>",
+          "<p>The custom training programs and materials below will help you stay up-to-date on UD’s essential learning technologies and innovative teaching practices. Take some time to explore and engage with these professional development resources.<p>"
         ]
       }
     ]
