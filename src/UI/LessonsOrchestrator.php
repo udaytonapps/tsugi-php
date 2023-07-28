@@ -381,7 +381,7 @@ class LessonsOrchestrator
         $PDOX = LTIX::getConnection();
         $p = $CFG->dbprefix;
 
-        $sql = "SELECT u.user_id, ar.instance_id, mi.module_launch_id, ar.context_id, ar.link_id, reg.registration_id
+        $sql = "SELECT u.user_id, ar.instance_id, mi.module_launch_id, mi.module_program, ar.context_id, ar.link_id, reg.registration_id
                 FROM {$p}learn_auto_reg AS ar
                 INNER JOIN {$p}lti_user AS u ON ar.user_email = u.email
                 INNER JOIN {$p}learn_module_instance AS mi ON ar.instance_id = mi.instance_id
@@ -395,6 +395,7 @@ class LessonsOrchestrator
             $userId = $row['user_id'];
             $instanceId = $row['instance_id'];
             $moduleLaunchId = $row['module_launch_id'];
+            $moduleProgram = $row['module_program'];
             $regId = $row['registration_id'];
 
             if (isset($regId)) {
@@ -405,9 +406,9 @@ class LessonsOrchestrator
                 $PDOX->queryDie($query, $arr);
             } else {
                 // Record doesn't exist, create it
-                $query = "INSERT INTO {$p}learn_registration (user_id, context_id, link_id, module_launch_id, instance_id, attendance_status)
-                VALUES (:userId, :contextId, :linkId, :moduleLaunchId, :instanceId, :attendanceStatus);";
-                $arr = array(':userId' => $userId, ':contextId' => $contextId, ':linkId' => $linkId, ':moduleLaunchId' => $moduleLaunchId, ':instanceId' => $instanceId, ':attendanceStatus' => 'ATTENDED');
+                $query = "INSERT INTO {$p}learn_registration (user_id, context_id, link_id, module_launch_id, module_program, instance_id, attendance_status)
+                VALUES (:userId, :contextId, :linkId, :moduleLaunchId, :moduleProgram, :instanceId, :attendanceStatus);";
+                $arr = array(':userId' => $userId, ':contextId' => $contextId, ':linkId' => $linkId, ':moduleLaunchId' => $moduleLaunchId, ':moduleProgram'=>$moduleProgram, ':instanceId' => $instanceId, ':attendanceStatus' => 'ATTENDED');
                 $PDOX->queryDie($query, $arr);
             }
         }
