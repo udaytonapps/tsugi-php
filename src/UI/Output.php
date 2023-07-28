@@ -1005,8 +1005,10 @@ $('a').each(function (x) {
         if ( $set->home ) {
             $retval .= '      <a class="navbar-brand mb-0 h1" href="'.$set->home->href.'">'.$set->home->link.'</a>'."\n";
         }
-        // The All Sessions Mega-Menu
-        $retval .= LessonsUIHelper::renderMegaMenuOptions();
+        // The All Sessions Mega-Menu only render if there are other links besides "home"
+        if (($set->left && count($set->left->menu) > 0) || ($set->right && count($set->right->menu) > 0)) {
+            $retval .= LessonsUIHelper::renderMegaMenuOptions();
+        }
         $retval .= '<button type="button" class="navbar-toggler"
                                 data-mdb-toggle="collapse"
                                 data-mdb-target="#navbarNav"
