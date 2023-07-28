@@ -120,7 +120,7 @@ abstract class CourseBase
             if (!isset($CFG->badge_url) || $kind != 'success') {
                 $img = $CFG->badge_url . '/not-earned.png';
             } else {
-                $img = $adapter->contextRoot . '/assets/bimages/' . $badge->image;
+                $img = $CFG->badge_url . '/' . $badge->image;
                 $badge->img = $img;
                 $awarded[] = $badge;
             }
