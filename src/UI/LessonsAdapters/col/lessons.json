@@ -3363,8 +3363,10 @@
       ]
     },
     {
+      "session": "Isidore",
       "title": "Isidore Help Lab",
       "anchor": "isidore-help-lab",
+      "icon": "fa-desktop",
       "duration": "1hr",
       "calendar": "Aug.",
       "description": "During these virtual drop-in hours, our support team will be on hand to answer any questions you have about Isidore as you prep your class for the upcoming semester.",
@@ -3403,6 +3405,7 @@
       "session": "Isidore",
       "title": "Tools for Teaching: Lightning Round",
       "anchor": "tools-for-teaching",
+      "icon": "fa-desktop",
       "duration": "1hr",
       "calendar": "Aug. / Nov.",
       "featured": "true",
