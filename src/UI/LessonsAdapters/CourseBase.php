@@ -2,7 +2,7 @@
 
 use Tsugi\Grades\GradeUtil;
 use Tsugi\UI\LessonsOrchestrator;
-
+use \Tsugi\Crypt\AesOpenSSL;
 abstract class CourseBase
 {
     public string $category;
@@ -120,8 +120,11 @@ abstract class CourseBase
             if (!isset($CFG->badge_url) || $kind != 'success') {
                 $img = $CFG->badge_url . '/not-earned.png';
             } else {
-                $img = $CFG->badge_url . '/' . $badge->image;
-                $badge->img = $img;
+                $code = basename($badge->image,'.png');
+                $decrypted = $_SESSION['id'] . ':' . $code . ':' . $_SESSION['context_id'];
+                $encrypted = bin2hex(AesOpenSSL::encrypt($decrypted, $CFG->badge_encrypt_password));
+                $img = $CFG->wwwroot.'/badges/images/'.$encrypted.'.png';
+                $badge->img = $CFG->wwwroot.'/badges/images/'.$encrypted.'.png';
                 $awarded[] = $badge;
             }
 
