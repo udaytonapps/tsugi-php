@@ -177,11 +177,11 @@ abstract class CourseBase
         <div class="container pb-4">
             <h1><?= $adapter->course->title ?></h1>
             <ul class="nav nav-tabs mb-3" id="badgeadmin" role="tablist">
-                <li class="nav-item" role="presentation"><a class="nav-link active" href="#badgeadmin-by-badge" data-mdb-toggle="tab" aria-controls="badgeadmin-by-badge" aria-selected="true">By Badge</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="#badgeadmin-by-user" data-mdb-toggle="tab" aria-controls="badgeadmin-by-user" aria-selected="false">By User</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="#badgeadmin-by-badge-<?= $adapter->category ?>" data-mdb-toggle="tab" aria-controls="badgeadmin-by-badge-<?= $adapter->category ?>" aria-selected="true">By Badge</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#badgeadmin-by-user-<?= $adapter->category ?>" data-mdb-toggle="tab" aria-controls="badgeadmin-by-user-<?= $adapter->category ?>" aria-selected="false">By User</a></li>
             </ul>
             <div id="badgeadmin-content" class="tab-content">
-                <div class="tab-pane fade show active" id="badgeadmin-by-badge" role="tabpanel" aria-labelledby="badgeadmin-by-badge">
+                <div class="tab-pane fade show active" id="badgeadmin-by-badge-<?= $adapter->category ?>" role="tabpanel" aria-labelledby="badgeadmin-by-badge-<?= $adapter->category ?>">
                     <?php
                     echo ('<div class="row d-flex flex-wrap justify-content-center">' . "\n");
                     foreach ($adapter->course->badges as $badge) {
@@ -278,7 +278,7 @@ abstract class CourseBase
                     echo ('</div>' . "\n");
                     ?>
                 </div>
-                <div class="tab-pane fade" id="badgeadmin-by-user" role="tabpanel" aria-labelledby="badgeadmin-by-user">
+                <div class="tab-pane fade" id="badgeadmin-by-user-<?= $adapter->category ?>" role="tabpanel" aria-labelledby="badgeadmin-by-user-<?= $adapter->category ?>">
                     <h3>By User Page</h3>
                     <table class="table">
                         <thead>
