@@ -11,12 +11,17 @@
 #}
 <div class="d-flex flex-wrap border-bottom mb-2" data-tags="{{card.moduleMetadata.status}} {{card.moduletype}} allModes allPrograms">
 	<div class="p-2 flex-grow-1">
-		{% if card.module.session %}
+		{% if card.module.session or card.module.category %}
 			<p class="pb-1 mb-0 small">
 				{% if card.module.icon %}
 					<i class="fa {{card.module.icon}} pe-1" aria-hidden="true"></i>
 				{% endif %}
-				{{card.module.session}}
+				{% if card.module.session %}
+					{{card.module.session}}
+				{% endif %}
+				{% if card.module.category %}
+					{{card.module.category}}
+				{% endif %}
 			</p>
 		{% endif %}
 		<h5 class="fw-normal">

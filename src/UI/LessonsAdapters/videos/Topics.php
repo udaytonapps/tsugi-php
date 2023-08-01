@@ -463,23 +463,23 @@ class Topics extends CourseBase
             echo $twig->render('breadcrumbs.twig', [
                 'breadcrumbs' => $this->getBreadcrumbs(),
             ]);
-            echo ('<div class="topics-content" style="padding-bottom: 60px;">');
-            echo ('<h2><small class="text-muted" style="font-weight:300;">' . $topic->category . '</small></h1>');
-            echo ('<h1 property="oer:name" style="font-weight:500;line-height: 2.64rem;margin: .795rem 0;">' . $topic->title . "</h1>\n");
+            echo ('<div class="topics-content">');
+            echo ('<h4>' . $topic->category . '</h4>');
+            echo ('<h1 property="oer:name">' . $topic->title . "</h1>\n");
             $topicnurl = $CFG->apphome . U::get_rest_path();
             if ($nostyle) {
                 self::nostyleUrl($topic->title, $topicnurl);
                 echo ("<hr/>\n");
             }
             if (isset($topic->authors) && count($topic->authors) > 0) {
-                echo '<h5 style="font-weight:500;margin-top:0;" class="text-muted">' . $this->formatAuthors($topic->authors, true) . '</h5>';
+                echo '<ul class="list-group">' . $this->formatAuthors($topic->authors, true) . '</ul>';
             }
             ?>
             <div class="row">
                 <div class="col-lg-9 col-md-10 col-sm-11">
                     <?php
                     if (isset($topic->content)) {
-                        echo ('<p style="font-size: 1.26rem;font-weight:300;margin-top:0.613rem;">' . $topic->content . '</p>');
+                        echo ('<p>' . $topic->content . '</p>');
                     }
                     if (isset($topic->videos)) {
                         $videos = $topic->videos;
@@ -935,9 +935,9 @@ class Topics extends CourseBase
                     $url = $this->getFacilitatorUrl($authors[0]);
                     // If there's only one author, return their name (and title, if applicable)
                     if ($withTitle) {
-                        return 'By <a href="' . $url . '">' . $authors[0]['displayname'] . '</a> - ' . $authors[0]['title'];
+                        return '<li class="list-group-item"><a href="' . $url . '">' . $authors[0]['displayname'] . '</a> - ' . $authors[0]['title'] . '</li>';
                     } else {
-                        return 'By <a href="' . $url . '">' . $authors[0]['displayname'] . '</a>';
+                        return '<li class="list-group-item"><a href="' . $url . '">' . $authors[0]['displayname'] . '</a></li>';
                     }
                 } else {
                     return '';
@@ -950,19 +950,17 @@ class Topics extends CourseBase
                     $url = $this->getFacilitatorUrl($author);
                     // This will return a new array containing all the author names and their titles
                     if ($author && $author['displayname'] && $author['title']) {
-                        return '<a href="' . $url . '">' . $author['displayname'] . '</a> - ' . $author['title'];
+                        return '<li class="list-group-item"><a href="' . $url . '">' . $author['displayname'] . '</a> - ' . $author['title'] . '</li>';
                     } else {
-                        return '<a href="' . $url . '">' . $author['displayname'] . '</a>';
+                        return '<li class="list-group-item"><a href="' . $url . '">' . $author['displayname'] . '</a></li>';
                     }
                 } else {
                     return '';
                 }
             }, $authors);
 
-            $lastAuthor = array_pop($namesAndTitles); // Extract the last author, including their title
-
             // Join all names with a comma, and append the last author with 'and'
-            return 'By ' . implode(', ', $namesAndTitles) . ' and ' . $lastAuthor;
+            return implode($namesAndTitles);
         }
 
         private function getFacilitatorUrl($author)
