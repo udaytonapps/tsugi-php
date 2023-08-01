@@ -466,7 +466,7 @@ class Topics extends CourseBase
                 echo ("<hr/>\n");
             }
             if (isset($topic->authors) && count($topic->authors) > 0) {
-                echo '<ul class="list-group my-3">' . $this->formatAuthors($topic->authors, true) . '</ul>';
+                echo '<ul class="list-group list-group-light list-group-small mb-4" style="margin-left:calc(1.25em + 11px);">' . $this->formatAuthors($topic->authors, true) . '</ul>';
             }
             ?>
             <div class="row">
@@ -922,31 +922,15 @@ class Topics extends CourseBase
 
         private function formatAuthors($authors, $withTitle = false)
         {
-            $numAuthors = count($authors);
-
-            if ($numAuthors == 1) {
-                if ($authors[0] && $authors[0]['displayname'] && $authors[0]['title']) {
-                    $url = $this->getFacilitatorUrl($authors[0]);
-                    // If there's only one author, return their name (and title, if applicable)
-                    if ($withTitle) {
-                        return '<li class="list-group-item"><h5 class="mb-0"><a href="' . $url . '">' . $authors[0]['displayname'] . '</a></h5>' . $authors[0]['title'] . '</li>';
-                    } else {
-                        return '<li class="list-group-item"><h5 class="mb-0"><a href="' . $url . '">' . $authors[0]['displayname'] . '</a></h5></li>';
-                    }
-                } else {
-                    return '';
-                }
-            }
-
             $namesAndTitles = array_map(function ($author) {
 
                 if ($author && $author['displayname'] && $author['title']) {
                     $url = $this->getFacilitatorUrl($author);
                     // This will return a new array containing all the author names and their titles
                     if ($author && $author['displayname'] && $author['title']) {
-                        return '<li class="list-group-item"><h5 class="mb-0"><a href="' . $url . '">' . $author['displayname'] . '</a></h5>' . $author['title'] . '</li>';
+                        return '<li class="list-group-item d-flex align-items-center"><div class="image-container"><img class="profile" src="'.$author["image_url"].'" alt="'.$author["displayname"].'"/></div><div class="ms-3"><h5 class="fw-normal mb-1"><a href="'.$url.'">'.$author["displayname"].'</a></h5><p class="text-muted mb-0">'.$author['title'].'</p></div></li>';
                     } else {
-                        return '<li class="list-group-item"><h5 class="mb-0"><a href="' . $url . '">' . $author['displayname'] . '</a></h5></li>';
+                        return '<li class="list-group-item d-flex align-items-center"><div class="image-container"><img class="profile" src="'.$author["image_url"].'" alt="'.$author["displayname"].'"/></div><div class="ms-3"><h5 class="fw-normal mb-1"><a href="'.$url.'">'.$author["displayname"].'</a></h5><p class="text-muted mb-0"></p></div></li>';
                     }
                 } else {
                     return '';
