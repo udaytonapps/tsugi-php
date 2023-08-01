@@ -1006,7 +1006,7 @@ $('a').each(function (x) {
             $retval .= '      <a class="navbar-brand mb-0 h1" href="'.$set->home->href.'">'.$set->home->link.'</a>'."\n";
         }
         // The All Sessions Mega-Menu only render if there are other links besides "home"
-        if (($set->left && count($set->left->menu) > 0) || ($set->right && count($set->right->menu) > 0)) {
+        if (!$is_tool_menu && (($set->left && count($set->left->menu) > 0) || ($set->right && count($set->right->menu) > 0))) {
             $retval .= LessonsUIHelper::renderMegaMenuOptions();
         }
         $retval .= '<button type="button" class="navbar-toggler"
