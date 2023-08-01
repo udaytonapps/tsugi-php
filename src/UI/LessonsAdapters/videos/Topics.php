@@ -944,7 +944,7 @@ class Topics extends CourseBase
                     $url = $this->getFacilitatorUrl($author);
                     // This will return a new array containing all the author names and their titles
                     if ($author && $author['displayname'] && $author['title']) {
-                        return '<li class="list-group-item"><h5 class="mb-0"<a href="' . $url . '">' . $author['displayname'] . '</a></h5>' . $author['title'] . '</li>';
+                        return '<li class="list-group-item"><h5 class="mb-0"><a href="' . $url . '">' . $author['displayname'] . '</a></h5>' . $author['title'] . '</li>';
                     } else {
                         return '<li class="list-group-item"><h5 class="mb-0"><a href="' . $url . '">' . $author['displayname'] . '</a></h5></li>';
                     }
