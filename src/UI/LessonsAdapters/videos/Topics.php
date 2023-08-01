@@ -342,6 +342,24 @@ class Topics extends CourseBase
                 line-height: 1.5rem;
                 overflow: hidden;
             }
+
+            img.profile {
+                width: 100%;
+                height: auto;
+                min-height: 70px;
+            }
+
+            .image-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 70px;
+                height: 70px;
+                min-width: 70px;
+                min-height: 70px;
+                border-radius: 50%;
+                overflow: hidden;
+            }
         </style>
         <?php
         $ob_output = ob_get_contents();
