@@ -1051,11 +1051,11 @@ $('a').each(function (x) {
 
         if ( $set->right && count($set->right->menu) > 0 ) {
             $retval .= '      <ul class="navbar-nav ms-auto">'."\n";
-            if (isInstructor()) {
-                $retval .= LessonsUIHelper::renderQRCodeLink();
-            }
             foreach($set->right->menu as $entry) {
                 $retval .= $this->recurseNav($entry, 2, $is_tool_menu);
+            }
+            if (isInstructor()) {
+                $retval .= LessonsUIHelper::renderQRCodeLink();
             }
             $retval .= "      </ul>\n";
         }
