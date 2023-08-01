@@ -466,7 +466,7 @@ class Topics extends CourseBase
                 echo ("<hr/>\n");
             }
             if (isset($topic->authors) && count($topic->authors) > 0) {
-                echo '<ul class="list-group">' . $this->formatAuthors($topic->authors, true) . '</ul>';
+                echo '<h5>Video Authors</h5><ul class="list-group my-4 list-group-flush">' . $this->formatAuthors($topic->authors, true) . '</ul>';
             }
             ?>
             <div class="row">
@@ -505,7 +505,7 @@ class Topics extends CourseBase
                     echo ('<div class="panel panel-info">
                 <div class="panel-heading"><h4 class="panel-title">' . $topic->references->header . '</h4></div>
                 <div class="panel-body">');
-                    echo ('<h5>Video Authors</h5><ul class="list-group my-4 list-group-flush">');
+                    echo ('<ul class="list-group">');
                     foreach ($topic->references->links as $link) {
                         echo ('<li class="list-group-item" style="display:flex;align-items:start;">');
                         if (isset($link->icon)) {
