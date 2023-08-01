@@ -48,6 +48,14 @@ class LessonsUIHelper
         return ob_get_clean();
     }
 
+    public static function renderQRCodeLink()
+    {
+        global $CFG;
+        ob_start();
+        echo('<li><a href="javascript:void;" class="nav-link" data-mdb-toggle="modal" data-mdb-target="#qrmodal"><i class="fa fa-qrcode" aria-hidden="true"></i> QR Code</a></li>');
+        return ob_get_clean();
+    }
+
     public static function renderSessionCard($cardConfig)
     {
         global $CFG;

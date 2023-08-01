@@ -304,6 +304,22 @@ body {
 </head>
 <body prefix="oer: http://oerschema.org">
 <div id="body_container" style="position:relative;">
+    <!-- QR Modal -->
+    <div class="modal top fade" id="qrmodal" tabindex="-1" aria-labelledby="qrcodeModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+        <div class="modal-dialog   modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <p id="qr-link-title"></p>
+                    <div id="qr-code-container"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-primary" data-mdb-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 <?php
         if ( $checkpost && count($_POST) > 0 ) {
             $dump = self::safe_var_dump($_POST);
@@ -1032,6 +1048,9 @@ $('a').each(function (x) {
 
         if ( $set->right && count($set->right->menu) > 0 ) {
             $retval .= '      <ul class="navbar-nav ms-auto">'."\n";
+            if (isInstructor()) {
+                $retval .= LessonsUIHelper::renderQRCodeLink();
+            }
             foreach($set->right->menu as $entry) {
                 $retval .= $this->recurseNav($entry, 2, $is_tool_menu);
             }
