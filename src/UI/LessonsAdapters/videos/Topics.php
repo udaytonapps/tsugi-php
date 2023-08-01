@@ -466,7 +466,7 @@ class Topics extends CourseBase
                 echo ("<hr/>\n");
             }
             if (isset($topic->authors) && count($topic->authors) > 0) {
-                echo '<ul class="list-group mb-4 list-group-flush">' . $this->formatAuthors($topic->authors, true) . '</ul>';
+                echo '<ul class="list-group mb-2">' . $this->formatAuthors($topic->authors, true) . '</ul>';
             }
             ?>
             <div class="row">
@@ -929,9 +929,9 @@ class Topics extends CourseBase
                     $url = $this->getFacilitatorUrl($authors[0]);
                     // If there's only one author, return their name (and title, if applicable)
                     if ($withTitle) {
-                        return '<li class="list-group-item ps-0"><a href="' . $url . '">' . $authors[0]['displayname'] . '</a> - ' . $authors[0]['title'] . '</li>';
+                        return '<li class="list-group-item"><h5><a href="' . $url . '">' . $authors[0]['displayname'] . '</a></h5>' . $authors[0]['title'] . '</li>';
                     } else {
-                        return '<li class="list-group-item ps-0"><a href="' . $url . '">' . $authors[0]['displayname'] . '</a></li>';
+                        return '<li class="list-group-item"><h5><a href="' . $url . '">' . $authors[0]['displayname'] . '</a></h5></li>';
                     }
                 } else {
                     return '';
@@ -944,9 +944,9 @@ class Topics extends CourseBase
                     $url = $this->getFacilitatorUrl($author);
                     // This will return a new array containing all the author names and their titles
                     if ($author && $author['displayname'] && $author['title']) {
-                        return '<li class="list-group-item ps-0"><a href="' . $url . '">' . $author['displayname'] . '</a> - ' . $author['title'] . '</li>';
+                        return '<li class="list-group-item"><h5><a href="' . $url . '">' . $author['displayname'] . '</a></h5>' . $author['title'] . '</li>';
                     } else {
-                        return '<li class="list-group-item ps-0"><a href="' . $url . '">' . $author['displayname'] . '</a></li>';
+                        return '<li class="list-group-item"><h5><a href="' . $url . '">' . $author['displayname'] . '</a></h5></li>';
                     }
                 } else {
                     return '';
