@@ -174,6 +174,9 @@ class Output {
                   echo($CFG->extra_css."\n");
               }
               ?>
+              #qr-code-container > img {
+                  margin: 0 auto;
+              }
           </style>
 <?php // https://lefkomedia.com/adding-external-link-indicator-with-css/
   if ( $CFG->google_translate ) { ?>
