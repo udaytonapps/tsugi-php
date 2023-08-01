@@ -758,6 +758,7 @@ class LtiContent
         $this->description = $lti->description ?? null;
         $this->icon = $lti->icon ?? null;
         $this->title = $lti->title ?? null;
+        $this->assignmenttitle = $lti->assignmenttitle ?? null;
         $this->launch = $lti->launch ?? null;
         $this->external = $lti->external ?? null;
         $this->resource_link_id = $lti->resource_link_id ?? null;
