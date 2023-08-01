@@ -1054,7 +1054,7 @@ $('a').each(function (x) {
             foreach($set->right->menu as $entry) {
                 $retval .= $this->recurseNav($entry, 2, $is_tool_menu);
             }
-            if (isInstructor()) {
+            if (LessonsOrchestrator::isInstructor()) {
                 $retval .= LessonsUIHelper::renderQRCodeLink();
             }
             $retval .= "      </ul>\n";
