@@ -116,7 +116,7 @@
   ],
   "modules": [
     {
-      "session": "Core Session 1",
+      "session": "ATLS Core 1",
       "title": "Who Are Our Students?",
       "anchor": "core-1",
       "core": true,
@@ -137,7 +137,7 @@
       ],
       "discussions" : [
         {
-          "title" : "Core Session 1 - Who Are Our Students?",
+          "title" : "ATLS Core 1 - Who Are Our Students?",
           "launch" : "/mod/tdiscus/",
           "resource_link_id": "discuss-core-1"
         }
@@ -175,7 +175,7 @@
       ]
     },
     {
-      "session": "Core Session 2",
+      "session": "ATLS Core 2",
       "title": "Supporting Students In and Beyond the Classroom",
       "anchor": "core-2",
       "core": true,
@@ -199,7 +199,7 @@
       ],
       "discussions" : [
         {
-          "title" : "Core Session 2 - Supporting Students In and Beyond the Classroom",
+          "title" : "ATLS Core 2 - Supporting Students In and Beyond the Classroom",
           "launch" : "/mod/tdiscus/",
           "resource_link_id": "discuss-core-2"
         }
@@ -234,7 +234,7 @@
       ]
     },
     {
-      "session": "Core Session 3",
+      "session": "ATLS Core 3",
       "title": "Using Educational Technologies at UD to Support Learning",
       "anchor": "core-3",
       "core": true,
@@ -257,7 +257,7 @@
       ],
       "discussions" : [
         {
-          "title" : "Core Session 3 - Using Educational Technologies at UD to Support Learning",
+          "title" : "ATLS Core 3 - Using Educational Technologies at UD to Support Learning",
           "launch" : "/mod/tdiscus/",
           "resource_link_id": "discuss-core-3"
         }
@@ -287,7 +287,7 @@
       ]
     },
     {
-      "session": "Core Session 4",
+      "session": "ATLS Core 4",
       "title": "Driving Student Success",
       "anchor": "core-4",
       "core": true,
@@ -308,7 +308,7 @@
       ],
       "discussions" : [
         {
-          "title" : "Core Session 4 - Driving Student Success",
+          "title" : "ATLS Core 4 - Driving Student Success",
           "launch" : "/mod/tdiscus/",
           "resource_link_id": "discuss-core-4"
         }
@@ -338,7 +338,7 @@
       ]
     },
     {
-      "session": "Core Session 5",
+      "session": "ATLS Core 5",
       "title": "Engaging Students in a Learner-Centered Classroom",
       "anchor": "core-5",
       "core": true,
@@ -359,7 +359,7 @@
       ],
       "discussions" : [
         {
-          "title" : "Core Session 5 - Engaging Students in a Learner-Centered Classroom",
+          "title" : "ATLS Core 5 - Engaging Students in a Learner-Centered Classroom",
           "launch" : "/mod/tdiscus/",
           "resource_link_id": "discuss-core-5"
         }
@@ -382,7 +382,7 @@
       ]
     },
     {
-      "session": "Core Session 6",
+      "session": "ATLS Core 6",
       "title": "How Do You Know If Students Are Learning?",
       "anchor": "core-6",
       "core": true,
@@ -404,7 +404,7 @@
       ],
       "discussions" : [
         {
-          "title" : "Core Session 6 - How Do You Know If Students Are Learning?",
+          "title" : "ATLS Core 6 - How Do You Know If Students Are Learning?",
           "launch" : "/mod/tdiscus/",
           "resource_link_id": "discuss-core-6"
         }
@@ -427,7 +427,7 @@
       ]
     },
     {
-      "session": "Core Session 7",
+      "session": "ATLS Core 7",
       "title": "Inclusive Pedagogy",
       "anchor": "core-7",
       "core": true,
@@ -449,7 +449,7 @@
       ],
       "discussions" : [
         {
-          "title" : "Core Session 7 - Inclusive Pedagogy",
+          "title" : "ATLS Core 7 - Inclusive Pedagogy",
           "launch" : "/mod/tdiscus/",
           "resource_link_id": "discuss-core-7"
         }
@@ -472,7 +472,7 @@
       ]
     },
     {
-      "session": "Core Session 8",
+      "session": "ATLS Core 8",
       "title": "Why Do We Teach?",
       "anchor": "core-8",
       "core": true,
@@ -493,7 +493,7 @@
       ],
       "discussions" : [
         {
-          "title" : "Core Session 8 - Why Do We Teach?",
+          "title" : "ATLS Core 8 - Why Do We Teach?",
           "launch" : "/mod/tdiscus/",
           "resource_link_id": "discuss-core-8"
         }
