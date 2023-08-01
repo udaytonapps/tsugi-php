@@ -15,7 +15,7 @@
 			<select class="form-control me-2" name="filter01" id="filter01" onchange="hideshow(this.value,'status')">
 				<option value="allPrograms" selected="selected">All Modules</option>
 				<option value="IN_PROGRESS">In Progress/Registered</option>
-				<option value="COMPLETED">Completed</option>
+				<option value="COMPLETE">Completed</option>
 			</select>
 			<select class="form-control" name="filter02" id="filter02" onchange="hideshow(this.value,'mode')">
 				<option value="allModes" selected="selected">Any Mode</option>
@@ -56,23 +56,28 @@
 	{% endfor %}
 </div>
 <script>
-	function hideshow(showname,type) {
-		let allcards = $("div[data-tags*='allPrograms']");
-		allcards.addClass('d-none');
-		allcards.attr('aria-hidden','true');
-		if(type==='status'){
-			$('#filtertitle').attr('data-statusfilter',showname);
+	function hideshow(showname, type) {
+		let allcards = document.querySelectorAll("div[data-tags*='allPrograms']");
+		allcards.forEach(card => {
+			card.classList.add('d-none');
+			card.setAttribute('aria-hidden', 'true');
+		});
+		if(type === 'status') {
+			document.getElementById('filtertitle').setAttribute('data-statusfilter', showname);
 		} else {
-			$('#filtertitle').attr('data-modefilter',showname);
+			document.getElementById('filtertitle').setAttribute('data-modefilter', showname);
 		}
-		let statusfilter = $('#filtertitle').attr('data-statusfilter');
-		let modefilter = $('#filtertitle').attr('data-modefilter');
-		allcards.each(function(index){
-			if($(this).attr('data-tags').indexOf(statusfilter)!=-1 && $(this).attr('data-tags').indexOf(modefilter)!=-1){
-				$(this).removeClass('d-none');
-				$(this).removeAttr('aria-hidden');
+		let statusfilter = document.getElementById('filtertitle').getAttribute('data-statusfilter');
+		let modefilter = document.getElementById('filtertitle').getAttribute('data-modefilter');
+		allcards.forEach(card => {
+			if(card.getAttribute('data-tags').includes(statusfilter) && card.getAttribute('data-tags').includes(modefilter)){
+				card.classList.remove('d-none');
+				card.removeAttribute('aria-hidden');
 			}
 		});
-		$(".collapse").addClass("show");
+		let collapseElements = document.querySelectorAll(".collapse");
+		collapseElements.forEach(element => {
+			element.classList.add("show");
+		});
 	}
 </script>
