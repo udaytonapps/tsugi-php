@@ -240,12 +240,6 @@ class Topics extends CourseBase
                 /* adjust as needed, taken from bootstrap.css */
             }
 
-            .list-group-item {
-                border: none;
-                padding-top: 4px;
-                padding-bottom: 4px;
-            }
-
             .navbar-inverse .nav>li>a.disabled,
             .navbar-inverse .nav>li>a.disabled:hover {
                 cursor: not-allowed;
@@ -493,11 +487,11 @@ class Topics extends CourseBase
                                     $OUTPUT->embedYouTube($video->youtube, $video->title);
                                 }
                             } else if (isset($video->warpwire)) {
-                                echo '<div class="videoWrapper">';
+                                echo '<div class="videoWrapper shadow">';
                                 echo ('<iframe src="https://udayton.warpwire.com/w/' . $video->warpwire . '/?share=0&title=0" frameborder="0" scrolling="0" allow="autoplay; encrypted-media; fullscreen;  picture-in-picture;" allowfullscreen></iframe>');
                                 echo '</div>';
                             } else {
-                                echo '<div class="videoWrapper">';
+                                echo '<div class="videoWrapper shadow">';
                                 echo ($video->embed);
                                 echo '</div>';
                             }
@@ -547,7 +541,7 @@ class Topics extends CourseBase
                             $launch_path = $rest_path->parent . '/' . $rest_path->controller . '_launch/' . $lti->resource_link_id;
                             $title = isset($lti->title) ? $lti->title : $topic->title;
                         ?>
-                            <div class="videoWrapper">
+                            <div class="videoWrapper shadow">
                                 <iframe src="<?= $launch_path ?>" style="border:none;width:100%;"></iframe>
                             </div>
                     <?php
