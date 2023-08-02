@@ -409,12 +409,12 @@ body {
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span class="fa fa-times" aria-hidden="true"></span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title">$title</h4>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal"><span class="sr-only">Close</span></button>
             </div>
             <div class="modal-body">$msg</div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-mdb-dismiss="modal">Close</button>
             </div>
         </div>
 
@@ -431,7 +431,7 @@ EOF;
     }
     
     function helpButton() {
-        $button = '<button id="helpButton" type="button" class="btn btn-link pull-right" data-toggle="modal" data-target="#helpModal"><span class="fas fa-question-circle" aria-hidden="true"></span> Help</button>';
+        $button = '<button id="helpButton" type="button" class="btn btn-link float-end" data-mdb-toggle="modal" data-mdb-target="#helpModal"><span class="fas fa-question-circle" aria-hidden="true"></span> Help</button>';
         if ( $this->buffer ) return $button;
         echo($button);
     }
