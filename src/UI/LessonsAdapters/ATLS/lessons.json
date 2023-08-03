@@ -156,14 +156,6 @@
           "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-1&view=FEEDBACK",
           "resource_link_id" : "feedback-core-1",
           "type": "FEEDBACK"
-        },
-        {
-          "title" : "Admin View",
-          "assignmenttitle": "Admin Only",
-          "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-1&view=ADMINISTRATION",
-          "resource_link_id" : "admin-core-1",
-          "type": "ADMINISTRATION",
-          "hidden": true
         }
       ],
       "resources" : [
