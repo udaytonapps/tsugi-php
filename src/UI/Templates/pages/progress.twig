@@ -44,7 +44,7 @@
 																<i class="fas fa-check-circle text-success" style="padding-right: 5px;"></i>
 															</a>
 														{% elseif grade > 0 %}
-															{% if lti.threshold %}
+															{% if lti.threshold is not null and lti.threshold is not empty %}
 																{% if grade < lti.threshold %}
 																	<a href="#" data-mdb-toggle="tooltip" title="In Progress">
 																		<i class="fas fa-minus-circle text-info" aria-hidden="true" style="padding-right: 5px;"></i>
