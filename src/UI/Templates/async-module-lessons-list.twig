@@ -82,9 +82,9 @@
 			{% if icon %}
 				{{icon | raw}}
 			{% elseif atLeastOneComplete and atLeastOneNotComplete == false %}
-				<i class="far fa-check-circle text-success progress-icon"></i>
+				<i class="fas fa-check-circle text-success progress-icon"></i>
 			{% elseif atLeastOneComplete %}
-				<i class="fas fa-spinner text-info progress-icon"></i>
+				<i class="fas fa-minus-circle text-info progress-icon"></i>
 			{% else %}
 				<i class="far fa-circle progress-icon"></i>
 			{% endif %}
@@ -107,13 +107,13 @@
 								{# A timestamp by default that indicates time accessed, otherwise null or 'LTI_FAILED' #}
 								{% set progressIndicator = attribute(moduleProgress, lessonPage.anchor) %}
 								{% if progressIndicator == 'LTI_FAILED' %}
-									<i class="fa fa-times-circle-o text-danger"></i>
+									<i class="fas fa-times-circle-o text-danger"></i>
 								{% elseif progressIndicator == 'LTI_UNATTEMPTED' %}
-									<i class="fas fa-spinner text-info"></i>
+									<i class="fas fa-minus-circle text-info"></i>
 								{% elseif progressIndicator %}
-									<i class="far fa-check-circle text-success"></i>
+									<i class="fas fa-check-circle text-success"></i>
 								{% elseif progressIndicator is not null %}
-									<i class="fas fa-spinner text-info"></i>
+									<i class="fas fa-minus-circle text-info"></i>
 								{% elseif progressIndicator is null %}
 									<i class="far fa-circle text-primary"></i>
 								{% endif %}
