@@ -33,11 +33,11 @@
       },
       {
         "async": true,
-        "title": "Best Practices to Build Multiple Choice Question",
+        "title": "Best Practices to Build Multiple Choice Questions",
         "description": "Multiple choice questions offer instructors a testing tool that is widely known and used, easy to administer, and painless to score.",
         "category": "Instructional Design",
         "thumbnail": "mc-best-practices.jpg",
-        "thumbnailalt": "Best Practices to Build Multiple Choice Question",
+        "thumbnailalt": "Best Practices to Build Multiple Choice Questions",
         "content": "Multiple choice questions offer instructors a testing tool that is widely known and used, easy to administer, and painless to score. However, not all multiple choice questions are inherently valuable assessment tools! This video will give some best practices for building quality questions and obtaining assessment data that is both valid and reliable.",
         "duration": "Est. 9 min",
         "author": "Hannah Jackson, Center for Online Learning",
@@ -47,7 +47,7 @@
         "anchor": "multiple-choice-best-practices",
         "videos": [
           {
-            "title": "Best Practices to Build Multiple Choice Question",
+            "title": "Best Practices to Build Multiple Choice Questions",
             "warpwire": "14sFAA"
           }
         ]
