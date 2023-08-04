@@ -125,6 +125,282 @@
   ],
   "modules": [
     {
+      "session": "Isidore",
+      "title": "Isidore Help Lab",
+      "anchor": "isidore-help-lab",
+      "icon": "fa-desktop",
+      "duration": "1hr",
+      "calendar": "Aug.",
+      "description": "During these virtual drop-in hours, our support team will be on hand to answer any questions you have about Isidore as you prep your class for the upcoming semester.",
+      "image": "/assets/isidore-help-lab.jpeg",
+      "imagealt": "A person sitting at a table and discussing something with another person.",
+      "facilitators": [
+        "lbergman1@udayton.edu",
+        "wmcclure1@udayton.edu"
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=col&session_id=isidore-help-lab&view=REGISTRATION",
+          "resource_link_id" : "reg-isidore-help-lab",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=col&session_id=isidore-help-lab&view=FEEDBACK",
+          "resource_link_id" : "feedback-isidore-help-lab",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=col&session_id=isidore-help-lab&view=ADMINISTRATION",
+          "resource_link_id" : "admin-isidore-help-lab",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "session": "Isidore",
+      "title": "Tools for Teaching: Lightning Round",
+      "anchor": "tools-for-teaching",
+      "icon": "fa-desktop",
+      "duration": "1hr",
+      "calendar": "Aug. / Nov.",
+      "description": "As you prepare your class for a new cohort of students, consider adding a tool or two to your pedagogical repertoire. In this fast-paced session, our instructional designers will cover 10 topics, each in 5 minutes. You’re sure to leave with something new to try!",
+      "image": "/assets/tools-for-teaching.jpeg",
+      "imagealt": "A person sitting an smiling at the camera with a classroom in the background.",
+      "facilitators": [
+        "pdagnall1@udayton.edu",
+        "stangeman1@udayton.edu"
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=col&session_id=tools-for-teaching&view=REGISTRATION",
+          "resource_link_id" : "reg-tools-for-teaching",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=col&session_id=tools-for-teaching&view=FEEDBACK",
+          "resource_link_id" : "feedback-tools-for-teaching",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=col&session_id=tools-for-teaching&view=ADMINISTRATION",
+          "resource_link_id" : "admin-tools-for-teaching",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "session": "ChatGPT 1",
+      "title": "Students are Cheating with ChatGPT. Now What?",
+      "anchor": "chat-gpt-1",
+      "icon": "fa-robot",
+      "duration": "1hr",
+      "calendar": "Sep.",
+      "description": "<p>It’s likely you’ve already encountered AI-generated writing in assignment submissions - or suspect they have. We’ll provide an overview of how these tools work and invite faculty to share your tales of woe and wisdom in dealing with ChatGPT over the past year.</p><p>AI writing tools are here for good (or ill). In this three-part series we’ll explore teaching in an AI world: How do natural language processing tools work? What do they mean for written assessment and academic honesty? How can we adapt our academic endeavors to capitalize on the benefits and minimize the risks?</p>",
+      "image": "/assets/chat-gpt-1.png",
+      "imagealt": "Young adults sitting in a group smiling on a porch.",
+      "facilitators": [
+        "pdagnall1@udayton.edu",
+        "stangeman1@udayton.edu",
+        "dwright1@udayton.edu"
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-1&view=REGISTRATION",
+          "resource_link_id" : "reg-chat-gpt-1",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-1&view=FEEDBACK",
+          "resource_link_id" : "feedback-chat-gpt-1",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-1&view=ADMINISTRATION",
+          "resource_link_id" : "admin-chat-gpt-1",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "session": "ChatGPT 2",
+      "title": "Are Written Assignments Dead?",
+      "anchor": "chat-gpt-2",
+      "icon": "fa-robot",
+      "duration": "1hr",
+      "calendar": "Oct.",
+      "description": "<p>Our instructional designers will share what the current research has to say about writing in an AI world. Together we’ll (re)think about creating and grading written assessments and consider some alternatives.</p><p>AI writing tools are here for good (or ill). In this three-part series we’ll explore teaching in an AI world: How do natural language processing tools work? What do they mean for written assessment and academic honesty? How can we adapt our academic endeavors to capitalize on the benefits and minimize the risks?</p>",
+      "image": "/assets/chat-gpt-2.jpeg",
+      "imagealt": "Three people looking at laptops sitting at the same table.",
+      "facilitators": [
+        "pdagnall1@udayton.edu",
+        "stangeman1@udayton.edu",
+        "dwright1@udayton.edu"
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-2&view=REGISTRATION",
+          "resource_link_id" : "reg-chat-gpt-2",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-2&view=FEEDBACK",
+          "resource_link_id" : "feedback-chat-gpt-2",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-2&view=ADMINISTRATION",
+          "resource_link_id" : "admin-chat-gpt-2",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "session": "ChatGPT 3",
+      "title": "Joining Forces with ChatGPT",
+      "anchor": "chat-gpt-3",
+      "icon": "fa-robot",
+      "duration": "1hr",
+      "calendar": "Nov.",
+      "description": "<p>If AI-generated writing isn’t going anywhere, how can we work in harmony with this powerful new tool? We’ll consider the ethics of AI-informed teaching, learning and scholarship; ways to prepare your course for AI; and strategies for using AI tools in ways that will benefit your students and research.</p><p>AI writing tools are here for good (or ill). In this three-part series we’ll explore teaching in an AI world: How do natural language processing tools work? What do they mean for written assessment and academic honesty? How can we adapt our academic endeavors to capitalize on the benefits and minimize the risks?</p>",
+      "image": "/assets/chat-gpt-3.jpeg",
+      "imagealt": "A person showing their laptop screen to another person.",
+      "facilitators": [
+        "pdagnall1@udayton.edu",
+        "stangeman1@udayton.edu",
+        "dwright1@udayton.edu"
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-3&view=REGISTRATION",
+          "resource_link_id" : "reg-chat-gpt-3",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-3&view=FEEDBACK",
+          "resource_link_id" : "feedback-chat-gpt-3",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-3&view=ADMINISTRATION",
+          "resource_link_id" : "admin-chat-gpt-3",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "session": "",
+      "title": "Backstage Tour: Media Studio",
+      "anchor": "tour-media-studio",
+      "duration": "1hr",
+      "calendar": "Oct.",
+      "description": "Come try out the LTC’s new video production lab and podcast studio and learn how you can take your teaching to the next level with media innovation.",
+      "image": "/assets/media.jpeg",
+      "imagealt": "A person looking at two computer monitors.",
+      "facilitators": [
+        "pdagnall1@udayton.edu",
+        "acurran1@udayton.edu"
+      ],
+      "learningoutcomes": [
+        "Be familiar with the video production lab and podcast studio",
+        "Understand the media resources that are available"
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=col&session_id=tour-media-studio&view=REGISTRATION",
+          "resource_link_id" : "reg-tour-media-studio",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=col&session_id=tour-media-studio&view=FEEDBACK",
+          "resource_link_id" : "feedback-tour-media-studio",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=col&session_id=tour-media-studio&view=ADMINISTRATION",
+          "resource_link_id" : "admin-tour-media-studio",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "title": "Mastering Slide Design: Impactful Visuals",
+      "anchor": "slide-workshop",
+      "duration": "1hr",
+      "calendar": "Sep.",
+      "description": "Truth? Most people are bad at slide design. But we don’t have to be. In this session we’ll look at statistically-backed best practices in slide design, including layout, font / color selection, and custom backgrounds. We’ll even look at some AI design options. Bring your laptop and a slide presentation you’d like to improve and practice as we go.",
+      "image": "/assets/slide-workshop.png",
+      "imagealt": "A teacher pointing to a screen in front of a class of young students.",
+      "facilitators": [
+        "stangeman1@udayton.edu"
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=col&session_id=slide-workshop&view=REGISTRATION",
+          "resource_link_id" : "reg-slide-workshop",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=col&session_id=slide-workshop&view=FEEDBACK",
+          "resource_link_id" : "feedback-slide-workshop",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=col&session_id=slide-workshop&view=ADMINISTRATION",
+          "resource_link_id" : "admin-slide-workshop",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
       "async": true,
       "title": "Isidore Onboarding",
       "duration": "Est. 45 min",
@@ -572,7 +848,7 @@
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                   "The Site Info tool allows you to add tools and manage participants in your Isidore course site. It provides other customizations and controls as well so you can make sure your site is dialed into your specifications."
+                    "The Site Info tool allows you to add tools and manage participants in your Isidore course site. It provides other customizations and controls as well so you can make sure your site is dialed into your specifications."
                   ]
                 },
                 {
@@ -712,7 +988,7 @@
         {
           "title": "Announcements Tool",
           "anchor": "onboarding-tools-announcements",
-          "icon": "fa-tools",        
+          "icon": "fa-tools",
           "pages": [
             {
               "title": "Announcements",
@@ -750,11 +1026,11 @@
                 {
                   "type": "LTI",
                   "lti": {
-                      "threshold": 1,
-                      "icon": "fa-list-ol",
-                      "title": "Quiz: Announcements",
-                      "launch": "/mod/learnquiz/index.php?quiz=101_announcements",
-                      "resource_link_id": "101_announcements"
+                    "threshold": 1,
+                    "icon": "fa-list-ol",
+                    "title": "Quiz: Announcements",
+                    "launch": "/mod/learnquiz/index.php?quiz=101_announcements",
+                    "resource_link_id": "101_announcements"
                   }
                 }
               ]
@@ -1102,7 +1378,7 @@
           "title": "Calendar Tool",
           "anchor": "onboarding-tools-calendar",
           "icon": "fa-tools",
-          "pages": [            
+          "pages": [
             {
               "title": "Calendar",
               "anchor": "onboarding-essential-tools-calendar",
@@ -1600,7 +1876,7 @@
                     "<h5>How detailed should I be when writing alt text for an image?</h5>",
                     "Be brief, but be sure to describe the essential elements of the image. If the graphic is supposed to make the audience think or feel something, be sure your alt text leads that direction.",
                     "<h5>Should I always start with H1?</h5>",
-                    "This gets tricky. The main thing is that you use header tags. That's 99% of the battle. Often Isidore has existing headers already in place. In most cases in Isidore, it's recommended you start with H2."                   
+                    "This gets tricky. The main thing is that you use header tags. That's 99% of the battle. Often Isidore has existing headers already in place. In most cases in Isidore, it's recommended you start with H2."
                   ]
                 }
               ]
@@ -1611,7 +1887,7 @@
               "contents": [
                 {
                   "type": "TEXT",
-                  "paragraphs": [                  
+                  "paragraphs": [
                     "The Center for Online Learning has invited expert screen-reader users to evaluate Isidore. Additionally, Isidore is based on the open source LMS Sakai, which has accessibility as crucial foundation of the software."
                   ]
                 }
@@ -1771,7 +2047,7 @@
               "contents": [
                 {
                   "type": "TEXT",
-                  "paragraphs": [                  
+                  "paragraphs": [
                     "Warpwire videos can actually be searched. For example, if you wanted to search a video for the moment the speaker says the word, 'Malaysia', you just click the search icon type 'Malaysia'. This is possible due to the presence of captions."
                   ]
                 }
@@ -3196,285 +3472,6 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "session": "",
-      "title": "Backstage Tour: Media Studio",
-      "anchor": "tour-media-studio",
-      "icon": "fa-medal",
-      "duration": "1hr",
-      "calendar": "Oct.",
-      "description": "Come try out the LTC’s new video production lab and podcast studio and learn how you can take your teaching to the next level with media innovation.",
-      "image": "/assets/media.jpeg",
-      "imagealt": "A person looking at two computer monitors.",
-      "facilitators": [
-        "pdagnall1@udayton.edu",
-        "acurran1@udayton.edu"
-      ],
-      "learningoutcomes": [
-        "Be familiar with the video production lab and podcast studio",
-        "Understand the media resources that are available"
-      ],
-      "lti" : [
-        {
-          "title" : "Register",
-          "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?program=col&session_id=tour-media-studio&view=REGISTRATION",
-          "resource_link_id" : "reg-tour-media-studio",
-          "type": "REGISTRATION"
-        },
-        {
-          "title" : "Provide Feedback",
-          "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?program=col&session_id=tour-media-studio&view=FEEDBACK",
-          "resource_link_id" : "feedback-tour-media-studio",
-          "type": "FEEDBACK"
-        },
-        {
-          "title" : "Admin View",
-          "assignmenttitle": "Admin Only",
-          "launch" : "/mod/learn-registration/?program=col&session_id=tour-media-studio&view=ADMINISTRATION",
-          "resource_link_id" : "admin-tour-media-studio",
-          "type": "ADMINISTRATION",
-          "hidden": true
-        }
-      ]
-    },
-    {
-      "session": "ChatGPT 1",
-      "title": "Students are Cheating with ChatGPT. Now What?",
-      "anchor": "chat-gpt-1",
-      "icon": "fa-robot",
-      "duration": "1hr",
-      "calendar": "Sep.",
-      "description": "<p>It’s likely you’ve already encountered AI-generated writing in assignment submissions - or suspect they have. We’ll provide an overview of how these tools work and invite faculty to share your tales of woe and wisdom in dealing with ChatGPT over the past year.</p><p>AI writing tools are here for good (or ill). In this three-part series we’ll explore teaching in an AI world: How do natural language processing tools work? What do they mean for written assessment and academic honesty? How can we adapt our academic endeavors to capitalize on the benefits and minimize the risks?</p>",
-      "image": "/assets/chat-gpt-1.png",
-      "imagealt": "Young adults sitting in a group smiling on a porch.",
-      "facilitators": [
-        "pdagnall1@udayton.edu",
-        "stangeman1@udayton.edu",
-        "dwright1@udayton.edu"
-      ],
-      "lti" : [
-        {
-          "title" : "Register",
-          "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-1&view=REGISTRATION",
-          "resource_link_id" : "reg-chat-gpt-1",
-          "type": "REGISTRATION"
-        },
-        {
-          "title" : "Provide Feedback",
-          "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-1&view=FEEDBACK",
-          "resource_link_id" : "feedback-chat-gpt-1",
-          "type": "FEEDBACK"
-        },
-        {
-          "title" : "Admin View",
-          "assignmenttitle": "Admin Only",
-          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-1&view=ADMINISTRATION",
-          "resource_link_id" : "admin-chat-gpt-1",
-          "type": "ADMINISTRATION",
-          "hidden": true
-        }
-      ]
-    },
-    {
-      "session": "ChatGPT 2",
-      "title": "Are Written Assignments Dead?",
-      "anchor": "chat-gpt-2",
-      "icon": "fa-robot",
-      "duration": "1hr",
-      "calendar": "Oct.",
-      "description": "<p>Our instructional designers will share what the current research has to say about writing in an AI world. Together we’ll (re)think about creating and grading written assessments and consider some alternatives.</p><p>AI writing tools are here for good (or ill). In this three-part series we’ll explore teaching in an AI world: How do natural language processing tools work? What do they mean for written assessment and academic honesty? How can we adapt our academic endeavors to capitalize on the benefits and minimize the risks?</p>",
-      "image": "/assets/chat-gpt-2.jpeg",
-      "imagealt": "Three people looking at laptops sitting at the same table.",
-      "facilitators": [
-        "pdagnall1@udayton.edu",
-        "stangeman1@udayton.edu",
-        "dwright1@udayton.edu"
-      ],
-      "lti" : [
-        {
-          "title" : "Register",
-          "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-2&view=REGISTRATION",
-          "resource_link_id" : "reg-chat-gpt-2",
-          "type": "REGISTRATION"
-        },
-        {
-          "title" : "Provide Feedback",
-          "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-2&view=FEEDBACK",
-          "resource_link_id" : "feedback-chat-gpt-2",
-          "type": "FEEDBACK"
-        },
-        {
-          "title" : "Admin View",
-          "assignmenttitle": "Admin Only",
-          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-2&view=ADMINISTRATION",
-          "resource_link_id" : "admin-chat-gpt-2",
-          "type": "ADMINISTRATION",
-          "hidden": true
-        }
-      ]
-    },
-    {
-      "session": "ChatGPT 3",
-      "title": "Joining Forces with ChatGPT",
-      "anchor": "chat-gpt-3",
-      "icon": "fa-robot",
-      "duration": "1hr",
-      "calendar": "Nov.",
-      "description": "<p>If AI-generated writing isn’t going anywhere, how can we work in harmony with this powerful new tool? We’ll consider the ethics of AI-informed teaching, learning and scholarship; ways to prepare your course for AI; and strategies for using AI tools in ways that will benefit your students and research.</p><p>AI writing tools are here for good (or ill). In this three-part series we’ll explore teaching in an AI world: How do natural language processing tools work? What do they mean for written assessment and academic honesty? How can we adapt our academic endeavors to capitalize on the benefits and minimize the risks?</p>",
-      "image": "/assets/chat-gpt-3.jpeg",
-      "imagealt": "A person showing their laptop screen to another person.",
-      "facilitators": [
-        "pdagnall1@udayton.edu",
-        "stangeman1@udayton.edu",
-        "dwright1@udayton.edu"
-      ],
-      "lti" : [
-        {
-          "title" : "Register",
-          "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-3&view=REGISTRATION",
-          "resource_link_id" : "reg-chat-gpt-3",
-          "type": "REGISTRATION"
-        },
-        {
-          "title" : "Provide Feedback",
-          "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-3&view=FEEDBACK",
-          "resource_link_id" : "feedback-chat-gpt-3",
-          "type": "FEEDBACK"
-        },
-        {
-          "title" : "Admin View",
-          "assignmenttitle": "Admin Only",
-          "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-3&view=ADMINISTRATION",
-          "resource_link_id" : "admin-chat-gpt-3",
-          "type": "ADMINISTRATION",
-          "hidden": true
-        }
-      ]
-    },
-    {
-      "session": "Isidore",
-      "title": "Isidore Help Lab",
-      "anchor": "isidore-help-lab",
-      "icon": "fa-desktop",
-      "duration": "1hr",
-      "calendar": "Aug.",
-      "description": "During these virtual drop-in hours, our support team will be on hand to answer any questions you have about Isidore as you prep your class for the upcoming semester.",
-      "image": "/assets/isidore-help-lab.jpeg",
-      "imagealt": "A person sitting at a table and discussing something with another person.",
-      "facilitators": [
-        "lbergman1@udayton.edu",
-        "wmcclure1@udayton.edu"
-      ],
-      "lti" : [
-        {
-          "title" : "Register",
-          "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?program=col&session_id=isidore-help-lab&view=REGISTRATION",
-          "resource_link_id" : "reg-isidore-help-lab",
-          "type": "REGISTRATION"
-        },
-        {
-          "title" : "Provide Feedback",
-          "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?program=col&session_id=isidore-help-lab&view=FEEDBACK",
-          "resource_link_id" : "feedback-isidore-help-lab",
-          "type": "FEEDBACK"
-        },
-        {
-          "title" : "Admin View",
-          "assignmenttitle": "Admin Only",
-          "launch" : "/mod/learn-registration/?program=col&session_id=isidore-help-lab&view=ADMINISTRATION",
-          "resource_link_id" : "admin-isidore-help-lab",
-          "type": "ADMINISTRATION",
-          "hidden": true
-        }
-      ]
-    },
-    {
-      "session": "Isidore",
-      "title": "Tools for Teaching: Lightning Round",
-      "anchor": "tools-for-teaching",
-      "icon": "fa-desktop",
-      "duration": "1hr",
-      "calendar": "Aug. / Nov.",
-      "featured": "true",
-      "description": "As you prepare your class for a new cohort of students, consider adding a tool or two to your pedagogical repertoire. In this fast-paced session, our instructional designers will cover 10 topics, each in 5 minutes. You’re sure to leave with something new to try!",
-      "image": "/assets/tools-for-teaching.jpeg",
-      "imagealt": "A person sitting an smiling at the camera with a classroom in the background.",
-      "facilitators": [
-        "pdagnall1@udayton.edu",
-        "stangeman1@udayton.edu"
-      ],
-      "lti" : [
-        {
-          "title" : "Register",
-          "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?program=col&session_id=tools-for-teaching&view=REGISTRATION",
-          "resource_link_id" : "reg-tools-for-teaching",
-          "type": "REGISTRATION"
-        },
-        {
-          "title" : "Provide Feedback",
-          "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?program=col&session_id=tools-for-teaching&view=FEEDBACK",
-          "resource_link_id" : "feedback-tools-for-teaching",
-          "type": "FEEDBACK"
-        },
-        {
-          "title" : "Admin View",
-          "assignmenttitle": "Admin Only",
-          "launch" : "/mod/learn-registration/?program=col&session_id=tools-for-teaching&view=ADMINISTRATION",
-          "resource_link_id" : "admin-tools-for-teaching",
-          "type": "ADMINISTRATION",
-          "hidden": true
-        }
-      ]
-    },
-    {
-      "title": "Mastering Slide Design: Impactful Visuals",
-      "anchor": "slide-workshop",
-      "icon": "fa-robot",
-      "duration": "1hr",
-      "calendar": "Sep.",
-      "description": "Truth? Most people are bad at slide design. But we don’t have to be. In this session we’ll look at statistically-backed best practices in slide design, including layout, font / color selection, and custom backgrounds. We’ll even look at some AI design options. Bring your laptop and a slide presentation you’d like to improve and practice as we go.",
-      "image": "/assets/slide-workshop.png",
-      "imagealt": "A teacher pointing to a screen in front of a class of young students.",
-      "facilitators": [
-        "stangeman1@udayton.edu"
-      ],
-      "lti" : [
-        {
-          "title" : "Register",
-          "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?program=col&session_id=slide-workshop&view=REGISTRATION",
-          "resource_link_id" : "reg-slide-workshop",
-          "type": "REGISTRATION"
-        },
-        {
-          "title" : "Provide Feedback",
-          "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?program=col&session_id=slide-workshop&view=FEEDBACK",
-          "resource_link_id" : "feedback-slide-workshop",
-          "type": "FEEDBACK"
-        },
-        {
-          "title" : "Admin View",
-          "assignmenttitle": "Admin Only",
-          "launch" : "/mod/learn-registration/?program=col&session_id=slide-workshop&view=ADMINISTRATION",
-          "resource_link_id" : "admin-slide-workshop",
-          "type": "ADMINISTRATION",
-          "hidden": true
         }
       ]
     }
