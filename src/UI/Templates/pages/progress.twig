@@ -37,7 +37,7 @@
 											{% if lti.hidden != true %}
 												<li class="list-group-item">
 													{% set grade = getGradeByRlid(module.grades, lti.resource_link_id) %}
-													Grade: {{grade}} Threshold: {{lti.threshold}}
+													{# Grade: {{grade}} Threshold: {{lti.threshold}} #}
 													{% if grade is not null and grade is not empty %}
 														{% if grade == 1 %}
 															<a href="#" data-mdb-toggle="tooltip" title="Complete">
