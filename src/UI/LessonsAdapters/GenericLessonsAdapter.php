@@ -89,7 +89,7 @@ class GenericAdapter extends CourseBase
                 // If logged in, get the user_id from the session data
                 $userId = isset($_SESSION['lti']['user_id']) ? $_SESSION['lti']['user_id'] : null;
                 $allreg = $PDOX->allRowsDie(
-                    "SELECT r.registration_id, i.module_launch_id, i.session_date, i.session_location, i.modality, r.attendance_status
+                    "SELECT r.registration_id, i.module_launch_id, i.session_date, i.session_location, i.modality, i.meeting_link, r.attendance_status
                     FROM {$CFG->dbprefix}learn_module_instance AS i
                     INNER JOIN {$CFG->dbprefix}learn_registration AS r ON i.instance_id = r.instance_id
                     WHERE r.user_id = :UID AND r.context_id = :contextId",
@@ -377,7 +377,7 @@ class GenericAdapter extends CourseBase
 
         // Concerning user registration
         $allreg = $PDOX->allRowsDie(
-            "SELECT r.registration_id, i.module_launch_id, i.session_date, i.session_location, i.modality, r.attendance_status
+            "SELECT r.registration_id, i.module_launch_id, i.session_date, i.session_location, i.modality, i.meeting_link, r.attendance_status
                 FROM {$CFG->dbprefix}learn_module_instance AS i
                 INNER JOIN {$CFG->dbprefix}learn_registration AS r ON i.instance_id = r.instance_id
                 WHERE r.user_id = :UID",
@@ -407,6 +407,7 @@ class GenericAdapter extends CourseBase
         $greeting = $attended ? 'You attended the following session' : ($absent ? "We missed you at the session on" : "You are registered for");
         $regDate = isset($this->registrations[$module->anchor]["session_date"]) ? new \DateTime($this->registrations[$module->anchor]["session_date"]) : null;
         $location = isset($this->registrations[$module->anchor]["session_location"]) ? $this->registrations[$module->anchor]["session_location"] : null;
+        $meetingLink = isset($this->registrations[$module->anchor]["meeting_link"]) ? $this->registrations[$module->anchor]["meeting_link"] : null;
 
         $gaveFeedback = isset($this->registrations[$module->anchor]["feedback"]) ? $this->registrations[$module->anchor]["feedback"] : false;
 
@@ -455,6 +456,7 @@ class GenericAdapter extends CourseBase
             'facilitatorBasePath' => $CFG->apphome . '/facilitators',
             // Status to determine whether to render
             'status' => $status,
+            'meetingLink' => $meetingLink
         ];
     }
 

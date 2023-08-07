@@ -72,6 +72,11 @@
 						<i class="fa fa-arrow-right" aria-hidden="true"></i>
 					</a>
 				{% endif %}
+				{% if moduleMetadata.meetingLink and moduleMetadata.buttonAction == 'CHANGE' %}
+					<a class="btn btn-outline-white ms-4" href="{{ moduleMetadata.meetingLink }}" target="_blank">
+						Launch Zoom Session
+					</a>
+				{% endif %}
 			</div>
 			<!--Content-->
 		</div>

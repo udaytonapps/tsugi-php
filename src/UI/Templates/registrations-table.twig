@@ -5,7 +5,7 @@
 		<tbody>
 			<tr class="align-items-center">
 				<th></th>
-				<th>
+				<th scope="col">
 					{% if registration.duration %}
 						Duration
 					{% endif %}
@@ -25,12 +25,10 @@
 								{{registration.session}}
 							</div>
 						{% endif %}
-						<h5 class="card-title d-block">
+						<h5>
 							<a class="modulePageLink" href="{{registration.moduleUrl}}">{{registration.title}}</a>
 						</h5>
-						<h6>
-							<a class="programPageLink" href="{{registration.programUrl}}">{{registration.program}}</a>
-						</h6>
+						<a class="programPageLink" href="{{registration.programUrl}}">{{registration.program}}</a>
 					</th>
 					<td>
 						{% if registration.duration %}
@@ -46,10 +44,15 @@
 							<span>{{registration.displaytime}}</span>
 						</div>
 					</td>
-					<td>
+					<td class="text-center">
 						<div class="d-flex justify-content-center">
 							{{registration.session_location}}
 						</div>
+						{% if registration.meeting_link and registration.attendance_status == 'REGISTERED' %}
+							<a class="btn btn-outline-primary mt-1" href="{{ moduleMetadata.meetingLink }}" target="_blank">
+								Launch Zoom Session
+							</a>
+						{% endif %}
 					</td>
 					<td style="vertical-align: middle;">
 						<div class="d-flex justify-content-center">
