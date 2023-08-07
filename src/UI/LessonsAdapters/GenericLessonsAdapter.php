@@ -319,7 +319,7 @@ class GenericAdapter extends CourseBase
                 $monthNowPretty = isset($monthNow) ? $monthNow->format("M").'.' : null;
                 if(empty($monthString)){
                     $monthString = $monthNowPretty;
-                } else if ($lastMonth <> $monthNowPretty) {
+                } else if (str_contains($monthString, $monthNowPretty)) {
                     $monthString = $monthString.' / '.$monthNowPretty;
                 }
             }
