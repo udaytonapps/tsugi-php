@@ -616,7 +616,7 @@ class Topics extends CourseBase
                 'splash' => $this->course->splash
             ]);
             echo ('<div>');
-            echo '<form class="form-inline text-right mt-3" style="padding-bottom: 1rem;">
+            echo '<div class="d-flex justify-content-between align-items-end"><h5 id="modules">Video Modules</h5><form class="form-inline text-right mt-3 " style="padding-bottom: 1rem;">
                 <div class="form-group" style="display: flex; justify-content: flex-end; align-items: center; gap: 20px;">
                     <label for="categorySelect">Filter Videos by Category: </label>
                     <div>
@@ -625,7 +625,7 @@ class Topics extends CourseBase
                         </select>
                     </div>
                 </div>
-            </form>';
+            </form></div>';
             echo ('<div id="topics" class="row">' . "\n");
             foreach ($this->course->modules as $topic) {
             ?>
