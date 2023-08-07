@@ -125,8 +125,8 @@
   ],
   "modules": [
     {
-      "session": "Isidore",
       "title": "Isidore Help Lab",
+      "session": "Isidore",
       "anchor": "isidore-help-lab",
       "icon": "fa-desktop",
       "duration": "1hr",
@@ -164,8 +164,8 @@
       ]
     },
     {
-      "session": "Isidore",
       "title": "Tools for Teaching: Lightning Round",
+      "session": "Isidore",
       "anchor": "tools-for-teaching",
       "icon": "fa-desktop",
       "duration": "1hr",
@@ -203,8 +203,8 @@
       ]
     },
     {
-      "session": "ChatGPT 1",
       "title": "Students are Cheating with ChatGPT. Now What?",
+      "session": "ChatGPT 1",
       "anchor": "chat-gpt-1",
       "icon": "fa-robot",
       "duration": "1hr",
@@ -243,8 +243,8 @@
       ]
     },
     {
-      "session": "ChatGPT 2",
       "title": "Are Written Assignments Dead?",
+      "session": "ChatGPT 2",
       "anchor": "chat-gpt-2",
       "icon": "fa-robot",
       "duration": "1hr",
@@ -283,8 +283,8 @@
       ]
     },
     {
-      "session": "ChatGPT 3",
       "title": "Joining Forces with ChatGPT",
+      "session": "ChatGPT 3",
       "anchor": "chat-gpt-3",
       "icon": "fa-robot",
       "duration": "1hr",
@@ -323,9 +323,10 @@
       ]
     },
     {
-      "session": "",
       "title": "Backstage Tour: Media Studio",
+      "session": "Instructional Design & Media",
       "anchor": "tour-media-studio",
+      "icon": "fa-chalkboard-teacher",
       "duration": "1hr",
       "calendar": "Oct.",
       "description": "Come try out the LTC’s new video production lab and podcast studio and learn how you can take your teaching to the next level with media innovation.",
@@ -366,7 +367,9 @@
     },
     {
       "title": "Mastering Slide Design: Impactful Visuals",
+      "session": "Instructional Design & Media",
       "anchor": "slide-workshop",
+      "icon": "fa-chalkboard-teacher",
       "duration": "1hr",
       "calendar": "Sep.",
       "description": "Truth? Most people are bad at slide design. But we don’t have to be. In this session we’ll look at statistically-backed best practices in slide design, including layout, font / color selection, and custom backgrounds. We’ll even look at some AI design options. Bring your laptop and a slide presentation you’d like to improve and practice as we go.",
@@ -401,8 +404,10 @@
       ]
     },
     {
-      "async": true,
       "title": "Isidore Onboarding",
+      "session": "Isidore",
+      "async": true,
+      "icon": "fa-desktop",
       "duration": "Est. 45 min",
       "anchor": "onboarding",
       "landingContents": [
@@ -1733,10 +1738,12 @@
       ]
     },
     {
-      "async": true,
       "title": "Accessibility",
+      "session": "Instructional Design & Media",
+      "async": true,
       "duration": "Est. 35 min",
       "anchor": "accessibility",
+      "icon": "fa-chalkboard-teacher",
       "landingContents": [
         {
           "type": "TEXT",
@@ -2520,10 +2527,12 @@
       ]
     },
     {
-      "async": true,
       "title": "Why Video – Why Warpwire?",
+      "session": "Instructional Design & Media",
+      "async": true,
       "duration": "Est. 36 min",
       "anchor": "warpwire",
+      "icon": "fa-chalkboard-teacher",
       "landingContents": [
         {
           "type": "TEXT",

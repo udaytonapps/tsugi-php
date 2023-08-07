@@ -400,6 +400,8 @@ class AsyncModule
     /** @var string */
     public $anchor;
     /** @var string */
+    public $session;
+    /** @var string */
     public $duration;
     /** @var AsyncLesson[] */
     public $lessons;
@@ -407,13 +409,17 @@ class AsyncModule
     public $landingContents;
     /** @var string */
     public $image;
+    /** @var string */
+    public $icon;
     /** @var boolean */
     public $async = true;
 
     function __construct($module)
     {
         $this->title = $module->title ?? null;
+        $this->session = $module->session ?? null;
         $this->anchor  = $module->anchor ?? null;
+        $this->icon = $module->icon ?? null;
         $this->duration  = $module->duration ?? null;
         $this->image = $module->image ?? null;
         $this->imagealt = $module->imagealt ?? null;
