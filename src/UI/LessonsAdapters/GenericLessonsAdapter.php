@@ -323,6 +323,9 @@ class GenericAdapter extends CourseBase
                     $monthString = $monthString.' / '.$monthNowPretty;
                 }
             }
+            if ($monthString == '' && isset($module->calendar)) {
+                $monthString = $module->calendar;
+            }
             if (isset($module->async) && $module->async) {
                 $type = 'async';
             } else {
@@ -418,29 +421,32 @@ class GenericAdapter extends CourseBase
         $status = null;
         // Choose button action
         $buttonAction = null;
-        $buttonLtiUrl = $launchPath;
-        if (!isset($userId)) {
-            $buttonAction = 'LOGIN';
-        } else if ($registered) {
-            $buttonAction = 'CHANGE';
-            $buttonLtiUrl .= "/reg-{$module->anchor}";
-            $status = 'IN_PROGRESS';
-        } else if ($attended) {
-            if ($gaveFeedback) {
-                $buttonAction = 'COMPLETE';
+        $buttonLtiUrl = null;
+        if (is_array($module->lti) && count($module->lti) > 0) {
+            $buttonLtiUrl = $launchPath;
+            if (!isset($userId)) {
+                $buttonAction = 'LOGIN';
+            } else if ($registered) {
+                $buttonAction = 'CHANGE';
                 $buttonLtiUrl .= "/reg-{$module->anchor}";
-                $status = 'COMPLETE';
-            } else {
-                $buttonAction = 'FEEDBACK';
-                $buttonLtiUrl .= "/feedback-{$module->anchor}";
                 $status = 'IN_PROGRESS';
+            } else if ($attended) {
+                if ($gaveFeedback) {
+                    $buttonAction = 'COMPLETE';
+                    $buttonLtiUrl .= "/reg-{$module->anchor}";
+                    $status = 'COMPLETE';
+                } else {
+                    $buttonAction = 'FEEDBACK';
+                    $buttonLtiUrl .= "/feedback-{$module->anchor}";
+                    $status = 'IN_PROGRESS';
+                }
+            } else if ($absent) {
+                $buttonAction = 'CHANGE';
+                $buttonLtiUrl .= "/reg-{$module->anchor}";
+            } else {
+                $buttonAction = 'REGISTER';
+                $buttonLtiUrl .= "/reg-{$module->anchor}";
             }
-        } else if ($absent) {
-            $buttonAction = 'CHANGE';
-            $buttonLtiUrl .= "/reg-{$module->anchor}";
-        } else {
-            $buttonAction = 'REGISTER';
-            $buttonLtiUrl .= "/reg-{$module->anchor}";
         }
 
         return (object)[

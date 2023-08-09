@@ -87,10 +87,14 @@
 							Change Registration
 						</a>
 					{% else %}
-						<a class="btn btn-white" href="{{card.moduleMetadata.ltiUrl}}" role="button">
+						<a class="btn btn-primary" href="{{card.moduleMetadata.ltiUrl}}" role="button">
 							Register
 						</a>
 					{% endif %}
+				{% elseif card.moduletype == 'sync' %}
+					<button class="btn btn-link" disabled role="button">
+						No Registration Required
+					</button>
 				{% endif %}
 			</div>
 			<a href="{{card.moduleUrl}}" class="btn btn-link" data-mdb-ripple-color="dark">View Details</a>

@@ -203,6 +203,19 @@
       ]
     },
     {
+      "title": "Monthly Faculty Lounge",
+      "session": "Tuesdays @ Ten",
+      "anchor": "faculty-lounge",
+      "icon": "fa-coffee",
+      "description": "The first Tuesday of each month, stop in from 10 - 11 a.m to chat with faculty colleagues and the Center for Online Learning team. We’ll supply coffee, donuts, and a topic from the world of instructional design or pedagogical innovation. Stay as briefly as you’d like or as long as you can. No registration is necessary for this event.",
+      "duration": "1hr",
+      "image": "/assets/ud-col-369.jpg",
+      "imagealt": "Two people sitting at a table in a coffee shop looking at eachother.",
+      "facilitators": [
+        "kconde1@udayton.edu"
+      ]
+    },
+    {
       "title": "Students are Cheating with ChatGPT. Now What?",
       "session": "ChatGPT 1",
       "anchor": "chat-gpt-1",

@@ -58,7 +58,11 @@
 				<span class="badge badge-success">Completed</span>
 			{% else %}
 				{% if card.moduletype == 'sync' %}
-					<span class="badge badge-warning">Not Registered</span>
+					{% if card.module.lti %}
+						<span class="badge badge-warning">Not Registered</span>
+					{% else %}
+						<span class="badge badge-secondary">Walk-In</span>
+					{% endif %}
 				{% else %}
 					<span class="badge badge-warning">Not Started</span>
 				{% endif %}

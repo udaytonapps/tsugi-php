@@ -41,41 +41,45 @@
 						{{moduleMetadata.location}}
 					</p>
 				{% endif %}
-				{% if moduleMetadata.buttonAction == 'LOGIN' %}
-					<a class="btn btn-outline-light" href="{{moduleMetadata.loginUrl}}" role="button">
-						<i class="fa fa-lock" aria-hidden="true"></i>
-						Login to Register
-					</a>
-				{% elseif moduleMetadata.buttonAction == 'REGISTER' %}
-					<a class="btn btn-white" href="{{moduleMetadata.ltiUrl}}" role="button">
-						Register
-						<i class="fa fa-arrow-right" aria-hidden="true"></i>
-					</a>
-				{% elseif moduleMetadata.buttonAction == 'COMPLETE' %}
-					<a class="btn btn-success" href="{{moduleMetadata.ltiUrl}}" role="button">
-						<i class="fas fa-check-circle" aria-hidden="true"></i>
-						Complete
-					</a>
-				{% elseif moduleMetadata.buttonAction == 'FEEDBACK' %}
-					<a class="btn btn-primary" href="{{moduleMetadata.ltiUrl}}" role="button">
-						Provide Feedback
-						<i class="fa fa-arrow-right" aria-hidden="true"></i>
-					</a>
-				{% elseif moduleMetadata.buttonAction == 'CHANGE' %}
-					<a class="btn btn-white" href="{{moduleMetadata.ltiUrl}}" role="button">
-						Change Registration
-						<i class="fa fa-arrow-right" aria-hidden="true"></i>
-					</a>
+				{% if moduleMetadata.buttonAction != null %}
+					{% if moduleMetadata.buttonAction == 'LOGIN' %}
+						<a class="btn btn-outline-light" href="{{moduleMetadata.loginUrl}}" role="button">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+							Login to Register
+						</a>
+					{% elseif moduleMetadata.buttonAction == 'REGISTER' %}
+						<a class="btn btn-white" href="{{moduleMetadata.ltiUrl}}" role="button">
+							Register
+							<i class="fa fa-arrow-right" aria-hidden="true"></i>
+						</a>
+					{% elseif moduleMetadata.buttonAction == 'COMPLETE' %}
+						<a class="btn btn-success" href="{{moduleMetadata.ltiUrl}}" role="button">
+							<i class="fas fa-check-circle" aria-hidden="true"></i>
+							Complete
+						</a>
+					{% elseif moduleMetadata.buttonAction == 'FEEDBACK' %}
+						<a class="btn btn-primary" href="{{moduleMetadata.ltiUrl}}" role="button">
+							Provide Feedback
+							<i class="fa fa-arrow-right" aria-hidden="true"></i>
+						</a>
+					{% elseif moduleMetadata.buttonAction == 'CHANGE' %}
+						<a class="btn btn-white" href="{{moduleMetadata.ltiUrl}}" role="button">
+							Change Registration
+							<i class="fa fa-arrow-right" aria-hidden="true"></i>
+						</a>
+					{% else %}
+						<a class="btn btn-white" href="{{moduleMetadata.ltiUrl}}" role="button">
+							Register
+							<i class="fa fa-arrow-right" aria-hidden="true"></i>
+						</a>
+					{% endif %}
+					{% if moduleMetadata.meetingLink and moduleMetadata.buttonAction == 'CHANGE' %}
+						<a class="btn btn-outline-white ms-4" href="{{ moduleMetadata.meetingLink }}" target="_blank">
+							Launch Zoom Session
+						</a>
+					{% endif %}
 				{% else %}
-					<a class="btn btn-white" href="{{moduleMetadata.ltiUrl}}" role="button">
-						Register
-						<i class="fa fa-arrow-right" aria-hidden="true"></i>
-					</a>
-				{% endif %}
-				{% if moduleMetadata.meetingLink and moduleMetadata.buttonAction == 'CHANGE' %}
-					<a class="btn btn-outline-white ms-4" href="{{ moduleMetadata.meetingLink }}" target="_blank">
-						Launch Zoom Session
-					</a>
+					<p class="mb-2 pt-2"><em>No Registration Required</em></p>
 				{% endif %}
 			</div>
 			<!--Content-->
@@ -89,7 +93,11 @@
 	<ul class="list-group list-group-light list-group-small mb-4" style="margin-left:calc(1.25em + 11px);">
 		{% for facilitator in module.facilitators %}
 			<li class="list-group-item d-flex align-items-center">
-				<div class="image-container"><img class="profile" src="{{facilitator.image_url}}" alt="{{facilitator.displayname}}"/></div>
+				{% if facilitator.image_url and facilitator.image_url != '' %}
+					<div class="image-container"><img class="profile" src="{{facilitator.image_url}}" alt="{{facilitator.displayname}}"/></div>
+				{% else %}
+					<div class="image-container"><img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt="{{facilitator.displayname}}"/></div>
+				{% endif %}
 				<div class="ms-3">
 					<h5 class="fw-normal mb-1"><a href="{{moduleMetadata.facilitatorBasePath}}/{{facilitator.facilitator_id}}">{{facilitator.displayname}}</a></h5>
 					{% if facilitator.department %}
