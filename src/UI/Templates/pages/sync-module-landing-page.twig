@@ -86,66 +86,111 @@
 		</div>
 		<!--Grid column-->
 	</div>
-	<h5 class="mt-4">
-		<i class='fa fa-group fa-fw' aria-hidden='true'></i>
-		Session Facilitator(s)
-	</h5>
-	<ul class="list-group list-group-light list-group-small mb-4" style="margin-left:calc(1.25em + 11px);">
-		{% for facilitator in module.facilitators %}
-			<li class="list-group-item d-flex align-items-center">
-				{% if facilitator.image_url and facilitator.image_url != '' %}
-					<div class="image-container"><img class="profile" src="{{facilitator.image_url}}" alt="{{facilitator.displayname}}"/></div>
+	<div class="clearfix">
+		<div class="card col-lg-5 float-lg-end mt-4 mb-3 ms-md-3 border rounded shadow">
+			<h4 class="text-center py-2 mt-1">Upcoming Sessions</h4>
+			<ul class="list-group list-group-flush">
+				{% for session in upcomingSessions %}
+					<li class="list-group-item d-flex justify-content-between align-items-center">
+						<div>
+							<div class="fw-bold">{{ session.session_date }} at {{ session.session_time }}</div>
+							<div class="text-muted">{{ session.session_location }}</div>
+						</div>
+						<span class="badge rounded-pill badge-info" style="font-size: 1rem;">{{ session.duration }}</span>
+					</li>
+				{% endfor %}
+			</ul>
+			{% if moduleMetadata.buttonAction != null %}
+				{% if moduleMetadata.buttonAction == 'LOGIN' %}
+					<a class="btn btn-primary" href="{{moduleMetadata.loginUrl}}" role="button">
+						Login to Register
+					</a>
+				{% elseif moduleMetadata.buttonAction == 'REGISTER' %}
+					<a class="btn btn-primary" href="{{moduleMetadata.ltiUrl}}" role="button">
+						Register
+					</a>
+				{% elseif moduleMetadata.buttonAction == 'COMPLETE' %}
+					<a class="btn btn-success" href="{{moduleMetadata.ltiUrl}}" role="button">
+						Complete
+					</a>
+				{% elseif moduleMetadata.buttonAction == 'FEEDBACK' %}
+					<a class="btn btn-primary" href="{{moduleMetadata.ltiUrl}}" role="button">
+						Provide Feedback
+					</a>
+				{% elseif moduleMetadata.buttonAction == 'CHANGE' %}
+					<a class="btn btn-primary" href="{{moduleMetadata.ltiUrl}}" role="button">
+						Change Registration
+					</a>
 				{% else %}
-					<div class="image-container"><img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt="{{facilitator.displayname}}"/></div>
+					<a class="btn btn-primary" href="{{moduleMetadata.ltiUrl}}" role="button">
+						Register
+					</a>
 				{% endif %}
-				<div class="ms-3">
-					<h5 class="fw-normal mb-1"><a href="{{moduleMetadata.facilitatorBasePath}}/{{facilitator.facilitator_id}}">{{facilitator.displayname}}</a></h5>
-					{% if facilitator.department %}
-						<p class="text-muted mb-0">{{facilitator.title}}, {{facilitator.department}}</p>
-					{% else %}
-						<p class="text-muted mb-0">{{facilitator.title}}</p>
-					{% endif %}
-				</div>
-			</li>
-		{% endfor %}
-	</ul>
-	{% if module.learningoutcomes %}
-		<h5>
-			<i class="fas fa-chalkboard-teacher fa-fw" aria-hidden="true"></i>
-			Learning Outcomes
+			{% else %}
+				<p class="mb-2 pt-2 text-center text-muted"><em>No Registration Required</em></p>
+			{% endif %}
+		</div>
+		<h5 class="mt-4">
+			<i class='fa fa-group fa-fw' aria-hidden='true'></i>
+			Session Facilitator(s)
 		</h5>
-		<p style="margin-left:calc(1.25em + 11px);">As a result of attending this session, participants will be able to:</p>
-		<ol class="list-group list-group-light list-group-small list-group-numbered mb-2" style="margin-left:calc(1.25em + 11px);">
-			{% for outcome in module.learningoutcomes %}
-				<li class="list-group-item d-flex justify-content-between align-items-start px-4">
-					<div class="ms-2 me-auto">{{outcome}}</div>
+		<ul class="list-group list-group-light list-group-small mb-4" style="margin-left:calc(1.25em + 11px);">
+			{% for facilitator in module.facilitators %}
+				<li class="list-group-item d-flex align-items-center">
+					{% if facilitator.image_url and facilitator.image_url != '' %}
+						<div class="image-container"><img class="profile" src="{{facilitator.image_url}}" alt="{{facilitator.displayname}}"/></div>
+					{% else %}
+						<div class="image-container"><img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt="{{facilitator.displayname}}"/></div>
+					{% endif %}
+					<div class="ms-3">
+						<h5 class="fw-normal mb-1"><a href="{{moduleMetadata.facilitatorBasePath}}/{{facilitator.facilitator_id}}">{{facilitator.displayname}}</a></h5>
+						{% if facilitator.department %}
+							<p class="text-muted mb-0">{{facilitator.title}}, {{facilitator.department}}</p>
+						{% else %}
+							<p class="text-muted mb-0">{{facilitator.title}}</p>
+						{% endif %}
+					</div>
 				</li>
 			{% endfor %}
-		</ol>
-	{% endif %}
-	{% if module.resources %}
-		<h5>
-			<i class="fas fa-desktop fa-fw" aria-hidden="true"></i>
-			Session Resources
-		</h5>
-		<p style="margin-left:calc(1.25em + 11px);">The resources below will be available once you've attended the session.</p>
-		<ul class="list-group list-group-small mb-2" style="margin-left:calc(1.25em + 11px);">
-			{% for resource in module.resources %}
-				{% if attended %}
-					<span>
+		</ul>
+		{% if module.learningoutcomes %}
+			<h5>
+				<i class="fas fa-chalkboard-teacher fa-fw" aria-hidden="true"></i>
+				Learning Outcomes
+			</h5>
+			<p style="margin-left:calc(1.25em + 11px);">As a result of attending this session, participants will be able to:</p>
+			<ol class="list-group list-group-light list-group-small list-group-numbered mb-2" style="margin-left:calc(1.25em + 11px);">
+				{% for outcome in module.learningoutcomes %}
+					<li class="list-group-item d-flex justify-content-between align-items-start px-4">
+						<div class="ms-2 me-auto">{{outcome}}</div>
+					</li>
+				{% endfor %}
+			</ol>
+		{% endif %}
+		{% if module.resources %}
+			<h5>
+				<i class="fas fa-desktop fa-fw" aria-hidden="true"></i>
+				Session Resources
+			</h5>
+			<p style="margin-left:calc(1.25em + 11px);">The resources below will be available once you've attended the session.</p>
+			<ul class="list-group list-group-small mb-2" style="margin-left:calc(1.25em + 11px);">
+				{% for resource in module.resources %}
+					{% if attended %}
+						<span>
 						<a class="ms-4" href="{{resource.url}}" target="_blank">
 							<i class="{{resource.icon}}" aria-hidden="true"></i>
 							{{resource.title}}
 						</a>
 					</span>
-				{% else %}
-					<span class="ms-4">
+					{% else %}
+						<span class="ms-4">
 						<i class="{{resource.icon}}" aria-hidden="true"></i>
 						{{resource.title}}
 						<em class="text-muted">(Attendance Required)</em>
 					</span>
-				{% endif %}
-			{% endfor %}
-		</ul>
-	{% endif %}
+					{% endif %}
+				{% endfor %}
+			</ul>
+		{% endif %}
+	</div>
 </div>

@@ -234,6 +234,7 @@ class GenericAdapter extends CourseBase
 
     private function renderModuleLandingPage()
     {
+        global $CFG, $PDOX;
         if (isset($this->activeModule->async) && $this->activeModule->async) {
             $twig = LessonsUIHelper::twig();
             $progress = $this->getPagesProgress($this->activeModule);
@@ -258,6 +259,21 @@ class GenericAdapter extends CourseBase
             // $_SESSION["admin"] = true;
             // $buttonLtiUrl = $launchPath . "/admin-{$this->activeModule->anchor}";
 
+            // Find upcoming sessions
+            $upcomingInstances = $PDOX->allRowsDie(
+                "SELECT session_date, session_location, duration_minutes, module_launch_id, module_program, capacity FROM {$CFG->dbprefix}learn_module_instance WHERE module_launch_id = '".$this->activeModule->anchor."' AND session_date >=CURDATE() ORDER BY session_date ASC;"
+            );
+            $upcomingSessions = [];
+            foreach($upcomingInstances as $instance){
+                $regDate = isset($instance["session_date"]) ? new DateTime($instance["session_date"]) : null;
+                $instance['session_date'] = isset($regDate) ? $regDate->format("D., M. j, Y") : null;
+                $regDate = isset($regDate) ? $regDate->format("g:i A") : null;
+                $instance['session_time'] = $regDate;
+                $instance["duration"] = isset($instance["duration_minutes"]) && $instance["duration_minutes"] !== "" ? $instance["duration_minutes"]." min." : "";
+                array_push($upcomingSessions,$instance);
+            }
+
+
             $twig = LessonsUIHelper::twig();
             echo $twig->render('sync-module-landing-page.twig', [
                 'program' => $this->category,
@@ -266,7 +282,7 @@ class GenericAdapter extends CourseBase
                 'contextRoot' => $this->contextRoot,
                 'returnUrl' => $returnUrl,
                 'breadcrumbs' => $this->getBreadcrumbs(),
-
+                'upcomingSessions' => $upcomingSessions,
                 'module' => (array)$this->activeModule,
                 'moduleMetadata' => $moduleMetadata,
             ]);
