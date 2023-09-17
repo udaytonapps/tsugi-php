@@ -1,0 +1,156 @@
+{
+  "title": "Diversity Equity & Inclusion",
+  "description": "The University of Dayton’s commitment to Inclusive Excellence is rooted in the Catholic and Marianist conviction that every person has innate dignity because all people are made in the image and likeness of God. Social or cultural discrimination is incompatible with God’s design. Efforts to create access and lead everyone to excellence through equity and inclusion emanate from the University of Dayton’s call to solidarity and the common good.",
+  "splash": {
+    "title": "Diversity, Equity, and Inclusion",
+    "image": "/images/main.jpg",
+    "alttext": "An image",
+    "video": "",
+    "text": "The University of Dayton’s commitment to Inclusive Excellence is rooted in the Catholic and Marianist conviction that every person has innate dignity because all people are made in the image and likeness of God. Social or cultural discrimination is incompatible with God’s design. Efforts to create access and lead everyone to excellence through equity and inclusion emanate from the University of Dayton’s call to solidarity and the common good."
+  },
+  "discussions" : [],
+  "badges": [],
+  "modules": [
+    {
+      "session": "Faculty Workshops for Equity and Mission",
+      "title": "Understanding and mitigating bias in evaluative processes",
+      "anchor": "faculty-workshops-1",
+      "icon": "fa-users",
+      "duration": "2hrs",
+      "calendar": "Oct. / Nov.",
+      "description": "A professional development series to create and sustain fair and equitable evaluative processes that prioritize the University of Dayton’s Catholic and Marianist mission.",
+      "contents": [
+        {
+          "type": "TEXT",
+          "paragraphs": [
+            "<h5 class=\"pt-3\">About the Faculty Workshops</h4>",
+            "<p>In 2021, after a few years of consultation and committee work, the Academic Senate approved Senate DOC 2021-05, which provided revisions to the 2006 tenure and promotion policy. Tenure-line faculty voted to confirm their commitment to these principles that same year.</p>",
+            "<p>The University Promotion and Tenure Policy (DOC 2021-05) states that \"all faculty who participate in promotion and tenure review at any level (unit, department, or institute) are required to participate in professional development in diversity, equity and inclusion to mitigate bias in faculty evaluation, prior to participating in the work of the committee.\"</p>",
+            "<p>This document asks the Provost Office in consultation with the Office of Diversity and Inclusion and Academic Senate to oversee faculty professional development in this area.</p>"
+          ]
+        }
+      ],
+      "learningoutcomes": [
+        "Consider the critical role that faculty evaluation for hiring and promotion and tenure have on advancing the mission of the University.",
+        "Define implicit bias and provide examples of how it impacts evaluative processes.",
+        "Identify and employ strategies to mitigate bias and ensure fairer and more equitable evaluative processes."
+      ],
+      "image": "/images/needone.jpg",
+      "imagealt": "Alt text goes here",
+      "facilitators": [
+        "lpicca1@udayton.edu",
+        "jquintero1@udayton.edu"
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=DEI&session_id=faculty-workshops-1&view=REGISTRATION",
+          "resource_link_id" : "reg-faculty-workshops-1",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=DEI&session_id=faculty-workshops-1&view=FEEDBACK",
+          "resource_link_id" : "feedback-faculty-workshops-1",
+          "type": "FEEDBACK"
+        }
+      ]
+    },
+    {
+      "session": "Faculty Workshops for Equity and Mission",
+      "title": "Equity and mission in hiring processes",
+      "anchor": "faculty-workshops-2",
+      "icon": "fa-users",
+      "duration": "2hrs",
+      "calendar": "Nov. / Dec.",
+      "description": "A professional development series to create and sustain fair and equitable evaluative processes that prioritize the University of Dayton’s Catholic and Marianist mission.",
+      "image": "/images/needone.jpg",
+      "imagealt": "Alt text goes here",
+      "facilitators": [
+        "aaskren1@udayton.edu",
+        "awashington1@udayton.edu"
+      ],
+      "contents": [
+        {
+          "type": "TEXT",
+          "paragraphs": [
+            "<h5 class=\"pt-3\">About the Faculty Workshops</h4>",
+            "<p>In 2021, after a few years of consultation and committee work, the Academic Senate approved Senate DOC 2021-05, which provided revisions to the 2006 tenure and promotion policy. Tenure-line faculty voted to confirm their commitment to these principles that same year.</p>",
+            "<p>The University Promotion and Tenure Policy (DOC 2021-05) states that \"all faculty who participate in promotion and tenure review at any level (unit, department, or institute) are required to participate in professional development in diversity, equity and inclusion to mitigate bias in faculty evaluation, prior to participating in the work of the committee.\"</p>",
+            "<p>This document asks the Provost Office in consultation with the Office of Diversity and Inclusion and Academic Senate to oversee faculty professional development in this area.</p>"
+          ]
+        }
+      ],
+      "learningoutcomes": [
+        "Consider the critical role that faculty evaluation for hiring and promotion and tenure have on advancing the mission of the University.",
+        "Define implicit bias and provide examples of how it impacts evaluative processes.",
+        "Identify and employ strategies to mitigate bias and ensure fairer and more equitable evaluative processes."
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=DEI&session_id=faculty-workshops-2&view=REGISTRATION",
+          "resource_link_id" : "reg-faculty-workshops-2",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=DEI&session_id=faculty-workshops-2&view=FEEDBACK",
+          "resource_link_id" : "feedback-faculty-workshops-2",
+          "type": "FEEDBACK"
+        }
+      ]
+    },
+    {
+      "session": "Faculty Workshops for Equity and Mission",
+      "title": "Equity and mission in evaluative processes for tenure and promotion",
+      "anchor": "faculty-workshops-3",
+      "icon": "fa-users",
+      "duration": "2hrs",
+      "calendar": "Nov. / Dec.",
+      "description": "A professional development series to create and sustain fair and equitable evaluative processes that prioritize the University of Dayton’s Catholic and Marianist mission.",
+      "image": "/images/needone.jpg",
+      "imagealt": "Alt text goes here",
+      "facilitators": [
+        "cphelps1@udayton.edu",
+        "lpicca1@udayton.edu"
+      ],
+      "contents": [
+        {
+          "type": "TEXT",
+          "paragraphs": [
+            "<h5 class=\"pt-3\">About the Faculty Workshops</h4>",
+            "<p>In 2021, after a few years of consultation and committee work, the Academic Senate approved Senate DOC 2021-05, which provided revisions to the 2006 tenure and promotion policy. Tenure-line faculty voted to confirm their commitment to these principles that same year.</p>",
+            "<p>The University Promotion and Tenure Policy (DOC 2021-05) states that \"all faculty who participate in promotion and tenure review at any level (unit, department, or institute) are required to participate in professional development in diversity, equity and inclusion to mitigate bias in faculty evaluation, prior to participating in the work of the committee.\"</p>",
+            "<p>This document asks the Provost Office in consultation with the Office of Diversity and Inclusion and Academic Senate to oversee faculty professional development in this area.</p>"
+          ]
+        }
+      ],
+      "learningoutcomes": [
+        "Consider the critical role that faculty evaluation for hiring and promotion and tenure have on advancing the mission of the University.",
+        "Define implicit bias and provide examples of how it impacts evaluative processes.",
+        "Identify and employ strategies to mitigate bias and ensure fairer and more equitable evaluative processes."
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=DEI&session_id=faculty-workshops-3&view=REGISTRATION",
+          "resource_link_id" : "reg-faculty-workshops-3",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=DEI&session_id=faculty-workshops-3&view=FEEDBACK",
+          "resource_link_id" : "feedback-faculty-workshops-3",
+          "type": "FEEDBACK"
+        }
+      ]
+    }
+  ]
+}

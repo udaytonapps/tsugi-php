@@ -153,6 +153,10 @@
 				</li>
 			{% endfor %}
 		</ul>
+		{% if module.contents %}
+			{% set contents = module.contents %}
+			{% include 'generic-contents.twig' %}
+		{% endif %}
 		{% if module.learningoutcomes %}
 			<h5>
 				<i class="fas fa-chalkboard-teacher fa-fw" aria-hidden="true"></i>

@@ -510,6 +510,7 @@ class SyncModule
     public $title;
     /** @var string */
     public $description;
+    public $contents;
     /** @var string */
     public $session;
     /** @var string */
@@ -539,6 +540,7 @@ class SyncModule
     {
         $this->title = $module->title ?? null;
         $this->description = $module->description ?? null;
+        $this->contents = $module->contents ?? null;
         $this->session = $module->session ?? null;
         $this->anchor  = $module->anchor ?? null;
         $this->duration  = $module->duration ?? null;
