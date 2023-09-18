@@ -13,7 +13,7 @@
   "modules": [
     {
       "session": "Faculty Workshops for Equity and Mission 1",
-      "title": "Understanding and mitigating bias in evaluative processes",
+      "title": "Understanding and Mitigating Bias in Evaluative Processes",
       "anchor": "faculty-workshops-1",
       "icon": "fa-users",
       "duration": "2hrs",
@@ -60,7 +60,7 @@
     },
     {
       "session": "Faculty Workshops for Equity and Mission 2",
-      "title": "Equity and mission in hiring processes",
+      "title": "Equity and Mission in Hiring Processes",
       "anchor": "faculty-workshops-2",
       "icon": "fa-users",
       "duration": "2hrs",
@@ -107,7 +107,7 @@
     },
     {
       "session": "Faculty Workshops for Equity and Mission 3",
-      "title": "Equity and mission in evaluative processes for tenure and promotion",
+      "title": "Equity and Mission in Evaluative Processes for Tenure and Promotion",
       "anchor": "faculty-workshops-3",
       "icon": "fa-users",
       "duration": "2hrs",
