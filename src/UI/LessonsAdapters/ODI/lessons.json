@@ -6,7 +6,16 @@
     "image": "/images/main.jpg",
     "alttext": "An image",
     "video": "",
-    "text": "The University of Dayton’s commitment to Inclusive Excellence is rooted in the Catholic and Marianist conviction that every person has innate dignity because all people are made in the image and likeness of God. Social or cultural discrimination is incompatible with God’s design. Efforts to create access and lead everyone to excellence through equity and inclusion emanate from the University of Dayton’s call to solidarity and the common good."
+    "text": "The University of Dayton’s commitment to Inclusive Excellence is rooted in the Catholic and Marianist conviction that every person has innate dignity because all people are made in the image and likeness of God. Social or cultural discrimination is incompatible with God’s design. Efforts to create access and lead everyone to excellence through equity and inclusion emanate from the University of Dayton’s call to solidarity and the common good.",
+    "contents": [
+      {
+        "type": "TEXT",
+        "paragraphs": [
+          "<h4>Faculty Workshops for Equity and Mission</h4>",
+          "<p>A professional development series to create and sustain fair and equitable evaluative processes that prioritize the University of Dayton’s Catholic and Marianist mission.<p>"
+        ]
+      }
+    ]
   },
   "discussions" : [],
   "badges": [],
