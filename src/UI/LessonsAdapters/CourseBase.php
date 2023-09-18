@@ -535,6 +535,8 @@ class SyncModule
     public $resources;
     /** @var boolean */
     public $async = false;
+    /** @var string */
+    public $prereqs;
 
     function __construct($module)
     {
@@ -551,6 +553,7 @@ class SyncModule
         $this->learningoutcomes = $module->learningoutcomes ?? null;
         $this->facilitators = $module->facilitators ?? null;
         $this->resources = $module->resources ?? null;
+        $this->prereqs = $module->prereqs ?? null;
 
         $contents = [];
         // if (isset($module->landingContents)) {
