@@ -53,14 +53,14 @@
         {
           "title" : "Register",
           "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?program=DEI&session_id=faculty-workshops-1&view=REGISTRATION",
+          "launch" : "/mod/learn-registration/?program=ODI&session_id=faculty-workshops-1&view=REGISTRATION",
           "resource_link_id" : "reg-faculty-workshops-1",
           "type": "REGISTRATION"
         },
         {
           "title" : "Provide Feedback",
           "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?program=DEI&session_id=faculty-workshops-1&view=FEEDBACK",
+          "launch" : "/mod/learn-registration/?program=ODI&session_id=faculty-workshops-1&view=FEEDBACK",
           "resource_link_id" : "feedback-faculty-workshops-1",
           "type": "FEEDBACK"
         }
@@ -101,14 +101,14 @@
         {
           "title" : "Register",
           "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?program=DEI&session_id=faculty-workshops-2&view=REGISTRATION",
+          "launch" : "/mod/learn-registration/?program=ODI&session_id=faculty-workshops-2&view=REGISTRATION",
           "resource_link_id" : "reg-faculty-workshops-2",
           "type": "REGISTRATION"
         },
         {
           "title" : "Provide Feedback",
           "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?program=DEI&session_id=faculty-workshops-2&view=FEEDBACK",
+          "launch" : "/mod/learn-registration/?program=ODI&session_id=faculty-workshops-2&view=FEEDBACK",
           "resource_link_id" : "feedback-faculty-workshops-2",
           "type": "FEEDBACK"
         }
@@ -149,14 +149,14 @@
         {
           "title" : "Register",
           "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?program=DEI&session_id=faculty-workshops-3&view=REGISTRATION",
+          "launch" : "/mod/learn-registration/?program=ODI&session_id=faculty-workshops-3&view=REGISTRATION",
           "resource_link_id" : "reg-faculty-workshops-3",
           "type": "REGISTRATION"
         },
         {
           "title" : "Provide Feedback",
           "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?program=DEI&session_id=faculty-workshops-3&view=FEEDBACK",
+          "launch" : "/mod/learn-registration/?program=ODI&session_id=faculty-workshops-3&view=FEEDBACK",
           "resource_link_id" : "feedback-faculty-workshops-3",
           "type": "FEEDBACK"
         }
