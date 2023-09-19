@@ -1,0 +1,85 @@
+{
+  "title": "Office for Mission and Rector",
+  "description": "We educate for change, but our mission remains constant. ",
+  "splash": {
+    "title": "Office for Mission and Rector",
+    "image": "/images/chapel-big.jpg",
+    "alttext": "A view of the Roesch Library's west entrance, looking up at the detached semicircle of columns next to the building.",
+    "video": "https://www.youtube.com/embed/CasSeRV7DX0?si=ScSs-FbvdW9u_FGK",
+    "text": "We educate for change, but our mission remains constant.",
+    "contents": [
+      {
+        "type": "TEXT",
+        "paragraphs": [
+          "<p>The University of Dayton was founded in 1850 and is guided by the Society of Mary, also known as the Marianists, a Roman Catholic religious order dedicated to education.</p>",
+          "<p>We at the University constantly seek truth and knowledge in our mission to improve the world. We strive to make the University a place where all are welcome, respected and supported. As a Marianist University, we are called to live and work together in community. We've built and nurtured the campus community. We invite and teach our students to do the same, and we ask each community member to learn, lead and serve.</p>",
+          "<p>That's the very essence of our faith and our academic pursuits. We believe that people who develop compassionate hearts and critical minds can transform the world.</p>",
+          "<p>At the center of the University's leadership, to enhance our Catholic and Marianist character, is the Office for Mission and Rector. Its role is simple: to form people and communities committed to our Catholic and Marianist tradition of education.</p>"
+        ]
+      }
+    ]
+  },
+  "badges": [],
+  "modules": [
+    {
+      "title": "Marianist Heritage Tour",
+      "async": true,
+      "duration": "Est. 25 min",
+      "anchor": "marianist-tour",
+      "icon": "fa-church",
+      "landingContents": [
+        {
+          "type": "TEXT",
+          "paragraphs": [
+            "<h4>About this Module</h4><p>Explore this inspiring video tour and discover the significant places and monuments on the University of Dayton campus. Delve into the life and teachings of Blessed William Joseph Chaminade, who encourages contemplation and reflection in one's relationship with God. Witness the beauty and symbolism of the \"Mary at the Wedding Feast of Cana\" statue, a  tribute to the role of Mary in Jesus' first miracle. Discover the moving story of the Marianist Cemetery, a sacred site dedicated to the dedication of the Marianist brothers and their mission. Step into the world of the Hail Mary Monument, a timeless symbol of devotion and the Catholic Christian presence at U.D. Unravel the intriguing portrayal of \"Mary Seat of Wisdom,\" a depiction of Mary in her later life, showcasing her multifaceted roles as a woman and companion. Unearth the history and commitment of the St. Joseph and Jesus statue, a celebration of the University of Dayton School of Engineering. Embark on a journey through time with St. Mary's Hall, one of the oldest and most cherished buildings on campus. Finally, discover the resilience and significance of St. Joseph's, an academic building that has survived three fires and stands as a symbol of hope for the University of Dayton community. Unravel the stories and enduring legacies of these important places and monuments through these short, informative videos. </p>"
+          ]
+        }
+      ],
+      "lessons": [
+        {
+          "title": "Serenity Pines",
+          "anchor": "serenity-pines",
+          "icon": "fa-church",
+          "teaser": "A teaser could go here",
+          "pages": [
+            {
+              "title": "Introduction",
+              "anchor": "serenity-pines-intro",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "We delve into the life and teachings of Blessed William Joseph Chaminade, who encouraged others to embrace contemplation and reflection in their relationship with God. He believed that amidst life's obstacles, one should flow like a brook, growing broader and deeper, overcoming challenges with patience and discipline. Serenity Pines, a sacred space on the university campus, stands as a tribute to Joe Bell, a devoted member of the campus community, who envisioned a place where students, faculty, and staff could find solace from life's busyness. Though Joe couldn't witness its creation, his dream lives on, commemorated by the names of those who have left their mark on the campus community."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Video",
+              "anchor": "serenity-pines-video",
+              "contents": [
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Serenity Pines",
+                    "warpwire": "bS4BAA"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Location",
+              "anchor": "serenity-pines-map",
+              "contents": [
+                {
+                  "type": "MAP",
+                  "map": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d583.2483099439128!2d-84.1730026!3d39.7386197!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8840855b363e577d%3A0xb5e2bcf682d94b7b!2sSerenity%20Pines%20Garden!5e1!3m2!1sen!2sus!4v1695144952066!5m2!1sen!2sus"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

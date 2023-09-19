@@ -35,6 +35,12 @@
 				</li>
 			{% endfor %}
 		</ol>
+	{% elseif content.type == "MAP" %}
+		<div class="constraint-box">
+			<div class="videoWrapper">
+				<iframe class="d-flex" src="{{ content.map }}" style="border:0;width:100%;height:auto;min-height:600px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			</div>
+		</div>
 	{% endif %}
 {% endmacro %}
 

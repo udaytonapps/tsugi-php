@@ -675,6 +675,8 @@ class Content
     public $unorderedList;
     /** @var Content[] */
     public $orderedList;
+    /** @var string */
+    public $map;
 
     function __construct($content)
     {
@@ -689,6 +691,8 @@ class Content
             $this->link = new LinkContent($content->title, $content->icon, $content->href);
         } else if ($content->type == 'ORDERED_LIST') {
             $this->orderedList = new ListContent($content->listItems);
+        } else if ($content->type == 'MAP') {
+            $this->map = $content->map;
         }
     }
 }
