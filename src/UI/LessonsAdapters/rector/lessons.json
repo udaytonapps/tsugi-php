@@ -31,8 +31,15 @@
         {
           "type": "TEXT",
           "paragraphs": [
-            "<h4>About this Module</h4><p>Explore this inspiring video tour and discover the significant places and monuments on the University of Dayton campus. Delve into the life and teachings of Blessed William Joseph Chaminade, who encourages contemplation and reflection in one's relationship with God. Witness the beauty and symbolism of the \"Mary at the Wedding Feast of Cana\" statue, a  tribute to the role of Mary in Jesus' first miracle. Discover the moving story of the Marianist Cemetery, a sacred site dedicated to the dedication of the Marianist brothers and their mission. Step into the world of the Hail Mary Monument, a timeless symbol of devotion and the Catholic Christian presence at U.D. Unravel the intriguing portrayal of \"Mary Seat of Wisdom,\" a depiction of Mary in her later life, showcasing her multifaceted roles as a woman and companion. Unearth the history and commitment of the St. Joseph and Jesus statue, a celebration of the University of Dayton School of Engineering. Embark on a journey through time with St. Mary's Hall, one of the oldest and most cherished buildings on campus. Finally, discover the resilience and significance of St. Joseph's, an academic building that has survived three fires and stands as a symbol of hope for the University of Dayton community. Unravel the stories and enduring legacies of these important places and monuments through these short, informative videos. </p>"
+            "Explore this inspiring video tour and discover the significant places and monuments on the University of Dayton campus. Delve into the life and teachings of Blessed William Joseph Chaminade, who encourages contemplation and reflection in one's relationship with God. Witness the beauty and symbolism of the \"Mary at the Wedding Feast of Cana\" statue, a  tribute to the role of Mary in Jesus' first miracle. Discover the moving story of the Marianist Cemetery, a sacred site dedicated to the dedication of the Marianist brothers and their mission. Step into the world of the Hail Mary Monument, a timeless symbol of devotion and the Catholic Christian presence at U.D. Unravel the intriguing portrayal of \"Mary Seat of Wisdom,\" a depiction of Mary in her later life, showcasing her multifaceted roles as a woman and companion. Unearth the history and commitment of the St. Joseph and Jesus statue, a celebration of the University of Dayton School of Engineering. Embark on a journey through time with St. Mary's Hall, one of the oldest and most cherished buildings on campus. Finally, discover the resilience and significance of St. Joseph's, an academic building that has survived three fires and stands as a symbol of hope for the University of Dayton community. Unravel the stories and enduring legacies of these important places and monuments through these short, informative videos."
           ]
+        },
+        {
+          "type": "VIDEO",
+          "video": {
+            "title": "The Heritage of Nazareth",
+            "youtube": "CasSeRV7DX0"
+          }
         }
       ],
       "lessons": [

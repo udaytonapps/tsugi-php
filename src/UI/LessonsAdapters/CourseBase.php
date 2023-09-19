@@ -7,6 +7,7 @@ abstract class CourseBase
 {
     public string $category;
     protected string $base_url_warpwire = 'https://udayton.warpwire.com';
+    protected string $base_url_youtube = 'https://www.youtube.com/embed/';
 
     public function header()
     {
@@ -684,7 +685,9 @@ class Content
         if ($content->type == 'TEXT') {
             $this->paragraphs = $content->paragraphs ?? [];
         } else if ($content->type == 'VIDEO') {
-            $this->video = new VideoContent($content->video->title, $content->video->warpwire);
+            $warpwire = $content->video->warpwire ?? null;
+            $youtube = $content->video->youtube ?? null;
+            $this->video = new VideoContent($content->video->title, $warpwire, $youtube);
         } else if ($content->type == 'LTI') {
             $this->lti = new LtiContent($content->lti);
         } else if ($content->type == 'LINK') {
@@ -718,11 +721,14 @@ class VideoContent
     public $title;
     /** @var string */
     public $warpwire;
+    /** @var string */
+    public $youtube;
 
-    function __construct($title, $warpwire)
+    function __construct($title, $warpwire, $youtube)
     {
         $this->title = $title ?? null;
         $this->warpwire = $warpwire ?? null;
+        $this->youtube = $youtube ?? null;
     }
 }
 

@@ -27,15 +27,15 @@
 </div>
 <div class="container async-module mt-4 mb-4">
 	<div>
+		{# PAGE TITLE #}
+		{% if module.title %}
+			<h1>{{module.title}}</h1>
+		{% endif %}
 		{# LANDING CONTENT #}
 		<div class="d-flex landing-content flex-wrap flex-md-nowrap">
 			{% for content in module.landingContents %}
 				{% if content.type == "TEXT" %}
 					<div class="d-flex flex-column">
-						{# PAGE TITLE #}
-						{% if module.title %}
-							<h1>{{module.title}}</h1>
-						{% endif %}
 						{% for paragraph in content.paragraphs %}
 							<p>{{paragraph | raw}}</p>
 						{% endfor %}
@@ -53,6 +53,10 @@
 						{% if content.video.warpwire %}
 							<div class="videoWrapper">
 								<iframe class="d-flex" src="{{base_url_warpwire}}/w/{{content.video.warpwire}}/?share=0&title=0" frameborder="0" scrolling="0" allow="autoplay; encrypted-media; fullscreen;  picture-in-picture;" allowfullscreen></iframe>
+							</div>
+						{% elseif content.video.youtube %}
+							<div class="videoWrapper">
+								<iframe class="d-flex" src="{{base_url_youtube}}{{content.video.youtube}}/?share=0&title=0" frameborder="0" scrolling="0" allow="autoplay; encrypted-media; fullscreen;  picture-in-picture;" allowfullscreen></iframe>
 							</div>
 						{% endif %}
 					</div>
