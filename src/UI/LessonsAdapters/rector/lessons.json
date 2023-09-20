@@ -47,7 +47,7 @@
           "title": "Serenity Pines",
           "anchor": "serenity-pines",
           "icon": "fa-church",
-          "teaser": "A teaser could go here",
+          "teaser": "One page per item version.",
           "pages": [
             {
               "title": "Introduction",
@@ -81,6 +81,74 @@
                 {
                   "type": "MAP",
                   "map": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d583.2483099439128!2d-84.1730026!3d39.7386197!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8840855b363e577d%3A0xb5e2bcf682d94b7b!2sSerenity%20Pines%20Garden!5e1!3m2!1sen!2sus!4v1695144952066!5m2!1sen!2sus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Wedding Feast at Cana",
+          "anchor": "wedding-at-cana",
+          "icon": "fa-church",
+          "teaser": "Map on separate page version.",
+          "pages": [
+            {
+              "title": "Wedding Feast at Cana",
+              "anchor": "wedding-at-cana-info",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "The  \"Mary at the Wedding Feast of Cana\" statue beautifully depicts the pivotal role of Mary in Jesus' first miracle, as she instructs him to turn water into wine at the wedding feast. Commissioned by Joe Atman, a devoted alumnus, and his family, the statue stands as a powerful symbol of the Catholic Christian presence at U.D., drawing visitors closer with its inviting gestures and younger, active portrayal of Mary. Explore the  meaning and significance of this bronze sculpture, created by Robert Leppo of Leppo Works, in this informative video."
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Wedding Feast at Cana",
+                    "warpwire": "-ywBAA"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Campus Location",
+              "anchor": "wedding-at-cana-map",
+              "contents": [
+                {
+                  "type": "MAP",
+                  "map": "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d383.79800524253517!2d-84.17465026711491!3d39.73808488703136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus!4v1691084757477!5m2!1sen!2sus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Marianist Cemetery",
+          "anchor": "marianist-cemetery",
+          "icon": "fa-church",
+          "teaser": "All on one page version",
+          "pages": [
+            {
+              "title": "Marianist Cemetery",
+              "anchor": "marianist-cemetery-info",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "The Marianist Cemetery was established in 1854 during the cholera epidemic. The cemetery put in place through the efforts of Father Leo Meyer, the university's first president, and the Marianist brothers. When the Marianists acquired the property, they made a promise to watch over the grave of little Mary Louisa, the infant daughter of the Stewart family who died during the epidemic. This sacred site serves as a testament to the dedication of the Marianist brothers and their commitment to Father Chaminade's mission. Discover the unique story of Mary Louisa, the only female buried in the cemetery, and the evolution of the cemetery over the years."
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Marianist Cemetery",
+                    "warpwire": "uykBAA"
+                  }
+                },
+                {
+                  "type": "MAP",
+                  "map": "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d383.79800524253517!2d-84.17465026711491!3d39.73808488703136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus!4v1691084757477!5m2!1sen!2sus"
                 }
               ]
             }
