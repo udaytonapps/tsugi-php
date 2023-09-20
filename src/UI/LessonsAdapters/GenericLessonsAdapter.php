@@ -163,7 +163,7 @@ class GenericAdapter extends CourseBase
         $modules = $this->assembleAllowedModules();
 
         return (object)[
-            'genericImg' => $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.png',
+            'genericImg' => $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.jpg',
             'genericImgAlt' => 'University of Dayton Chapel',
             'course' => $this->course,
             'moduleData' => $modules,
@@ -297,8 +297,8 @@ class GenericAdapter extends CourseBase
         $allowedModules = $this->assembleAllowedModules();
 
         echo $twig->render('all-modules-page.twig', [
-            'genericImg' => $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.png',
-            'genericImgAlt' => 'University of Dayton Chapel',
+            'genericImg' => $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.jpg',
+            'genericImgAlt' => 'University of Dayton Campus',
             'breadcrumbs' => $this->getBreadcrumbs(),
             'contextRoot' => $this->contextRoot,
             'course' => $this->course,

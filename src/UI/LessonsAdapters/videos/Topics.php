@@ -803,7 +803,7 @@ class Topics extends CourseBase
             $modules = $this->assembleAllowedModules();
 
             return (object)[
-                'genericImg' => $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.png',
+                'genericImg' => $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.jpg',
                 'genericImgAlt' => 'University of Dayton Chapel',
                 'course' => $this->course,
                 'moduleData' => $modules,

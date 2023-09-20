@@ -62,7 +62,7 @@ class LessonsUIHelper
         $twig = self::twig();
 
         // Assign default BG image
-        $cardConfig->genericImg = $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.png';
+        $cardConfig->genericImg = $CFG->wwwroot . '/vendor/tsugi/lib/src/UI/assets/general_session.jpg';
 
         echo $twig->render('session-card.html', (array)$cardConfig);
     }
