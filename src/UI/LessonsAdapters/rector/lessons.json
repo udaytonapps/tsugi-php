@@ -47,24 +47,17 @@
           "title": "Serenity Pines",
           "anchor": "serenity-pines",
           "icon": "fa-church",
-          "teaser": "One page per item version.",
           "pages": [
             {
-              "title": "Introduction",
-              "anchor": "serenity-pines-intro",
+              "title": "Overview and Tour Video",
+              "anchor": "serenity-pines-info",
               "contents": [
                 {
                   "type": "TEXT",
                   "paragraphs": [
                     "We delve into the life and teachings of Blessed William Joseph Chaminade, who encouraged others to embrace contemplation and reflection in their relationship with God. He believed that amidst life's obstacles, one should flow like a brook, growing broader and deeper, overcoming challenges with patience and discipline. Serenity Pines, a sacred space on the university campus, stands as a tribute to Joe Bell, a devoted member of the campus community, who envisioned a place where students, faculty, and staff could find solace from life's busyness. Though Joe couldn't witness its creation, his dream lives on, commemorated by the names of those who have left their mark on the campus community."
                   ]
-                }
-              ]
-            },
-            {
-              "title": "Video",
-              "anchor": "serenity-pines-video",
-              "contents": [
+                },
                 {
                   "type": "VIDEO",
                   "video": {
@@ -75,7 +68,7 @@
               ]
             },
             {
-              "title": "Location",
+              "title": "Campus Location",
               "anchor": "serenity-pines-map",
               "contents": [
                 {
@@ -127,10 +120,9 @@
           "title": "Marianist Cemetery",
           "anchor": "marianist-cemetery",
           "icon": "fa-church",
-          "teaser": "All on one page version",
           "pages": [
             {
-              "title": "Marianist Cemetery",
+              "title": "Overview and Tour Video",
               "anchor": "marianist-cemetery-info",
               "contents": [
                 {
@@ -145,10 +137,262 @@
                     "title": "Marianist Cemetery",
                     "warpwire": "uykBAA"
                   }
-                },
+                }
+              ]
+            },
+            {
+              "title": "Campus Location",
+              "anchor": "marianist-cemetary-map",
+              "contents": [
                 {
                   "type": "MAP",
-                  "map": "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d383.79800524253517!2d-84.17465026711491!3d39.73808488703136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus!4v1691084757477!5m2!1sen!2sus"
+                  "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d383.79588482327705!2d-84.17346098254434!3d39.73846565597524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88408410db94fd6f%3A0x155125041d193fb2!2sMarianist%20Cemetery!5e1!3m2!1sen!2sus!4v1691084773661!5m2!1sen!2sus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Hail Mary Monument",
+          "anchor": "hail-mary-monument",
+          "icon": "fa-church",
+          "pages": [
+            {
+              "title": "Overview and Tour Video",
+              "anchor": "hail-mary-monument-info",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "The Hail Mary Monument is a symbol of devotion on the University of Dayton campus. Erected in 1904 when the university was still known as St. Mary's Institute, this statue honors the Dogmatic Proclamation of the Immaculate Conception of Mary on its 50th anniversary. Mary's profound role in the Catholic faith tradition makes her a cherished figure for the Marian family, and this statue, along with several others on campus, stands as a testament to her life, work, and service. Positioned near the heart of the campus, Mary's youthful and hopeful presence serves as a reminder of the library's vast collection of Marian resources, the largest in the world. Discover the history and beauty of this monument in this video."
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Hail Mary Monument",
+                    "warpwire": "lSkBAA"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Campus Location",
+              "anchor": "hail-mary-monument-map",
+              "contents": [
+                {
+                  "type": "MAP",
+                  "map": "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d322.7260340377837!2d-84.17817687459215!3d39.73986431072342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus!4v1691084812566!5m2!1sen!2sus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Mary Seat of Wisdom",
+          "anchor": "mary-seat-of-wisdom",
+          "icon": "fa-church",
+          "pages": [
+            {
+              "title": "Overview and Tour Video",
+              "anchor": "mary-seat-of-wisdom-info",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "Explore the captivating \"Mary Seat of Wisdom\" statue on the University of Dayton campus. Crafted by Marianist Brother, Joe Aspel, this sculpture portrays Mary in later life, representing her multifaceted roles as a woman, mother, refugee, widow, sister, friend, and companion. With hands raised in prayer, Mary invites us to share in her mission of bringing Christ into the world. As members of the Marianist family, we are called to embrace the Marianist spirit and mission, living with integrity and embodying the holiness that God invites each of us to be. Discover the meaning and significance of this monument in this video."
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Mary Seat of Wisdom",
+                    "warpwire": "dSkBAA"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Campus Location",
+              "anchor": "mary-seat-of-wisdom-map",
+              "contents": [
+                {
+                  "type": "MAP",
+                  "map": "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d228.2062677959349!2d-84.17306044212536!3d39.73850511994484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus!4v1691084702601!5m2!1sen!2sus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Joseph and Child",
+          "anchor": "joseph-and-child",
+          "icon": "fa-church",
+          "pages": [
+            {
+              "title": "Overview and Tour Video",
+              "anchor": "joseph-and-child-info",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "Welcome to the statue of St. Joseph and Jesus, a symbol of celebration for 100 years of the University of Dayton School of Engineering. This sculpture, located outside Kettering Labs, was generously gifted by Tim Beach and his wife Karen, and crafted by Marianist brother, Joe Aspell. Depicting St. Joseph and Jesus in a moment of play, the statue embodies the essence of engineering—a profession of hard work, dedication, and service to humanity. As we delve into the portrayal of St. Joseph as a protector and caregiver of Jesus, we witness the joy and playfulness shared between them, inspiring engineers to continue their noble work for the betterment of humankind. Discover the heartwarming story and significance behind this monument."
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Joseph and Child",
+                    "warpwire": "oSgBAA"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Campus Location",
+              "anchor": "joseph-and-child-map",
+              "contents": [
+                {
+                  "type": "MAP",
+                  "map": "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d228.2068177809148!2d-84.17616878817401!3d39.73833902295314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus!4v1691084680703!5m2!1sen!2sus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Chaminade Statue",
+          "anchor": "chaminade-statue",
+          "icon": "fa-church",
+          "pages": [
+            {
+              "title": "Overview and Tour Video",
+              "anchor": "chaminade-statue-info",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "The statue of Chaminade, a tribute commissioned in honor of the 250th anniversary of Blessed William Joseph Chaminade's birth at the University of Dayton. Donated by President Dan Curran and Claire Renzetti, this remarkable sculpture captures Chaminade in his youth, full of energy and vigor as he begins his mission. Unlike other depictions, Chaminade's open hand invites us to join him in solidarity, offering an invitation to be part of his vision. With a book symbolizing the marianists' commitment to education and a simple satchel on his back, Chaminade's statue stands at the crossroads of the Central Mall, reminding us that life is a lifelong journey of choices, and we do not travel alone. Join us in this video to explore the  meaning and significance of this monument on the University of Dayton campus."
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Chaminade Statue",
+                    "warpwire": "oScBAA"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Campus Location",
+              "anchor": "chaminade-statue-map",
+              "contents": [
+                {
+                  "type": "MAP",
+                  "map": "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d456.4070979475067!2d-84.17575542866541!3d39.73932620328785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus!4v1691084657791!5m2!1sen!2sus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "St. Mary's Hall",
+          "anchor": "st-marys-hall",
+          "icon": "fa-church",
+          "pages": [
+            {
+              "title": "Overview and Tour Video",
+              "anchor": "st-marys-hall-info",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "Discover the history and significance of St. Mary's Hall, one of the oldest buildings on the University of Dayton campus. Built in 1870 by Brother Max Zehler, then the president of U.D., it was originally called \"Zehler's Folly\" due to doubts about its size and cost. However, the Marianist's forward-thinking prevailed, making it the largest building in Dayton at the time. Over the years, St. Mary's Hall has served various purposes, from classrooms to a residence for the brothers, and now houses important administrative offices. The building is a living testament to the university's past, with historic photos adorning its walls and the original metal plates still on its steps, bearing the name \"St. Mary's Institute.\" Join us in this video as we explore the rich heritage and enduring significance of St. Mary's Hall in the life of the University of Dayton."
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "St. Mary's Hall",
+                    "warpwire": "hyYBAA"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Campus Location",
+              "anchor": "st-marys-hall-map",
+              "contents": [
+                {
+                  "type": "MAP",
+                  "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1534.002933854198!2d-84.17926845194638!3d39.739519048065794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88408560d9ddf9b7%3A0xab405eb88e17f38c!2sSaint%20Mary%E2%80%99s%20Hall!5e0!3m2!1sen!2sus!4v1691084553002!5m2!1sen!2sus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "St. Joseph's Hall",
+          "anchor": "st-josephs-hall",
+          "icon": "fa-church",
+          "pages": [
+            {
+              "title": "Overview and Tour Video",
+              "anchor": "st-josephs-hall-info",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "Welcome to St. Joseph's, one of the University of Dayton's earliest academic buildings with a rich history. Originally dedicated in 1884, the building faced three devastating fires, the last of which occurred in December 1987. Despite the destruction, the statue of St. Joseph survived the flames, becoming a symbol of hope and resilience. Today, St. Joseph's serves as the academic home to social sciences like political science, sociology, and psychology, reflecting the university's commitment to the community. Discover the story of this remarkable building, from its role as a safe haven during the Dayton flood of 1913 to the university's ongoing commitment to its city, showcased in this video."
+                    ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "St. Joseph's Hall",
+                    "warpwire": "_yMBAA"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Campus Location",
+              "anchor": "st-josephs-hall-map",
+              "contents": [
+                {
+                  "type": "MAP",
+                  "map": "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d767.005001932065!2d-84.17847585916633!3d39.739201421077496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMznCsDQ0JzIwLjAiTiA4NMKwMTAnMzkuOCJX!5e0!3m2!1sen!2sus!4v1691084607270!5m2!1sen!2sus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "placeholder",
+          "anchor": "placeholder",
+          "icon": "fa-church",
+          "pages": [
+            {
+              "title": "placeholder",
+              "anchor": "quick-write",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "Please complete this quick write."
+                  ]
+                },
+                {
+                  "type": "LTI",
+                  "lti": {
+                    "header": "Quick Write",
+                    "description": "Complete the following Quick Write task.",
+                    "icon": "fa-pencil-square",
+                    "title": "placeholder",
+                    "launch": "/mod/modquickwrite/",
+                    "resource_link_id": "marianist_tour_qw"
+                  }
                 }
               ]
             }
