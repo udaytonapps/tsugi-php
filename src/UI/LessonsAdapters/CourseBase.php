@@ -678,6 +678,8 @@ class Content
     public $orderedList;
     /** @var string */
     public $map;
+    /** @var ImageContent  */
+    public $image;
 
     function __construct($content)
     {
@@ -696,6 +698,8 @@ class Content
             $this->orderedList = new ListContent($content->listItems);
         } else if ($content->type == 'MAP') {
             $this->map = $content->map;
+        } else if ($content->type == 'IMAGE') {
+            $this->image = new ImageContent($content->image->path, $content->image->altText);
         }
     }
 }
@@ -746,6 +750,20 @@ class LinkContent
         $this->title = $title ?? null;
         $this->icon = $icon ?? null;
         $this->url = $url ?? null;
+    }
+}
+
+class ImageContent
+{
+    /** @var string **/
+    public $path;
+    /** @var string **/
+    public $altText;
+
+    function __construct($path, $altText)
+    {
+        $this->path = $path ?? null;
+        $this->altText = $altText ?? null;
     }
 }
 

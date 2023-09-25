@@ -71,10 +71,10 @@
 									{% endif %}
 								</div>
 								<a class="flex-grow-1" href="{{url}}">
-									{% set title = module.session is defined ? module.session : module.title %}
+									{% set title = module.session ?? module.title %}
 									{{ title | length > 30 ? title | slice(0, 30) ~ '...' : title  }}
 									-
-									{% set ltiTitle = lti.assignmenttitle is defined ? lti.assignmenttitle : lti.title %}
+									{% set ltiTitle = lti.assignmenttitle ?? lti.title %}
 									{{ ltiTitle | length > 30 ? ltiTitle | slice(0, 30) ~ '...' : ltiTitle  }}
 								</a>
 								<div class="text-right" style="font-weight: bold;">

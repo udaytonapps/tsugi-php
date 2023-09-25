@@ -1,7 +1,7 @@
 {% apply inline_css %}
 <style>
 	.async-module {}
-	.async-module .landing-video {
+	.async-module .landing-video, .async-module .landing-image {
 		min-width: 45%;
 		padding: 0 15px 20px;
 	}
@@ -59,6 +59,11 @@
 								<iframe class="d-flex" src="{{base_url_youtube}}{{content.video.youtube}}/?share=0&title=0" frameborder="0" scrolling="0" allow="autoplay; encrypted-media; fullscreen;  picture-in-picture;" allowfullscreen></iframe>
 							</div>
 						{% endif %}
+					</div>
+				{% endif %}
+				{% if content.type == "IMAGE" %}
+					<div class="d-flex flex-column landing-image flex-grow-1">
+						<img src="{{ contextRoot ~ content.image.path }}" alt="{{ content.image.altText }}" />
 					</div>
 				{% endif %}
 			{% endfor %}

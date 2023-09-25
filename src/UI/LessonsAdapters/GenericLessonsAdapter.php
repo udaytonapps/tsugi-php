@@ -243,6 +243,7 @@ class GenericAdapter extends CourseBase
                 'breadcrumbs' => $this->getBreadcrumbs(),
                 'base_url_warpwire' => $this->base_url_warpwire,
                 'base_url_youtube' => $this->base_url_youtube,
+                'contextRoot' => $this->contextRoot,
                 'module' => $this->activeModule,
                 'progress' => $progress,
             ]);

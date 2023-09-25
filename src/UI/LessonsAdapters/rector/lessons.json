@@ -19,7 +19,18 @@
       }
     ]
   },
-  "badges": [],
+  "badges": [
+    {
+      "title": "Marianist Tour Guide",
+      "description": "Congratulations. You did it. You visited some really important Marianist locations on UD's campus (and learned some great history along the way) without ever leaving your desk. You will be a tremendous asset at the next Marianist Trivia night. You know more about the places that tell the story of our rich Marianist history that hundreds walk past each day.",
+      "image": "marianistTourGuide.png",
+      "anchor": "marianist-tour-guide",
+      "threshold": "1.0",
+      "assignments": [
+        "marianist_tour_qw"
+      ]
+    }
+  ],
   "modules": [
     {
       "title": "Marianist Heritage Tour",
@@ -31,14 +42,14 @@
         {
           "type": "TEXT",
           "paragraphs": [
-            "Explore this inspiring video tour and discover the significant places and monuments on the University of Dayton campus. Delve into the life and teachings of Blessed William Joseph Chaminade, who encourages contemplation and reflection in one's relationship with God. Witness the beauty and symbolism of the \"Mary at the Wedding Feast of Cana\" statue, a  tribute to the role of Mary in Jesus' first miracle. Discover the moving story of the Marianist Cemetery, a sacred site dedicated to the dedication of the Marianist brothers and their mission. Step into the world of the Hail Mary Monument, a timeless symbol of devotion and the Catholic Christian presence at U.D. Unravel the intriguing portrayal of \"Mary Seat of Wisdom,\" a depiction of Mary in her later life, showcasing her multifaceted roles as a woman and companion. Unearth the history and commitment of the St. Joseph and Jesus statue, a celebration of the University of Dayton School of Engineering. Embark on a journey through time with St. Mary's Hall, one of the oldest and most cherished buildings on campus. Finally, discover the resilience and significance of St. Joseph's, an academic building that has survived three fires and stands as a symbol of hope for the University of Dayton community. Unravel the stories and enduring legacies of these important places and monuments through these short, informative videos."
+            "Explore the Maranist Heritage tour videos and discover the significant places and monuments on the University of Dayton campus. The virtual tour is designed to help viewers unravel the stories and enduring legacies of these important places and monuments through these short, informative videos. Users who complete the tour and final reflection will be awarded the 'Marianist Tour Guide' badge. It's estimated that it will take no longer than 25 minutes to complete."
           ]
         },
         {
-          "type": "VIDEO",
-          "video": {
-            "title": "The Heritage of Nazareth",
-            "youtube": "CasSeRV7DX0"
+          "type": "IMAGE",
+          "image": {
+            "path": "/images/cross-lamppost.jpg",
+            "altText": "Exterior lamp post with a decorative cross at the top and the University of Dayton campus unfocused in the background"
           }
         }
       ],
@@ -83,7 +94,6 @@
           "title": "Wedding Feast at Cana",
           "anchor": "wedding-at-cana",
           "icon": "fa-church",
-          "teaser": "Map on separate page version.",
           "pages": [
             {
               "title": "Overview and Tour Video",
@@ -369,27 +379,27 @@
           ]
         },
         {
-          "title": "placeholder",
-          "anchor": "placeholder",
+          "title": "Reflection Activity",
+          "anchor": "marianist-reflection",
           "icon": "fa-church",
           "pages": [
             {
-              "title": "placeholder",
-              "anchor": "quick-write",
+              "title": "Tour Reflection",
+              "anchor": "marianist-reflection-qw",
               "contents": [
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "Please complete this quick write."
+                    "Now that you've visited the different Marianist locations on campus, you're invited to complete a short completion to receive the 'Marianist Tour Guide' badge. This activity will take less than five minutes."
                   ]
                 },
                 {
                   "type": "LTI",
                   "lti": {
-                    "header": "Quick Write",
+                    "header": "Tour Reflection",
                     "description": "Complete the following Quick Write task.",
                     "icon": "fa-pencil-square",
-                    "title": "placeholder",
+                    "title": "Complete Tour Reflection",
                     "launch": "/mod/modquickwrite/",
                     "resource_link_id": "marianist_tour_qw"
                   }
