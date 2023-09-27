@@ -1,6 +1,6 @@
 {
   "title": "Office for Mission and Rector",
-  "description": "We educate for change, but our mission remains constant. ",
+  "description": "Professional development centered around UD’s mission.",
   "splash": {
     "title": "Office for Mission and Rector",
     "image": "/images/chapel-big.jpg",
@@ -14,7 +14,9 @@
           "<p>The University of Dayton was founded in 1850 and is guided by the Society of Mary, also known as the Marianists, a Roman Catholic religious order dedicated to education.</p>",
           "<p>We at the University constantly seek truth and knowledge in our mission to improve the world. We strive to make the University a place where all are welcome, respected and supported. As a Marianist University, we are called to live and work together in community. We've built and nurtured the campus community. We invite and teach our students to do the same, and we ask each community member to learn, lead and serve.</p>",
           "<p>That's the very essence of our faith and our academic pursuits. We believe that people who develop compassionate hearts and critical minds can transform the world.</p>",
-          "<p>At the center of the University's leadership, to enhance our Catholic and Marianist character, is the Office for Mission and Rector. Its role is simple: to form people and communities committed to our Catholic and Marianist tradition of education.</p>"
+          "<p>At the center of the University's leadership, to enhance our Catholic and Marianist character, is the Office for Mission and Rector. Its role is simple: to form people and communities committed to our Catholic and Marianist tradition of education.</p>",
+          "<h5>Program Goals</h5>",
+          "<ol><li>Participants will grow in familiarity with aspects of the Catholic and Marianist Mission</li><li>Participants will engage with other UD professionals</li><li>Participants will discover ways to integrate UD’s mission into their work and personal lives</li></ol>"
         ]
       }
     ]
@@ -33,11 +35,181 @@
   ],
   "modules": [
     {
+      "title": "Marianist 101",
+      "session": "Marianist Mission and Identity Workshops",
+      "anchor": "marianist-101",
+      "icon": "fa-church",
+      "duration": "90min",
+      "calendar": "Oct.",
+      "description": "If you have ever wondered what makes the Marianists distinct, this workshop is for you. We will explore some fundamental aspects of the Marianist Charism and how those influence the culture at UD. This workshop will be interactive and include time for discussion and questions.",
+      "image": "/images/statue.jpg",
+      "imagealt": "Two students walking by a statue.",
+      "facilitators": [
+        "jfitz1@udayton.edu",
+        "aleigh1@udayton.edu"
+      ],
+      "learningoutcomes": [
+        "Participants will understand the distinctive characteristics of the Marianist order and UD’s Marianist Mission."
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=rector&session_id=marianist-101&view=REGISTRATION",
+          "resource_link_id" : "reg-marianist-101",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=rector&session_id=marianist-101&view=FEEDBACK",
+          "resource_link_id" : "feedback-marianist-101",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=rector&session_id=marianist-101&view=ADMINISTRATION",
+          "resource_link_id" : "admin-marianist-101",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "title": "Meet the MEAs (and learn more about them)",
+      "session": "Marianist Mission and Identity Workshops",
+      "anchor": "meet-meas",
+      "icon": "fa-church",
+      "duration": "90min",
+      "calendar": "Nov.",
+      "description": "There are over 120 Marianist Educational Associates at UD! This workshop will feature a panel of MEAs who will share their experience and what being an MEA means for their work at UD. Whether you are interested in becoming an MEA or just want to know a little more about this program, this workshop is for you.",
+      "image": "/images/mary-statue.jpg",
+      "imagealt": "Mary statue with UD Chapel in the background.",
+      "facilitators": [
+        "jfitz1@udayton.edu",
+        "aleigh1@udayton.edu"
+      ],
+      "learningoutcomes": [
+        "Participants will increase their awareness of who MEAs are and how they contribute to advancing our mission."
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=rector&session_id=meet-meas&view=REGISTRATION",
+          "resource_link_id" : "reg-meet-meas",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=rector&session_id=meet-meas&view=FEEDBACK",
+          "resource_link_id" : "feedback-meet-meas",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=rector&session_id=meet-meas&view=ADMINISTRATION",
+          "resource_link_id" : "admin-meet-meas",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "title": "History of UD",
+      "session": "Marianist Mission and Identity Workshops",
+      "anchor": "history-of-ud",
+      "icon": "fa-church",
+      "duration": "90min",
+      "calendar": "Feb.",
+      "description": "Back by popular demand, this interactive workshop will highlight some of the most important and pivotal moments in UD's 173-year history. If you are curious about how UD began, some of the trials and tribulations the institution has faced, or who some of our buildings are named after, you will find it in this workshop. As UD faces new challenges, we will see what helped UD respond to past challenges.",
+      "image": "/images/st-mary-hall.jpg",
+      "imagealt": "St. Mary Hall.",
+      "facilitators": [
+        "jfitz1@udayton.edu",
+        "aleigh1@udayton.edu"
+      ],
+      "learningoutcomes": [
+        "Participants will discuss UD’s history, the challenges faced through the years, and the way UD can continue to adapt and change in the future."
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=rector&session_id=history-of-ud&view=REGISTRATION",
+          "resource_link_id" : "reg-history-of-ud",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=rector&session_id=history-of-ud&view=FEEDBACK",
+          "resource_link_id" : "feedback-history-of-ud",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=rector&session_id=history-of-ud&view=ADMINISTRATION",
+          "resource_link_id" : "admin-history-of-ud",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "title": "Exploring Service, Justice, and Peace in a Marianist Education",
+      "session": "Marianist Mission and Identity Workshops",
+      "anchor": "marianist-education",
+      "icon": "fa-church",
+      "duration": "90min",
+      "calendar": "Mar.",
+      "description": "One of the five characteristics of Marianist education is education for service, justice, peace, and the integrity of creation. In this interactive workshop, learn more about this characteristic and reflect on how you can incorporate it into your own work.",
+      "image": "/images/inside-chapel.jpg",
+      "imagealt": "Inside of the UD Chapel",
+      "facilitators": [
+        "jfitz1@udayton.edu",
+        "aleigh1@udayton.edu"
+      ],
+      "learningoutcomes": [
+        "Participants will discuss the many ways in which UD incorporates this aspect of Marianist Education into our curriculum and why it’s an important component of our mission."
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=rector&session_id=marianist-education&view=REGISTRATION",
+          "resource_link_id" : "reg-marianist-education",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=rector&session_id=marianist-education&view=FEEDBACK",
+          "resource_link_id" : "feedback-marianist-education",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=rector&session_id=marianist-education&view=ADMINISTRATION",
+          "resource_link_id" : "admin-marianist-education",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
       "title": "Marianist Heritage Tour",
       "async": true,
       "duration": "Est. 25 min",
       "anchor": "marianist-tour",
       "icon": "fa-church",
+      "image": "/images/general_session.jpg",
+      "imagealt": "UD campus buildings",
       "landingContents": [
         {
           "type": "TEXT",
