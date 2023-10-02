@@ -12,7 +12,8 @@
         "type": "TEXT",
         "paragraphs": [
           "<p class=\"pt-5\">Whether you’re a full professor or an adjunct, your teaching has a powerful impact on our students. Today’s students have expectations around how learning technologies can augment their learning. The Center for Online Learning is here to support you in meeting your students’ needs, whether you’re teaching on-campus or asynchronously online.</p>",
-          "<p>The custom training programs and materials below will help you stay up-to-date on UD’s essential learning technologies and innovative teaching practices. Take some time to explore and engage with these professional development resources.<p>"
+          "<p>The custom training programs and materials below will help you stay up-to-date on UD’s essential learning technologies and innovative teaching practices. Take some time to explore and engage with these professional development resources.<p>",
+          "<p><a href=\"https://udayton.edu/blogs/onlinelearning/\" class=\"btn btn-secondary\" target=\"_blank\">Read Our Blog <i class=\"fa fa-external-link ms-1\" aria-hidden=\"true\"></i></a></p>"
         ]
       }
     ]
