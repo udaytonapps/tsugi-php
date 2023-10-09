@@ -44,6 +44,11 @@ class LessonsOrchestrator
                 'adapter' => GenericAdapter::class,
                 'adapterPath' => $adapterDirectory . '/GenericLessonsAdapter.php',
             ],
+            'ODI' => (object)[
+                'displayLabel' => 'Diversity and Inclusion',
+                'adapter' => GenericAdapter::class,
+                'adapterPath' => $adapterDirectory . '/GenericLessonsAdapter.php'
+            ],
             'rector' => (object)[
                 'displayLabel' => 'Mission and Rector',
                 'adapter' => GenericAdapter::class,
