@@ -371,6 +371,13 @@
           "resource_link_id" : "feedback-core-5",
           "type": "FEEDBACK"
         }
+      ],
+      "resources" : [
+        {
+          "title" : "Session Slides",
+          "icon" : "far fa-file-powerpoint",
+          "url" : "https://docs.google.com/presentation/d/1rW9kOR2PCyVXZhJ57Gqe2TyOYtNNFcE88pe5npYgPLM/edit?usp=sharing"
+        }
       ]
     },
     {
@@ -415,6 +422,13 @@
           "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-6&view=FEEDBACK",
           "resource_link_id" : "feedback-core-6",
           "type": "FEEDBACK"
+        }
+      ],
+      "resources" : [
+        {
+          "title" : "Session Slides",
+          "icon" : "far fa-file-powerpoint",
+          "url" : "https://docs.google.com/presentation/d/124BIaWuxSakmRjNGZx4D8YrE-OmC3uDNJJu5H7URhOQ/edit?usp=sharing"
         }
       ]
     },
@@ -461,6 +475,13 @@
           "resource_link_id" : "feedback-core-7",
           "type": "FEEDBACK"
         }
+      ],
+      "resources" : [
+        {
+          "title" : "Session Slides",
+          "icon" : "far fa-file-powerpoint",
+          "url" : "https://docs.google.com/presentation/d/1Q0WdHSOM99PmYj2f0sPES3JqQV7wqOqI5gw6AHsN0-M/edit?usp=sharing"
+        }
       ]
     },
     {
@@ -504,6 +525,13 @@
           "launch" : "/mod/learn-registration/?program=ATLS&session_id=core-8&view=FEEDBACK",
           "resource_link_id" : "feedback-core-8",
           "type": "FEEDBACK"
+        }
+      ],
+      "resources" : [
+        {
+          "title" : "Session Slides",
+          "icon" : "far fa-file-powerpoint",
+          "url" : "https://docs.google.com/presentation/d/18EyrHLRaoZn6D-IIyqo50ymw0677ryfhLoRK3Qn4wx0/edit?usp=sharing"
         }
       ]
     }
