@@ -51,21 +51,21 @@
         {
           "title" : "Register",
           "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?program=inclusive_excellence&session_id=faculty-workshops-1&view=REGISTRATION",
+          "launch" : "/mod/learn-registration/?program=inclusive-excellence&session_id=faculty-workshops-1&view=REGISTRATION",
           "resource_link_id" : "reg-faculty-workshops-1",
           "type": "REGISTRATION"
         },
         {
           "title" : "Provide Feedback",
           "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?program=inclusive_excellence&session_id=faculty-workshops-1&view=FEEDBACK",
+          "launch" : "/mod/learn-registration/?program=inclusive-excellence&session_id=faculty-workshops-1&view=FEEDBACK",
           "resource_link_id" : "feedback-faculty-workshops-1",
           "type": "FEEDBACK"
         },
         {
           "title" : "Admin View",
           "assignmenttitle": "Admin Only",
-          "launch" : "/mod/learn-registration/?program=inclusive_excellence&session_id=faculty-workshops-1&view=ADMINISTRATION",
+          "launch" : "/mod/learn-registration/?program=inclusive-excellence&session_id=faculty-workshops-1&view=ADMINISTRATION",
           "resource_link_id" : "admin-faculty-workshops-1",
           "type": "ADMINISTRATION",
           "hidden": true
@@ -96,21 +96,21 @@
         {
           "title" : "Register",
           "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?program=inclusive_excellence&session_id=faculty-workshops-2&view=REGISTRATION",
+          "launch" : "/mod/learn-registration/?program=inclusive-excellence&session_id=faculty-workshops-2&view=REGISTRATION",
           "resource_link_id" : "reg-faculty-workshops-2",
           "type": "REGISTRATION"
         },
         {
           "title" : "Provide Feedback",
           "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?program=inclusive_excellence&session_id=faculty-workshops-2&view=FEEDBACK",
+          "launch" : "/mod/learn-registration/?program=inclusive-excellence&session_id=faculty-workshops-2&view=FEEDBACK",
           "resource_link_id" : "feedback-faculty-workshops-2",
           "type": "FEEDBACK"
         },
         {
           "title" : "Admin View",
           "assignmenttitle": "Admin Only",
-          "launch" : "/mod/learn-registration/?program=inclusive_excellence&session_id=faculty-workshops-2&view=ADMINISTRATION",
+          "launch" : "/mod/learn-registration/?program=inclusive-excellence&session_id=faculty-workshops-2&view=ADMINISTRATION",
           "resource_link_id" : "admin-faculty-workshops-2",
           "type": "ADMINISTRATION",
           "hidden": true
@@ -140,21 +140,21 @@
         {
           "title" : "Register",
           "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?program=inclusive_excellence&session_id=faculty-workshops-3&view=REGISTRATION",
+          "launch" : "/mod/learn-registration/?program=inclusive-excellence&session_id=faculty-workshops-3&view=REGISTRATION",
           "resource_link_id" : "reg-faculty-workshops-3",
           "type": "REGISTRATION"
         },
         {
           "title" : "Provide Feedback",
           "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?program=inclusive_excellence&session_id=faculty-workshops-3&view=FEEDBACK",
+          "launch" : "/mod/learn-registration/?program=inclusive-excellence&session_id=faculty-workshops-3&view=FEEDBACK",
           "resource_link_id" : "feedback-faculty-workshops-3",
           "type": "FEEDBACK"
         },
         {
           "title" : "Admin View",
           "assignmenttitle": "Admin Only",
-          "launch" : "/mod/learn-registration/?program=inclusive_excellence&session_id=faculty-workshops-3&view=ADMINISTRATION",
+          "launch" : "/mod/learn-registration/?program=inclusive-excellence&session_id=faculty-workshops-3&view=ADMINISTRATION",
           "resource_link_id" : "admin-faculty-workshops-3",
           "type": "ADMINISTRATION",
           "hidden": true
