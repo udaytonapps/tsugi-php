@@ -1,0 +1,165 @@
+{
+  "title": "Faculty Workshops for Equity and Mission",
+  "description": "A professional development series to create and sustain fair and equitable evaluative processes that prioritize the University of Dayton’s Catholic and Marianist mission.",
+  "splash": {
+    "title": "Faculty Workshops for Equity and Mission",
+    "image": "/images/COL-117.jpg",
+    "aside": {
+      "type":"TEXT",
+      "paragraphs": [
+        "<div class='border p-3'><h5>Program Goals</h5><ol><li>Deepen the critical role that faculty evaluation for hiring, promotion, and tenure plays in advancing the mis}sion of the University and the role of shared governance.</li><li>Define implicit bias and provide examples of how it impacts evaluative processes.</li><li>Identify and employ strategies to mitigate bias at the individual and structural level to ensure a fairer and more equitable evaluative process.</li></ol></div>"
+      ]
+    },
+    "alttext": "A faculty member standing at a podium addressing students.",
+    "text": "A professional development series to create and sustain fair and equitable evaluative processes that prioritize the University of Dayton’s Catholic and Marianist mission.",
+    "contents": [
+      {
+        "type": "TEXT",
+        "paragraphs": [
+          "<h4>About the Faculty Workshops</h4>",
+          "<p>After many years of consultation and committee work, the Academic Senate approved <a href='https://ecommons.udayton.edu/senate_docs/289/' target='_blank'>Senate DOC 2021-05</a> (revisions to the University Promotion and Tenure Policy) and <a href='https://ecommons.udayton.edu/cgi/viewcontent.cgi?article=1304&context=senate_docs' target='_blank'>Senate DOC 2023-03</a> (University Professional Faculty Promotion Policy).</p>",
+          "<p>Both documents were ratified by the broader University full-time faculty affirming the commitment that \"all faculty who participate in faculty evaluation [...] at any level (unit, department, or institute) are required to participate in professional development in diversity, equity and inclusion to mitigate bias prior to participating in the evaluation process\" (DOC 2023-03 I.C.3; DOC 2021-05 I.C.7).</p>",
+          "<p>The Provost Office in consultation with the Office of Diversity and Inclusion and Academic Senate are charged with overseeing this faculty professional development.</p>",
+          "<p><a href='https://docs.google.com/document/d/e/2PACX-1vRVK1Br0bCmawRwjz5zt_jaADEKjFjmoQ1NINoddaoCvmeQxh0vQA2W4rJ7phmbb1XKwpIk3aE5jzHu/pub' class='btn btn-secondary' target='_blank'>Read FAQs <i class='fa fa-external-link ms-1' aria-hidden='true'></i></a></p>"
+       ]
+      }
+    ]
+  },
+  "discussions" : [],
+  "badges": [],
+  "modules": [
+    {
+      "session": "Faculty Workshops for Equity and Mission",
+      "title": "Module 1 - Understanding and Mitigating Bias in Evaluative Processes",
+      "anchor": "faculty-workshops-1",
+      "icon": "fa-users",
+      "duration": "2hrs",
+      "calendar": "Nov.",
+      "description": "<p>During this workshop, attendees will reflect on the critical role that faculty evaluation plays on shared governance and advancing the mission of the University. Facilitators will define implicit bias and provide participants with situations and scenarios that exemplify its effects on evaluative considerations. At the end of the session, attendees will be able to identify concrete strategies to mitigate bias and ensure fairer and more equitable evaluative processes.</p><p>Please find resources and activities for this module in the <a href='https://isidore.udayton.edu/portal/site/54564f46-d5ce-4dc7-8e57-ebf23316f0a3' target='_blank'>Isidore site</a>.</p>",
+      "learningoutcomes": [
+        "Further explore the critical role that faculty evaluation has on the mission of the University of Dayton and the role of shared governance.",
+        "Define implicit bias and analyze examples of how it impacts evaluative processes.",
+        "Identify and employ strategies to mitigate bias and ensure fairer and more equitable evaluative processes."
+      ],
+      "image": "/images/UD COL-232-2.jpg",
+      "imagealt": "Two faculty members sitting in front of a computer having a conversation.",
+      "facilitators": [
+        "lpicca1@udayton.edu",
+        "jquintero1@udayton.edu"
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=inclusive_excellence&session_id=faculty-workshops-1&view=REGISTRATION",
+          "resource_link_id" : "reg-faculty-workshops-1",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=inclusive_excellence&session_id=faculty-workshops-1&view=FEEDBACK",
+          "resource_link_id" : "feedback-faculty-workshops-1",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=inclusive_excellence&session_id=faculty-workshops-1&view=ADMINISTRATION",
+          "resource_link_id" : "admin-faculty-workshops-1",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "session": "Faculty Workshops for Equity and Mission",
+      "title": "Module 2 - Equity and Mission in Hiring Processes",
+      "anchor": "faculty-workshops-2",
+      "icon": "fa-users",
+      "duration": "2hrs",
+      "prereqs": "Module 1",
+      "description": "During this workshop, attendees will gain a better understanding of the University's mission as it pertains to the hiring process, while developing strategies to best prepare and apply inclusive recruitment practices in their searches. As committee members who have responsibility for the full recruiting cycle, attendees will learn recruiting best practices from the facilitators and each other, while also reflecting on ways that bias can impact their recruiting, selection, and interview processes.",
+      "image": "/images/UD COL-306-2.jpg",
+      "imagealt": "Faculty member teaching a student by working a problem on a glass board.",
+      "facilitators": [
+        "aaskren1@udayton.edu",
+        "awashington1@udayton.edu"
+      ],
+      "learningoutcomes": [
+        "Know how to integrate the University's mission in hiring evaluations",
+        "Develop proactive strategies to best prepare for their search",
+        "Gain best practices for inclusive recruiting, interviews, and selection",
+        "Learn how to identify and mitigate bias in their recruiting and hiring processes"
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=inclusive_excellence&session_id=faculty-workshops-2&view=REGISTRATION",
+          "resource_link_id" : "reg-faculty-workshops-2",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=inclusive_excellence&session_id=faculty-workshops-2&view=FEEDBACK",
+          "resource_link_id" : "feedback-faculty-workshops-2",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=inclusive_excellence&session_id=faculty-workshops-2&view=ADMINISTRATION",
+          "resource_link_id" : "admin-faculty-workshops-2",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "session": "Faculty Workshops for Equity and Mission",
+      "title": "Module 3 - Equity and Mission in Evaluative Processes for Promotion and Tenure",
+      "anchor": "faculty-workshops-3",
+      "icon": "fa-users",
+      "duration": "2hrs",
+      "prereqs": "Module 1",
+      "description": "During this workshop, attendees will identify areas of potential bias in evaluation of professional responsibilities such as teaching/librarianship, scholarship/clinical or professional accomplishment, and service as well as strategies to mitigate bias in these areas. As faculty are now required to demonstrate a commitment to inclusive excellence in one area of their duties and responsibilities, attendees will also examine rubrics for evaluating inclusive excellence and engage in small-group conversations on various scenarios.",
+      "image": "/images/UD COL-272-2.jpg",
+      "imagealt": "Person taking notes while on a Zoom call.",
+      "facilitators": [
+        "cphelps1@udayton.edu",
+        "lpicca1@udayton.edu"
+      ],
+      "learningoutcomes": [
+        "Practice engaging in conversations on implicit and structural biases.",
+        "Identify areas of their unit/department policies which may be unclear, unevenly enforced, or perpetuate biases.",
+        "Practice utilizing rubrics for and understanding and evaluating inclusive excellence, and mitigate the impact of bias in the evaluation process."
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=inclusive_excellence&session_id=faculty-workshops-3&view=REGISTRATION",
+          "resource_link_id" : "reg-faculty-workshops-3",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=inclusive_excellence&session_id=faculty-workshops-3&view=FEEDBACK",
+          "resource_link_id" : "feedback-faculty-workshops-3",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=inclusive_excellence&session_id=faculty-workshops-3&view=ADMINISTRATION",
+          "resource_link_id" : "admin-faculty-workshops-3",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    }
+  ]
+}

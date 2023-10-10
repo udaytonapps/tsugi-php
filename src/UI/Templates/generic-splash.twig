@@ -50,7 +50,12 @@
 			{% set contents = splash.contents %}
 			{% include 'generic-contents.twig' %}
 		</div>
-		{% if splash.video %}
+		{% if splash.aside %}
+			<div class="col-md-5">
+				{% set contents = [splash.aside] %}
+				{% include 'generic-contents.twig' %}
+			</div>
+		{% elseif splash.video %}
 			<div class="video-container col-md-5 pt-5">
 				<div class="videoWrapper">
 					<iframe allowfullscreen src="{{splash.video}}" title="Promo Video"></iframe>

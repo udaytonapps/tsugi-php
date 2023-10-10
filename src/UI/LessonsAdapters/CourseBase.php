@@ -613,6 +613,7 @@ class Splash
     public $contents;
     /** @var Content */
     public $video;
+    public $aside;
 
     function __construct($splash)
     {
@@ -621,6 +622,7 @@ class Splash
         $this->image = $splash->image;
         $this->alttext = $splash->alttext;
         $this->video = $splash->video;
+        $this->aside = $splash->aside;
         $newContents = [];
         foreach ($splash->contents as $content) {
             array_push($newContents, new Content($content));
