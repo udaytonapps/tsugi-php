@@ -533,6 +533,7 @@ class SyncModule
     //   "core": true,
     public $learningoutcomes;
     public $facilitators;
+    public $introContents;
     public $resources;
     /** @var boolean */
     public $async = false;
@@ -552,6 +553,7 @@ class SyncModule
         $this->icon = $module->icon ?? null;
         $this->calendar = $module->calendar ?? null;
         $this->learningoutcomes = $module->learningoutcomes ?? null;
+        $this->introContents = $module->introContents ?? null;
         $this->facilitators = $module->facilitators ?? null;
         $this->resources = $module->resources ?? null;
         $this->prereqs = $module->prereqs ?? null;

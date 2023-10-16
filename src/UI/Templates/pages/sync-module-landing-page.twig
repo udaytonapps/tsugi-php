@@ -130,6 +130,11 @@
 				<p class="mb-2 pt-2 text-center text-muted"><em>No Registration Required</em></p>
 			{% endif %}
 		</div>
+		{% if module.introContents %}
+			{% for introContent in module.introContents %}
+				{{introContent | raw}}
+			{% endfor %}	
+		{% endif %}
 		<h5 class="mt-4">
 			<i class='fa fa-group fa-fw' aria-hidden='true'></i>
 			Session Facilitator(s)

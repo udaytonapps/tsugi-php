@@ -39,6 +39,11 @@ class LessonsOrchestrator
                 'adapter' => GenericAdapter::class,
                 'adapterPath' => $adapterDirectory . '/GenericLessonsAdapter.php',
             ],
+            'CCDI' => (object)[
+                'displayLabel' => 'CCDI',
+                'adapter' => GenericAdapter::class,
+                'adapterPath' => $adapterDirectory . '/GenericLessonsAdapter.php'
+            ],
             'col' => (object)[
                 'displayLabel' => 'Center for Online Learning',
                 'adapter' => GenericAdapter::class,
