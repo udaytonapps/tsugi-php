@@ -3,7 +3,7 @@
     "description": "In-person seminars hosted by UD faculty and scholars on a diverse range of cybersecurity topics.",
     "splash": {
       "title": "Center For Cybersecurity And Data Intelligence (CCDI)",
-      "image": "/images/ccdi-1.png",
+      "image": "/images/cybersecurity_path.jpg",
       "aside": {
         "type":"TEXT",
         "paragraphs": [
@@ -37,7 +37,7 @@
             "duration": "1hr 40min",
             "calendar": "Nov",
             "description": "Come learn about a variety of cybersecurity topics from UD faculty and scholars. Topics are presented in a way that colleagues from diverse disciplines can participate and learn - all are welcome!",
-            "image": "/images/ccdi-1.png",
+            "image": "/images/cyber_security-power.png",
             "imagealt": "Interior of the Team Penske race shop viewed from above.",
             "introContents": [
                 "<h5 class='mt-3'>Session Details</h5>",
@@ -67,7 +67,7 @@
           "duration": "1hr 40min",
           "calendar": "Nov",
           "description": "Come learn about a variety of cybersecurity topics from UD faculty and scholars. Topics are presented in a way that colleagues from diverse disciplines can participate and learn - all are welcome!",
-          "image": "/images/ccdi-1.png",
+          "image": "/images/cybersecuritylab.jpg",
           "imagealt": "Interior of the Team Penske race shop viewed from above.",
           "introContents": [
               "<h5 class='mt-3'>Session Details</h5>",
@@ -97,7 +97,7 @@
         "duration": "1hr 40min",
         "calendar": "Nov",
         "description": "Come learn about a variety of cybersecurity topics from UD faculty and scholars. Topics are presented in a way that colleagues from diverse disciplines can participate and learn - all are welcome!",
-        "image": "/images/ccdi-1.png",
+        "image": "/images/fingerPrint.jpg",
         "imagealt": "Interior of the Team Penske race shop viewed from above.",
         "introContents": [
             "<h5 class='mt-3'>Session Details</h5>",
