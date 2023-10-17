@@ -40,7 +40,7 @@ class LessonsOrchestrator
                 'adapterPath' => $adapterDirectory . '/GenericLessonsAdapter.php',
             ],
             'CCDI' => (object)[
-                'displayLabel' => 'CCDI',
+                'displayLabel' => 'Cybersecurity and Data Intelligence',
                 'adapter' => GenericAdapter::class,
                 'adapterPath' => $adapterDirectory . '/GenericLessonsAdapter.php'
             ],
