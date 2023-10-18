@@ -107,7 +107,7 @@
     {
       "title": "Creative Caring",
       "description": "The CC symbol stands for Closed Captions, but those that earn this badge understand that accessibility is also about Creative Caring. Instructors do not need to suppress their creativity to keep their content accessible. In fact, universal design tends to be best for everyone. ",
-      "image": "CC-Open.png",
+      "image": "CCOpen.png",
       "anchor": "creativecaring",
       "threshold": "1.0",
       "assignments": [
