@@ -8,6 +8,7 @@ use \Tsugi\Util\LTI13;
 use \Tsugi\UI\Output;
 use \Tsugi\Util\Net;
 use \Tsugi\Google\GoogleClassroom;
+use \Tsugi\UI\LessonsOrchestrator;
 
 /**
  * This is a class to provide access to the user's result data.
@@ -340,7 +341,20 @@ class Result extends Entity {
             $GradeSendTransport = "LTI 1.1";
             $status = LTI::sendPOXGrade($grade, $sourcedid, $service, $key_key, $secret, $debug_log, $signature);
 
+        //Notify local storage and perform updates where needed
         } else {
+            $row = $PDOX->rowDie(
+                "SELECT DISTINCT result_id, user_id, grade
+                    FROM {$CFG->dbprefix}lti_result as R
+                    WHERE R.result_id = :RID",
+                array(
+                    ":RID" => $result_id,
+                )
+            );
+            if (isset($row)) {
+                LessonsOrchestrator::updateAsyncGradesForUser($row["user_id"]);
+            }
+
             error_log("Result::gradeSend stored data locally");
             return true;   // Local storage only
         }

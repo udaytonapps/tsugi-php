@@ -217,6 +217,7 @@ class GenericAdapter extends CourseBase
         $rest_path = U::rest_path();
         $launch_path = "{$rest_path->parent}/{$rest_path->controller}/{$this->category}/{$this->activeModule->anchor}/{$this->activePage->anchor}/lti-launch";
         $this->updatePagesProgress($this->category, $this->activeModule->anchor, $this->activePage->anchor);
+        $this->updateAsyncModuleProgress($this->activeModule);
         $progress = $this->getPagesProgress($this->activeModule);
         echo $twig->render('async-module-lesson-page.twig', [
             'program' => $this->category,
@@ -484,64 +485,55 @@ class GenericAdapter extends CourseBase
         ];
     }
 
-    private function getAsyncModuleMetadata($module)
+    private function getAsyncModuleMetadata($module, $userId = null)
     {
         global $CFG, $PDOX;
-        $userId = isset($_SESSION['lti']['user_id']) ? $_SESSION['lti']['user_id'] : null;
+        $userId = isset($userId) ? $userId : null;
+        if (!isset($userId)) {
+            $userId = isset($_SESSION['lti']['user_id']) ? $_SESSION['lti']['user_id'] : null;
+        }
+        $contextKey = isset($this->contextKey) ? $this->contextKey : null;
         if (!isset($this->contextId)) {
             $contextKey = "{$this->category}_{$module->anchor}";
             $contextId = LessonsOrchestrator::getOrInitContextId($module->title, $contextKey);
         }
 
-        $pageStatus = null;
-        $ltiStatus = null;
-        $status = null;
-
-
-        // Check page progress
-        $pageProgressObj = $this->getPagesProgress($module);
-        if (isset($pageProgressObj->{$contextKey})) {
-            $pageProgressCount = count((array)$pageProgressObj->{$contextKey});
-            $pageCount = 0;
-            foreach ($module->lessons as $lesson) {
-                foreach ($lesson->pages as $page) {
-                    $pageCount++;
-                }
-            }
-            if ($pageProgressCount == $pageCount) {
-                $pageStatus =  'COMPLETE';
-            } else if ($pageProgressCount > 0) {
-                $pageStatus =  'IN_PROGRESS';
-            }
+        //check for prior completion on this module
+        $completion = $PDOX->queryDie(
+            "SELECT * FROM {$CFG->dbprefix}learn_async_completion WHERE user_id = :UID AND module = :ckey",
+            array('UID' => $userId, 'ckey' => $contextKey)
+        );
+        $comprow = $completion->fetch(\PDO::FETCH_ASSOC);
+        if ($comprow && $comprow["status"] === "COMPLETE") {
+            return (object)[
+                // Status to determine whether to render
+                'status' => "COMPLETE"
+            ];
         }
 
-        // Check lti assignment completion
+        $status = null;
+
+        // Check page progress
+        $pageProgressObj = $this->getPagesProgress($module, $userId);
         if (isset($pageProgressObj->{$contextKey})) {
-            foreach ($pageProgressObj->{$contextKey} as $pageProgress) {
-                if ($pageProgress) {
-                    $ltiStatus = 'IN_PROGRESS';
-                    // echo (json_encode((array)$pageProgress));
-                    foreach ((array)$pageProgress as $progressIndicator) {
-                        if ($progressIndicator == 'LTI_UNATTEMPTED' || $progressIndicator == 'LTI_FAILED') {
-                            $ltiStatus = 'IN_PROGRESS';
+            $pageProgressList = (array)$pageProgressObj->{$contextKey};
+            //Check to see if it exists
+            foreach ($module->lessons as $lesson) {
+                foreach ($lesson->pages as $page) {
+                    $complstatus = $pageProgressList[$page->anchor];
+                    if (isset($complstatus)) {
+                        if (($complstatus === "LTI_UNATTEMPTED" || $complstatus === "LTI_FAILED")) {
+                            $status = "IN_PROGRESS";
+                            break;
                         }
+                        $status = "COMPLETE";
+                    } else if (!isset($complstatus) && $status === "COMPLETE"){
+                        $status = "IN_PROGRESS";
+                        break;
                     }
                 }
             }
         }
-
-        // Determine overall status based on combination of page progress and lti completion
-        if ($pageStatus == 'COMPLETE' && $ltiStatus == 'COMPLETE') {
-            $status =  'COMPLETE';
-        } else if (
-            $pageStatus == 'COMPLETE' ||
-            $ltiStatus == 'COMPLETE' ||
-            $pageStatus == 'IN_PROGRESS' ||
-            $ltiStatus == 'IN_PROGRESS'
-        ) {
-            $status =  'IN_PROGRESS';
-        }
-
         return (object)[
             // Status to determine whether to render
             'status' => $status,
@@ -638,59 +630,69 @@ class GenericAdapter extends CourseBase
         return null;
     }
 
-    public function getPagesProgress($module)
+    public function getPagesProgress($module, $userId = null)
     {
         global $CFG, $PDOX;
+
         $contextId = isset($this->contextId) ? $this->contextId : null;
+        $contextKey = isset($this->contextKey) ? $this->contextKey : null;
+        if (!isset($userId)) {
+            $userId = isset($_SESSION['lti']['user_id']) ? $_SESSION['lti']['user_id'] : null;
+        }
+        $profileId = LessonsOrchestrator::getProfileIdFromUserId($userId);
+        if (!isset($profileId)) {
+            $profileId = isset($_SESSION['lti']['profile_id']) ? $_SESSION['lti']['profile_id'] : null;
+        }
         if (!isset($this->contextId)) {
             $contextKey = "{$this->category}_{$module->anchor}";
             $contextId = LessonsOrchestrator::getOrInitContextId($module->title, $contextKey);
         }
+
         $progress = null;
         // "asyncProgress": { "moduleAnchor": { "pageAnchor": "02-02-2023-01:02:12Z" }
-        if (isset($_SESSION) && isset($_SESSION['profile_id'])) {
+        if (isset($profileId) && isset($userId)) {
             // Standard retrieval of profile info
             $stmt = $PDOX->queryDie(
                 "SELECT json FROM {$CFG->dbprefix}profile WHERE profile_id = :PID",
-                array('PID' => $_SESSION['profile_id'])
+                array('PID' => $profileId)
             );
             $profile_row = $stmt->fetch(\PDO::FETCH_ASSOC);
             if (!empty($profile_row) && !is_null($profile_row['json'])) {
                 $profile = json_decode($profile_row['json']);
                 // If there is any progress, we need to check against LTI tools as well
                 if (isset($profile->asyncProgress)) {
-                    $grades = GradeUtil::loadGradesForCourse($_SESSION['id'], $contextId);
+                    $grades = GradeUtil::loadGradesForCourse($userId, $contextId);
                     $progress = $profile->asyncProgress;
                     // Initialize the module anchor if it doesn't exist (it may be null in the json)
-                    if (!isset($progress->{$this->contextKey})) $progress->{$this->contextKey} = (object)[];
+                    if (!isset($progress->{$contextKey})) $progress->{$contextKey} = (object)[];
                     foreach ($module->lessons as $lesson) {
                         foreach ($lesson->pages as $page) {
                             // Initialize the page anchor if it doesn't exist (it may be null in the json)
-                            if (!isset($progress->{$this->contextKey}->{$page->anchor})) $progress->{$this->contextKey}->{$page->anchor} = null;
+                            if (!isset($progress->{$contextKey}->{$page->anchor})) $progress->{$contextKey}->{$page->anchor} = null;
                             foreach ($page->contents as $content) {
                                 $gradeFound = false;
                                 if (isset($content->lti)) {
                                     // Assume any LTI tool is ungraded - the grade rows will update the progress
-                                    $originalTimestamp = $progress->{$this->contextKey}->{$page->anchor};
-                                    $progress->{$this->contextKey}->{$page->anchor} = null;
+                                    $originalTimestamp = $progress->{$contextKey}->{$page->anchor};
+                                    $progress->{$contextKey}->{$page->anchor} = null;
                                     foreach ($grades as $row) {
                                         if ($row['resource_link_id'] == $content->lti->resource_link_id) {
                                             $gradeFound = true;
                                             if (isset($row['grade'])) {
                                                 if (isset($content->lti->threshold)) {
                                                     if ($row['grade'] < $content->lti->threshold) {
-                                                        $progress->{$this->contextKey}->{$page->anchor} = 'LTI_FAILED';
+                                                        $progress->{$contextKey}->{$page->anchor} = 'LTI_FAILED';
                                                     } else {
-                                                        $progress->{$this->contextKey}->{$page->anchor} = $originalTimestamp;
+                                                        $progress->{$contextKey}->{$page->anchor} = $originalTimestamp;
                                                     }
                                                 } else {
-                                                    $progress->{$this->contextKey}->{$page->anchor} = $originalTimestamp;
+                                                    $progress->{$contextKey}->{$page->anchor} = $originalTimestamp;
                                                 }
                                             }
                                         }
                                     }
                                     if (!$gradeFound && $originalTimestamp) {
-                                        $progress->{$this->contextKey}->{$page->anchor} = 'LTI_UNATTEMPTED';
+                                        $progress->{$contextKey}->{$page->anchor} = 'LTI_UNATTEMPTED';
                                     }
                                 }
                             }
@@ -713,6 +715,7 @@ class GenericAdapter extends CourseBase
             $profile_row = $stmt->fetch(\PDO::FETCH_ASSOC);
             $profile = json_decode($profile_row['json']);
             if (!is_object($profile)) $profile = (object)[];
+
             if (!isset($profile->asyncProgress)) {
                 $profile->asyncProgress = (object)[];
             }
@@ -722,6 +725,7 @@ class GenericAdapter extends CourseBase
                 $asyncProgress->{$moduleKey} = (object)[];
             }
             $moduleProgress = $asyncProgress->{$moduleKey};
+
             // Only update if it doesn't already exist at the page level
             if (!isset($moduleProgress->{$pageAnchor})) {
                 $moduleProgress->{$pageAnchor} =  "02-02-2023-01:02:12";
@@ -731,6 +735,55 @@ class GenericAdapter extends CourseBase
                     WHERE profile_id = :PID",
                     array('JSON' => $new_json, 'PID' => $_SESSION['profile_id'])
                 );
+
+            }
+        }
+    }
+
+    public function updateAsyncModuleProgress($module, $userId = null) {
+        global $CFG, $PDOX;
+
+        $userId = isset($userId) ? $userId : $_SESSION['lti']['user_id'];
+        $contextId = isset($this->contextId) ? $this->contextId : null;
+        $contextKey = isset($this->contextKey) ? $this->contextKey : null;
+
+        if (!isset($this->contextId)) {
+            $contextKey = "{$this->category}_{$module->anchor}";
+            $contextId = LessonsOrchestrator::getOrInitContextId($module->title, $contextKey);
+        }
+
+        if (isset($userId)) {
+            //move to orchestrator
+            $completion = $PDOX->queryDie(
+                "SELECT * FROM {$CFG->dbprefix}learn_async_completion WHERE user_id = :UID AND module = :ckey",
+                array('UID' => $userId, 'ckey' => $contextKey)
+            );
+            $comprow = $completion->fetch(\PDO::FETCH_ASSOC);
+
+            $obj = (array)$this->getAsyncModuleMetadata($module, $userId);
+            $status = $obj["status"];
+
+            if (isset($status)) {
+                if (!$comprow) {
+                    $sql = "INSERT INTO {$CFG->dbprefix}learn_async_completion
+                    ( user_id, module, status, created_at, updated_at ) VALUES
+                    ( :UID, :mod, :status, NOW(), NOW() )";
+                    $PDOX->queryDie($sql, array(
+                        ':UID' => $userId,
+                        ':mod' => $contextKey,
+                        ':status' => $status,
+                    ));
+                }
+            }
+            if ($status === "COMPLETE") {
+                $sql = "UPDATE {$CFG->dbprefix}learn_async_completion
+                        SET status = :status where USER_ID = :UID and module = :mod
+                   ";
+                $PDOX->queryDie($sql, array(
+                    ':UID' => $userId,
+                    ':mod' => $contextKey,
+                    ':status' => $status
+                ));
             }
         }
     }

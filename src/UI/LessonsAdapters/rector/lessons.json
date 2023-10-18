@@ -568,6 +568,7 @@
                   "lti": {
                     "header": "Tour Reflection",
                     "description": "Complete the following Quick Write task.",
+                    "threshold": "1.0",
                     "icon": "fa-pencil-square",
                     "title": "Complete Tour Reflection",
                     "launch": "/mod/modquickwrite/",

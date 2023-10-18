@@ -698,6 +698,38 @@ class LessonsOrchestrator
         return $ltiItems;
     }
 
+    public static function updateAsyncGradesForUser($userId)
+    {
+        $refs = self::getLessonsReference();
+        foreach ($refs as $key=>$reference) {
+            $lessons = self::getLessons($key);
+            if (is_a($lessons, "GenericAdapter")){
+                foreach ($lessons->course->modules as $mod) {
+                    if (isset($mod->async) && $mod->async) {
+                        $lessons->updateAsyncModuleProgress($mod, $userId);
+                    }
+                }
+            }
+        }
+    }
+
+    public static function getProfileIdFromUserId($userId)
+    {
+        global $CFG, $PDOX;
+
+        if (isset($userId)) {
+            $stmt = $PDOX->queryDie(
+                "SELECT user_id, profile_id FROM {$CFG->dbprefix}lti_user
+                        WHERE user_id = :UID",
+                array('UID' => $userId)
+            );
+            $userRow= $stmt->fetch(\PDO::FETCH_ASSOC);
+            if (isset($userRow) && isset($userRow["profile_id"])) {
+                return $userRow["profile_id"];
+            }
+        }
+    }
+
     public static function getOrInitAllAdapterContextIds($program, $adapter)
     {
         $contextIds = [];
