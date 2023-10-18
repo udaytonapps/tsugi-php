@@ -521,13 +521,18 @@ class GenericAdapter extends CourseBase
             foreach ($module->lessons as $lesson) {
                 foreach ($lesson->pages as $page) {
                     $complstatus = $pageProgressList[$page->anchor];
+                    //assume that as long as there is a status in every page, it is complete, but any other state causes
+                    //us to break out
                     if (isset($complstatus)) {
-                        if (($complstatus === "LTI_UNATTEMPTED" || $complstatus === "LTI_FAILED")) {
+                        if ($complstatus === "LTI_UNATTEMPTED" || $complstatus === "LTI_FAILED") {
                             $status = "IN_PROGRESS";
                             break;
                         }
-                        $status = "COMPLETE";
-                    } else if (!isset($complstatus) && $status === "COMPLETE"){
+                        if (!isset($status)) {
+                            $status = "COMPLETE";
+                        }
+
+                    } else if (!isset($complstatus) && isset($status)) {
                         $status = "IN_PROGRESS";
                         break;
                     }
@@ -774,8 +779,6 @@ class GenericAdapter extends CourseBase
                         ':status' => $status,
                     ));
                 }
-            }
-            if ($status === "COMPLETE") {
                 $sql = "UPDATE {$CFG->dbprefix}learn_async_completion
                         SET status = :status where USER_ID = :UID and module = :mod
                    ";
