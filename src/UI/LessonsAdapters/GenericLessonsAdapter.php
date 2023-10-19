@@ -441,6 +441,7 @@ class GenericAdapter extends CourseBase
         // Choose button action
         $buttonAction = null;
         $buttonLtiUrl = null;
+        $feedbackRequired = false;
         if (is_array($module->lti) && count($module->lti) > 0) {
             $buttonLtiUrl = $launchPath;
             if (!isset($userId)) {
@@ -450,7 +451,12 @@ class GenericAdapter extends CourseBase
                 $buttonLtiUrl .= "/reg-{$module->anchor}";
                 $status = 'IN_PROGRESS';
             } else if ($attended) {
-                if ($gaveFeedback) {
+                foreach ($module->lti as $ltiContent) {
+                    if ($ltiContent->type === "FEEDBACK") {
+                        $feedbackRequired = true;
+                    }
+                }
+                if ($gaveFeedback || !$feedbackRequired) {
                     $buttonAction = 'COMPLETE';
                     $buttonLtiUrl .= "/reg-{$module->anchor}";
                     $status = 'COMPLETE';

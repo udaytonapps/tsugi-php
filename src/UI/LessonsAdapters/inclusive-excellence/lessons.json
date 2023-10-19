@@ -7,7 +7,7 @@
     "aside": {
       "type":"TEXT",
       "paragraphs": [
-        "<div class='border p-3'><h5>Program Goals</h5><ol><li>Deepen the critical role that faculty evaluation for hiring, promotion, and tenure plays in advancing the mis}sion of the University and the role of shared governance.</li><li>Define implicit bias and provide examples of how it impacts evaluative processes.</li><li>Identify and employ strategies to mitigate bias at the individual and structural level to ensure a fairer and more equitable evaluative process.</li></ol></div>"
+        "<div class='border p-3'><h5>Program Goals</h5><ol><li class='pb-2'>Deepen the critical role that faculty evaluation for hiring, promotion, and tenure plays in advancing the mission of the University and the role of shared governance.</li><li class='pb-2'>Define implicit bias and provide examples of how it impacts evaluative processes.</li><li>Identify and employ strategies to mitigate bias at the individual and structural level to ensure a fairer and more equitable evaluative process.</li></ol></div>"
       ]
     },
     "alttext": "A faculty member standing at a podium addressing students.",
@@ -56,13 +56,6 @@
           "type": "REGISTRATION"
         },
         {
-          "title" : "Provide Feedback",
-          "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?program=inclusive-excellence&session_id=faculty-workshops-1&view=FEEDBACK",
-          "resource_link_id" : "feedback-faculty-workshops-1",
-          "type": "FEEDBACK"
-        },
-        {
           "title" : "Admin View",
           "assignmenttitle": "Admin Only",
           "launch" : "/mod/learn-registration/?program=inclusive-excellence&session_id=faculty-workshops-1&view=ADMINISTRATION",
@@ -101,13 +94,6 @@
           "type": "REGISTRATION"
         },
         {
-          "title" : "Provide Feedback",
-          "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?program=inclusive-excellence&session_id=faculty-workshops-2&view=FEEDBACK",
-          "resource_link_id" : "feedback-faculty-workshops-2",
-          "type": "FEEDBACK"
-        },
-        {
           "title" : "Admin View",
           "assignmenttitle": "Admin Only",
           "launch" : "/mod/learn-registration/?program=inclusive-excellence&session_id=faculty-workshops-2&view=ADMINISTRATION",
@@ -143,13 +129,6 @@
           "launch" : "/mod/learn-registration/?program=inclusive-excellence&session_id=faculty-workshops-3&view=REGISTRATION",
           "resource_link_id" : "reg-faculty-workshops-3",
           "type": "REGISTRATION"
-        },
-        {
-          "title" : "Provide Feedback",
-          "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?program=inclusive-excellence&session_id=faculty-workshops-3&view=FEEDBACK",
-          "resource_link_id" : "feedback-faculty-workshops-3",
-          "type": "FEEDBACK"
         },
         {
           "title" : "Admin View",
