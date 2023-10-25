@@ -3244,4 +3244,37 @@ class LTIX {
             return false;
         }
     }
+
+    /** Retrieves the roster members in a LTI 1.3 format, and starts to format the LTI 1.1 version */
+    public static function getRosterMembers($LAUNCH) {
+        $rosterMembers = false;
+        if (isset($_SESSION['lti1.3'])) {
+            $namesAndRoles = $LAUNCH->context->loadNamesAndRoles(true);
+            if ($namesAndRoles && is_object($namesAndRoles) && isset($namesAndRoles->members)) {
+                $rosterMembers = $namesAndRoles->members;
+            }
+        } else {
+            $hasRosters = LTIX::populateRoster();
+            if ($hasRosters) {
+                $rosterMembers = array();
+                $rosterData = $GLOBALS['ROSTER']->data;
+                foreach ($rosterData as $member) {
+                    // Assemble any group data
+                    $formattedGroups = array();
+                    foreach($member['groups'] as $group) {
+                        $groupObject = (object)['id' => $group['id'], 'title' => $group['title']];
+                        array_push($formattedGroups, $groupObject);
+                    }
+                    // Arrange the roster info for the member
+                    $memberData = (object) ['sakai_ext' => (object) ['sakai_role' => $member["role"], 'sakai_groups' => $formattedGroups], 'user_id' => $member["user_id"], 'roles' => array(), 'name' => $member['person_name_full'], 'given_name' => $member["person_name_given"], 'family_name' => $member["person_name_family"], 'lti11_legacy_user_id' => $member["user_id"], 'lis_person_sourcedid' => $member["person_sourcedid"] ?? null, 'email' => $member["person_contact_email_primary"], 'status' => 'Unknown'];
+                    // If no groups, remove the property (it doesn't appear in lti 1.3 launch if it none exist)
+                    if (count($formattedGroups) == 0) {
+                        unset($memberData->sakai_ext->sakai_groups);
+                    }
+                    array_push($rosterMembers, $memberData);
+                }
+            }
+        }
+        return $rosterMembers;
+    }
 }

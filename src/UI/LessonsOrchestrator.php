@@ -280,6 +280,9 @@ class LessonsOrchestrator
     public static function isInstructor()
     {
         global $LTI;
+        if(!is_null($LTI)){
+            return $LTI->user->instructor;
+        }
         return (isset($LTI['role']) && $LTI['role'] >= LTIX::ROLE_INSTRUCTOR) || (isset($_SESSION['role']) && $_SESSION['role'] >= LTIX::ROLE_INSTRUCTOR);
     }
 

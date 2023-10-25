@@ -392,10 +392,10 @@ body {
         if ($show_help) {
             self::helpButton();
         }
+        echo '<span class="title-text-span">'.$title.'</span>';
         if ($show_settings) {
             SettingsForm::link(true);
         }
-        echo '<span class="title-text-span">'.$title.'</span>';
         echo '</div>';
         $ob_output = ob_get_contents();
         ob_end_clean();

@@ -119,7 +119,7 @@ class SettingsForm {
      */
     public static function attr()
     {
-        return 'data-toggle="modal" data-target="#tsugi_settings_dialog"';
+        return 'data-mdb-toggle="modal" data-mdb-target="#tsugi_settings_dialog"';
     }
 
 
@@ -134,8 +134,8 @@ class SettingsForm {
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span class="fa fa-close" aria-hidden="true"></span><span class="sr-only">Close</span></button>
         <h4 class="modal-title"><?=htmlentities($LINK->title)?> <?=__("Settings")?></h4>
+        <button type="button" class="close" data-mdb-dismiss="modal"><span class="fa fa-close" aria-hidden="true"></span><span class="sr-only">Close</span></button>
       </div>
       <div class="modal-body">
       <?php if ( $USER->instructor ) { ?>
@@ -269,7 +269,7 @@ class SettingsForm {
 
         // Instructor view
         ?>
-        <div class="form-group">
+        <div class="form-group mb-2">
             <label for="tsugi_setting_<?=$name?>"><?=htmlent_utf8($title)?></label>
             <input type="text" class="tsugi_setting form-control" id="tsugi_setting_<?=$name?>" name="<?=$name?>" value="<?=htmlent_utf8($configured)?>">
         </div>
