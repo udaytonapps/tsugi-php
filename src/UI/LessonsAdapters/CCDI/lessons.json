@@ -27,6 +27,7 @@
     },
     "discussions" : [],
     "badges": [],
+    "cardtype": "small",
     "modules": [
         {
             "session": "CCDI Seminar Series",

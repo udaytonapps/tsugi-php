@@ -124,6 +124,7 @@
       ]
     }
   ],
+  "cardtype": "small",
   "modules": [
     {
       "title": "Isidore Help Lab",

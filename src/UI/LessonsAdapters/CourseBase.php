@@ -361,6 +361,8 @@ class Course
     public $title;
     /** @var string */
     public $description;
+    /** @var string */
+    public $cardtype;
     /** @var Splash */
     public $splash;
     /** @var Badge[] */
@@ -375,6 +377,7 @@ class Course
         $this->title = $course->title;
         $this->description = $course->description;
         $this->splash = $course->splash ?? null;
+        $this->cardtype = $course->cardtype ?? null;
 
         $badges = array();
         foreach ($course->badges as $badge) {

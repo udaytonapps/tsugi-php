@@ -169,3 +169,28 @@ img.profile {
     border-radius: 50%;
     overflow: hidden;
 }
+
+.popover-overlay {
+    z-index:1000;
+    position:relative;
+    display:block;
+    padding:1rem;
+    margin:-1rem;
+    color: var(--mdb-blue);
+}
+
+.no-session {
+    filter: grayscale(100%);
+}
+
+.mask {
+    background-color: hsla(0, 0%, 0%, 0.4);
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+.attended {
+    color: var(--mdb-success);
+}

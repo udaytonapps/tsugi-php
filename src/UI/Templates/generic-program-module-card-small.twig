@@ -1,0 +1,85 @@
+{#
+'greeting' => $greeting,
+'regDate' => $regDate,
+'location' => $location,
+'buttonAction' => $buttonAction,
+'ltiUrl' => $buttonLtiUrl,
+'loginUrl' => $loginPath,
+'attended' => $attended,
+'absent' => $absent,
+'registered' => $registered,
+#}
+
+<div class="col-lg-4 col-md-6  mb-2 p-2 d-flex align-items-stretch">
+	<div class="card h-100 mb-3 border rounded hover-shadow">
+		<div class="row h-100 g-0">
+			<div class="col-md-4">
+				<div class="bg-image h-100">
+				<img src="{{ card.module.image ? card.contextRoot ~ card.module.image : genericImg}}"
+					 alt="{{ card.module.imagealt ? card.module.imagealt : genericImgAlt }}"
+					 class="img-fluid rounded-start h-100 object-fit-cover {{ card.moduleMetadata.isOver ? 'no-session' : ''}}">
+					{% if card.moduleMetadata.isOver %}
+					<div class="p-2 mask">
+						<span class="popover-overlay">
+							<i class="fas fa-calendar-times fa-lg text-white" tabindex="0" aria-hidden="true"
+							   data-mdb-trigger="focus hover click" data-mdb-placement="top" data-mdb-container='body'
+							   data-mdb-toggle="popover" title="No sessions available"></i>
+							<span class="sr-only">No sessions available</span>
+						</span>
+					</div>
+					{% endif %}
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="card-header px-3 d-flex justify-content-between align-items-center">
+					<span>
+						<h6 class="m-0 text-muted">
+							<i class="fa {{card.module.icon}} pe-1" aria-hidden="true"></i>
+							{{card.module.session}}
+						</h6>
+					</span>
+					{% if card.moduletype == "sync" %}
+						{% set status = card.moduleMetadata.attended ? 'Attended' : (card.moduleMetadata.registered ? 'Registered' : 'Absent') %}
+						{% if status != 'Absent' %}
+							<span class="popover-overlay">
+								<i class="fas {{ status == 'Registered' ? 'fa-info-circle inprogress' : 'fa-user-check attended' }}" tabindex="0" aria-hidden="true"
+								   data-mdb-trigger="focus hover click" data-mdb-placement="top" data-mdb-container='body'
+								   data-mdb-toggle="popover" data-mdb-html="true" data-mdb-content="<p>{{card.moduleMetadata.regDate | date('D, M j, Y g:i a')}}
+									<br/>{{card.moduleMetadata.location}}</p>" title="{{ status }}"></i>
+								<span class="sr-only text-dark">
+									<p>{{ status }} - {{ card.module.title }}</p>
+									<p>{{card.moduleMetadata.regDate | date('D, M j, Y g:i a')}}
+										<br />{{card.moduleMetadata.location}}
+									</p>
+								</span>
+							</span>
+						{% endif %}
+					{% elseif card.moduletype == "async" %}
+						{% set status = card.moduleMetadata.status  %}
+						<span class="popover-overlay">
+								<i class="fas {{ status == 'IN_PROGRESS' ? 'fa-info-circle inprogress' : (status=='COMPLETE' ? 'fa-user-check attended' : '') }}" tabindex="0" aria-hidden="true"
+								   data-mdb-trigger="focus hover click" data-mdb-placement="top" data-mdb-container='body'
+								   data-mdb-toggle="popover" data-mdb-html="true" title="{{ status == 'IN_PROGRESS' ? 'In Progress' : (status=='COMPLETE' ? 'Complete' : '') }}"></i>
+								<span class="sr-only text-dark">
+									<p>{{ status == 'IN_PROGRESS' ? 'In Progress' : (status=='COMPLETE' ? 'Complete' : '') }} - {{ card.module.title }}</p>
+								</span>
+							</span>
+					{% endif %}
+				</div>
+				<div class="card-body">
+					<a class="stretched-link" href="{{card.moduleUrl}}">
+						<h5 class="card-title text-dark pb-2">{{card.module.title}}</h5>
+					</a>
+					{% if card.module.duration %}
+						<span>
+						<span class="far fa-clock" aria-hidden="true"></span>
+						Duration: {{card.module.duration}}</span>
+					{% endif %}
+					{% if card.module.prereqs %}
+						<p><strong>Prereqs:</strong> {{ card.module.prereqs }}</p>
+					{%  endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

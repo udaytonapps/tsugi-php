@@ -483,6 +483,8 @@ class GenericAdapter extends CourseBase
             'loginUrl' => $loginPath,
             'attended' => $attended,
             'absent' => $absent,
+            'isOver' => $isOver,
+            'upcoming' => $upcoming,
             'registered' => $registered,
             'facilitatorBasePath' => $CFG->apphome . '/facilitators',
             // Status to determine whether to render

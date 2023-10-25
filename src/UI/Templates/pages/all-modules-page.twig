@@ -10,6 +10,7 @@
 	{% set title = course.title %}
 	{% set description = course.description %}
 	{% set splash = course.splash %}
+	{% set cardtype = course.cardtype %}
 	{% if splash is not null %}
 		{% include 'generic-splash.twig' %}
 	{% else %}
@@ -18,9 +19,74 @@
 	<div class="container">
 		<h5 id="modules">Program Modules</h5>
 	</div>
-	<div class="d-flex flex-wrap justify-content-center align-content-center pt-2">
+	{% if cardtype == "small" %}
+		{# Process all cards initially to save time later #}
+		{% set asyncs = [] %}
+		{% set syncs = [] %}
 		{% for card in moduleData %}
-			{% include 'generic-program-module-card.twig' %}
+			{% if card.moduletype == "sync" %}
+				{% set syncs = syncs|merge([card]) %}
+			{% elseif card.moduletype == "async" %}
+				{% set asyncs = asyncs|merge([card]) %}
+			{% endif %}
 		{% endfor %}
-	</div>
+
+		<ul class="nav nav-tabs mb-3" id="tab0" role="tablist">
+			{% if syncs %}
+			<li class="nav-item" role="presentation">
+				<button
+						class="nav-link active"
+						id="inperson-tab"
+						data-mdb-toggle="tab"
+						data-mdb-target="#inperson"
+						type="button"
+						role="tab"
+						aria-controls="inperson"
+						aria-selected="true"
+				>
+					<i class="fas fa-users" aria-hidden="true"></i> With Others
+				</button>
+			</li>
+			{% endif %}
+			{% if asyncs %}
+			<li class="nav-item" role="presentation">
+				<button
+						class="nav-link"
+						id="async-tab"
+						data-mdb-toggle="tab"
+						data-mdb-target="#async"
+						type="button"
+						role="tab"
+						aria-controls="async-tab"
+						aria-selected="false"
+				>
+					<i class="fa fa-desktop pe-1" aria-hidden="true"></i> At-Your-Own-Pace
+				</button>
+			</li>
+			{% endif %}
+		</ul>
+
+		<div class="tab-content">
+			<div id="inperson" role="tabpanel" aria-labelledby="inperson-tab" class="tab-pane fade show active">
+				<div class="d-flex flex-wrap align-content-center pt-2 ">
+				{% for card in syncs %}
+					{% include 'generic-program-module-card-small.twig' %}
+				{% endfor %}
+				</div>
+			</div>
+			<div id="async" role="tabpanel" aria-labelledby="async-tab" class="tab-pane fade">
+				<div class="d-flex flex-wrap align-content-center pt-2">
+				{% for card in asyncs %}
+					{% include 'generic-program-module-card-small.twig' %}
+				{% endfor %}
+				</div>
+			</div>
+		</div>
+	{% else %}
+		<div class="d-flex flex-wrap justify-content-center align-content-center pt-2">
+			{% for card in moduleData %}
+				{% include 'generic-program-module-card.twig' %}
+			{% endfor %}
+		</div>
+	{% endif %}
 </div>
