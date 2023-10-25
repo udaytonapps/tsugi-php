@@ -756,7 +756,10 @@ class GenericAdapter extends CourseBase
     public function updateAsyncModuleProgress($module, $userId = null) {
         global $CFG, $PDOX;
 
-        $userId = isset($userId) ? $userId : $_SESSION['lti']['user_id'];
+        $userId = isset($userId) ? $userId : null;
+        if (!isset($userId)) {
+            $userId = isset($_SESSION['lti']['user_id']) ? $_SESSION['lti']['user_id'] : null;
+        }
         $contextId = isset($this->contextId) ? $this->contextId : null;
         $contextKey = isset($this->contextKey) ? $this->contextKey : null;
 
