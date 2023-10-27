@@ -796,6 +796,7 @@ class LtiContent
     public $hidden;
     /** @var string */ // TODO: Remove
     public $type; // TODO: remove
+    public $link_type;
 
 
     function __construct($lti)
@@ -811,5 +812,6 @@ class LtiContent
         $this->threshold = $lti->threshold ?? null;
         $this->hidden = $lti->hidden ?? null;
         $this->type = $lti->type ?? null; // TODO: remove
+        $this->link_type = $lti->link_type ?? null;
     }
 }

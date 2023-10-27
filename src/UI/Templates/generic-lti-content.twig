@@ -7,17 +7,31 @@
 {% apply inline_css %}
 <style>
 	.generic-lti {}
+
+	.embedded-lti {
+		width: 100%;
+		height: 650px;
+	}
 </style>
 {% endapply %}
 
-<div class="generic-lti d-flex">
+{% if lti.link_type and lti.link_type=='embed' %}
 	{% if authorized %}
-		<a class="btn btn-default" href="{{ltiRoot}}/{{lti.resource_link_id}}">
-			<span class="fa fa-fw {{lti.icon}}"></span>
-			{{lti.title}}</a>
+		<iframe class="embedded-lti" src="{{ltiRoot}}/{{lti.resource_link_id}}"></iframe>
 	{% else %}
-		<a class="btn btn-default disabled" href="#">
-			<span class="fa fa-fw {{lti.icon}}"></span>
-			{{lti.title}}</a>
+		<em>You must log in to interact with the gradable content on this page.</em>
 	{% endif %}
-</div>
+	
+{% else %}
+	<div class="generic-lti d-flex">
+		{% if authorized %}
+			<a class="btn btn-default" href="{{ltiRoot}}/{{lti.resource_link_id}}">
+				<span class="fa fa-fw {{lti.icon}}"></span>
+				{{lti.title}}</a>
+		{% else %}
+			<a class="btn btn-default disabled" href="#">
+				<span class="fa fa-fw {{lti.icon}}"></span>
+				{{lti.title}}</a>
+		{% endif %}
+	</div>
+{% endif %}
