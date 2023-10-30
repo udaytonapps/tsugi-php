@@ -35,6 +35,14 @@
 				</li>
 			{% endfor %}
 		</ol>
+	{% elseif content.type == "UNORDERED_LIST" %}
+		<ul class="list-group list-group-flush">
+			{% for listContent in content.unorderedList.contents %}
+				<li class="list-group-item">
+					{{_self.renderContent(listContent) | raw}}
+				</li>
+			{% endfor %}
+		</ul>
 	{% elseif content.type == "MAP" %}
 		<div class="constraint-box">
 			<div class="videoWrapper">

@@ -696,13 +696,16 @@ class Content
         } else if ($content->type == 'VIDEO') {
             $warpwire = $content->video->warpwire ?? null;
             $youtube = $content->video->youtube ?? null;
-            $this->video = new VideoContent($content->video->title, $warpwire, $youtube);
+            $canvas = $content->video->canvas ?? null;
+            $this->video = new VideoContent($content->video->title, $warpwire, $youtube, $canvas);
         } else if ($content->type == 'LTI') {
             $this->lti = new LtiContent($content->lti);
         } else if ($content->type == 'LINK') {
             $this->link = new LinkContent($content->title, $content->icon, $content->href);
         } else if ($content->type == 'ORDERED_LIST') {
             $this->orderedList = new ListContent($content->listItems);
+        } else if ($content->type == 'UNORDERED_LIST') {
+            $this->unorderedList = new ListContent($content->listItems);
         } else if ($content->type == 'MAP') {
             $this->map = $content->map;
         } else if ($content->type == 'IMAGE') {
@@ -734,12 +737,15 @@ class VideoContent
     public $warpwire;
     /** @var string */
     public $youtube;
+    /** @var string */
+    public $canvas;
 
-    function __construct($title, $warpwire, $youtube)
+    function __construct($title, $warpwire, $youtube, $canvas)
     {
         $this->title = $title ?? null;
         $this->warpwire = $warpwire ?? null;
         $this->youtube = $youtube ?? null;
+        $this->canvas = $canvas ?? null;
     }
 }
 
