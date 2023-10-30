@@ -443,7 +443,7 @@
       ],
       "lessons": [
         {
-          "title": "Canvas Overview",
+          "title": "Canvas Basics",
           "icon": "fa-list",
           "teaser": "Canvas is UD's learning management system (LMS).",
           "pages": [
@@ -491,7 +491,7 @@
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "Watch the video or follow the steps below to learn how to access Canvas at UD."
+                    "Follow the steps below to learn how to access Canvas at UD."
                   ]
                 },
                 {
@@ -510,13 +510,6 @@
                       ]
                     }
                   ]
-                },
-                {
-                  "type": "VIDEO",
-                  "video": {
-                    "title": "Access Canvas at UD",
-                    "warpwire": ""
-                  }
                 },
                 {
                   "type": "UNORDERED_LIST",
