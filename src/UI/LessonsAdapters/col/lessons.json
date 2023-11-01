@@ -4726,7 +4726,7 @@
                     "description": "",
                     "icon": "fa-pencil-square",
                     "title": "Addressing Students Assignment",
-                    "launch": "/mod/mod-iv-quiz/",
+                    "launch": "/mod/interactivevideo/",
                     "resource_link_id": "addressing-students-iv",
                     "link_type": "embed"
                   }
@@ -4752,7 +4752,7 @@
                     "description": "",
                     "icon": "fa-pencil-square",
                     "title": "Timely Feedback Assignment",
-                    "launch": "/mod/mod-iv-quiz/",
+                    "launch": "/mod/interactivevideo/",
                     "resource_link_id": "timely-feedback-iv",
                     "link_type": "embed"
                   }
@@ -4772,7 +4772,7 @@
                     "description": "",
                     "icon": "fa-pencil-square",
                     "title": "Being The Professor Assignment",
-                    "launch": "/mod/mod-iv-quiz/",
+                    "launch": "/mod/interactivevideo/",
                     "resource_link_id": "professor-scenario-qw",
                     "link_type": "embed"
                   }
