@@ -4700,7 +4700,7 @@
                     "description": "",
                     "icon": "fa-pencil-square",
                     "title": "Presence Assignment",
-                    "launch": "/mod/mod-iv-quiz/",
+                    "launch": "/mod/interactivevideo/",
                     "resource_link_id": "professor-presence-iv",
                     "link_type": "embed"
                   }
