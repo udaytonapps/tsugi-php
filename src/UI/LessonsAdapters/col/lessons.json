@@ -4772,7 +4772,7 @@
                     "description": "",
                     "icon": "fa-pencil-square",
                     "title": "Being The Professor Assignment",
-                    "launch": "/mod/interactivevideo/",
+                    "launch": "/mod/modquickwrite/",
                     "resource_link_id": "professor-scenario-qw",
                     "link_type": "embed"
                   }
