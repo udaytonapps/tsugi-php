@@ -9,11 +9,14 @@
 'absent' => $absent,
 'registered' => $registered,
 #}
-
+{% if card.moduletype == "sync" %}
 <div class="col-lg-4 col-md-6 mb-2 p-2 d-flex align-items-stretch" data-has-sessions="{{ card.moduleMetadata.isOver ? 'false' : 'true' }}">
+{% else %}
+<div class="col-lg-4 col-md-6 mb-2 p-2 d-flex align-items-stretch">
+{% endif %}
 	<div class="card h-100 mb-3 border rounded hover-shadow">
-		<div class="row h-100 g-0">
-			<div class="col-md-4">
+		<div class="row h-100 g-0 flex-nowrap flex-md-wrap">
+			<div class="col-md-4 flex-shrink-1 flex-md-shrink-0">
 				<div class="bg-image h-100">
 				<img src="{{ card.module.image ? card.contextRoot ~ card.module.image : genericImg}}"
 					 alt="{{ card.module.imagealt ? card.module.imagealt : genericImgAlt }}"
@@ -30,7 +33,7 @@
 					{% endif %}
 				</div>
 			</div>
-			<div class="col-md-8">
+			<div class="col-md-8 flex-shrink-1 flex-md-shrink-0">
 				<div class="card-header px-3 d-flex justify-content-between align-items-center">
 					<span>
 						<h6 class="m-0 text-muted">
@@ -39,10 +42,10 @@
 						</h6>
 					</span>
 					{% if card.moduletype == "sync" %}
-						{% set status = card.moduleMetadata.attended ? 'Attended' : (card.moduleMetadata.registered ? 'Registered' : 'Absent') %}
-						{% if status != 'Absent' %}
+						{% set status = card.moduleMetadata.attended ? 'Attended' : (card.moduleMetadata.registered ? 'Registered' : (card.moduleMetadata.absent ? 'Absent' : '')) %}
+						{% if status != '' %}
 							<span class="popover-overlay">
-								<i class="fas {{ status == 'Registered' ? 'fa-info-circle inprogress' : 'fa-user-check attended' }}" tabindex="0" aria-hidden="true"
+								<i class="fas {{ status == 'Attended' ? 'fa-user-check attended' : (status == 'Registered' ? 'fa-info-circle inprogress' : 'fa-exclamation-triangle absent') }}" tabindex="0" aria-hidden="true"
 								   data-mdb-trigger="focus hover click" data-mdb-placement="top" data-mdb-container='body'
 								   data-mdb-toggle="popover" data-mdb-html="true" data-mdb-content="<p>{{card.moduleMetadata.regDate | date('D, M j, Y g:i a')}}
 									<br/>{{card.moduleMetadata.location}}</p>" title="{{ status }}"></i>

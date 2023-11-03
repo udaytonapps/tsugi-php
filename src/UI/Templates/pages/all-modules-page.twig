@@ -44,7 +44,7 @@
 						aria-controls="inperson"
 						aria-selected="true"
 				>
-					<i class="fas fa-users" aria-hidden="true"></i> With Others
+					<i class="fas fa-users" aria-hidden="true"></i> With Others <span id="sync-number" class="badge badge-tab">{{ syncs|length }}</span>
 				</button>
 			</li>
 			{% endif %}
@@ -60,7 +60,7 @@
 						aria-controls="async-tab"
 						aria-selected="false"
 				>
-					<i class="fa fa-desktop pe-1" aria-hidden="true"></i> At-Your-Own-Pace
+					<i class="fa fa-desktop pe-1" aria-hidden="true"></i> At-Your-Own-Pace <span class="badge badge-tab">{{ asyncs|length }}</span>
 				</button>
 			</li>
 			{% endif %}
@@ -98,17 +98,20 @@
 </div>
 <script>
 	function filterSessions(e) {
-		let allcards = document.querySelectorAll("div[data-has-sessions*='false']");
+		let allExpiredCards = document.querySelectorAll("div[data-has-sessions*='false']");
+		let allSyncCards = document.querySelectorAll("div[data-has-sessions]");
 		if (e.checked) {
-			allcards.forEach(card => {
+			allExpiredCards.forEach(card => {
 				card.classList.add('d-none');
 				card.setAttribute('aria-hidden', 'true');
 			});
+			document.getElementById("sync-number").innerText = (allSyncCards.length - allExpiredCards.length);
 		} else {
-			allcards.forEach(card => {
+			allExpiredCards.forEach(card => {
 				card.classList.remove('d-none');
 				card.removeAttribute('aria-hidden');
 			});
+			document.getElementById("sync-number").innerText = allSyncCards.length;
 		}
 	}
 </script>

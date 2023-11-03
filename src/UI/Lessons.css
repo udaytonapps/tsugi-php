@@ -194,3 +194,20 @@ img.profile {
 .attended {
     color: var(--mdb-success);
 }
+.absent {
+    color: var(--mdb-danger);
+}
+
+.badge-tab {
+    font-size: 1em;
+}
+
+.nav-link > .badge-tab {
+    color: rgb(64, 70, 79);
+    background-color: rgb(235, 237, 239)
+}
+
+.nav-link.active > .badge-tab {
+    color: rgb(44, 88, 160);
+    background-color: rgb(223, 231, 246);
+}
