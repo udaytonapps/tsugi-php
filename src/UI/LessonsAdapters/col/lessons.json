@@ -4502,7 +4502,7 @@
       "title": "Building & Teaching an Online Course",
       "session": "Instructional Design & Media",
       "async": true,
-      "duration": "Est. 60 min",
+      "duration": "Est. 1 hr",
       "anchor": "building-teaching-online-course",
       "icon": "fa-chalkboard-teacher",
       "landingContents": [
@@ -4560,9 +4560,9 @@
                     },
                     {
                       "type": "LINK",
-                      "icon": "fa-external-link",
+                      "icon": "fa-link",
                       "title": "Modalities at UD",
-                      "href": "https://drive.google.com/file/d/1MnARzxw_oDKbWjCkwl-C8WEGFBBQeGWK/view?usp=sharing"
+                      "href": "/tsugi-static/learn-assets/files/Modalities-at-UD.pdf"
                     }
                   ]
                 }
@@ -4575,7 +4575,7 @@
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "Please complete this 5 minute lesson: <a href='/modulecontent/building-teaching-online-course/' target='_blank'>The Strategic Importance of Online Learning at the University of Dayton</a>, then complete the quick write below."
+                    "Please complete this 5 minute lesson: <a href='/tsugi-static/learn-assets/rise/building-teaching-online-course/' target='_blank'>The Strategic Importance of Online Learning at the University of Dayton</a>, then complete the quick write below."
                   ]
                 },
                 {
@@ -4620,7 +4620,7 @@
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                  "Read this <a href='https://drive.google.com/file/d/1ANNzQCOOX4GjBNIMPjYLTBGldb5IO3oZ/view?usp=sharing' target='_blank'>document from the University of North Dakota on writing learning objectives</a>."
+                  "Read this <a href='/tsugi-static/learn-assets/files/writing-learning-objectives.pdf' target='_blank'>document from the University of North Dakota on writing learning objectives</a>."
                   ]
                 },
                 {
@@ -4684,7 +4684,7 @@
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                  "Download and explore the <a href='https://docs.google.com/document/d/1v0IpT9rVpiEnRqtkY0HdrALId_1iM7Xb/edit?usp=drive_link&ouid=105436189394854397354&rtpof=true&sd=true' target='_blank'>Course Alignment Table</a>. Beginning with your whole course vision, map out your learning objectives and corresponding assessments. Then, explore the <a href='https://docs.google.com/document/d/1OFqqf_y5qzDplTLAa3YfqTuJqJIBm9qK/edit?usp=drive_link&ouid=105436189394854397354&rtpof=true&sd=true' target='_blank'>Module Alignment Table</a> as you plan each module in-depth."
+                  "Download and explore the <a href='/tsugi-static/learn-assets/files/Course-Alignment-Table.pdf' target='_blank'>Course Alignment Table</a>. Beginning with your whole course vision, map out your learning objectives and corresponding assessments. Then, explore the <a href='/tsugi-static/learn-assets/files/Module-Alignment-Table.pdf' target='_blank'>Module Alignment Table</a> as you plan each module in-depth."
                   ]
                 }
               ]
@@ -4874,7 +4874,7 @@
                     },
                     {
                       "type": "LINK",
-                      "icon": "fa-link",
+                      "icon": "fa-external-link",
                       "title": "4 Ways to Motivate Students in Online Environment (Sync)",
                       "href": "https://leverice.com/blog/4-ways-to-motivate-students-in-the-online-learning-environment/"
                     },
@@ -5442,9 +5442,9 @@
                     },
                     {
                       "type": "LINK",
-                      "icon": "fa-external-link",
+                      "icon": "fa-link",
                       "title": "End of Semester Reflection Form",
-                      "href": "https://drive.google.com/file/d/1AjpobaATT2WKLxbz2k5kp13jblb3NSul/view?usp=sharing"
+                      "href": "/tsugi-static/learn-assets/files/End-Of-Summer-Reflection-Form.pdf"
                     }
                   ]
                 }
@@ -5496,9 +5496,9 @@
                     },
                     {
                       "type": "LINK",
-                      "icon": "fa-external-link",
+                      "icon": "fa-link",
                       "title": "Join the FlexTeaching Listserv",
-                      "href": "https://drive.google.com/file/d/1ek-tzuPlWzQcHvIm2jQOsUbxGxLCbNsp/view?usp=sharing"
+                      "href": "/tsugi-static/learn-assets/files/Instructions-for-Joining Flexible-Teaching-Listserve.pdf"
                     }
                   ]
                 }
@@ -5532,9 +5532,9 @@
                     },
                     {
                       "type": "LINK",
-                      "icon": "fa-external-link",
+                      "icon": "fa-link",
                       "title": "New Semester Checklist",
-                      "href": "https://docs.google.com/document/d/1s4cvMN-OyZeAHxkKEh-lW_nMLHXfK_cucXUzpFu1mlA/edit?usp=sharing"
+                      "href": "/tsugi-static/learn-assets/files/Starting-a-New Semester Checklist.pdf"
                     }
                   ]
                 }
