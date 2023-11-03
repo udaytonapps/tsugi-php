@@ -4503,25 +4503,26 @@
       "session": "Instructional Design & Media",
       "async": true,
       "duration": "Est. 60 min",
-      "anchor": "online-course",
+      "anchor": "building-teaching-online-course",
       "icon": "fa-chalkboard-teacher",
       "landingContents": [
         {
           "type": "TEXT",
           "paragraphs": [
-          "I have no content."
+          "Are you looking to convert one of your current courses into an online offering? Or perhaps, you have a great idea for a course that needs to be available to students in an asynchronous format. Whether you are very comfortable with online teaching or this is your first time, the Center for Online Learning offers this training for building, maintaining, and teaching an online class.",
+          "Through eight asynchronous lessons, this training covers how to create and deliver a high-quality online course. Participants will learn about backwards design, how to build assessments that support student learning, how to maintain and update a course from year to year, and pedagogical best practices for teaching online."
           ]
         }
       ],
       "lessons": [
         {
           "title": "Laying the Foundation",
-          "anchor": "online-course-foundation",
-          "icon": "fa-video",
+          "anchor": "building-teaching-online-course-foundation",
+          "icon": "fa-chalkboard-teacher",
           "pages": [
             {
               "title": "Laying the Foundation",
-              "anchor": "online-course-foundation-intro",
+              "anchor": "building-teaching-online-course-foundation-intro",
               "contents": [
                 {
                   "type": "TEXT",
@@ -4533,7 +4534,7 @@
             },
             {
               "title": "Modalities",
-              "anchor": "online-course-foundation-modalities",
+              "anchor": "building-teaching-online-course-foundation-modalities",
               "contents": [
                 {
                   "type": "TEXT",
@@ -4547,17 +4548,34 @@
                     "title": "UD Course Modalities",
                     "warpwire": "9XAFAA"
                   }
+                },
+                {
+                  "type": "UNORDERED_LIST",
+                  "listItems": [
+                    {
+                      "type": "TEXT",
+                      "paragraphs": [
+                        "<h4 class='fw-normal mb-0'>Additional Resources</h4>"
+                      ]
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "Modalities at UD",
+                      "href": "https://drive.google.com/file/d/1MnARzxw_oDKbWjCkwl-C8WEGFBBQeGWK/view?usp=sharing"
+                    }
+                  ]
                 }
               ]
             },
             {
               "title": "Strategic Importance of Online Learning at UD",
-              "anchor": "online-course-foundation-importance",
+              "anchor": "building-teaching-online-course-foundation-importance",
               "contents": [
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "In your opinion, what are the primary two reasons 57% of undergrads would like to see more online course offerings?"
+                    "Please complete this 5 minute lesson: <a href='/modulecontent/building-teaching-online-course/' target='_blank'>The Strategic Importance of Online Learning at the University of Dayton</a>, then complete the quick write below."
                   ]
                 },
                 {
@@ -4567,16 +4585,17 @@
                     "header": "Quick Write",
                     "description": "Complete the following Quick Write task.",
                     "icon": "fa-pencil-square",
-                    "title": "Quick Write Task",
-                    "launch": "/mod/mod-quickwrite/",
-                    "resource_link_id": "oc-importance-quiz"
+                    "title": "Strategic Importance of Online Learning",
+                    "launch": "/mod/modquickwrite/",
+                    "resource_link_id": "oc-strategic-importance-qw",
+                    "link_type": "embed"
                   }
                 }
               ]
             },
             {
               "title": "Student Learning Objectives",
-              "anchor": "online-course-foundation-objectives",
+              "anchor": "building-teaching-online-course-foundation-objectives",
               "contents": [
                 {
                   "type": "TEXT",
@@ -4596,12 +4615,12 @@
             {
               "title": "Task",
               "subpage": "lesson-subpage",
-              "anchor": "online-course-foundation-writing",
+              "anchor": "building-teaching-online-course-foundation-writing",
               "contents": [
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                  "Read this document."
+                  "Read this <a href='https://drive.google.com/file/d/1ANNzQCOOX4GjBNIMPjYLTBGldb5IO3oZ/view?usp=sharing' target='_blank'>document from the University of North Dakota on writing learning objectives</a>."
                   ]
                 },
                 {
@@ -4611,9 +4630,10 @@
                     "header": "Quick Write",
                     "description": "Complete the following Quick Write task.",
                     "icon": "fa-pencil-square",
-                    "title": "Write your objective",
-                    "launch": "/mod/mod-quickwrite/",
-                    "resource_link_id": "oc-objective-write"
+                    "title": "Writing Learning Objectives",
+                    "launch": "/mod/modquickwrite/",
+                    "resource_link_id": "oc-objective-qw",
+                    "link_type": "embed"
                   }
                 }
               ]
@@ -4622,12 +4642,12 @@
         },
         {
           "title": "Online Assessment",
-          "anchor": "online-course-assessment",
-          "icon": "fa-video",
+          "anchor": "building-teaching-online-course-assessment",
+          "icon": "fa-chalkboard-teacher",
           "pages": [
             {
               "title": "Online Assessment",
-              "anchor": "online-course-assessment-intro",
+              "anchor": "building-teaching-online-course-assessment-intro",
               "contents": [
                 {
                   "type": "TEXT",
@@ -4639,7 +4659,7 @@
             },
             {
               "title": "Assessment and Learning Outcome Alignment",
-              "anchor": "online-course-assessment-alignment",
+              "anchor": "building-teaching-online-course-assessment-alignment",
               "contents": [
                 {
                   "type": "TEXT",
@@ -4659,20 +4679,19 @@
             {
               "title": "Task",
               "subpage": "lesson-subpage",
-              "anchor": "online-course-assessment-alignment-task",
+              "anchor": "building-teaching-online-course-assessment-alignment-task",
               "contents": [
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "<h4>Tell us about your experience</h4>",
-                    "Complete this two question survey to let us know about your experience organizing videos in Warpwire."
+                  "Download and explore the <a href='https://docs.google.com/document/d/1v0IpT9rVpiEnRqtkY0HdrALId_1iM7Xb/edit?usp=drive_link&ouid=105436189394854397354&rtpof=true&sd=true' target='_blank'>Course Alignment Table</a>. Beginning with your whole course vision, map out your learning objectives and corresponding assessments. Then, explore the <a href='https://docs.google.com/document/d/1OFqqf_y5qzDplTLAa3YfqTuJqJIBm9qK/edit?usp=drive_link&ouid=105436189394854397354&rtpof=true&sd=true' target='_blank'>Module Alignment Table</a> as you plan each module in-depth."
                   ]
                 }
               ]
             },
             {
               "title": "Diversification of Assessment",
-              "anchor": "online-course-assessment-diversification",
+              "anchor": "building-teaching-online-course-assessment-diversification",
               "contents": [
                 {
                   "type": "TEXT",
@@ -4691,7 +4710,7 @@
             },
             {
               "title": "Academic Integrity",
-              "anchor": "online-course-assessment-integrity",
+              "anchor": "building-teaching-online-course-assessment-integrity",
               "contents": [
                 {
                   "type": "TEXT",
@@ -4710,7 +4729,7 @@
             },
             {
               "title": "Formative and Summative Assessment",
-              "anchor": "online-course-assessment-types",
+              "anchor": "building-teaching-online-course-assessment-types",
               "contents": [
                 {
                   "type": "TEXT",
@@ -4731,17 +4750,17 @@
         },
         {
           "title": "Purposeful Content",
-          "anchor": "online-course-content",
-          "icon": "fa-video",
-          "teaser": "In this lesson we will discuss important concepts to consider when planning content and lessons to include in your course. Of primary importance is the consideration of a focus on essential content, employing motivational techniques and ensuring appropriate accessibility.",
+          "anchor": "building-teaching-online-course-content",
+          "icon": "fa-chalkboard-teacher",
           "pages": [
             {
               "title": "Purposeful Content",
-              "anchor": "online-course-content-intro",
+              "anchor": "building-teaching-online-course-content-intro",
               "contents": [
                 {
                   "type": "TEXT",
                   "paragraphs": [
+                    "In this lesson we will discuss important concepts to consider when planning content and lessons to include in your course. Of primary importance is the consideration of a focus on essential content, employing motivational techniques and ensuring appropriate accessibility. <hr />",
                     "In this introductory video to purposeful content we introduce you to the importance of carefully planning the content that you include in your course development. Getting in the right mindset before starting your draft of module content is essential."
                   ]
                 },
@@ -4755,8 +4774,8 @@
               ]
             },
             {
-              "title": "Purposeful Content: Motivation",
-              "anchor": "online-course-content-motivation",
+              "title": "Motivation",
+              "anchor": "building-teaching-online-course-content-motivation",
               "contents": [
                 {
                   "type": "TEXT",
@@ -4774,15 +4793,15 @@
                     "icon": "fa-pencil-square",
                     "title": "Addressing Students Assignment",
                     "launch": "/mod/interactivevideo/",
-                    "resource_link_id": "online-course-purposeful-content-iv",
+                    "resource_link_id": "building-teaching-online-course-purposeful-content-iv",
                     "link_type": "embed"
                   }
                 }
               ]
             },
             {
-              "title": "Purposeful Content: Teaching with Videos",
-              "anchor": "online-course-content-teaching",
+              "title": "Teaching with Videos",
+              "anchor": "building-teaching-online-course-content-teaching",
               "contents": [
                 {
                   "type": "TEXT",
@@ -4801,7 +4820,7 @@
             },
             {
               "title": "Application Task",
-              "anchor": "online-course-content-application",
+              "anchor": "building-teaching-online-course-content-application",
               "contents": [
                 {
                   "type": "TEXT",
@@ -4813,12 +4832,8 @@
             },
             {
               "title": "Dive Deeper",
-              "anchor": "online-course-content-dive-deeper",
+              "anchor": "building-teaching-online-course-content-dive-deeper",
               "contents": [
-                {
-                  "type": "TEXT",
-                  "paragraphs": ["<h5>Online Learning Support Resources</h5>"]
-                },
                 {
                   "type": "LTI",
                   "lti": {
@@ -4831,40 +4846,51 @@
                   }
                 },
                 {
-                  "type": "LINK",
-                  "icon": "fa-link",
-                  "title": "Learning Apps in Isidore",
-                  "href": "https://ewiki.udayton.edu/isidore/External_Tools"
-                },
-                {
-                  "type": "LINK",
-                  "icon": "fa-link",
-                  "title": "Rich Text Editor Templates",
-                  "href": "https://ewiki.udayton.edu/isidore/Templates"
-                },
-                {
-                  "type": "LINK",
-                  "icon": "fa-link",
-                  "title": "Intrinsic Motivation and Course Communication (Video on ARCS, 6 min)",
-                  "href": "/programs/videos/arcscommunication"
-                },
-                {
-                  "type": "LINK",
-                  "icon": "fa-link",
-                  "title": "4 Ways to Motivate Students in Online Environment (Sync)",
-                  "href": "https://leverice.com/blog/4-ways-to-motivate-students-in-the-online-learning-environment/"
-                },
-                {
-                  "type": "LINK",
-                  "icon": "fa-link",
-                  "title": "Vanderbilt Center for Teaching Article on Motivating Students (All Modalities)",
-                  "href": "https://cft.vanderbilt.edu/guides-sub-pages/motivating-students/"
-                },
-                {
-                  "type": "LINK",
-                  "icon": "fa-link",
-                  "title": "ARCS as a Tool to Motivate Students",
-                  "href": "https://www.edutopia.org/article/powerful-strategy-fostering-student-motivation"
+                  "type": "UNORDERED_LIST",
+                  "listItems": [
+                    {
+                      "type": "TEXT",
+                      "paragraphs": [
+                        "<h4 class='fw-normal mb-0'>Additional Resources</h4>"
+                      ]
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "Learning Apps in Isidore",
+                      "href": "https://ewiki.udayton.edu/isidore/External_Tools"
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "Rich Text Editor Templates",
+                      "href": "https://ewiki.udayton.edu/isidore/Templates"
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-link",
+                      "title": "Intrinsic Motivation and Course Communication (Video on ARCS, 6 min)",
+                      "href": "/programs/videos/arcscommunication"
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-link",
+                      "title": "4 Ways to Motivate Students in Online Environment (Sync)",
+                      "href": "https://leverice.com/blog/4-ways-to-motivate-students-in-the-online-learning-environment/"
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "Vanderbilt Center for Teaching Article on Motivating Students (All Modalities)",
+                      "href": "https://cft.vanderbilt.edu/guides-sub-pages/motivating-students/"
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "ARCS as a Tool to Motivate Students",
+                      "href": "https://www.edutopia.org/article/powerful-strategy-fostering-student-motivation"
+                    }
+                  ]
                 }
               ]
             }
@@ -4872,12 +4898,12 @@
         },
         {
           "title": "Building Community Online",
-          "anchor": "online-course-community",
-          "icon": "fa-video",
+          "anchor": "building-teaching-online-course-community",
+          "icon": "fa-chalkboard-teacher",
           "pages": [
             {
               "title": "Building Community Online",
-              "anchor": "online-course-community-intro",
+              "anchor": "building-teaching-online-course-community-intro",
               "contents": [
                 {
                   "type": "TEXT",
@@ -4889,7 +4915,7 @@
             },
             {
               "title": "Finding Purpose (Peer Communication Opportunities)",
-              "anchor": "online-course-community-purpose",
+              "anchor": "building-teaching-online-course-community-purpose",
               "contents": [
                 {
                   "type": "TEXT",
@@ -4908,7 +4934,7 @@
             },
             {
               "title": "Course Communication: Quality Discussion Prompts and Other Tools",
-              "anchor": "online-course-community-quality",
+              "anchor": "building-teaching-online-course-community-quality",
               "contents": [
                 {
                   "type": "TEXT",
@@ -4926,7 +4952,7 @@
                     "icon": "fa-pencil-square",
                     "title": "Quality Discussion Prompts and Other Tools",
                     "launch": "/mod/interactivevideo/",
-                    "resource_link_id": "online-course-quality-discussion-iv",
+                    "resource_link_id": "building-teaching-online-course-quality-discussion-iv",
                     "link_type": "embed"
                   }
                 }
@@ -4934,7 +4960,7 @@
             },
             {
               "title": "Building Community: Collaborative Tools",
-              "anchor": "online-course-community-collaboration",
+              "anchor": "building-teaching-online-course-community-collaboration",
               "contents": [
                 {
                   "type": "TEXT",
@@ -4952,7 +4978,7 @@
                     "icon": "fa-pencil-square",
                     "title": "Collaborative Tools ",
                     "launch": "/mod/interactivevideo/",
-                    "resource_link_id": "online-course-community-collaboration-iv",
+                    "resource_link_id": "building-teaching-online-course-community-collaboration-iv",
                     "link_type": "embed"
                   }
                 }
@@ -4960,7 +4986,7 @@
             },
             {
               "title": "Facilitation Discussions",
-              "anchor": "online-course-community-facilitation",
+              "anchor": "building-teaching-online-course-community-facilitation",
               "contents": [
                 {
                   "type": "TEXT",
@@ -4979,13 +5005,15 @@
             },
             {
               "title": "Application Tasks",
-              "anchor": "online-course-community-tasks",
+              "anchor": "building-teaching-online-course-community-tasks",
               "contents": [
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                  "Task One: Craft a discussion prompt for one of the topics you teach in your course. Ensure that it is relevant and provides for multiple points for discussion rather than one certain answer. ",
-                  "Task Two: Install the Perusall tool to one of your previous course sites, upload a PDF reading and practice using the tool.  Provide feedback below on your experience."
+                  "<h5>Task One</h5>",
+                  "Craft a discussion prompt for one of the topics you teach in your course. Ensure that it is relevant and provides for multiple points for discussion rather than one certain answer. ",
+                  "<h5>Task Two</h5>",
+                  "Install the Perusall tool to one of your previous course sites, upload a PDF reading and practice using the tool. Provide feedback below on your experience."
                   ]
                 },
                 {
@@ -4995,9 +5023,9 @@
                     "header": "Quick Write",
                     "description": "Complete the following Quick Write task.",
                     "icon": "fa-pencil-square",
-                    "title": "Write your objective",
+                    "title": "Provide Feedback",
                     "launch": "/mod/modquickwrite/",
-                    "resource_link_id": "oc-write-facilitation",
+                    "resource_link_id": "oc-provide-feedback-qw",
                     "link_type": "embed"
                   }
                 }
@@ -5005,12 +5033,11 @@
             },
             {
               "title": "Questions You May Have",
-              "anchor": "online-course-community-questions",
+              "anchor": "building-teaching-online-course-community-questions",
               "contents": [
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "<h4>Potential Questions You May Have:</h4>",
                     "<h5>Can I use my textbook in Perusall?</h5>",
                     "Yes you can!  Please see <a href='https://support.perusall.com/hc/en-us/articles/360033995294-How-do-I-adopt-a-textbook-using-Perusall-' target='_blank'>the textbook support page</a> for the process to search for your textbook. If it is not available, you will be prompted to request the book. Once your book has been approved for incorporation, you will need to inform the bookstore that you will be having students purchase the book through Perusall with a code.",
                     "<h5>Can I use published articles and PDFs in Perusall?</h5>",
@@ -5019,27 +5046,34 @@
                 }
               ]
             },
+
             {
               "title": "Further Resources",
-              "anchor": "online-course-community-resources",
+              "anchor": "building-teaching-online-course-community-resources",
               "contents": [
                 {
-                  "type": "LINK",
-                  "icon": "fa-link",
-                  "title": "How to use the Commons tool in Isidore",
-                  "href": "https://ewiki.udayton.edu/isidore/Commons"
-                },
-                {
-                  "type": "LINK",
-                  "icon": "fa-link",
-                  "title": "How to use the Forums tool in Isidore",
-                  "href": "https://ewiki.udayton.edu/isidore/Forums"
-                },
-                {
-                  "type": "LINK",
-                  "icon": "fa-link",
-                  "title": "Perusall Support",
-                  "href": "https://support.perusall.com/hc/en-us"
+                  "type": "UNORDERED_LIST",
+                  "listItems": [
+
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "How to use the Commons tool in Isidore",
+                      "href": "https://ewiki.udayton.edu/isidore/Commons"
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "How to use the Forums tool in Isidore",
+                      "href": "https://ewiki.udayton.edu/isidore/Forums"
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "Perusall Support",
+                      "href": "https://support.perusall.com/hc/en-us"
+                    }
+                  ]
                 }
               ]
             }
@@ -5047,12 +5081,12 @@
         },
         {
           "title": "Enhancing Learning with Technology",
-          "anchor": "online-course-technology",
-          "icon": "fa-video",
+          "anchor": "building-teaching-online-course-technology",
+          "icon": "fa-chalkboard-teacher",
           "pages": [
             {
               "title": "Enhancing Learning with Technology",
-              "anchor": "online-course-technology-intro",
+              "anchor": "building-teaching-online-course-technology-intro",
               "contents": [
                 {
                   "type": "TEXT",
@@ -5071,10 +5105,10 @@
             },
             {
               "title": "Advanced Isidore Tricks",
-              "anchor": "online-course-technology-isidore-tricks",
+              "anchor": "building-teaching-online-course-technology-isidore-tricks",
               "contents": [
                 {
-                  "type": "ORDERED_LIST",
+                  "type": "UNORDERED_LIST",
                   "listItems": [
                     {
                       "type": "TEXT",
@@ -5100,7 +5134,8 @@
                       "type": "TEXT",
                       "paragraphs": [
                         "Get to know the Text Editor.",
-                        "<ul><li><a href='https://www.youtube.com/watch?v=g8bj6g9-EmQ' target='_blank'>Text Editor Tips You May Not Know</a></li></ul>"                      ]
+                        "<ul><li><a href='https://www.youtube.com/watch?v=g8bj6g9-EmQ' target='_blank'>Text Editor Tips You May Not Know</a></li></ul>"
+                        ]
                     }
                   ]
                 }
@@ -5108,7 +5143,7 @@
             },
             {
               "title": "Learning Apps",
-              "anchor": "online-course-technology-learningapps",
+              "anchor": "building-teaching-online-course-technology-learningapps",
               "contents": [
                 {
                   "type": "TEXT",
@@ -5117,7 +5152,7 @@
                   ]
                 },
                 {
-                  "type": "ORDERED_LIST",
+                  "type": "UNORDERED_LIST",
                   "listItems": [
                     {
                       "type": "TEXT",
@@ -5138,7 +5173,7 @@
             },
             {
               "title": "External Tools",
-              "anchor": "online-courses-technology-external-tools",
+              "anchor": "building-teaching-online-courses-technology-external-tools",
               "contents": [
                 {
                   "type": "UNORDERED_LIST",
@@ -5170,7 +5205,7 @@
         {
           "title": "module 6",
           "anchor": "module-six",
-          "icon": "fa-video",
+          "icon": "fa-chalkboard-teacher",
           "teaser": "Learn how to see which students are watching which parts of your videos.",
           "pages": [
             {
@@ -5198,12 +5233,12 @@
         },
         {
           "title": "Being the Professor",
-          "anchor": "online-course-professor",
-          "icon": "fa-video",
+          "anchor": "building-teaching-online-course-professor",
+          "icon": "fa-chalkboard-teacher",
           "pages": [
             {
               "title": "Being the Professor",
-              "anchor": "online-course-professor-intro",
+              "anchor": "building-teaching-online-course-professor-intro",
               "contents": [
                 {
                   "type": "TEXT",
@@ -5215,7 +5250,7 @@
             },
             {
               "title": "Instructor Presence",
-              "anchor": "online-course-professor-presence",
+              "anchor": "building-teaching-online-course-professor-presence",
               "contents": [
                 {
                   "type": "TEXT",
@@ -5233,7 +5268,7 @@
                     "icon": "fa-pencil-square",
                     "title": "Instructor Presence",
                     "launch": "/mod/interactivevideo/",
-                    "resource_link_id": "online-course-professor-presence-iv",
+                    "resource_link_id": "building-teaching-online-course-professor-presence-iv",
                     "link_type": "embed"
                   }
                 }
@@ -5241,7 +5276,7 @@
             },
             {
               "title": "Addressing Struggling Students",
-              "anchor": "online-course-professor-addressing-students",
+              "anchor": "building-teaching-online-course-professor-addressing-students",
               "contents": [
                 {
                   "type": "TEXT",
@@ -5257,9 +5292,9 @@
                     "header": "Interactive Video",
                     "description": "",
                     "icon": "fa-pencil-square",
-                    "title": "Instructor Presence",
+                    "title": "Addressing Struggling Students",
                     "launch": "/mod/interactivevideo/",
-                    "resource_link_id": "online-course-professor-presence-iv",
+                    "resource_link_id": "building-teaching-online-course-professor-struggling-iv",
                     "link_type": "embed"
                   }
                 }
@@ -5267,7 +5302,7 @@
             },
             {
               "title": "Effective and Timely Feedback",
-              "anchor": "online-course-professor-feedback",
+              "anchor": "building-teaching-online-course-professor-feedback",
               "contents": [
                 {
                   "type": "TEXT",
@@ -5285,7 +5320,7 @@
                     "icon": "fa-pencil-square",
                     "title": "Effective and Timely Feedback",
                     "launch": "/mod/interactivevideo/",
-                    "resource_link_id": "online-course-professor-feedback-iv",
+                    "resource_link_id": "building-teaching-online-course-professor-feedback-iv",
                     "link_type": "embed"
                   }
                 }
@@ -5293,7 +5328,7 @@
             },
             {
               "title": "Scenario",
-              "anchor": "online-course-professor-scenario",
+              "anchor": "building-teaching-online-course-professor-scenario",
               "contents": [
                 {
                   "type": "TEXT",
@@ -5310,9 +5345,198 @@
                     "icon": "fa-pencil-square",
                     "title": "Scenario",
                     "launch": "/mod/modquickwrite/",
-                    "resource_link_id": "online-course-professor-scenario-qw",
+                    "resource_link_id": "building-teaching-online-course-professor-scenario-qw",
                     "link_type": "embed"
                   }
+                }
+              ]
+            },
+            {
+              "title": "Questions You May Have",
+              "anchor": "building-teaching-online-course-professor-questions",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "<h5>What if I follow your suggestions for communication with students but still struggle with connection. Is there someone I can meet with?</h5>",
+                    "The Center for Online Learning is happy to set up a one-on-one session with one of their specialists. Please email <a href='mailto:onlinelearning@udayton.edu'>onlinelearning@udayton.edu</a> to request an appointment.",
+                    "<h5>What assistance does the university provide for struggling online students?</h5>",
+                    "The <a href='https://udayton.edu/success/student-success-network.php' target='_blank'>Student Success Network</a> is a program available for you to alert staff members trained to help struggling students."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Further Resources",
+              "anchor": "building-teaching-online-course-professor-resources",
+              "contents": [
+                {
+                  "type": "UNORDERED_LIST",
+                  "listItems": [
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "How to use the Commons tool in Isidore",
+                      "href": "https://ewiki.udayton.edu/isidore/Commons"
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "How to use the Forums tool in Isidore",
+                      "href": "https://ewiki.udayton.edu/isidore/Forums"
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "Extra resource on actionable feedback",
+                      "href": "https://www.ascd.org/el/articles/seven-keys-to-effective-feedback"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Ensuring Quality",
+          "anchor": "building-teaching-online-course-quality",
+          "icon": "fa-chalkboard-teacher",
+          "pages": [
+            {
+              "title": "Ensuring Quality",
+              "anchor": "building-teaching-online-course-quality-intro",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                  "Due to the dynamic nature of teaching and learning, no course will remain the same two years in a row. This is especially true in an online course! The process of collecting feedback, analyzing it, and then applying it to your course can feel daunting. This module provides you with guidance on improving your course quality and  student experiences."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Collecting and Analyzing Course Feedback",
+              "anchor": "building-teaching-online-course-feedback",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                  "What tools exist to collect student feedback, and how can instructors encourage students to respond?"
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Collecting and Analyzing Course Feedback",
+                    "warpwire": "bx4GAA"
+                  }
+                },
+                {
+                  "type": "UNORDERED_LIST",
+                  "listItems": [
+                    {
+                      "type": "TEXT",
+                      "paragraphs": [
+                        "<h4 class='fw-normal mb-0'>Resources Mentioned in this video</h4>"
+                      ]
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "End of Semester Reflection Form",
+                      "href": "https://drive.google.com/file/d/1AjpobaATT2WKLxbz2k5kp13jblb3NSul/view?usp=sharing"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Updates, Maintenance and Solving Problems",
+              "anchor": "building-teaching-online-course-maintenance",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "Once you have collected a wealth of student feedback, what should you do with it? This video discusses how instructors can intentionally act on feedback as well as other items to update to ensure course quality each term."
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Updates, Maintenance and Problem Solving",
+                    "warpwire": "fx4GAA"
+                  }
+                },
+                {
+                  "type": "UNORDERED_LIST",
+                  "listItems": [
+                    {
+                      "type": "TEXT",
+                      "paragraphs": [
+                        "<h4 class='fw-normal mb-0'>Resources Mentioned in this video</h4>"
+                      ]
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "Center for Online Learning Blog",
+                      "href": "https://udayton.edu/blogs/onlinelearning/"
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-link",
+                      "title": "More UD Professional Development Opportunities",
+                      "href": "/programs"
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "Course Site Review Request",
+                      "href": "https://udayton.teamdynamix.com/TDClient/1868/Portal/Requests/ServiceDet?ID=53791"
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "Join the FlexTeaching Listserv",
+                      "href": "https://drive.google.com/file/d/1ek-tzuPlWzQcHvIm2jQOsUbxGxLCbNsp/view?usp=sharing"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Devise a Plan for Revising Courses",
+              "anchor": "building-teaching-online-course-feedback",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "This video introduces the New Semester Checklist resource and provides ideas for other methods for planning and documenting your course revisions."
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Make a Plan for Course Revisions",
+                    "warpwire": "tSEGAA"
+                  }
+                },
+                {
+                  "type": "UNORDERED_LIST",
+                  "listItems": [
+                    {
+                      "type": "TEXT",
+                      "paragraphs": [
+                        "<h4 class='fw-normal mb-0'>Resources Mentioned in this video</h4>"
+                      ]
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "New Semester Checklist",
+                      "href": "https://docs.google.com/document/d/1s4cvMN-OyZeAHxkKEh-lW_nMLHXfK_cucXUzpFu1mlA/edit?usp=sharing"
+                    }
+                  ]
                 }
               ]
             }
