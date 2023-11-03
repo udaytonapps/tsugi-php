@@ -4499,222 +4499,269 @@
       ]
     },
     {
-      "title": "Teaching Online",
+      "title": "Building & Teaching an Online Course",
       "session": "Instructional Design & Media",
       "async": true,
-      "duration": "Est. 50 min",
-      "anchor": "teachingonline",
+      "duration": "Est. 60 min",
+      "anchor": "online-course",
       "icon": "fa-chalkboard-teacher",
-      "landingContents" : [
+      "landingContents": [
         {
           "type": "TEXT",
           "paragraphs": [
-            "The thought of teaching an online course may evoke apprehension in even the most seasoned of instructors, and preparation for an asynchronous course offering certainly looks different than the typical face-to-face class. Whether you feel like an online teaching pro or a virtual learning newbie, the Center for Online Learning has compiled short modules of pedagogical best practices for teaching online.",
-            "The following modules will introduce you to the basics of reviewing and updating an online course, preparing your course site, how to build effective instructor presence in the online classroom, and building community while in an asynchronous setting.",
-            "This training focuses on teaching an online course that is already established. If you are looking for more information on how to build an online course from the ground up, please visit our other training modules in Learn."
+          "I have no content."
           ]
         }
       ],
       "lessons": [
         {
-          "title": "Reviewing and Updating a Template Course",
-          "anchor": "template-update",
+          "title": "Laying the Foundation",
+          "anchor": "online-course-foundation",
           "icon": "fa-video",
-          "teaser": "Your course may already be established and designed, but now is your time to make it unique and valuable. YOU are the magic ingredient to making this course a meaningful learning experience for your students. In this module, we will cover establishing a vision for your course, updating your Isidore site, and introduce learning objectives as the basis for the learning process.",
           "pages": [
             {
-              "title": "Establishing a Vision for Your Course",
-              "anchor": "template-vision-video",
+              "title": "Laying the Foundation",
+              "anchor": "online-course-foundation-intro",
               "contents": [
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "As you think about your online course, how do you want the experience to feel for students? What do you hope your course will achieve?"
+                    "In this module, we will cover the importance of having quality online courses at the University of Dayton and some of the ways they can be delivered. We will also take a look at student learning objectives, which will be the foundation of your course creation and delivery. As you go through this module, pay attention to some of the ways the activities and videos are set up. Do you see anything that you would like to incorporate into your own course?"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Modalities",
+              "anchor": "online-course-foundation-modalities",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "Over the past few years, COVID-19 has brought about many forms of teaching. While each learning institution may have slightly different names for each form, this video will cover the labels for each modality of online learning here at the University of Dayton."
                   ]
                 },
                 {
                   "type": "VIDEO",
                   "video": {
-                    "title": "Establishing a Vision for Your Course",
-                    "warpwire": "NQYFAA"
+                    "title": "UD Course Modalities",
+                    "warpwire": "9XAFAA"
                   }
                 }
               ]
             },
             {
-              "title": "Vision Assignment",
-              "anchor": "template-vision-assignment",
-              "contents": [
-                {                  
-                  "type": "TEXT",
-                  "paragraphs": [
-                    "In one or two sentences, what do you want students to gain from your course? What is your “big picture” vision?"
-                  ]                  
-                },
-                {
-                  "type": "LTI",
-                  "lti": {
-                    "threshold": 0,
-                    "external": false,
-                    "header": "Quick Write",
-                    "description": "In one or two sentences, what do you want students to gain from your course? What is your “big picture” vision?",
-                    "icon": "fa-pencil-square",
-                    "title": "Vision Assignment",
-                    "launch": "/mod/modquickwrite/",
-                    "resource_link_id": "template-vision-qw",
-                    "link_type": "embed"
-                  }
-                }
-              ]
-            },
-            {
-              "title": "Preparing Your Isidore",
-              "anchor": "template-preparing",
+              "title": "Strategic Importance of Online Learning at UD",
+              "anchor": "online-course-foundation-importance",
               "contents": [
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "When teaching an online course, even if you have taught the same course before, there are updates and modifications which you will need to make for each new offering. In this video we will go over most of the basic customizations you will do to prepare your Isidore course for students."
-                  ]
-                },
-                {
-                  "type": "VIDEO",
-                  "video": {
-                    "title": "Preparing Your Isidore",
-                    "warpwire": "xYIFAA"
-                  }
-                }
-              ]
-            },
-            {
-              "title": "Preparing Your Isidore Exercise",
-              "anchor": "template-preparing-exercise",
-              "contents": [
-                {
-                  "type": "TEXT",
-                  "paragraphs": [
-                    "How might you write your course description in a way that intrigues your students or motivates them to get started? Draft a few ideas here."
-                  ]
-                },
-                {
-                  "type": "LTI",
-                  "lti": {
-                    "threshold": 0,
-                    "external": false,
-                    "header": "Quick Write",
-                    "description": "How might you write your course description in a way that intrigues your students or motivates them to get started? Draft a few ideas here.",
-                    "icon": "fa-pencil-square",
-                    "title": "Preparing Assignment",
-                    "launch": "/mod/modquickwrite/",
-                    "resource_link_id": "template-preparing-qw",
-                    "link_type": "embed"
-                  }
-                }
-              ]
-            },
-            {
-              "title": "Extra Resources",
-              "anchor": "template-extra-resources",
-              "contents": [
-                {
-                  "type": "TEXT",
-                  "paragraphs": [
-                    "<h5>Extra Resources</h5>"
-                  ]
-                },
-                {
-                  "type": "LINK",
-                  "icon": "fa-link",
-                  "title": "Date Manager",
-                  "href": "https://ewiki.udayton.edu/isidore/Use_Date_Manager"
-                },
-                {
-                  "type": "LINK",
-                  "icon": "fa-link",
-                  "title": "Manage Overview",
-                  "href": "https://ewiki.udayton.edu/isidore/Manage_Overview"
-                },
-                {
-                  "type": "LINK",
-                  "icon": "fa-link",
-                  "title": "Syllabus",
-                  "href": "https://ewiki.udayton.edu/isidore/Syllabus"
-                },
-                {
-                  "type": "LINK",
-                  "icon": "fa-link",
-                  "title": "Manage Tools",
-                  "href": "https://ewiki.udayton.edu/isidore/Manage_Tools"
-                },
-                {
-                  "type": "LINK",
-                  "icon": "fa-link",
-                  "title": "UD Academic Calendar",
-                  "href": "https://udayton.edu/fss/important_dates/academic_calendar.php"
-                }
-              ]
-            },
-            {
-              "title": "Student Learning Objectives",
-              "anchor": "template-student-objectives",
-              "contents": [
-                {
-                  "type": "TEXT",
-                  "paragraphs": [
-                    "Student learning objectives lay the foundation for all learning. Imagine your friend tells you to get in your car and drive somewhere. They won’t tell you where you are going and instead say, “Trust me, I’ll let you know which turns to take a few seconds before they come up.” Unsettling, right? Learning objectives guide you and your students to the final “destination,” meaning they also dictate what and how you assess. This video covers an introduction to learning objectives."
-                  ]
-                },
-                {
-                  "type": "VIDEO",
-                  "video": {
-                    "title": "Student Learning Objectives",
-                    "warpwire": "LwYFAA"
-                  }
-                }
-              ]
-            }
-          ]  
-        },
-        {
-          "title": "Being the Professor",
-          "anchor": "being-professor",
-          "icon": "fa-video",
-          "teaser": "In this lesson we will talk about creating instructor presence in your course as you facilitate. This includes discussing ways you can effectively guide your students through the course, identify and assist struggling students, best practices for communication and the importance of providing  effective and timely feedback.",
-          "pages": [
-            {
-              "title": "Instructor Presence",
-              "anchor": "professor-presence",
-              "contents": [
-                {
-                  "type": "TEXT",
-                  "paragraphs": [
-                    "How can you design your asynchronous course to be a  meaningful learning experience for your students when there is no face-to-face teaching? This video will discuss ways to build instructor presence during your course. The last piece of feedback we want to hear is, “I could have just learned this from a textbook!” In order to prevent this sentiment, students need to see and hear from you. Your presence as an instructor is one of the most valuable tools you can offer your students."
+                    "In your opinion, what are the primary two reasons 57% of undergrads would like to see more online course offerings?"
                   ]
                 },
                 {
                   "type": "LTI",
                   "lti": {
                     "threshold": 1,
-                    "external": false,
-                    "header": "Interactive Video",
-                    "description": "",
+                    "header": "Quick Write",
+                    "description": "Complete the following Quick Write task.",
                     "icon": "fa-pencil-square",
-                    "title": "Presence Assignment",
-                    "launch": "/mod/interactivevideo/",
-                    "resource_link_id": "professor-presence-iv",
-                    "link_type": "embed"
+                    "title": "Quick Write Task",
+                    "launch": "/mod/mod-quickwrite/",
+                    "resource_link_id": "oc-importance-quiz"
                   }
                 }
               ]
             },
             {
-              "title": "Addressing Struggling Students",
-              "anchor": "addressing-students",
+              "title": "Student Learning Objectives",
+              "anchor": "online-course-foundation-objectives",
               "contents": [
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "Just like in the regular classroom, online students struggle too. However, it may not be as easy to spot problems when you are not seeing students face to face. In this video we will discuss common problems and issues, how to spot them and best practices for addressing them to improve student success."
+                  "Student learning objectives lay the foundation for all learning. Imagine your friend tells you to get in your car and drive somewhere. They won't tell you where you are going and instead say, \"Trust me, I'll let you know which turns to take a few seconds before they come up.\" Unsettling, right? Learning objectives guide you and your students to the final \"destination,\" meaning they also dictate what and how you assess. This video covers an introduction to learning objectives, and we will come back to them all throughout the course."
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Student Learning Objectives",
+                    "warpwire": "NwYFAA"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Task",
+              "subpage": "lesson-subpage",
+              "anchor": "online-course-foundation-writing",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                  "Read this document."
+                  ]
+                },
+                {
+                  "type": "LTI",
+                  "lti": {
+                    "threshold": 1,
+                    "header": "Quick Write",
+                    "description": "Complete the following Quick Write task.",
+                    "icon": "fa-pencil-square",
+                    "title": "Write your objective",
+                    "launch": "/mod/mod-quickwrite/",
+                    "resource_link_id": "oc-objective-write"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Online Assessment",
+          "anchor": "online-course-assessment",
+          "icon": "fa-video",
+          "pages": [
+            {
+              "title": "Online Assessment",
+              "anchor": "online-course-assessment-intro",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "Quality, varied assessment isn't all too different in the online classroom than it is from the brick-and-mortar one. However, online instructors may find themselves considering academic integrity, learning outcome alignment, or types of assessments possible in the online environment. This module will discuss how assessment can best serve you and your students when implemented as an effective learning and teaching tool."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Assessment and Learning Outcome Alignment",
+              "anchor": "online-course-assessment-alignment",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "How and why should course assessments be aligned to learning outcomes?"
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Assessment and Learning Outcome Alignment",
+                    "warpwire": "a7wFAA"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Task",
+              "subpage": "lesson-subpage",
+              "anchor": "online-course-assessment-alignment-task",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "<h4>Tell us about your experience</h4>",
+                    "Complete this two question survey to let us know about your experience organizing videos in Warpwire."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Diversification of Assessment",
+              "anchor": "online-course-assessment-diversification",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                  "Learn how to provide a variety of assessments that allow for different learners to demonstrate their strengths."
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Diversification of Assessment",
+                    "warpwire": "Q7QFAA"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Academic Integrity",
+              "anchor": "online-course-assessment-integrity",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "Are students cheating? What should you do about it? This video will go into academic integrity through the lens of an online instructor, and we'll discuss the idea of a \"cheat-proof\" assessment."
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Academic Integrity",
+                    "warpwire": "M8IFAA"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Formative and Summative Assessment",
+              "anchor": "online-course-assessment-types",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "What is the function of assessment, and how should it be used throughout the course? This video explains the difference between the two types of assessment and how to use a blend of both in your course."
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Formative and Summative Assessment",
+                    "warpwire": "mRcGAA"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Purposeful Content",
+          "anchor": "online-course-content",
+          "icon": "fa-video",
+          "teaser": "In this lesson we will discuss important concepts to consider when planning content and lessons to include in your course. Of primary importance is the consideration of a focus on essential content, employing motivational techniques and ensuring appropriate accessibility.",
+          "pages": [
+            {
+              "title": "Purposeful Content",
+              "anchor": "online-course-content-intro",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "In this introductory video to purposeful content we introduce you to the importance of carefully planning the content that you include in your course development. Getting in the right mindset before starting your draft of module content is essential."
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Purposeful Content",
+                    "warpwire": "MQYFAA"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Purposeful Content: Motivation",
+              "anchor": "online-course-content-motivation",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "Motivation in the face to face classroom is challenging on a good day, so how do you incorporate motivational techniques into your asynchronous course? In this video we will discuss ARCS and Self Determination Theory and provide examples of how these might influence the type of activity and assignment choices you choose for your course build"
                   ]
                 },
                 {
@@ -4727,20 +4774,146 @@
                     "icon": "fa-pencil-square",
                     "title": "Addressing Students Assignment",
                     "launch": "/mod/interactivevideo/",
-                    "resource_link_id": "addressing-students-iv",
+                    "resource_link_id": "online-course-purposeful-content-iv",
                     "link_type": "embed"
                   }
-                }                
+                }
               ]
             },
             {
-              "title": "Effective and Timely Feedback",
-              "anchor": "timely-feedback",
+              "title": "Purposeful Content: Teaching with Videos",
+              "anchor": "online-course-content-teaching",
               "contents": [
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "Two of the most important tasks that must be accomplished well as a facilitator in an asynchronous course are communication and timely feedback. No only will this make you a better instructor and help you connect with students, but it will help to improve student completion rate and outcomes."
+                    "What role do videos play in an online course, and why should you use them? As you watch this video, pay special attention to the benefits of content presented in a video format throughout an asynchronous course. Begin brainstorming how you might build content for your course."
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Purposeful Content: Teaching with Videos",
+                    "warpwire": "MwYFAA"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Application Task",
+              "anchor": "online-course-content-application",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "For each module/lesson in your course plan, make a note beside each task, activity, or assignment and how it relates to student motivation using the attention, relevance, confidence and satisfaction approach. If you prefer, use Self-Determination Theory (SDT) to note how it relates to student autonomy, competence and relatedness."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Dive Deeper",
+              "anchor": "online-course-content-dive-deeper",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": ["<h5>Online Learning Support Resources</h5>"]
+                },
+                {
+                  "type": "LTI",
+                  "lti": {
+                    "threshold": 1,
+                    "external": false,
+                    "icon": "fa-list-ol",
+                    "title": "Quiz: Tools",
+                    "launch": "/mod/learnquiz/index.php?quiz=onlinecourse_tools",
+                    "resource_link_id": "onlinecourse_tools"
+                  }
+                },
+                {
+                  "type": "LINK",
+                  "icon": "fa-link",
+                  "title": "Learning Apps in Isidore",
+                  "href": "https://ewiki.udayton.edu/isidore/External_Tools"
+                },
+                {
+                  "type": "LINK",
+                  "icon": "fa-link",
+                  "title": "Rich Text Editor Templates",
+                  "href": "https://ewiki.udayton.edu/isidore/Templates"
+                },
+                {
+                  "type": "LINK",
+                  "icon": "fa-link",
+                  "title": "Intrinsic Motivation and Course Communication (Video on ARCS, 6 min)",
+                  "href": "/programs/videos/arcscommunication"
+                },
+                {
+                  "type": "LINK",
+                  "icon": "fa-link",
+                  "title": "4 Ways to Motivate Students in Online Environment (Sync)",
+                  "href": "https://leverice.com/blog/4-ways-to-motivate-students-in-the-online-learning-environment/"
+                },
+                {
+                  "type": "LINK",
+                  "icon": "fa-link",
+                  "title": "Vanderbilt Center for Teaching Article on Motivating Students (All Modalities)",
+                  "href": "https://cft.vanderbilt.edu/guides-sub-pages/motivating-students/"
+                },
+                {
+                  "type": "LINK",
+                  "icon": "fa-link",
+                  "title": "ARCS as a Tool to Motivate Students",
+                  "href": "https://www.edutopia.org/article/powerful-strategy-fostering-student-motivation"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Building Community Online",
+          "anchor": "online-course-community",
+          "icon": "fa-video",
+          "pages": [
+            {
+              "title": "Building Community Online",
+              "anchor": "online-course-community-intro",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                  "In this lesson we will discuss methodologies, techniques, and technical tools that you as the online instructor can utilize to bring community to your online class and connect your students to one another and to you as instructor."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Finding Purpose (Peer Communication Opportunities)",
+              "anchor": "online-course-community-purpose",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                  "If you are concerned about encouraging meaningful student engagement and relationships in your online classroom, you are not alone. This video will introduce you to opportunities for community building."
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Finding Purpose (Peer Communication Opportunities)",
+                    "warpwire": "YRcGAA"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Course Communication: Quality Discussion Prompts and Other Tools",
+              "anchor": "online-course-community-quality",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "In this video we will guide you how to break out of the boring discussion obligations that have been known to sabotage quality learning in online courses. Crafting meaningful and engaging discussions will draw your students out and closer to one another while they also grow in knowledge and skills in your discipline."
                   ]
                 },
                 {
@@ -4751,59 +4924,105 @@
                     "header": "Interactive Video",
                     "description": "",
                     "icon": "fa-pencil-square",
-                    "title": "Timely Feedback Assignment",
+                    "title": "Quality Discussion Prompts and Other Tools",
                     "launch": "/mod/interactivevideo/",
-                    "resource_link_id": "timely-feedback-iv",
+                    "resource_link_id": "online-course-quality-discussion-iv",
                     "link_type": "embed"
                   }
-                }                
+                }
               ]
             },
             {
-              "title": "Scenario",
-              "anchor": "professor-scenario",
+              "title": "Building Community: Collaborative Tools",
+              "anchor": "online-course-community-collaboration",
               "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                  "Collaborative learning is easier than ever with new tools and applications. In this video we demonstrate how you can facilitate meaningful discussions with students with class readings."
+                  ]
+                },
                 {
                   "type": "LTI",
                   "lti": {
-                    "threshold": 0,
+                    "threshold": 1,
                     "external": false,
-                    "header": "Quick Write",
+                    "header": "Interactive Video",
                     "description": "",
                     "icon": "fa-pencil-square",
-                    "title": "Being The Professor Assignment",
-                    "launch": "/mod/modquickwrite/",
-                    "resource_link_id": "professor-scenario-qw",
+                    "title": "Collaborative Tools ",
+                    "launch": "/mod/interactivevideo/",
+                    "resource_link_id": "online-course-community-collaboration-iv",
                     "link_type": "embed"
                   }
-                }                
+                }
+              ]
+            },
+            {
+              "title": "Facilitation Discussions",
+              "anchor": "online-course-community-facilitation",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                  "After you have set up your forums tool and crafted a few quality discussion prompts, what is the next step? This video will cover some of the best practices for facilitating discussion forums in your online course."
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Facilitating Discussion Forums",
+                    "warpwire": "RZkFAA"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Application Tasks",
+              "anchor": "online-course-community-tasks",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                  "Task One: Craft a discussion prompt for one of the topics you teach in your course. Ensure that it is relevant and provides for multiple points for discussion rather than one certain answer. ",
+                  "Task Two: Install the Perusall tool to one of your previous course sites, upload a PDF reading and practice using the tool.  Provide feedback below on your experience."
+                  ]
+                },
+                {
+                  "type": "LTI",
+                  "lti": {
+                    "threshold": 1,
+                    "header": "Quick Write",
+                    "description": "Complete the following Quick Write task.",
+                    "icon": "fa-pencil-square",
+                    "title": "Write your objective",
+                    "launch": "/mod/modquickwrite/",
+                    "resource_link_id": "oc-write-facilitation",
+                    "link_type": "embed"
+                  }
+                }
               ]
             },
             {
               "title": "Questions You May Have",
-              "anchor": "professor-questions",
+              "anchor": "online-course-community-questions",
               "contents": [
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "<p><strong>What if I follow your suggestions for communication with students but still struggle with connection. Is there someone I can meet with?</strong>",
-                    "The Center for Online Learning is happy to set up a one-on-one session with one of their specialists. Please email <a href='mailto:onlinelearning@udayton.edu'>onlinelearning@udayton.edu</a> to request an appointment.</p>",
-                    "<p><strong>What assistance does the university provide for struggling online students?</strong>",
-                    "The <a target='_blank' href='https://udayton.edu/success/student-success-network.php'>Student Success Network</a> is a program available for you to alert staff members trained to help struggling students.</p>"
+                    "<h4>Potential Questions You May Have:</h4>",
+                    "<h5>Can I use my textbook in Perusall?</h5>",
+                    "Yes you can!  Please see <a href='https://support.perusall.com/hc/en-us/articles/360033995294-How-do-I-adopt-a-textbook-using-Perusall-' target='_blank'>the textbook support page</a> for the process to search for your textbook. If it is not available, you will be prompted to request the book. Once your book has been approved for incorporation, you will need to inform the bookstore that you will be having students purchase the book through Perusall with a code.",
+                    "<h5>Can I use published articles and PDFs in Perusall?</h5>",
+                    "Yes you can. Please read <a href='https://support.perusall.com/hc/en-us/sections/360005222253-Content' target='_blank'>the content support page</a> for more information on uploading your own content and other topics."
                   ]
-                }               
+                }
               ]
             },
             {
-              "title": "Resources",
-              "anchor": "professor-resources",
+              "title": "Further Resources",
+              "anchor": "online-course-community-resources",
               "contents": [
-                {
-                  "type": "TEXT",
-                  "paragraphs": [
-                    "<h5>Extra Resources</h5>"
-                  ]
-                },
                 {
                   "type": "LINK",
                   "icon": "fa-link",
@@ -4819,90 +5038,287 @@
                 {
                   "type": "LINK",
                   "icon": "fa-link",
-                  "title": "Extra resource on actionable feedback",
-                  "href": "https://www.ascd.org/el/articles/seven-keys-to-effective-feedback"
+                  "title": "Perusall Support",
+                  "href": "https://support.perusall.com/hc/en-us"
                 }
               ]
             }
-          ]    
+          ]
         },
         {
-          "title": "Building Community Online",
-          "anchor": "building-community-online",
+          "title": "Enhancing Learning with Technology",
+          "anchor": "online-course-technology",
           "icon": "fa-video",
-          "teaser": "In this lesson we will discuss methodologies, techniques, and technical tools that you as the online instructor can utilize to bring community to your online class and connect your students to one another and to you as instructor.",
           "pages": [
             {
-              "title": "Finding Purpose (Peer Communication Opportunities)",
-              "anchor": "finding-purpose",
+              "title": "Enhancing Learning with Technology",
+              "anchor": "online-course-technology-intro",
               "contents": [
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "If you are concerned about encouraging meaningful student engagement and relationships in your online classroom, you are not alone. This video will introduce you to opportunities for community building."
+                  "In this module, we will provide you with resources to explore. Learning apps, external tools, and Zoom and Isidore techniques can greatly enhance the learning experience within your course. When you feel comfortable, take some time to read or watch about a few of these opportunities that you could envision in your course."
                   ]
                 },
                 {
                   "type": "VIDEO",
                   "video": {
-                    "title": "Peer Communication Opportunities",
-                    "warpwire": "8R0GAA"
+                    "title": "Enhancing Learning with Technology",
+                    "warpwire": "x5IFAA"
                   }
                 }
               ]
             },
             {
-              "title": "Facilitating Discussions",
-              "anchor": "facilitating-discussions-video",
+              "title": "Advanced Isidore Tricks",
+              "anchor": "online-course-technology-isidore-tricks",
+              "contents": [
+                {
+                  "type": "ORDERED_LIST",
+                  "listItems": [
+                    {
+                      "type": "TEXT",
+                      "paragraphs": [
+                        "Looking for ways to customize your tests and quizzes? Isidore offers more than just a standard multiple-choice test. Learn about some different question types in Isidore.",
+                        "<ul><li><a href='https://ewiki.udayton.edu/isidore/View_Available_Question_Types#Hot_Spot' target='_blank'>Hot spots</a> and others</li><li><a href='https://udayton.warpwire.com/w/wZMCAA/' target='_blank'>Calculated questions</a></li></ul>"
+                      ]
+                    },
+                    {
+                      "type": "TEXT",
+                      "paragraphs": [
+                        "Use Checklists to organize your course."
+                      ]
+                    },
+                    {
+                      "type": "TEXT",
+                      "paragraphs": [
+                        "Learn how to make your lessons coordinated and easy to follow with layouts.",
+                        "<ul><li><a href='https://www.youtube.com/watch?v=r1hYysRkUy4' target='_blank'>Expandable Lessons</a></li><li><a href='https://www.youtube.com/watch?v=W3nPegCw6BU' target='_blank'>Customize Lessons with Layouts</a></li></ul>"
+                      ]
+                    },
+                    {
+                      "type": "TEXT",
+                      "paragraphs": [
+                        "Get to know the Text Editor.",
+                        "<ul><li><a href='https://www.youtube.com/watch?v=g8bj6g9-EmQ' target='_blank'>Text Editor Tips You May Not Know</a></li></ul>"                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Learning Apps",
+              "anchor": "online-course-technology-learningapps",
               "contents": [
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "This video will cover some of the best practices for facilitating discussion forums in your online course, including giving quality feedback and navigating the Statistics and Grading tool."
+                  "Learning apps are tools within Isidore that can be integrated into your lessons. These tools elevate the active learning component in an online course by allowing students to work with the material and practice skills. Take time to learn about a few of these."
+                  ]
+                },
+                {
+                  "type": "ORDERED_LIST",
+                  "listItems": [
+                    {
+                      "type": "TEXT",
+                      "paragraphs": [
+                        "The <a href='https://ewiki.udayton.edu/isidore/External_Tools' target='_blank'>Learning Apps Web Page</a> includes an overview of all available apps."
+                      ]
+                    },
+                    {
+                      "type": "TEXT",
+                      "paragraphs": [
+                        "If you aren’t sure where to start with Learning Apps, look at these three: ",
+                        "<ul><li><a href='https://udayton.warpwire.com/w/J_sEAA/' target='_blank'>Study Questions</a></li><li><a href='https://udayton.warpwire.com/w/U10FAA/' target='_blank'>Tokens</a></li><li><a href='https://www.youtube.com/watch?v=zpQz3JOXQyc' target='_blank'>Shoutouts</a></li></ul>"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "External Tools",
+              "anchor": "online-courses-technology-external-tools",
+              "contents": [
+                {
+                  "type": "UNORDERED_LIST",
+                  "listItems": [
+                    {
+                      "type": "TEXT",
+                      "paragraphs": [
+                        "External tools are apps or programs that work with Isidore to enhance your learning or teaching experience. Learn about a few of them on the <a href='https://ewiki.udayton.edu/isidore/External_Tools' target='_blank'>eWiki page for external tools</a>."
+                      ]
+                    },
+                    {
+                      "type": "TEXT",
+                      "paragraphs": [
+                        "Looking to modernize your grading game? Read about <a href='https://udayton.edu/blogs/onlinelearning/2023/simplify_with_gradescope.php' target='_blank'>Gradescope</a>."
+                      ]
+                    },
+                    {
+                      "type": "TEXT",
+                      "paragraphs": [
+                        "Learn more about <a href='https://ewiki.udayton.edu/isidore/Perusall' target='_blank'>Perusall</a>."
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "module 6",
+          "anchor": "module-six",
+          "icon": "fa-video",
+          "teaser": "Learn how to see which students are watching which parts of your videos.",
+          "pages": [
+            {
+              "title": "Analytics in Warpwire",
+              "anchor": "warpwire-analytics-video",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "When you publish a video as part of your lesson, you want to ensure that students have taken the time to watch the instruction. Detailed analytics are available within Warpwire both as a quick view and as a detailed export. Reports allow you to see which students are watching the videos and which parts of the videos they are watching.",
+                    "<h4>Analytics in Warpwire</h4>",
+                    "In this lesson we will demonstrate how to check student viewership of Warpwire videos within a course site and how to embed videos as graded activities based on views."
                   ]
                 },
                 {
                   "type": "VIDEO",
                   "video": {
-                    "title": "Facilitating Discussion Forums",
-                    "warpwire": "RZkFAA"
+                    "title": "Analytics in Warpwire",
+                    "warpwire": "oRIEAA"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Being the Professor",
+          "anchor": "online-course-professor",
+          "icon": "fa-video",
+          "pages": [
+            {
+              "title": "Being the Professor",
+              "anchor": "online-course-professor-intro",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "In this lesson we will talk about creating instructor presence in your course as you facilitate. This includes discussing ways you can effectively guide your students through the course, identify and assist struggling students, best practices for communication and the importance of providing  effective and timely feedback."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Instructor Presence",
+              "anchor": "online-course-professor-presence",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "How can you design your asynchronous course to be a meaningful learning experience for your students when there is no face-to-face teaching? This video will discuss ways to build instructor presence during your course. The last piece of feedback we want to hear is, \"I could have just learned this from a textbook!\" In order to prevent this sentiment, students need to see and hear from you. Your presence as an instructor is one of the most valuable tools you can offer your students."
+                  ]
+                },
+                {
+                  "type": "LTI",
+                  "lti": {
+                    "threshold": 1,
+                    "external": false,
+                    "header": "Interactive Video",
+                    "description": "",
+                    "icon": "fa-pencil-square",
+                    "title": "Instructor Presence",
+                    "launch": "/mod/interactivevideo/",
+                    "resource_link_id": "online-course-professor-presence-iv",
+                    "link_type": "embed"
                   }
                 }
               ]
             },
             {
-              "title": "Resources for Grading Discussion Forums",
-              "anchor": "discussion-forum-resources",
+              "title": "Addressing Struggling Students",
+              "anchor": "online-course-professor-addressing-students",
               "contents": [
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "<strong>When it comes time to grade forums, the following links can provide some how-to guidance in navigating Isidore’s options for grading forums.</strong>"
+                    "Just like in the regular classroom, online students struggle too. However, it may not be as easy to spot problems when you are not seeing students face to face. In this video we will discuss common problems and issues, how to spot them and best practices for addressing them to improve student success."
                   ]
                 },
                 {
-                  "type": "LINK",
-                  "icon": "fa-link",
-                  "title": "Support for Grading Forums Posts",
-                  "href": "https://ewiki.udayton.edu/isidore/Grading_Forum_Postings"
+                  "type": "LTI",
+                  "lti": {
+                    "threshold": 1,
+                    "external": false,
+                    "header": "Interactive Video",
+                    "description": "",
+                    "icon": "fa-pencil-square",
+                    "title": "Instructor Presence",
+                    "launch": "/mod/interactivevideo/",
+                    "resource_link_id": "online-course-professor-presence-iv",
+                    "link_type": "embed"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Effective and Timely Feedback",
+              "anchor": "online-course-professor-feedback",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "Two of the most important tasks that must be accomplished well as a facilitator in an asynchronous course are communication and timely feedback. No only will this make you a better instructor and help you connect with students, but it will help to improve student completion rate and outcomes."
+                  ]
                 },
                 {
-                  "type": "LINK",
-                  "icon": "fa-link",
-                  "title": "Support for Using Statistics and Grading",
-                  "href": "https://ewiki.udayton.edu/isidore/Use_Statistics_%26_Grading"
+                  "type": "LTI",
+                  "lti": {
+                    "threshold": 1,
+                    "external": false,
+                    "header": "Interactive Video",
+                    "description": "",
+                    "icon": "fa-pencil-square",
+                    "title": "Effective and Timely Feedback",
+                    "launch": "/mod/interactivevideo/",
+                    "resource_link_id": "online-course-professor-feedback-iv",
+                    "link_type": "embed"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Scenario",
+              "anchor": "online-course-professor-scenario",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "Dr. Rizzo is teaching an asynchronous creative writing class in the fall term. It is the third week and the first paper is due at the end of the week. When the due date passes, Dr. Rizzo notices that two of his students did not submit their papers. When looking at the roster tool in the course site, he realizes that neither of these students have even logged into the course site since the beginning of the term. He has built in all the instructions and due dates into the course site. If the students had logged in they would have known what to do."
+                  ]
                 },
                 {
-                  "type": "LINK",
-                  "icon": "fa-link",
-                  "title": "Support for Using Rubrics in Forums",
-                  "href": "https://ewiki.udayton.edu/isidore/Use_Rubrics_in_Forums"
+                  "type": "LTI",
+                  "lti": {
+                    "threshold": 1,
+                    "header": "Quick Write",
+                    "description": "Complete the following Quick Write task.",
+                    "icon": "fa-pencil-square",
+                    "title": "Scenario",
+                    "launch": "/mod/modquickwrite/",
+                    "resource_link_id": "online-course-professor-scenario-qw",
+                    "link_type": "embed"
+                  }
                 }
               ]
             }
           ]
         }
-      ]  
+      ]
     }
   ]
 }
