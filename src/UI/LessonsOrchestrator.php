@@ -39,6 +39,11 @@ class LessonsOrchestrator
                 'adapter' => GenericAdapter::class,
                 'adapterPath' => $adapterDirectory . '/GenericLessonsAdapter.php',
             ],
+            'canvas' => (object)[
+                'displayLabel' => 'Canvas LMS',
+                'adapter' => GenericAdapter::class,
+                'adapterPath' => $adapterDirectory . '/GenericLessonsAdapter.php',
+            ],
             'CCDI' => (object)[
                 'displayLabel' => 'Cybersecurity and Data Intelligence',
                 'adapter' => GenericAdapter::class,

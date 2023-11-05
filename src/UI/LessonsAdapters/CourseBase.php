@@ -363,6 +363,8 @@ class Course
     public $description;
     /** @var string */
     public $cardtype;
+    /** @var boolean */
+    public $cardtabs;
     /** @var Splash */
     public $splash;
     /** @var Badge[] */
@@ -378,6 +380,7 @@ class Course
         $this->description = $course->description;
         $this->splash = $course->splash ?? null;
         $this->cardtype = $course->cardtype ?? null;
+        $this->cardtabs = $course->cardtabs ?? true;
 
         $badges = array();
         foreach ($course->badges as $badge) {

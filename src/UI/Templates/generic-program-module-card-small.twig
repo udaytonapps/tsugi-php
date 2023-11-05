@@ -73,10 +73,14 @@
 					<a class="stretched-link" href="{{card.moduleUrl}}">
 						<h5 class="card-title text-dark pb-2">{{card.module.title}}</h5>
 					</a>
+					{% if course.cardtabs == false and card.moduletype == "async" %}
+						<small>At-Your-Own-Pace</small>
+					{% endif %}
 					{% if card.module.duration %}
 						<span>
-						<span class="far fa-clock" aria-hidden="true"></span>
-						Duration: {{card.module.duration}}</span>
+							<span class="far fa-clock" aria-hidden="true"></span>
+							{% if card.moduletype == "sync" %}Duration: {% endif %}{{card.module.duration}}
+						</span>
 					{% endif %}
 					{% if card.module.prereqs %}
 						<p><strong>Prereqs:</strong> {{ card.module.prereqs }}</p>
