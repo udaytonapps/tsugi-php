@@ -6,13 +6,14 @@
     "image": "/images/Canvas.png",
     "alttext": "",
     "video": "https://udayton.warpwire.com/w/dTYGAA/?share=0&title=0",
-    "text": "With Canvas LMS, you can deliver dynamic, engaging learning experiences. For every student. Everywhere. Every day. Canvas is a robust digital foundation for all aspects of higher-ed learning today and into the future.",
+    "text": "With the Canvas learning management system, you can deliver dynamic, engaging learning experiences for every student. Learn how to use this robust digital to deliver content, facilitate assessment, and manage your course.",
     "contents": [
       {
         "type": "TEXT",
         "paragraphs": [
           "<h4 class='pt-5'>What is Canvas?",
-          "<p>Canvas, a market-leading learning management system (LMS), is a digital platform designed for the efficient administration, delivery, and tracking of educational courses. It not only centralizes the educational process but also provides instructors with tools to manage content and monitor student progress, ensuring an enriched learning experience. For the UD community, Canvas is more than just an LMS: for instructors, it's a tool for effective course management and dynamic content creation, while for students, it serves as an access point to comprehensive learning resources, encourages communication, and supports their educational journey. UD's use of Canvas emphasizes its commitment to a modern, interactive, and comprehensive digital learning environment.</p>"
+          "<p>Canvas, a market-leading learning management system (LMS), is a digital platform designed for the efficient administration, delivery, and tracking of educational courses. This modern, interactive, and comprehensive digital learning environment supports exceptional teaching and learning for the UD community.</p>",
+          "<p>For instructors, Canvas is a tool for effective course management and dynamic content creation. For students, Canvas serves as a centralized access point for learning resources, encourages communication, and supports their educational journey.</p>"
         ]
       }
     ]
@@ -33,7 +34,7 @@
         {
           "type": "TEXT",
           "paragraphs": [
-            "If you’re brand new to Canvas or just need a complete refresher, the lessons in this training module will help you understand everything you need to know to get started with UD’s learning management system (LMS). The topics covered in this module will help you:<ul><li>Understand the basics of Canvas at UD</li><li>Learn how to log in and navigate the Canvas interface</li><li>Adjust your profile and general settings</li><li>Create your first course and navigate the basic tools</li></ul>Whether you complete this entire guide or just use it as a reference, we recommend getting comfortable in Canvas before taking the next step of migrating your course content from Isidore."
+            "If you’re new to Canvas, the lessons in this training module will help you get started with UD’s learning management system (LMS). Topics include:<ul><li>Accessing Canvas</li><li>Navigating the Canvas interface</li><li>Adjusting your Canvas profile and general settings</li><li>Preparing a course site</li><li>Using basic Canvas tools to facilitate your course</li></ul>Whether you complete this entire guide or just use it as a reference, we recommend getting comfortable in Canvas before taking the next step of migrating your course content from Isidore."
           ]
         },
         {
@@ -48,7 +49,6 @@
         {
           "title": "Canvas Basics",
           "icon": "fa-list",
-          "teaser": "Canvas is UD's learning management system (LMS).",
           "pages": [
             {
               "title": "What is Canvas?",
@@ -58,7 +58,8 @@
                   "type": "TEXT",
                   "paragraphs": [
                     "<strong>Introducing Canvas at UD</strong>",
-                    "Canvas, a market-leading learning management system (LMS), is a digital platform designed for the efficient administration, delivery, and tracking of educational courses. It not only centralizes the educational process but also provides instructors with tools to manage content and monitor student progress, ensuring an enriched learning experience. For the UD community, Canvas is more than just an LMS: for instructors, it's a tool for effective course management and dynamic content creation, while for students, it serves as an access point to comprehensive learning resources, encourages communication, and supports their educational journey. UD's use of Canvas emphasizes its commitment to a modern, interactive, and comprehensive digital learning environment."
+                    "Canvas, a market-leading learning management system (LMS), is a digital platform designed for the efficient administration, delivery, and tracking of educational courses. This modern, interactive, and comprehensive digital learning environment supports exceptional teaching and learning for the UD community.",
+                    "For instructors, Canvas is a tool for effective course management and dynamic content creation. For students, Canvas serves as a centralized access point for learning resources, encourages communication, and supports their educational journey."
                   ]
                 },
                 {
@@ -277,27 +278,7 @@
         {
           "title": "Preparing a Course",
           "icon": "fa-book",
-          "teaser": "Create a course and get started preparing your content!",
           "pages": [
-            {
-              "title": "Creating a Course",
-              "anchor": "creating-canvas-course",
-              "contents": [
-                {
-                  "type": "TEXT",
-                  "paragraphs": [
-                    "In this video, you will learn how to create and publish a new Canvas course."
-                  ]
-                },
-                {
-                  "type": "VIDEO",
-                  "video": {
-                    "title": "Course Creation",
-                    "canvas": "f54f80c7-5501-4d1e-aa48-c73f257b4af3"
-                  }
-                }
-              ]
-            },
             {
               "title": "Managing Course Settings",
               "anchor": "managing-course-settings",
@@ -347,7 +328,7 @@
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "In this video, you will learn how to customize your course home page."
+                    "In this video, you will learn how to customize your course home page. The default home page for UD's Canvas is the Syllabus page, including the Course Summary, with a section for the three most recent course announcements at the top."
                   ]
                 },
                 {
@@ -366,7 +347,7 @@
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "In this video, you will learn how to create a new Canvas course, import course content using the Course Import Tool, and edit your course syllabus."
+                    "In this video, you will learn how to create and edit your course syllabus."
                   ]
                 },
                 {
@@ -796,7 +777,6 @@
         {
           "title": "Facilitating a Course",
           "icon": "fa-book",
-          "teaser": "Learn how to teach your course with Canvas.",
           "pages": [
             {
               "title": "Grading with SpeedGrader",
@@ -853,7 +833,7 @@
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "In this video, you will get an overview of Announcements."
+                    "In this video, you will get an overview of Announcements. By default, Announcements will also be sent to students' UD Gmail accounts. However, students may choose to opt out of those email notifications."
                   ]
                 },
                 {
@@ -942,7 +922,6 @@
         {
           "title": "Taking the Next Step",
           "icon": "fa-question",
-          "teaser": "Now that I feel comfortable in Canvas, what do I do next?",
           "pages": [
             {
               "title": "Additional Resources & Guides",
@@ -1005,14 +984,8 @@
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "Take the next step and begin migrating your courses from Isidore to Canvas. Follow along with this guide."
+                    "Register for a session or learn more..."
                   ]
-                },
-                {
-                  "type": "LINK",
-                  "icon": "fa-book",
-                  "title": "Migrating Courses from Isidore",
-                  "href": "link-goes-here"
                 }
               ]
             }
@@ -1026,7 +999,7 @@
       "anchor": "canvas-info-session",
       "icon": "fa-chalkboard-teacher",
       "duration": "1hr",
-      "description": "<p>After 15 years, the University of Dayton will be switching from Isidore to Canvas for its Learning Management System for the Fall 2024 semester. This session will provide an overview of Canvas, provide steps for faculty to get started using it, discuss opportunities to migrate content from Isidore, and answer questions that attendees may have.</p>",
+      "description": "<p>UD will move from Isidore (Sakai) to the Canvas learning management system (LMS) for Fall 2024. In this session, we’ll discuss the rationale for this decision, why we selected Canvas, and what you can expect over the next year. We’ll also provide an overview of the Canvas platform, share strategies for getting started, and outline options for migrating content from Isidore.</p>",
       "image": "/images/Canvas.webp",
       "imagealt": "Canvas",
       "facilitators": [
@@ -1059,12 +1032,50 @@
       ]
     },
     {
+      "title": "Canvas Essentials",
+      "session": "Canvas 101",
+      "anchor": "canvas-essentials",
+      "icon": "fa-chalkboard-teacher",
+      "duration": "1 hr",
+      "description": "<p>Canvas Essentials is a concise, beginner-friendly training session designed for instructors new to the Canvas Learning Management System. This session provides a comprehensive overview of Canvas, guiding participants through its fundamental features and tools. By the end of this session, instructors will be equipped with the necessary skills to confidently build and manage their courses in Canvas, ensuring a smooth and efficient transition.</p>",
+      "image": "/images/Canvas.webp",
+      "imagealt": "Canvas",
+      "facilitators": [
+        "rallen1@udayton.edu",
+        "lbergman1@udayton.edu"
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=canvas&session_id=canvas-essentials&view=REGISTRATION",
+          "resource_link_id" : "reg-canvas-essentials",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=canvas&session_id=canvas-essentials&view=FEEDBACK",
+          "resource_link_id" : "feedback-canvas-essentials",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=canvas&session_id=canvas-essentials&view=ADMINISTRATION",
+          "resource_link_id" : "admin-canvas-essentials",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
       "title": "Course Building Workshop",
       "session": "Moving to Canvas",
       "anchor": "canvas-workshop",
       "icon": "fa-chalkboard-teacher",
       "duration": "90 min",
-      "description": "<p>Learn how to move your content and teach in Canvas.</p>",
+      "description": "<p>In this hands-on workshop, attendees are invited to start building their course site in Canvas with the guidance and support of Center for Online Learning team members.</p>",
       "image": "/images/Canvas.png",
       "imagealt": "Canvas",
       "facilitators": [
