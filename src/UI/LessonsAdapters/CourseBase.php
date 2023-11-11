@@ -376,6 +376,8 @@ class Course
 
     function __construct($course)
     {
+        global $CFG;
+
         $this->title = $course->title;
         $this->description = $course->description;
         $this->splash = $course->splash ?? null;
@@ -390,10 +392,12 @@ class Course
 
         $modules = array();
         foreach ($course->modules as $module) {
-            if (isset($module->async) && $module->async) {
-                array_push($modules, new AsyncModule($module));
-            } else {
-                array_push($modules, new SyncModule($module));
+            if ($CFG->show_hidden_modules || !isset($module->hidden) || !$module->hidden) {
+                if (isset($module->async) && $module->async) {
+                    array_push($modules, new AsyncModule($module));
+                } else {
+                    array_push($modules, new SyncModule($module));
+                }
             }
         }
         $this->modules = $modules;

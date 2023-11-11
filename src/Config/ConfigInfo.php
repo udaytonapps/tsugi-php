@@ -820,6 +820,7 @@ class ConfigInfo {
     public $external_store_secret;
     public $local_dev_server;
     public $fontawesome;
+    public $show_hidden_modules = false;
 
 
     /**
