@@ -984,7 +984,10 @@
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "Register for a session or learn more..."
+                    "<p>After familiarizing yourself with Canvas, you'll need to decide whether or not you want to migrate content from Isidore to Canvas. Because Canvas has a different interface and toolset than Isidore, you may find it easier to start building your course from a blank slate and explore the new opportunities and features Canvas offers.</p>",
+                    "<p>We acknowledge that many faculty have built a substantial amount of content on Isidore they wish to retain, recognizing the considerable time investment required for manual recreation in Canvas. Consequently, the Center for Online Learning is actively developing automated methods to migrate course content from Isidore to Canvas for faculty. We plan to have more details about migration options in January 2024. Stay tuned for more information on this.</p>",
+                    "<p>In the meantime, there are two ways to get content into Canvas:</p><ul><li><strong>Build from scratch:</strong> Build items from scratch by manually uploading content and creating new items in your official Canvas course.</li><li><strong>Copy from an existing Canvas course:</strong> If you previously taught in Canvas, import your content from your previous Canvas course into your official course site. This will work whether you taught a Canvas course at UD or even at another institution!</li></ul>",
+                    "<p>Learn more about the switch to Canvas at <a href='http://go.udayton.edu/lms-transition' target='_blank'>http://go.udayton.edu/lms-transition</a></p>"
                   ]
                 }
               ]
