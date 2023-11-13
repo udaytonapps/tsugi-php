@@ -1032,7 +1032,7 @@
       ]
     },
     {
-      "title": "Canvas Essentials",
+      "title": "Canvas Essentials (Spring 2024)",
       "session": "Canvas 101",
       "anchor": "canvas-essentials",
       "icon": "fa-chalkboard-teacher",
@@ -1070,8 +1070,8 @@
       ]
     },
     {
-      "title": "Course Building Workshop",
-      "session": "Moving to Canvas",
+      "title": "Course Building Workshop (Spring 2024)",
+      "session": "Canvas 201",
       "anchor": "canvas-workshop",
       "icon": "fa-chalkboard-teacher",
       "duration": "90 min",
@@ -1102,6 +1102,44 @@
           "assignmenttitle": "Admin Only",
           "launch" : "/mod/learn-registration/?program=canvas&session_id=canvas-workshop&view=ADMINISTRATION",
           "resource_link_id" : "admin-canvas-workshop",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "title": "Building Assessments in Canvas (Spring 2024)",
+      "session": "Canvas 201",
+      "anchor": "canvas-assessments",
+      "icon": "fa-chalkboard-teacher",
+      "duration": "1 hr",
+      "description": "<p>Learn how to build and use Quizzes and Assignments, in Canvas. This session will include information on how to build and utilize question pools/items banks, apply student accommodations, use SpeedGrader, and more. Attendees are encouraged to bring laptops and follow along.</p>",
+      "image": "/images/Canvas.png",
+      "imagealt": "Canvas",
+      "facilitators": [
+        "rallen1@udayton.edu",
+        "lbergman1@udayton.edu"
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=canvas&session_id=canvas-assessments&view=REGISTRATION",
+          "resource_link_id" : "reg-canvas-assessments",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=canvas&session_id=canvas-assessments&view=FEEDBACK",
+          "resource_link_id" : "feedback-canvas-assessments",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=canvas&session_id=canvas-assessments&view=ADMINISTRATION",
+          "resource_link_id" : "admin-canvas-assessments",
           "type": "ADMINISTRATION",
           "hidden": true
         }
