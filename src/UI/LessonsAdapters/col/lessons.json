@@ -3523,8 +3523,20 @@
           "title": "Reviewing and Updating a Template Course",
           "anchor": "template-update",
           "icon": "fa-video",
-          "teaser": "Your course may already be established and designed, but now is your time to make it unique and valuable. YOU are the magic ingredient to making this course a meaningful learning experience for your students. In this module, we will cover establishing a vision for your course, updating your Isidore site, and introduce learning objectives as the basis for the learning process.",
+          "teaser": "",
           "pages": [
+            {
+              "title": "Reviewing and Updating a Template Course",
+              "anchor": "template-update-paragraph",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "Your course may already be established and designed, but now is your time to make it unique and valuable. YOU are the magic ingredient to making this course a meaningful learning experience for your students. In this module, we will cover establishing a vision for your course, updating your Isidore site, and introduce learning objectives as the basis for the learning process."
+                  ]
+                }
+              ]  
+            },
             {
               "title": "Establishing a Vision for Your Course",
               "anchor": "template-vision-video",
@@ -3571,7 +3583,7 @@
               ]
             },
             {
-              "title": "Preparing Your Isidore",
+              "title": "Preparing Your Course Site",
               "anchor": "template-preparing",
               "contents": [
                 {
@@ -3583,14 +3595,14 @@
                 {
                   "type": "VIDEO",
                   "video": {
-                    "title": "Preparing Your Isidore",
+                    "title": "Preparing Your Course Site",
                     "warpwire": "xYIFAA"
                   }
                 }
               ]
             },
             {
-              "title": "Preparing Your Isidore Exercise",
+              "title": "Course Description Exercise",
               "anchor": "template-preparing-exercise",
               "contents": [
                 {
@@ -3607,7 +3619,7 @@
                     "header": "Quick Write",
                     "description": "How might you write your course description in a way that intrigues your students or motivates them to get started? Draft a few ideas here.",
                     "icon": "fa-pencil-square",
-                    "title": "Preparing Assignment",
+                    "title": "Course Description Question",
                     "launch": "/mod/modquickwrite/",
                     "resource_link_id": "template-preparing-qw",
                     "link_type": "embed"
@@ -3619,12 +3631,6 @@
               "title": "Extra Resources",
               "anchor": "template-extra-resources",
               "contents": [
-                {
-                  "type": "TEXT",
-                  "paragraphs": [
-                    "<h5>Extra Resources</h5>"
-                  ]
-                },
                 {
                   "type": "LINK",
                   "icon": "fa-link",
@@ -3682,8 +3688,20 @@
           "title": "Being the Professor",
           "anchor": "being-professor",
           "icon": "fa-video",
-          "teaser": "In this lesson we will talk about creating instructor presence in your course as you facilitate. This includes discussing ways you can effectively guide your students through the course, identify and assist struggling students, best practices for communication and the importance of providing  effective and timely feedback.",
+          "teaser": "",
           "pages": [
+            {
+              "title": "Being The Professor",
+              "anchor": "being-professor-paragraph",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "In this lesson we will talk about creating instructor presence in your course as you facilitate. This includes discussing ways you can effectively guide your students through the course, identify and assist struggling students, best practices for communication and the importance of providing  effective and timely feedback."
+                  ]
+                }
+              ]  
+            },
             {
               "title": "Instructor Presence",
               "anchor": "professor-presence",
@@ -3802,12 +3820,6 @@
               "anchor": "professor-resources",
               "contents": [
                 {
-                  "type": "TEXT",
-                  "paragraphs": [
-                    "<h5>Extra Resources</h5>"
-                  ]
-                },
-                {
                   "type": "LINK",
                   "icon": "fa-link",
                   "title": "How to use the Commons tool in Isidore",
@@ -3833,8 +3845,20 @@
           "title": "Building Community Online",
           "anchor": "building-community-online",
           "icon": "fa-video",
-          "teaser": "In this lesson we will discuss methodologies, techniques, and technical tools that you as the online instructor can utilize to bring community to your online class and connect your students to one another and to you as instructor.",
+          "teaser": "",
           "pages": [
+            {
+              "title": "Building Community Online",
+              "anchor": "building-community-paragraph",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "In this lesson we will discuss methodologies, techniques, and technical tools that you as the online instructor can utilize to bring community to your online class and connect your students to one another and to you as instructor."
+                  ]
+                }
+              ]  
+            },
             {
               "title": "Finding Purpose (Peer Communication Opportunities)",
               "anchor": "finding-purpose",
