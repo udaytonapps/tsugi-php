@@ -4444,10 +4444,10 @@
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                  "<h5>Task One</h5>",
-                  "Craft a discussion prompt for one of the topics you teach in your course. Ensure that it is relevant and provides for multiple points for discussion rather than one certain answer. ",
-                  "<h5>Task Two</h5>",
-                  "Install the Perusall tool to one of your previous course sites, upload a PDF reading and practice using the tool. Provide feedback below on your experience."
+                    "<h5>Task One</h5>",
+                    "<p>Craft a discussion prompt for one of the topics you teach in your course. Ensure that it is relevant and provides for multiple points for discussion rather than one certain answer.</p>",
+                    "<h5>Task Two</h5>",
+                    "<p>Install the Perusall tool to one of your previous course sites, upload a PDF reading and practice using the tool. Provide feedback below on your experience.</p>"
                   ]
                 },
                 {
@@ -4473,9 +4473,9 @@
                   "type": "TEXT",
                   "paragraphs": [
                     "<h5>Can I use my textbook in Perusall?</h5>",
-                    "Yes you can!  Please see <a href='https://support.perusall.com/hc/en-us/articles/360033995294-How-do-I-adopt-a-textbook-using-Perusall-' target='_blank'>the textbook support page</a> for the process to search for your textbook. If it is not available, you will be prompted to request the book. Once your book has been approved for incorporation, you will need to inform the bookstore that you will be having students purchase the book through Perusall with a code.",
+                    "<p>Yes you can!  Please see <a href='https://support.perusall.com/hc/en-us/articles/360033995294-How-do-I-adopt-a-textbook-using-Perusall-' target='_blank'>the textbook support page</a> for the process to search for your textbook. If it is not available, you will be prompted to request the book. Once your book has been approved for incorporation, you will need to inform the bookstore that you will be having students purchase the book through Perusall with a code.</p>",
                     "<h5>Can I use published articles and PDFs in Perusall?</h5>",
-                    "Yes you can. Please read <a href='https://support.perusall.com/hc/en-us/sections/360005222253-Content' target='_blank'>the content support page</a> for more information on uploading your own content and other topics."
+                    "<p>Yes you can. Please read <a href='https://support.perusall.com/hc/en-us/sections/360005222253-Content' target='_blank'>the content support page</a> for more information on uploading your own content and other topics.</p>"
                   ]
                 }
               ]
@@ -4554,7 +4554,7 @@
                     {
                       "type": "TEXT",
                       "paragraphs": [
-                        "Use Checklists to organize your course."
+                        "Use <a href='https://www.youtube.com/watch?v=aZmBICrD4gQ' target='_blank'>Checklists</a> to organize your course."
                       ]
                     },
                     {
@@ -4637,29 +4637,129 @@
           ]
         },
         {
-          "title": "module 6",
-          "anchor": "module-six",
+          "title": "Academic Video Production",
+          "anchor": "building-teaching-online-course-video-production",
           "icon": "fa-chalkboard-teacher",
-          "teaser": "Learn how to see which students are watching which parts of your videos.",
           "pages": [
             {
-              "title": "Analytics in Warpwire",
-              "anchor": "warpwire-analytics-video",
+              "title": "Academic Video Production",
+              "anchor": "building-teaching-online-course-video-production-intro",
               "contents": [
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "When you publish a video as part of your lesson, you want to ensure that students have taken the time to watch the instruction. Detailed analytics are available within Warpwire both as a quick view and as a detailed export. Reports allow you to see which students are watching the videos and which parts of the videos they are watching.",
-                    "<h4>Analytics in Warpwire</h4>",
-                    "In this lesson we will demonstrate how to check student viewership of Warpwire videos within a course site and how to embed videos as graded activities based on views."
+                    "An asynchronous or hybrid course requires high-quality videos that pack a punch. What are the pedagogical best practices for engaging students, connecting to prior learning, and making your content matter within the course? In this module, we will dive into each of these areas and go over the media production resources available to you at the University of Dayton’s Center for Online Learning."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Preparing Students to Succeed and Meaningful Content",
+              "anchor": "building-teaching-online-course-video-production-meaningful-content",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "An asynchronous or hybrid course requires high-quality videos that pack a punch. What are the pedagogical best practices for engaging students, connecting to prior learning, and making your content matter within the course? In this module, we will dive into each of these areas and go over the media production resources available to you at the University of Dayton’s Center for Online Learning."
                   ]
                 },
                 {
                   "type": "VIDEO",
                   "video": {
-                    "title": "Analytics in Warpwire",
-                    "warpwire": "oRIEAA"
+                    "title": "Preparing Students to Succeed and Meaningful Content",
+                    "warpwire": "WRoGAA"
                   }
+                }
+              ]
+            },
+            {
+              "title": "Center for Online Learning Media Production Resources",
+              "anchor": "building-teaching-online-course-video-production-col-resources",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "Once you have planned out your assessments and you know which lecture you need to film, it is time to think about how you will create your videos. If you’re looking to film with us, this video will give an overview of our media production services at the Center for Online Learning."
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Center for Online Learning Media Production Services",
+                    "warpwire": "sTgGAA"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Making a High-Quality Lecture On Your Own",
+              "anchor": "building-teaching-online-course-video-production-quality",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "Once you’ve nailed down your content, this video provides some practical tips for creating a high-quality video on your own."
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Making a High-Quality Lecture on Your Own",
+                    "warpwire": "Nx4GAA"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Guidance and Resources for Uploading Videos",
+              "anchor": "building-teaching-online-course-video-production-guidance",
+              "contents": [
+                {
+                  "type": "UNORDERED_LIST",
+                  "listItems": [
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "All About Warpwire (how to upload and use videos in Isidore)",
+                      "href": "https://ewiki.udayton.edu/isidore/Warpwire_Video"
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "Upload a Video From Your Computer",
+                      "href": "https://ewiki.udayton.edu/isidore/Upload_a_video_from_my_computer"
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "Why Should I Caption My Videos?",
+                      "href": "https://udayton.edu/blogs/onlinelearning/2022/02_01_2022_accessibility.php"
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "Add the Warpwire Video Tool",
+                      "href": "https://ewiki.udayton.edu/isidore/Add_the_Warpwire_Video_tool"
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-external-link",
+                      "title": "Recording Lectures Using Zoom",
+                      "href": "https://udayton.warpwire.com/w/l1EBAA/"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Utilize the Center for Online Learning Resources",
+              "anchor": "building-teaching-online-course-video-production-utilize-col",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "To request a specific service or hold a consultation or your ideas and needs, fill out the Center for Online Learning <a href='https://udayton.teamdynamix.com/TDClient/1868/Portal/Requests/ServiceDet?ID=53798' target='_blank'>Services Consultation</a>."
+                  ]
                 }
               ]
             }
@@ -4793,9 +4893,9 @@
                   "type": "TEXT",
                   "paragraphs": [
                     "<h5>What if I follow your suggestions for communication with students but still struggle with connection. Is there someone I can meet with?</h5>",
-                    "The Center for Online Learning is happy to set up a one-on-one session with one of their specialists. Please email <a href='mailto:onlinelearning@udayton.edu'>onlinelearning@udayton.edu</a> to request an appointment.",
+                    "<p>The Center for Online Learning is happy to set up a one-on-one session with one of their specialists. Please email <a href='mailto:onlinelearning@udayton.edu'>onlinelearning@udayton.edu</a> to request an appointment.</p>",
                     "<h5>What assistance does the university provide for struggling online students?</h5>",
-                    "The <a href='https://udayton.edu/success/student-success-network.php' target='_blank'>Student Success Network</a> is a program available for you to alert staff members trained to help struggling students."
+                    "<p>The <a href='https://udayton.edu/success/student-success-network.php' target='_blank'>Student Success Network</a> is a program available for you to alert staff members trained to help struggling students.</p>"
                   ]
                 }
               ]
