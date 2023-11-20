@@ -222,7 +222,9 @@
         {
           "title" : "Wellbeing and Success Syllabus Statement",
           "icon" : "far fa-file-word",
-          "url" : "/resources/Wellbeing%20and%20Success%20Statement%20Syllabus%20Statements.docx"
+          "url" : "/resources/Wellbeing%20and%20Success%20Statement%20Syllabus%20Statements.docx",
+          "public": true,
+          "local": true
         }
       ]
     },
@@ -327,7 +329,8 @@
           "title": "Campus Resource Contact Information",
           "icon": "far fa-file-pdf",
           "url": "/resources/Campus-Resource-Contact-Information.pdf",
-          "public": true
+          "public": true,
+          "local": true
         },
         {
           "title" : "Session Slides",

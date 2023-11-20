@@ -186,7 +186,7 @@
 				{% for resource in module.resources %}
 					{% if moduleMetadata.attended or resource.public %}
 						<li class="list-group-item">
-						<a class="ms-4" href="{{resource.url}}" target="_blank">
+						<a class="ms-4" href="{{ resource.local ? contextRoot ~ resource.url : resource.url }}" target="_blank">
 							<i class="{{resource.icon}}" aria-hidden="true"></i>
 							{{resource.title}}
 						</a>
