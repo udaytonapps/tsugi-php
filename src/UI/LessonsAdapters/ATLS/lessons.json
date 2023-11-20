@@ -491,6 +491,12 @@
           "title" : "Session Slides",
           "icon" : "far fa-file-powerpoint",
           "url" : "https://docs.google.com/presentation/d/1Q0WdHSOM99PmYj2f0sPES3JqQV7wqOqI5gw6AHsN0-M/edit?usp=sharing"
+        },
+        {
+          "title": "Principles of Inclusive Teaching",
+          "icon": "far fa-file-powerpoint",
+          "url": "https://docs.google.com/presentation/d/1mNb7mUMlS8IupwngTR4orDztt46saQXNKIQQPPsR2ik/edit?usp=sharing",
+          "public": true
         }
       ]
     },
