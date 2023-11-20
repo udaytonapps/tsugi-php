@@ -325,7 +325,7 @@
       "resources" : [
         {
           "title": "Campus Resource Contact Information",
-          "icon": "fa-file-pdf",
+          "icon": "far fa-file-pdf",
           "url": "/resources/Campus-Resource-Contact-Information.pdf",
           "public": true
         },
