@@ -181,10 +181,10 @@
 				<i class="fas fa-desktop fa-fw" aria-hidden="true"></i>
 				Session Resources
 			</h5>
-			<p style="margin-left:calc(1.25em + 11px);">The resources below will be available once you've attended the session.</p>
+			<p style="margin-left:calc(1.25em + 11px);">Some of the resources below may not be available until you've attended the session.</p>
 			<ul class="list-group list-group-small mb-2" style="margin-left:calc(1.25em + 11px);">
 				{% for resource in module.resources %}
-					{% if moduleMetadata.attended %}
+					{% if moduleMetadata.attended or resource.public %}
 						<li class="list-group-item">
 						<a class="ms-4" href="{{resource.url}}" target="_blank">
 							<i class="{{resource.icon}}" aria-hidden="true"></i>
@@ -192,11 +192,11 @@
 						</a>
 						</li>
 					{% else %}
-						<span class="ms-4">
-						<i class="{{resource.icon}}" aria-hidden="true"></i>
-						{{resource.title}}
-						<em class="text-muted">(Attendance Required)</em>
-						</span>
+						<li class="list-group-item ps-4">
+							<i class="{{resource.icon}}" aria-hidden="true"></i>
+							{{resource.title}}
+							<em class="text-muted">(Attendance Required)</em>
+						</li>
 					{% endif %}
 				{% endfor %}
 			</ul>

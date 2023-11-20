@@ -324,6 +324,12 @@
       ],
       "resources" : [
         {
+          "title": "Campus Resource Contact Information",
+          "icon": "fa-file-pdf",
+          "url": "/resources/Campus-Resource-Contact-Information.pdf",
+          "public": true
+        },
+        {
           "title" : "Session Slides",
           "icon" : "far fa-file-powerpoint",
           "url" : "https://docs.google.com/presentation/d/12zTXcAM84rtNsoKINbwsQTDIvFWj37XjDeISKO5hCh0/edit?usp=sharing"
