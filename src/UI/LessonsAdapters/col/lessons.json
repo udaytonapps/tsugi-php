@@ -4276,7 +4276,8 @@
                     "icon": "fa-list-ol",
                     "title": "Quiz: Tools",
                     "launch": "/mod/learnquiz/index.php?quiz=onlinecourse_tools",
-                    "resource_link_id": "onlinecourse_tools"
+                    "resource_link_id": "onlinecourse_tools",
+                    "link_type": "embed"
                   }
                 },
                 {
@@ -4867,7 +4868,7 @@
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "Dr. Rizzo is teaching an asynchronous creative writing class in the fall term. It is the third week and the first paper is due at the end of the week. When the due date passes, Dr. Rizzo notices that two of his students did not submit their papers. When looking at the roster tool in the course site, he realizes that neither of these students have even logged into the course site since the beginning of the term. He has built in all the instructions and due dates into the course site. If the students had logged in they would have known what to do."
+                    "Review and respond to the scenario."
                   ]
                 },
                 {
@@ -4877,7 +4878,7 @@
                     "header": "Quick Write",
                     "description": "Complete the following Quick Write task.",
                     "icon": "fa-pencil-square",
-                    "title": "Scenario",
+                    "title": "Help Dr. Rizzo",
                     "launch": "/mod/modquickwrite/",
                     "resource_link_id": "building-teaching-online-course-professor-scenario-qw",
                     "link_type": "embed"
