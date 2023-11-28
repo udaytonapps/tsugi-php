@@ -3503,7 +3503,6 @@
     {
       "title": "Teaching Online",
       "session": "Instructional Design & Media",
-      "hidden": true,
       "async": true,
       "duration": "Est. 50 min",
       "anchor": "teachingonline",
@@ -3934,7 +3933,6 @@
     {
       "title": "Building & Teaching an Online Course",
       "session": "Instructional Design & Media",
-      "hidden": true,
       "async": true,
       "duration": "Est. 1 hr",
       "anchor": "building-teaching-online-course",
