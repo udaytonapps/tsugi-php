@@ -219,7 +219,7 @@
     },
     {
       "title": "Students are Cheating with ChatGPT. Now What?",
-      "session": "ChatGPT 1",
+      "session": "ChatGPT",
       "anchor": "chat-gpt-1",
       "icon": "fa-robot",
       "duration": "1hr",
@@ -260,18 +260,16 @@
     },
     {
       "title": "Are Written Assignments Dead?",
-      "session": "ChatGPT 2",
+      "session": "ChatGPT",
       "anchor": "chat-gpt-2",
       "icon": "fa-robot",
       "duration": "1hr",
-      "calendar": "Oct.",
-      "description": "<p>Our instructional designers will share what the current research has to say about writing in an AI world. Together we’ll (re)think about creating and grading written assessments and consider some alternatives.</p><p>AI writing tools are here for good (or ill). In this three-part series we’ll explore teaching in an AI world: How do natural language processing tools work? What do they mean for written assessment and academic honesty? How can we adapt our academic endeavors to capitalize on the benefits and minimize the risks?</p>",
+      "calendar": "Oct. / Feb.",
+      "description": "<p>Our instructional designers will share what the current research has to say about writing in an AI world. Together we’ll (re)think about creating and grading written assessments and consider some alternatives.</p>",
       "image": "/assets/chat-gpt-2.jpeg",
       "imagealt": "Three people looking at laptops sitting at the same table.",
       "facilitators": [
-        "pdagnall1@udayton.edu",
-        "stangeman1@udayton.edu",
-        "dwright1@udayton.edu"
+        "pdagnall1@udayton.edu"
       ],
       "lti" : [
         {
@@ -300,18 +298,16 @@
     },
     {
       "title": "Joining Forces with ChatGPT",
-      "session": "ChatGPT 3",
+      "session": "ChatGPT",
       "anchor": "chat-gpt-3",
       "icon": "fa-robot",
       "duration": "1hr",
       "calendar": "Nov.",
-      "description": "<p>If AI-generated writing isn’t going anywhere, how can we work in harmony with this powerful new tool? We’ll consider the ethics of AI-informed teaching, learning and scholarship; ways to prepare your course for AI; and strategies for using AI tools in ways that will benefit your students and research.</p><p>AI writing tools are here for good (or ill). In this three-part series we’ll explore teaching in an AI world: How do natural language processing tools work? What do they mean for written assessment and academic honesty? How can we adapt our academic endeavors to capitalize on the benefits and minimize the risks?</p>",
+      "description": "<p>If AI-generated writing isn’t going anywhere, how can we work in harmony with this powerful new tool? We’ll consider the ethics of AI-informed teaching, learning and scholarship; ways to prepare your course for AI; and strategies for using AI tools in ways that will benefit your students and research.</p>",
       "image": "/assets/chat-gpt-3.jpeg",
       "imagealt": "A person showing their laptop screen to another person.",
       "facilitators": [
-        "pdagnall1@udayton.edu",
-        "dwright1@udayton.edu",
-        "khallinan1@udayton.edu"
+        "pdagnall1@udayton.edu"
       ],
       "lti" : [
         {
@@ -333,6 +329,44 @@
           "assignmenttitle": "Admin Only",
           "launch" : "/mod/learn-registration/?program=col&session_id=chat-gpt-3&view=ADMINISTRATION",
           "resource_link_id" : "admin-chat-gpt-3",
+          "type": "ADMINISTRATION",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "title": "Why (and How To) Teach with Podcasts",
+      "session": "Instructional Design & Media",
+      "anchor": "teach-podcasts",
+      "icon": "fa-chalkboard-teacher",
+      "duration": "1hr",
+      "calendar": "Jan.",
+      "description": "Students like listening to podcasts. Come learn how you can harness the power of podcasts in your pedagogy. We’ll discuss how UD’s new Podcast Studio can help you easily create compelling content to supplement your current collection of teaching tools.",
+      "image": "/assets/podcast.jpg",
+      "imagealt": "People in a podcast studio with microphones.",
+      "facilitators": [
+        "pdagnall1@udayton.edu"
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=col&session_id=teach-podcasts&view=REGISTRATION",
+          "resource_link_id" : "reg-teach-podcasts",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=col&session_id=teach-podcasts&view=FEEDBACK",
+          "resource_link_id" : "feedback-teach-podcasts",
+          "type": "FEEDBACK"
+        },
+        {
+          "title" : "Admin View",
+          "assignmenttitle": "Admin Only",
+          "launch" : "/mod/learn-registration/?program=col&session_id=teach-podcasts&view=ADMINISTRATION",
+          "resource_link_id" : "admin-teach-podcasts",
           "type": "ADMINISTRATION",
           "hidden": true
         }

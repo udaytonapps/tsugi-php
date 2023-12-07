@@ -1035,17 +1035,16 @@
       ]
     },
     {
-      "title": "Canvas Essentials (Spring 2024)",
+      "title": "Canvas Essentials",
       "session": "Canvas 101",
       "anchor": "canvas-essentials",
       "icon": "fa-chalkboard-teacher",
-      "duration": "1 hr",
-      "description": "<p>Canvas Essentials is a concise, beginner-friendly training session designed for instructors new to the Canvas Learning Management System. This session provides a comprehensive overview of Canvas, guiding participants through its fundamental features and tools. By the end of this session, instructors will be equipped with the necessary skills to confidently build and manage their courses in Canvas, ensuring a smooth and efficient transition.</p>",
+      "duration": "90 min",
+      "description": "<p>A concise introductory training session designed for instructors new to the Canvas Learning Management System. We’ll provide an overview of fundamental Canvas features and tools. Attendees will leave equipped with the skills needed to confidently build and manage a course in Canvas.</p>",
       "image": "/images/Canvas.webp",
       "imagealt": "Canvas",
       "facilitators": [
-        "rallen1@udayton.edu",
-        "lbergman1@udayton.edu"
+        "rallen1@udayton.edu"
       ],
       "lti" : [
         {
@@ -1073,16 +1072,15 @@
       ]
     },
     {
-      "title": "Course Building Workshop (Spring 2024)",
-      "session": "Canvas 201",
+      "title": "Canvas Course Building Workshop",
+      "session": "Canvas 101",
       "anchor": "canvas-workshop",
       "icon": "fa-chalkboard-teacher",
-      "duration": "90 min",
-      "description": "<p>In this hands-on workshop, attendees are invited to start building their course site in Canvas with the guidance and support of Center for Online Learning team members.</p>",
-      "image": "/images/Canvas.png",
+      "duration": "1 hr",
+      "description": "<p>A hands-on, drop-in workshop where attendees can start building their Canvas course site with the guidance and support of Center for Online Learning team members.</p>",
+      "image": "/images/Canvas.webp",
       "imagealt": "Canvas",
       "facilitators": [
-        "rallen1@udayton.edu",
         "lbergman1@udayton.edu"
       ],
       "lti" : [
@@ -1111,12 +1109,12 @@
       ]
     },
     {
-      "title": "Building Assessments in Canvas (Spring 2024)",
+      "title": "Building Assessments in Canvas",
       "session": "Canvas 201",
       "anchor": "canvas-assessments",
       "icon": "fa-chalkboard-teacher",
       "duration": "1 hr",
-      "description": "<p>Learn how to build and use Quizzes and Assignments, in Canvas. This session will include information on how to build and utilize question pools/items banks, apply student accommodations, use SpeedGrader, and more. Attendees are encouraged to bring laptops and follow along.</p>",
+      "description": "<p>This session will demonstrate the “Quizzes” and “Assignments” features of Canvas, including building and using question pools/items banks, applying student accommodations, using SpeedGrader. Attendees are encouraged to bring laptops and follow along.</p>",
       "image": "/images/Canvas.png",
       "imagealt": "Canvas",
       "facilitators": [
