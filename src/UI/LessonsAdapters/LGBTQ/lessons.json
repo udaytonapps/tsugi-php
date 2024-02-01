@@ -1,0 +1,265 @@
+{
+    "title": "LGBTQ+ Inclusion",
+    "hidden": true,
+    "description": "Explore information and best practices that are essential to LGBTQ+ in educational spaces.",
+    "splash": {
+      "title": "LGBTQ+ Inclusion",
+      "image": "/images/lgbtq01.png",
+      "alttext": "A large group pf people standing together with flags for National Coming Out Day 2022.",
+      "video": "",
+      "text": "Explore information and best practices that are essential to LGBTQ+ in educational spaces.",
+      "contents": [
+        {
+          "type": "TEXT",
+          "paragraphs": [
+            "<h4 class='pt-3'>About LGBTQ+ Inclusion</h4>",
+            "<p>Currently, at least 15% of the student population at the University of Dayton self-identifies as being members of the LGBTQ+ community, along with numerous faculty, staff, alumni and their family members. The actual percentage of LGBTQ+ individuals in our community is surely higher. The sessions in this program explore information and best practices that are essential to LGBTQ+ in educational spaces.</p>",
+            "<p>The University of Dayton’s approach to LGBTQ+ inclusion at UD is grounded in our Catholic, Marianist mission – which includes honoring the intrinsic value of all people and fostering a community where all people feel respected as children of God. This rationale stems from our mission as a university where rigorous intellectual inquiry and vigorous dialogue occur. Read more about the University of Dayton’s commitment to LGBTQ+ inclusion on the <a target='_blank' href='http://go.udayton.edu/LGBTQ_inclusion'>Office of Diversity and Inclusion website</a>.</p>"
+          ]
+        }
+      ]
+    },
+    "discussions" : [],
+    "badges": [],
+    "cardtype": "small",
+    "cardtabs": false,
+    "modules": [
+        {
+            "session": "LGBTQ+ Inclusion",
+            "title": "LGBTQ+ 101",
+            "anchor": "lgbtq-1",
+            "core": true,
+            "async": true,
+            "hidden": true,
+            "icon": "fa-hand-peace-o",
+            "landingContents": [
+              {
+                "type": "TEXT",
+                "paragraphs": [
+                  "This introductory lesson will familiarize viewers with the evolving terminology for talking about gender and sexual orientation and provide context and information that is essential for entering the conversation about LGBTQ+ people today. Topics include the LGBTQ+ identity “umbrella,” sex vs gender, gender identity and gender expression, and sexual orientation.",
+                  "<strong>Learning Outcomes</strong>",
+                  "Participants will be able to distinguish between key concepts related to gender and sexuality and will develop a deeper understanding of LGBTQ+ experiences."
+                ]
+              },
+              {
+                "type": "IMAGE",
+                "image": {
+                  "path": "/images/lgbtq03.png",
+                  "altText": "Oblique angle of a table with UD LGBTQ brochures, flags, and pins"
+                }
+              }
+            ],
+            "image": "/images/lgbtq03.png",
+            "imagealt": "Oblique view of a table with UD LGBTQ brochures, pins, and flags.",
+            "facilitators": [
+              "agallirobertson1@udayton.edu"
+            ],
+            "lessons": [
+              {
+                "title": "Additional Resources",
+                "anchor": "101-resources",
+                "icon": "fa-hand-peace-o",
+                "pages": [
+                  {
+                    "title": "Additional Resources",
+                    "anchor": "101-resources",
+                    "contents": [
+                      {
+                        "type": "TEXT",
+                        "paragraphs": [
+                          "<h5>LGBTQ+ 101 Resources</h5>"
+                        ]
+                      },
+                      {
+                        "type": "LINK",
+                        "icon": "fa-link",
+                        "title": "Additional Resources: LGBTQ+ 101",
+                        "href": "https://docs.google.com/document/d/1v7KAroRoW8b6pdEla1SKaJoVk6iZNdPmyjc1pM_yNkI/edit?usp=sharing"
+                      }
+                    ]
+                  }
+                ]    
+              },
+              {
+                "title": "Video",
+                "anchor": "101-video",
+                "icon": "fa-hand-peace-o",
+                "pages": [
+                  {
+                    "title": "LGBTQ+ 101 Video",
+                    "anchor": "101-video",
+                    "contents": [
+                      {
+                        "type": "VIDEO",
+                        "video": {
+                          "title": "LGBTQ+ 101 Video",
+                          "warpwire": "lRIGAA"
+                        }
+                      }
+                    ]
+                  }
+                ]    
+              }
+            ]    
+        },
+        {
+          "session": "LGBTQ+ Inclusion",
+          "title": "Pronouns and Chosen Names",
+          "anchor": "lgbtq-2",
+          "core": true,
+          "async": true,
+          "icon": "fa-hand-peace-o",
+          "landingContents": [
+            {
+              "type": "TEXT",
+              "paragraphs": [
+                "Honoring individuals by naming and referring to them in the way they desire is part of our commitment to honoring the dignity of every person. Learn about the basics of gender pronouns and chosen names, best practices for using and respecting pronouns, and the benefits of pronoun use in the classroom.",
+                "<strong>Learning Outcomes</strong>",
+                "Participants will understand the importance of chosen names and pronouns and how to correctly use them in conversation and communication with students."
+              ]
+            },
+            {
+              "type": "IMAGE",
+              "image": {
+                "path": "/images/lgbtq04.png",
+                "altText": "Oblique angle of a table with UD LGBTQ brochures, flags, and pins"
+              }
+            }
+          ],
+          "image": "/images/lgbtq04.png",
+          "imagealt": "Oblique view of a table with UD LGBTQ brochures, pins, and flags.",
+          "facilitators": [
+            "trzeciakl2@udayton.edu"
+          ],
+          "lessons": [
+            {
+              "title": "Using and Respecting Chosen Names and Pronouns",
+              "anchor": "pronouns-01",
+              "icon": "fa-hand-peace-o",
+              "pages": [
+                {
+                  "title": "Document",
+                  "anchor": "pronouns-01",
+                  "contents": [
+                    {
+                      "type": "TEXT",
+                      "paragraphs": [
+                        "<h5>Using and Respecting Chosen Names and Pronouns</h5>"
+                      ]
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-link",
+                      "title": "Using and Respecting Chosen Names and Pronouns",
+                      "href": "/tsugi-static/learn-assets/files/Pronouns_Resource_Sheet.pdf"
+                    }
+                  ]
+                }
+              ]    
+            },
+            {
+              "title": "External Video",
+              "anchor": "pronouns-02",
+              "icon": "fa-hand-peace-o",
+              "pages": [
+                {
+                  "title": "Video",
+                  "anchor": "pronouns-02",
+                  "contents": [
+                    {
+                      "type": "TEXT",
+                      "paragraphs": [
+                        "<h5>External Video</h5>"
+                      ]
+                    },
+                    {
+                      "type": "LINK",
+                      "icon": "fa-link",
+                      "title": "External Video",
+                      "href": "https://drive.google.com/file/d/1c374Z8xt66w_ygyzc6klThTyURG8MoH5/view?usp=drive_web"
+                    }
+                  ]
+                }
+              ]    
+            }
+          ]    
+      },
+      {
+        "session": "LGBTQ+ Inclusion",
+        "title": "Best Practices for LGBTQ+ Inclusive Classrooms",
+        "anchor": "lgbtq-3",
+        "core": true,
+        "async": true,
+        "icon": "fa-hand-peace-o",
+        "landingContents": [
+          {
+            "type": "TEXT",
+            "paragraphs": [
+              "This lesson highlights some simple actions instructors can take to create LGBTQ+ inclusive classrooms. It is important to recognize and respect the identities of our students and support their success and wellbeing. LGBTQ+ students face discrimination for their identities everyday, both in and out of the classroom. When we create a safe and welcoming classroom environment, we can improve student learning and sense of belonging.",
+              "<strong>Learning Outcomes</strong>",
+              "Participants will learn about simple steps they can take to make their classrooms more welcoming and affirming for LGBTQ+ students."
+            ]
+          },
+          {
+            "type": "IMAGE",
+            "image": {
+              "path": "/images/lgbtq05.png",
+              "altText": "Oblique angle of a table with UD LGBTQ brochures, flags, and pins"
+            }
+          }
+        ],
+        "image": "/images/lgbtq05.png",
+        "imagealt": "Oblique view of a table with UD LGBTQ brochures, pins, and flags.",
+        "facilitators": [
+          "trzeciakl2@udayton.edu","agallirobertson1@udayton.edu"
+        ],
+        "lessons": [
+          {
+            "title": "Resource Guide",
+            "anchor": "classrooms-01",
+            "icon": "fa-hand-peace-o",
+            "pages": [
+              {
+                "title": "Resource Guide",
+                "anchor": "classrooms-01",
+                "contents": [
+                  {
+                    "type": "TEXT",
+                    "paragraphs": [
+                      "<h5>LGBTQ+ Classroom Resource Guide</h5>"
+                    ]
+                  },
+                  {
+                    "type": "LINK",
+                    "icon": "fa-link",
+                    "title": "Resource Guide",
+                    "href": "/tsugi-static/learn-assets/files/LGBTQ_Resource_Guide.pdf"
+                  }
+                ]
+              }
+            ]    
+          },
+          {
+            "title": "LGBTQ+ Conversation",
+            "anchor": "classrooms-02",
+            "icon": "fa-hand-peace-o",
+            "pages": [
+              {
+                "title": "LGBTQ+ Conversation",
+                "anchor": "classrooms-02",
+                "contents": [
+                  {
+                    "type": "VIDEO",
+                    "video": {
+                      "title": "LGBTQ+ Conversation",
+                      "warpwire": "Tf8FAA"
+                    }
+                  }
+                ]
+              }
+            ]    
+          }
+        ]    
+      }
+    ]
+}
