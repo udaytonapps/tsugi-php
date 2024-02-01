@@ -363,6 +363,8 @@ class Course
     public $description;
     /** @var string */
     public $cardtype;
+    /** @var string */
+    public $hidden;
     /** @var boolean */
     public $cardtabs;
     /** @var Splash */
@@ -382,6 +384,7 @@ class Course
         $this->description = $course->description;
         $this->splash = $course->splash ?? null;
         $this->cardtype = $course->cardtype ?? null;
+        $this->hidden = $course->hidden ?? null;
         $this->cardtabs = $course->cardtabs ?? true;
 
         $badges = array();

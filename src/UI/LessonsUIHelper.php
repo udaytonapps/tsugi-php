@@ -39,7 +39,14 @@ class LessonsUIHelper
         $R = $CFG->apphome . '/programs/';
         $twig = self::twig();
         $lessonsReference = LessonsOrchestrator::getLessonsReference();
-
+        if(!$CFG->show_hidden_modules){ //scan for hidden programs if appropriate
+            foreach ($lessonsReference as $key => $reference) {
+                $l = \Tsugi\UI\LessonsOrchestrator::getLessons($key);
+                if(isset($l->course->hidden) && $l->course->hidden){
+                    unset($lessonsReference->$key); //remove if hidden
+                }
+            }
+        }
         ob_start();
         echo $twig->render('nav-mega-menu.twig', [
             'programs' => (array)$lessonsReference,
