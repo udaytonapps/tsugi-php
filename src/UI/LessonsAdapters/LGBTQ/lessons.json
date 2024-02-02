@@ -56,12 +56,12 @@
             ],
             "lessons": [
               {
-                "title": "Additional Resources",
-                "anchor": "101-resources",
+                "title": "LGBTQ+ 101",
+                "anchor": "lgbtq-101",
                 "icon": "fa-hand-peace-o",
                 "pages": [
                   {
-                    "title": "Additional Resources",
+                    "title": "LGBTQ+ 101",
                     "anchor": "101-resources",
                     "contents": [
                       {
@@ -75,20 +75,13 @@
                         "icon": "fa-link",
                         "title": "Additional Resources: LGBTQ+ 101",
                         "href": "https://docs.google.com/document/d/1v7KAroRoW8b6pdEla1SKaJoVk6iZNdPmyjc1pM_yNkI/edit?usp=sharing"
-                      }
-                    ]
-                  }
-                ]    
-              },
-              {
-                "title": "Video",
-                "anchor": "101-video",
-                "icon": "fa-hand-peace-o",
-                "pages": [
-                  {
-                    "title": "LGBTQ+ 101 Video",
-                    "anchor": "101-video",
-                    "contents": [
+                      },
+                      {
+                        "type": "TEXT",
+                        "paragraphs": [
+                          "<h5>Video</h5>"
+                        ]
+                      },
                       {
                         "type": "VIDEO",
                         "video": {
@@ -134,11 +127,11 @@
           "lessons": [
             {
               "title": "Using and Respecting Chosen Names and Pronouns",
-              "anchor": "pronouns-01",
+              "anchor": "lgbtq-pronouns",
               "icon": "fa-hand-peace-o",
               "pages": [
                 {
-                  "title": "Document",
+                  "title": "Using and Respecting Chosen Names and Pronouns",
                   "anchor": "pronouns-01",
                   "contents": [
                     {
@@ -152,31 +145,19 @@
                       "icon": "fa-link",
                       "title": "Using and Respecting Chosen Names and Pronouns",
                       "href": "/tsugi-static/learn-assets/files/Pronouns_Resource_Sheet.pdf"
-                    }
-                  ]
-                }
-              ]    
-            },
-            {
-              "title": "External Video",
-              "anchor": "pronouns-02",
-              "icon": "fa-hand-peace-o",
-              "pages": [
-                {
-                  "title": "Video",
-                  "anchor": "pronouns-02",
-                  "contents": [
+                    },
                     {
                       "type": "TEXT",
                       "paragraphs": [
-                        "<h5>External Video</h5>"
+                        "<h5>Pronouns Video</h5>"
                       ]
                     },
                     {
-                      "type": "LINK",
-                      "icon": "fa-link",
-                      "title": "External Video",
-                      "href": "https://drive.google.com/file/d/1c374Z8xt66w_ygyzc6klThTyURG8MoH5/view?usp=drive_web"
+                      "type": "VIDEO",
+                      "video": {
+                        "title": "Pronouns Video",
+                        "warpwire": "xW8GAA"
+                      }  
                     }
                   ]
                 }
@@ -215,12 +196,12 @@
         ],
         "lessons": [
           {
-            "title": "Resource Guide",
+            "title": "Best Practices",
             "anchor": "classrooms-01",
             "icon": "fa-hand-peace-o",
             "pages": [
               {
-                "title": "Resource Guide",
+                "title": "Best Practices",
                 "anchor": "classrooms-01",
                 "contents": [
                   {
@@ -234,20 +215,13 @@
                     "icon": "fa-link",
                     "title": "Resource Guide",
                     "href": "/tsugi-static/learn-assets/files/LGBTQ_Resource_Guide.pdf"
-                  }
-                ]
-              }
-            ]    
-          },
-          {
-            "title": "LGBTQ+ Conversation",
-            "anchor": "classrooms-02",
-            "icon": "fa-hand-peace-o",
-            "pages": [
-              {
-                "title": "LGBTQ+ Conversation",
-                "anchor": "classrooms-02",
-                "contents": [
+                  },
+                  {
+                    "type": "TEXT",
+                    "paragraphs": [
+                      "<h5>LGBTQ+ Conversation</h5>"
+                    ]
+                  },
                   {
                     "type": "VIDEO",
                     "video": {
