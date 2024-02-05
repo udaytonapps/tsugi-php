@@ -30,6 +30,7 @@
             "anchor": "lgbtq-1",
             "core": true,
             "async": true,
+            "hidelessons": true,
             "hidden": true,
             "icon": "fa-hand-peace-o",
             "landingContents": [
@@ -79,7 +80,7 @@
                       {
                         "type": "TEXT",
                         "paragraphs": [
-                          "<h5>Video</h5>"
+                          "<h5>Watch the video below.</h5>"
                         ]
                       },
                       {
@@ -101,6 +102,7 @@
           "anchor": "lgbtq-2",
           "core": true,
           "async": true,
+          "hidelessons": true,
           "icon": "fa-hand-peace-o",
           "landingContents": [
             {
@@ -149,7 +151,7 @@
                     {
                       "type": "TEXT",
                       "paragraphs": [
-                        "<h5>Pronouns Video</h5>"
+                        "<h5>Watch the video below.</h5>"
                       ]
                     },
                     {
@@ -171,6 +173,7 @@
         "anchor": "lgbtq-3",
         "core": true,
         "async": true,
+        "hidelessons": true,
         "icon": "fa-hand-peace-o",
         "landingContents": [
           {
