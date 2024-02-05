@@ -427,6 +427,8 @@ class AsyncModule
     public $icon;
     /** @var boolean */
     public $async = true;
+    /** @var boolean */
+    public $hidelessons = false;
 
     function __construct($module)
     {
@@ -437,6 +439,7 @@ class AsyncModule
         $this->duration  = $module->duration ?? null;
         $this->image = $module->image ?? null;
         $this->imagealt = $module->imagealt ?? null;
+        $this->hidelessons = $module->hidelessons ?? null;
 
         $contents = [];
         if (isset($module->landingContents)) {

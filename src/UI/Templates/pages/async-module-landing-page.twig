@@ -69,8 +69,12 @@
 			{% endfor %}
 		</div>
 		<hr>
-		<h4>Lessons in this Module</h4>
+		{% if not module.hidelessons %}
+			<h4>Lessons in this Module</h4>
+		{% endif %}		
 	</div>
 	{% set linkRoot = module.anchor ~ '/' %}
-	{% include 'async-module-lessons-list.twig' %}
+	{% if not module.hidelessons %}
+		{% include 'async-module-lessons-list.twig' %}
+	{% endif %}	
 </div>

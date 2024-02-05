@@ -23,7 +23,9 @@
 	<div class="d-flex flex-sm-nowrap flex-wrap-reverse mt-4 mb-4">
 		<div class="d-flex">
 			{% set collapsed = true %}
-			{% include 'async-module-lessons-list.twig' %}
+			{% if not module.hidelessons %}
+				{% include 'async-module-lessons-list.twig' %}
+			{% endif %}	
 		</div>
 		<div class="container lesson-page-content d-flex flex-column">
 			<h1>{{page.title}}</h1>
