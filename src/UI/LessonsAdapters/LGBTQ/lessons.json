@@ -31,7 +31,6 @@
             "core": true,
             "async": true,
             "hidelessons": true,
-            "hidden": true,
             "icon": "fa-hand-peace-o",
             "landingContents": [
               {
