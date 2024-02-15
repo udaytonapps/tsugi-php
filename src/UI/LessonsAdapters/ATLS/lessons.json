@@ -115,6 +115,8 @@
       ]
     }
   ],
+  "cardtype": "small",
+  "cardtabs": false,
   "modules": [
     {
       "session": "ATLS Core 1",
@@ -547,6 +549,113 @@
           "title" : "Session Slides",
           "icon" : "far fa-file-powerpoint",
           "url" : "https://docs.google.com/presentation/d/18EyrHLRaoZn6D-IIyqo50ymw0677ryfhLoRK3Qn4wx0/edit?usp=sharing"
+        }
+      ]
+    },
+    {
+      "session": "ATLS Elective 1",
+      "title": "Teaching at the Intersection of Expectations and Flexibility",
+      "anchor": "elective-1",
+      "core": false,
+      "icon": "fa-medal",
+      "duration": "1hr 30min",
+      "description": "In this engaging session, faculty will explore the art of balancing expectations and flexibility in teaching. Discover effective strategies for setting and communicating expectations, gaining student buy-in, and empowering them to take ownership of their learning. Dive into the nuanced decisions of when to provide support, establish boundaries, and navigate the fine line between flexibility and firmness, creating a dynamic and collaborative educational experience.",
+      "image": "/images/UD COL-382.jpg",
+      "imagealt": "An instructor smiling and interacting with two students who are seated at a table.",
+      "facilitators": [
+        "jarnold1@udayton.edu",
+        "nwork1@udayton.edu"
+      ],
+      "learningoutcomes": [
+        "Develop skills to set clear expectations, communicate effectively, and secure student buy-in for an engaging learning environment.",
+        "Acquire strategies for supporting students while fostering autonomy and personal growth in the learning process.",
+        "Gain insights into effective decision-making for boundaries and flexibility, optimizing the learning experience for faculty and students alike."
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=elective-1&view=REGISTRATION",
+          "resource_link_id" : "reg-elective-1",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=elective-1&view=FEEDBACK",
+          "resource_link_id" : "feedback-elective-1",
+          "type": "FEEDBACK"
+        }
+      ]
+    },
+    {
+      "session": "ATLS Elective 2",
+      "title": "Understanding the Value, Challenges, and Future of Student Feedback of Teaching at UD",
+      "anchor": "elective-2",
+      "core": false,
+      "icon": "fa-medal",
+      "duration": "1hr 30min",
+      "description": "Faculty are invited to delve into the significance of Student Evaluation of Teaching (SET), learn effective strategies for interpreting and utilizing the results, and gain insights into discerning and handling unhelpful comments. Additionally, get a sneak peek into the upcoming changes to the tool and name (Student Feedback Tool / SFT) for the fall semester. Don't miss this opportunity to enhance your understanding and make the most of this valuable feedback tool.",
+      "image": "/images/UD COL-382.jpg",
+      "imagealt": "An instructor smiling and interacting with two students who are seated at a table.",
+      "facilitators": [
+        "dwright1@udayton.edu",
+        "jarnold1@udayton.edu"
+      ],
+      "learningoutcomes": [
+        "Understand the importance of Student Evaluation of Teaching (SET) for ongoing improvement in faculty practices.",
+        "Apply practical strategies to interpret and use SET results effectively for enhancing teaching.",
+        "Discuss upcoming changes to the SET tool for the fall semester, encouraging creative thinking in teaching evaluation."
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=elective-2&view=REGISTRATION",
+          "resource_link_id" : "reg-elective-2",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=elective-2&view=FEEDBACK",
+          "resource_link_id" : "feedback-elective-2",
+          "type": "FEEDBACK"
+        }
+      ]
+    },
+    {
+      "session": "ATLS Elective 3",
+      "title": "Student Retention - Practices, Tips, and Sharing",
+      "anchor": "elective-3",
+      "core": false,
+      "icon": "fa-medal",
+      "duration": "1hr 30min",
+      "description": "Student retention is a big topic of conversation in higher education, but what exactly does it look like, and why is it so important? Join us as we dig into the importance of retention, explore proven strategies & practical tips, and create space for attendees to share their insights and successes. UD is a community of educators committed to fostering an environment where students not only thrive but persist on their educational journey. Don't miss this opportunity to elevate your impact in promoting student retention.",
+      "image": "/images/UD COL-382.jpg",
+      "imagealt": "An instructor smiling and interacting with two students who are seated at a table.",
+      "facilitators": [
+        "ldixon1@udayton.edu",
+        "rallen1@udayton.edu"
+      ],
+      "learningoutcomes": [
+        "Articulate the importance of student retention.",
+        "List practical strategies and tips to enhance student engagement, contributing to improved retention rates."
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=elective-3&view=REGISTRATION",
+          "resource_link_id" : "reg-elective-3",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=elective-3&view=FEEDBACK",
+          "resource_link_id" : "feedback-elective-3",
+          "type": "FEEDBACK"
         }
       ]
     }

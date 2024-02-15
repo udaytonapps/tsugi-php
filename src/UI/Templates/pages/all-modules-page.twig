@@ -17,11 +17,11 @@
 	{% else %}
 		{% include 'landing-banner.twig' %}
 	{% endif %}
-	<div class="container">
-		<h5 id="modules">Program Modules</h5>
-	</div>
 	{% if cardtype == "small" %}
 		{% if cardtabs %}
+			<div class="container">
+				<h5 id="modules">Program Modules</h5>
+			</div>
 			{# Process all cards initially to save time later #}
 			{% set asyncs = [] %}
 			{% set syncs = [] %}
@@ -90,12 +90,50 @@
 				</div>
 			</div>
 		{% else %}
-			{# Small card with no tabs or splitting by sync/async #}
-			<div class="d-flex flex-wrap align-content-center pt-2">
-				{% for card in moduleData %}
-					{% include 'generic-program-module-card-small.twig' %}
-				{% endfor %}
-			</div>
+			{# Small card with no tabs for splitting by sync/async #}
+			{% set core = [] %}
+			{% set electives = [] %}
+			{% set other = [] %}
+			{% for card in moduleData %}
+				{% if card.module.core is same as(true) %}
+					{% set core = core|merge([card]) %}
+				{% elseif card.module.core is same as(false) %}
+					{% set electives = electives|merge([card]) %}
+				{% else %}
+					{# If "core" is not set on the module explicitly we put in other #}
+					{% set other = other|merge([card]) %}
+				{% endif %}
+			{% endfor %}
+			{% if core %}
+				<div class="container">
+					<h5 id="modules">Core Modules</h5>
+				</div>
+				<div class="d-flex flex-wrap align-content-center pt-2">
+					{% for card in core %}
+						{% include 'generic-program-module-card-small.twig' %}
+					{% endfor %}
+				</div>
+			{% endif %}
+			{% if electives %}
+				<div class="container">
+					<h5>Electives</h5>
+				</div>
+				<div class="d-flex flex-wrap align-content-center pt-2">
+					{% for card in electives %}
+						{% include 'generic-program-module-card-small.twig' %}
+					{% endfor %}
+				</div>
+			{% endif %}
+			{% if other %}
+				<div class="container">
+					<h5 id="modules">Program Modules</h5>
+				</div>
+				<div class="d-flex flex-wrap align-content-center pt-2">
+					{% for card in other %}
+						{% include 'generic-program-module-card-small.twig' %}
+					{% endfor %}
+				</div>
+			{% endif %}
 		{% endif %}
 	{% else %}
 		{# Large cards #}

@@ -547,6 +547,7 @@ class SyncModule
     /** @var LtiContent[] */
     public $lti;
     //   "core": true,
+    public $core;
     public $learningoutcomes;
     public $facilitators;
     public $introContents;
@@ -573,6 +574,7 @@ class SyncModule
         $this->facilitators = $module->facilitators ?? null;
         $this->resources = $module->resources ?? null;
         $this->prereqs = $module->prereqs ?? null;
+        $this->core = $module->core ?? null;
 
         $contents = [];
         // if (isset($module->landingContents)) {
