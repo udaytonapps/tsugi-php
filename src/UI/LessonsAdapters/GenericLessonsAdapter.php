@@ -272,7 +272,7 @@ class GenericAdapter extends CourseBase
                 $instance['session_date'] = isset($regDate) ? $regDate->format("D., M. j, Y") : null;
                 $regDate = isset($regDate) ? $regDate->format("g:i A") : null;
                 $instance['session_time'] = $regDate;
-                $instance["duration"] = isset($instance["duration_minutes"]) && $instance["duration_minutes"] !== "" ? $instance["duration_minutes"]." min." : "";
+                $instance["duration"] = $this->formatDurationForDisplay($instance["duration_minutes"]);
                 array_push($upcomingSessions,$instance);
             }
 
@@ -863,6 +863,23 @@ class GenericAdapter extends CourseBase
         } else {
             // No next page found
             return null;
+        }
+    }
+
+    private function formatDurationForDisplay($duration_minutes) {
+        if (isset($duration_minutes) && $duration_minutes !== "") {
+            $hours = intdiv($duration_minutes, 60);
+            $minutes = $duration_minutes % 60;
+
+            $hourLabel = $hours == 1 ? "hr." : "hrs.";
+
+            if ($minutes > 0) {
+                return sprintf("%d %s %d min.", $hours, $hourLabel, $minutes);
+            } else {
+                return sprintf("%d %s", $hours, $hourLabel);
+            }
+        } else {
+            return "";
         }
     }
 }

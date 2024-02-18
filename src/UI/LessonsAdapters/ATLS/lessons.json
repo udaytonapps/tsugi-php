@@ -560,7 +560,7 @@
       "icon": "fa-medal",
       "duration": "1hr 30min",
       "description": "In this engaging session, faculty will explore the art of balancing expectations and flexibility in teaching. Discover effective strategies for setting and communicating expectations, gaining student buy-in, and empowering them to take ownership of their learning. Dive into the nuanced decisions of when to provide support, establish boundaries, and navigate the fine line between flexibility and firmness, creating a dynamic and collaborative educational experience.",
-      "image": "/images/UD COL-382.jpg",
+      "image": "/images/ATLSElective1.jpg",
       "imagealt": "An instructor smiling and interacting with two students who are seated at a table.",
       "facilitators": [
         "jarnold1@udayton.edu",
@@ -596,7 +596,7 @@
       "icon": "fa-medal",
       "duration": "1hr 30min",
       "description": "Faculty are invited to delve into the significance of Student Evaluation of Teaching (SET), learn effective strategies for interpreting and utilizing the results, and gain insights into discerning and handling unhelpful comments. Additionally, get a sneak peek into the upcoming changes to the tool and name (Student Feedback Tool / SFT) for the fall semester. Don't miss this opportunity to enhance your understanding and make the most of this valuable feedback tool.",
-      "image": "/images/UD COL-382.jpg",
+      "image": "/images/ATLSElective2.jpg",
       "imagealt": "An instructor smiling and interacting with two students who are seated at a table.",
       "facilitators": [
         "dwright1@udayton.edu",
@@ -632,7 +632,7 @@
       "icon": "fa-medal",
       "duration": "1hr 30min",
       "description": "Student retention is a big topic of conversation in higher education, but what exactly does it look like, and why is it so important? Join us as we dig into the importance of retention, explore proven strategies & practical tips, and create space for attendees to share their insights and successes. UD is a community of educators committed to fostering an environment where students not only thrive but persist on their educational journey. Don't miss this opportunity to elevate your impact in promoting student retention.",
-      "image": "/images/UD COL-382.jpg",
+      "image": "/images/ATLSElective3.jpg",
       "imagealt": "An instructor smiling and interacting with two students who are seated at a table.",
       "facilitators": [
         "ldixon1@udayton.edu",
@@ -655,6 +655,40 @@
           "assignmenttitle": "Submitted Feedback",
           "launch" : "/mod/learn-registration/?program=ATLS&session_id=elective-3&view=FEEDBACK",
           "resource_link_id" : "feedback-elective-3",
+          "type": "FEEDBACK"
+        }
+      ]
+    },
+    {
+      "session": "ATLS Elective 4",
+      "title": "Writing with Friends",
+      "anchor": "elective-4",
+      "core": false,
+      "icon": "fa-medal",
+      "duration": "Varies",
+      "description": "Writing with Friends is a writing retreat open to faculty, grad students, and staff at any level in their career to provide a large block of uninterrupted time for a small group of faculty to conduct research and write toward a wide range of projects, including, but not limited to, journal articles, conference papers, book chapters, and grant proposals. Writing with Friends recognizes that while research and writing are largely solitary, private activities, writers often find comfort and encouragement in working with and around other writers. Writing with Friends is offered (a few times each semester. A lunch or dinner will be provided for each session.<br><br>Attendees should plan to bring their laptop, power cable, books and materials needed for your wiring project, headphones (if you would like to listen to music), ideas for your writing project, etc.",
+      "image": "/images/ATLSElective4-WWF.jpg",
+      "imagealt": "An instructor smiling and interacting with two students who are seated at a table.",
+      "facilitators": [
+        "nwork1@udayton.edu"
+      ],
+      "learningoutcomes": [
+        "Make substantial progress towards a writing project of their choice.",
+        "Participate in a community of practice of fellow academic writers."
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=elective-4&view=REGISTRATION",
+          "resource_link_id" : "reg-elective-4",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=elective-4&view=FEEDBACK",
+          "resource_link_id" : "feedback-elective-4",
           "type": "FEEDBACK"
         }
       ]
