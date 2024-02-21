@@ -661,11 +661,11 @@
     },
     {
       "session": "ATLS Elective 4",
-      "title": "Writing with Friends",
-      "anchor": "elective-4",
+      "title": "Writing with Friends - Session 1",
+      "anchor": "elective-4a",
       "core": false,
       "icon": "fa-medal",
-      "duration": "Varies",
+      "duration": "3 hrs. 15 min.",
       "description": "Writing with Friends is a writing retreat open to faculty, grad students, and staff at any level in their career to provide a large block of uninterrupted time for a small group of faculty to conduct research and write toward a wide range of projects, including, but not limited to, journal articles, conference papers, book chapters, and grant proposals. Writing with Friends recognizes that while research and writing are largely solitary, private activities, writers often find comfort and encouragement in working with and around other writers. Writing with Friends is offered (a few times each semester. A lunch or dinner will be provided for each session.<br><br>Attendees should plan to bring their laptop, power cable, books and materials needed for your wiring project, headphones (if you would like to listen to music), ideas for your writing project, etc.",
       "image": "/images/ATLSElective4-WWF.jpg",
       "imagealt": "An instructor smiling and interacting with two students who are seated at a table.",
@@ -683,15 +683,89 @@
         {
           "title" : "Register",
           "assignmenttitle": "Registered / Attended",
-          "launch" : "/mod/learn-registration/?program=ATLS&session_id=elective-4&view=REGISTRATION",
-          "resource_link_id" : "reg-elective-4",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=elective-4a&view=REGISTRATION",
+          "resource_link_id" : "reg-elective-4a",
           "type": "REGISTRATION"
         },
         {
           "title" : "Provide Feedback",
           "assignmenttitle": "Submitted Feedback",
-          "launch" : "/mod/learn-registration/?program=ATLS&session_id=elective-4&view=FEEDBACK",
-          "resource_link_id" : "feedback-elective-4",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=elective-4a&view=FEEDBACK",
+          "resource_link_id" : "feedback-elective-4a",
+          "type": "FEEDBACK"
+        }
+      ]
+    },
+    {
+      "session": "ATLS Elective 4",
+      "title": "Writing with Friends - Session 2",
+      "anchor": "elective-4b",
+      "core": false,
+      "icon": "fa-medal",
+      "duration": "3 hrs. 15 min.",
+      "description": "Writing with Friends is a writing retreat open to faculty, grad students, and staff at any level in their career to provide a large block of uninterrupted time for a small group of faculty to conduct research and write toward a wide range of projects, including, but not limited to, journal articles, conference papers, book chapters, and grant proposals. Writing with Friends recognizes that while research and writing are largely solitary, private activities, writers often find comfort and encouragement in working with and around other writers. Writing with Friends is offered (a few times each semester. A lunch or dinner will be provided for each session.<br><br>Attendees should plan to bring their laptop, power cable, books and materials needed for your wiring project, headphones (if you would like to listen to music), ideas for your writing project, etc.",
+      "image": "/images/ATLSElective4-WWF.jpg",
+      "imagealt": "An instructor smiling and interacting with two students who are seated at a table.",
+      "facilitators": [
+        "nwork1@udayton.edu"
+      ],
+      "learningoutcomes": [
+        "Make substantial progress towards a scholarly writing project of their choice.",
+        "Participate in a community of practice of fellow academic writers and form new friendships.",
+        "Profit from focused writing time in a supportive environment.",
+        "Gain a better understanding of best practices in writing, research, and publication.",
+        "Commit themselves to a set of writing goals for the near future."
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=elective-4b&view=REGISTRATION",
+          "resource_link_id" : "reg-elective-4b",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=elective-4b&view=FEEDBACK",
+          "resource_link_id" : "feedback-elective-4b",
+          "type": "FEEDBACK"
+        }
+      ]
+    },
+    {
+      "session": "ATLS Elective 4",
+      "title": "Writing with Friends - Session 3",
+      "anchor": "elective-4c",
+      "core": false,
+      "icon": "fa-medal",
+      "duration": "6 hrs. 30 min.",
+      "description": "Writing with Friends is a writing retreat open to faculty, grad students, and staff at any level in their career to provide a large block of uninterrupted time for a small group of faculty to conduct research and write toward a wide range of projects, including, but not limited to, journal articles, conference papers, book chapters, and grant proposals. Writing with Friends recognizes that while research and writing are largely solitary, private activities, writers often find comfort and encouragement in working with and around other writers. Writing with Friends is offered (a few times each semester. A lunch or dinner will be provided for each session.<br><br>Attendees should plan to bring their laptop, power cable, books and materials needed for your wiring project, headphones (if you would like to listen to music), ideas for your writing project, etc.",
+      "image": "/images/ATLSElective4-WWF.jpg",
+      "imagealt": "An instructor smiling and interacting with two students who are seated at a table.",
+      "facilitators": [
+        "nwork1@udayton.edu"
+      ],
+      "learningoutcomes": [
+        "Make substantial progress towards a scholarly writing project of their choice.",
+        "Participate in a community of practice of fellow academic writers and form new friendships.",
+        "Profit from focused writing time in a supportive environment.",
+        "Gain a better understanding of best practices in writing, research, and publication.",
+        "Commit themselves to a set of writing goals for the near future."
+      ],
+      "lti" : [
+        {
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=elective-4c&view=REGISTRATION",
+          "resource_link_id" : "reg-elective-4c",
+          "type": "REGISTRATION"
+        },
+        {
+          "title" : "Provide Feedback",
+          "assignmenttitle": "Submitted Feedback",
+          "launch" : "/mod/learn-registration/?program=ATLS&session_id=elective-4c&view=FEEDBACK",
+          "resource_link_id" : "feedback-elective-4c",
           "type": "FEEDBACK"
         }
       ]
