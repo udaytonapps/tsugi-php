@@ -42,6 +42,12 @@
         "Define implicit bias and analyze examples of how it impacts evaluative processes.",
         "Identify and employ strategies to mitigate bias and ensure fairer and more equitable evaluative processes."
       ],
+      "footer": [
+        "<div data-mdb-alert-init='' class='alert alert-warning' role='alert' data-mdb-color='warning' data-mdb-alert-initialized='true'>",
+        "   <strong><i class='fas fa-exclamation-circle'></i> Disclaimer</strong>",
+        "   <div>Participation in this session will require processing and discussing information, questions, and scenarios in groups, and sharing answers in an open setting. For any questions or concerns, please reach out to <a href='mailto:facdev@udayton.edu'>facdev@udayton.edu</a>.</div>",
+        "</div>"
+      ],
       "image": "/images/UD COL-232-2.jpg",
       "imagealt": "Two faculty members sitting in front of a computer having a conversation.",
       "facilitators": [
@@ -86,6 +92,12 @@
         "Gain best practices for inclusive recruiting, interviews, and selection",
         "Learn how to identify and mitigate bias in their recruiting and hiring processes"
       ],
+      "footer": [
+        "<div data-mdb-alert-init='' class='alert alert-warning' role='alert' data-mdb-color='warning' data-mdb-alert-initialized='true'>",
+        "   <strong><i class='fas fa-exclamation-circle'></i> Disclaimer</strong>",
+        "   <div>Participation in this session will require processing and discussing information, questions, and scenarios in groups, and sharing answers in an open setting. For any questions or concerns, please reach out to <a href='mailto:facdev@udayton.edu'>facdev@udayton.edu</a>.</div>",
+        "</div>"
+      ],
       "lti" : [
         {
           "title" : "Register",
@@ -122,6 +134,12 @@
         "Practice engaging in conversations on implicit and structural biases.",
         "Identify areas of their unit/department policies which may be unclear, unevenly enforced, or perpetuate biases.",
         "Practice utilizing rubrics for and understanding and evaluating inclusive excellence, and mitigate the impact of bias in the evaluation process."
+      ],
+      "footer": [
+        "<div data-mdb-alert-init='' class='alert alert-warning' role='alert' data-mdb-color='warning' data-mdb-alert-initialized='true'>",
+        "   <strong><i class='fas fa-exclamation-circle'></i> Disclaimer</strong>",
+        "   <div>Participation in this session will require processing and discussing information, questions, and scenarios in groups, and sharing answers in an open setting. For any questions or concerns, please reach out to <a href='mailto:facdev@udayton.edu'>facdev@udayton.edu</a>.</div>",
+        "</div>"
       ],
       "lti" : [
         {

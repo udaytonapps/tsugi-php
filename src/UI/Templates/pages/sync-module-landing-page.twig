@@ -201,5 +201,10 @@
 				{% endfor %}
 			</ul>
 		{% endif %}
+		{% if module.footer %}
+			{%  for footer in module.footer %}
+				{{ footer|raw }}
+			{% endfor %}
+		{% endif %}
 	</div>
 </div>
