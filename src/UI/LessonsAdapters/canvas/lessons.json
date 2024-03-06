@@ -23,6 +23,64 @@
   "cardtabs": false,
   "modules": [
     {
+      "session": "Canvas 101",
+      "title": "Navigating Canvas in 10 Minutes",
+      "anchor": "canvas101-navigating",
+      "async": true,
+      "hidelessons": true,
+      "icon": "fa-video",
+      "duration": "10 min.",
+      "landingContents": [
+        {
+          "type": "TEXT",
+          "paragraphs": [
+            "Whether you're new to Canvas or seeking a refresher, this video provides a rapid yet comprehensive exploration of the Canvas learning platform at UD. In just 10 minutes, we'll guide you through the essential features and navigation tools of this powerful system. From the Global Navigation bar to the core components of a Canvas course site, you'll gain a solid understanding of how to efficiently navigate and utilize Canvas for your academic journey."
+          ]
+        },
+        {
+          "type": "IMAGE",
+          "image": {
+            "path": "/images/Canvas.webp",
+            "altText": "Canvas LMS logo"
+          }
+        }
+      ],
+      "image": "/images/Canvas.webp",
+      "imagealt": "Canvas LMS logo",
+      "facilitators": [
+        "rallen1@udayton.edu"
+      ],
+      "lessons": [
+        {
+          "title": "Navigating Canvas in 10 Minutes",
+          "anchor": "canvas101-navigating-video",
+          "icon": "fa-video",
+          "pages": [
+            {
+              "title": "Understanding and Navigating Canvas in 10 Minutes",
+              "anchor": "canvas101-navigating-video-page",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "<p>Whether you're new to Canvas or seeking a refresher, this video provides a rapid yet comprehensive exploration of the Canvas learning platform at UD. In just 10 minutes, we'll guide you through the essential features and navigation tools of this powerful system. From the Global Navigation bar to the core components of a Canvas course site, you'll gain a solid understanding of how to efficiently navigate and utilize Canvas for your academic journey.</p>",
+                    "<h5>Watch the 10-minute video below to get started with Canvas</h5>"
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Understanding and Navigating Canvas in 10 Minutes",
+                    "warpwire": "-4cGAA"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "Getting Started with Canvas",
       "session": "Canvas 101",
       "async": true,
