@@ -44,7 +44,6 @@
       ],
       "footer": [
         "<div data-mdb-alert-init='' class='alert alert-warning' role='alert' data-mdb-color='warning' data-mdb-alert-initialized='true'>",
-        "   <strong><i class='fas fa-exclamation-circle'></i> Disclaimer</strong>",
         "   <div>Participation in this session will require processing and discussing information, questions, and scenarios in groups, and sharing answers in an open setting. For any questions or concerns, please reach out to <a href='mailto:facdev@udayton.edu'>facdev@udayton.edu</a>.</div>",
         "</div>"
       ],
@@ -94,7 +93,6 @@
       ],
       "footer": [
         "<div data-mdb-alert-init='' class='alert alert-warning' role='alert' data-mdb-color='warning' data-mdb-alert-initialized='true'>",
-        "   <strong><i class='fas fa-exclamation-circle'></i> Disclaimer</strong>",
         "   <div>Participation in this session will require processing and discussing information, questions, and scenarios in groups, and sharing answers in an open setting. For any questions or concerns, please reach out to <a href='mailto:facdev@udayton.edu'>facdev@udayton.edu</a>.</div>",
         "</div>"
       ],
@@ -137,7 +135,6 @@
       ],
       "footer": [
         "<div data-mdb-alert-init='' class='alert alert-warning' role='alert' data-mdb-color='warning' data-mdb-alert-initialized='true'>",
-        "   <strong><i class='fas fa-exclamation-circle'></i> Disclaimer</strong>",
         "   <div>Participation in this session will require processing and discussing information, questions, and scenarios in groups, and sharing answers in an open setting. For any questions or concerns, please reach out to <a href='mailto:facdev@udayton.edu'>facdev@udayton.edu</a>.</div>",
         "</div>"
       ],
