@@ -657,6 +657,13 @@
           "resource_link_id" : "feedback-elective-3",
           "type": "FEEDBACK"
         }
+      ],
+      "resources" : [
+        {
+          "title" : "Session Slides",
+          "icon" : "far fa-file-powerpoint",
+          "url" : "https://docs.google.com/presentation/d/18r7K6FKhsU6PT8MFoxNx1P1iN9Re8JjT5ouKyYbyZmA/edit?usp=sharing"
+        }
       ]
     },
     {
