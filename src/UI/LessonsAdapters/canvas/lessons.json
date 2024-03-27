@@ -40,7 +40,7 @@
         {
           "type": "IMAGE",
           "image": {
-            "path": "/images/Canvas.webp",
+            "path": "/images/canvas10minutes.jpg",
             "altText": "Canvas LMS logo"
           }
         }
@@ -92,7 +92,7 @@
         {
           "type": "TEXT",
           "paragraphs": [
-            "If you’re new to Canvas, the lessons in this training module will help you get started with UD’s learning management system (LMS). Topics include:<ul><li>Accessing Canvas</li><li>Navigating the Canvas interface</li><li>Adjusting your Canvas profile and general settings</li><li>Preparing a course site</li><li>Using basic Canvas tools to facilitate your course</li></ul>Whether you complete this entire guide or just use it as a reference, we recommend getting comfortable in Canvas before taking the next step of migrating your course content from Isidore."
+            "If you’re new to Canvas, the lessons in this training module will help you get started with UD’s learning management system (LMS). Topics include:<ul><li>Accessing Canvas</li><li>Navigating the Canvas interface</li><li>Adjusting your Canvas profile and general settings</li><li>Preparing a course site</li><li>Using basic Canvas tools to facilitate your course</li></ul>"
           ]
         },
         {
@@ -109,7 +109,7 @@
           "icon": "fa-list",
           "pages": [
             {
-              "title": "What is Canvas?",
+              "title": "What is Canvas? (2 min.)",
               "anchor": "what-is-canvas-overview",
               "contents": [
                 {
@@ -117,7 +117,8 @@
                   "paragraphs": [
                     "<strong>Introducing Canvas at UD</strong>",
                     "Canvas, a market-leading learning management system (LMS), is a digital platform designed for the efficient administration, delivery, and tracking of educational courses. This modern, interactive, and comprehensive digital learning environment supports exceptional teaching and learning for the UD community.",
-                    "For instructors, Canvas is a tool for effective course management and dynamic content creation. For students, Canvas serves as a centralized access point for learning resources, encourages communication, and supports their educational journey."
+                    "<br />For instructors, Canvas is a tool for effective course management and dynamic content creation.",
+                    "For students, Canvas serves as a centralized access point for learning resources, encourages communication, and supports their educational journey."
                   ]
                 },
                 {
@@ -153,24 +154,13 @@
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "Follow the steps below to learn how to access Canvas at UD."
+                    "To access Canvas at UD:"
                   ]
                 },
                 {
-                  "type": "ORDERED_LIST",
-                  "listItems": [
-                    {
-                      "type": "TEXT",
-                      "paragraphs": [
-                        "Open a web browser and navigate to <strong><a href='https://canvas.udayton.edu/' target='_blank'>https://canvas.udayton.edu/</a></strong>."
-                      ]
-                    },
-                    {
-                      "type": "TEXT",
-                      "paragraphs": [
-                        "Use your UD credentials to log in to Canvas"
-                      ]
-                    }
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "<ul><li>Open a web browser and navigate to <strong><a href='https://canvas.udayton.edu/' target='_blank'>https://canvas.udayton.edu/</a></strong>.</li><li>Log in with your UD credentials.</li></ul>"
                   ]
                 },
                 {
@@ -193,7 +183,7 @@
               ]
             },
             {
-              "title": "Navigating Canvas",
+              "title": "Instructor Canvas Overview (6 min.)",
               "anchor": "navigating-canvas-overview",
               "contents": [
                 {
@@ -241,13 +231,13 @@
               ]
             },
             {
-              "title": "User Settings & Profile Picture",
+              "title": "User Settings (2 min.)",
               "anchor": "user-settings-overview",
               "contents": [
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "In this video, you will learn how to update your Canvas user settings."
+                    "In this video, you will learn how to update your Canvas user settings, including adding a profile picture."
                   ]
                 },
                 {
@@ -277,7 +267,7 @@
               ]
             },
             {
-              "title": "Notification Settings",
+              "title": "Notification Settings (3 min.)",
               "anchor": "notification-settings-overview",
               "contents": [
                 {
@@ -311,34 +301,15 @@
                   ]
                 }
               ]
-            },
-            {
-              "title": "Canvas Help Resources",
-              "anchor": "canvas-help-overview",
-              "contents": [
-                {
-                  "type": "TEXT",
-                  "paragraphs": [
-                    "In this video you will learn about the Help resources available in Canvas."
-                  ]
-                },
-                {
-                  "type": "VIDEO",
-                  "video": {
-                    "title": "Canvas Help Resources (All Users)",
-                    "canvas": "1bdf96e1-6ae8-4747-a011-8a08b6df8938"
-                  }
-                }
-              ]
             }
           ]
         },
         {
-          "title": "Preparing a Course",
+          "title": "Preparing a Course Site",
           "icon": "fa-book",
           "pages": [
             {
-              "title": "Managing Course Settings",
+              "title": "Course Settings (6 min.)",
               "anchor": "managing-course-settings",
               "contents": [
                 {
@@ -380,7 +351,7 @@
               ]
             },
             {
-              "title": "Homepage Layout",
+              "title": "Course Home Page Customization (3 min.)",
               "anchor": "homepage-canvas-course",
               "contents": [
                 {
@@ -399,7 +370,7 @@
               ]
             },
             {
-              "title": "Syllabus",
+              "title": "Syllabus (2 min.)",
               "anchor": "syllabus-canvas-course",
               "contents": [
                 {
@@ -435,7 +406,7 @@
               ]
             },
             {
-              "title": "Groups Overview",
+              "title": "Groups Overview (5 min.)",
               "anchor": "groups-canvas-course",
               "contents": [
                 {
@@ -477,7 +448,7 @@
               ]
             },
             {
-              "title": "Assignments",
+              "title": "Assignments Overview (4 min.)",
               "anchor": "assignments-canvas-course",
               "contents": [
                 {
@@ -513,7 +484,7 @@
               ]
             },
             {
-              "title": "Calendar",
+              "title": "Calendar Overview (5 min.)",
               "anchor": "calendar-canvas-course",
               "contents": [
                 {
@@ -561,39 +532,7 @@
               ]
             },
             {
-              "title": "Build & Organize Content",
-              "anchor": "organize-canvas-course",
-              "contents": [
-                {
-                  "type": "TEXT",
-                  "paragraphs": [
-                    "Creating an impactful learning experience in Canvas requires thoughtful organization and presentation of course content. This section serves as your guide to understanding and utilizing the various tools within Canvas to effectively build and structure your content. With features like modules, pages, and files, you have the flexibility to design a course layout that ensures a clear and concise learning path for your students. When content is well-organized, students can navigate with ease, fostering an environment for success in the LMS.",
-                    "<h5 class='mt-3 fw-normal'>Section Contents:</h5><ul><li>Create Modules</li><li>Create Pages</li><li>Rich Content Editor (RCE)</li><li>Add Files</li></ul>",
-                    "<a href='modules-canvas-course' class='btn btn-primary mt-3'>Get Started <i class='fa fa-arrow-right' aria-hidden='true'></i></a>"
-                  ]
-                },
-                {
-                  "type": "UNORDERED_LIST",
-                  "listItems": [
-                    {
-                      "type": "TEXT",
-                      "paragraphs": [
-                        "<h4 class='fw-normal mb-0'>Additional Resources</h4>"
-                      ]
-                    },
-                    {
-                      "type": "LINK",
-                      "icon": "fa-external-link",
-                      "title": " How do I view the course as a Test Student using Student View?",
-                      "href": "https://community.canvaslms.com/t5/Instructor-Guide/How-do-I-view-a-course-as-a-test-student-using-Student-View/ta-p/1122"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Create Modules",
-              "subpage": "lesson-subpage",
+              "title": "Modules Overview (4 min.)",
               "anchor": "modules-canvas-course",
               "contents": [
                 {
@@ -629,8 +568,7 @@
               ]
             },
             {
-              "title": "Create Pages",
-              "subpage": "lesson-subpage",
+              "title": "Pages Overview (3 min.)",
               "anchor": "pages-canvas-course",
               "contents": [
                 {
@@ -666,8 +604,7 @@
               ]
             },
             {
-              "title": "Rich Content Editor (RCE)",
-              "subpage": "lesson-subpage",
+              "title": "Rich Content Editor (5 min.)",
               "anchor": "rce-canvas-course",
               "contents": [
                 {
@@ -686,8 +623,7 @@
               ]
             },
             {
-              "title": "Add Files",
-              "subpage": "lesson-subpage",
+              "title": "Files Overview (3 min.)",
               "anchor": "files-canvas-course",
               "contents": [
                 {
@@ -723,7 +659,7 @@
               ]
             },
             {
-              "title": "Discussions",
+              "title": "Discussions Overview (5 min.)",
               "anchor": "discussions-canvas-course",
               "contents": [
                 {
@@ -759,20 +695,20 @@
               ]
             },
             {
-              "title": "Quizzes",
+              "title": "Quizzes Overview (4 min.)",
               "anchor": "quizzes-canvas-course",
               "contents": [
                 {
                   "type": "TEXT",
                   "paragraphs": [
-                    "In this video, you will learn how to create and manage assessments using New Quizzes in a Canvas course."
+                    "In this video, you will learn how to create and manage assessments using Quizzes in a Canvas course."
                   ]
                 },
                 {
                   "type": "VIDEO",
                   "video": {
-                    "title": "New Quizzes Overview",
-                    "canvas": "7a494ed5-6ea4-4346-8e43-379d6c878262"
+                    "title": "Quizzes Overview",
+                    "canvas": "70116501-e6b6-4b3e-9ad0-03d0dafc772e"
                   }
                 },
                 {
@@ -795,7 +731,7 @@
               ]
             },
             {
-              "title": "Gradebook",
+              "title": "Gradebook Overview (9 min.)",
               "anchor": "gradebook-canvas-course",
               "contents": [
                 {
@@ -837,7 +773,7 @@
           "icon": "fa-book",
           "pages": [
             {
-              "title": "Grading with SpeedGrader",
+              "title": "SpeedGrader Overview (3 min.)",
               "anchor": "speedgrader-canvas",
               "contents": [
                 {
@@ -885,7 +821,7 @@
               ]
             },
             {
-              "title": "Sending Announcements",
+              "title": "Announcements Overview (2 min.)",
               "anchor": "announcements-canvas",
               "contents": [
                 {
@@ -921,7 +857,7 @@
               ]
             },
             {
-              "title": "Communicating with Inbox",
+              "title": "Inbox Overview (4 min.)",
               "anchor": "inbox-canvas",
               "contents": [
                 {
@@ -957,7 +893,7 @@
               ]
             },
             {
-              "title": "Course Analytics",
+              "title": "Analytics Overview (6 min.)",
               "anchor": "analytics-canvas",
               "contents": [
                 {
@@ -981,6 +917,25 @@
           "title": "Taking the Next Step",
           "icon": "fa-question",
           "pages": [
+            {
+              "title": "Canvas Help Resources (3 min.)",
+              "anchor": "canvas-help-overview",
+              "contents": [
+                {
+                  "type": "TEXT",
+                  "paragraphs": [
+                    "In this video you will learn about the Help resources available in Canvas."
+                  ]
+                },
+                {
+                  "type": "VIDEO",
+                  "video": {
+                    "title": "Canvas Help Resources (All Users)",
+                    "canvas": "1bdf96e1-6ae8-4747-a011-8a08b6df8938"
+                  }
+                }
+              ]
+            },
             {
               "title": "Additional Resources & Guides",
               "anchor": "additional-resources-overview",
@@ -1032,21 +987,6 @@
                   "icon": "fa-video",
                   "title": "Collaborations Tool Video",
                   "href": "https://community.canvaslms.com/t5/Video-Guide/Collaborations-Overview-Instructors/ta-p/384394"
-                }
-              ]
-            },
-            {
-              "title": "Migrating Courses from Isidore",
-              "anchor": "migrating-isidore-courses",
-              "contents": [
-                {
-                  "type": "TEXT",
-                  "paragraphs": [
-                    "<p>After familiarizing yourself with Canvas, you'll need to decide whether or not you want to migrate content from Isidore to Canvas. Because Canvas has a different interface and toolset than Isidore, you may find it easier to start building your course from a blank slate and explore the new opportunities and features Canvas offers.</p>",
-                    "<p>We acknowledge that many faculty have built a substantial amount of content on Isidore they wish to retain, recognizing the considerable time investment required for manual recreation in Canvas. Consequently, the Center for Online Learning is actively developing automated methods to migrate course content from Isidore to Canvas for faculty. We plan to have more details about migration options in January 2024. Stay tuned for more information on this.</p>",
-                    "<p>In the meantime, there are two ways to get content into Canvas:</p><ul><li><strong>Build from scratch:</strong> Build items from scratch by manually uploading content and creating new items in your official Canvas course.</li><li><strong>Copy from an existing Canvas course:</strong> If you previously taught in Canvas, import your content from your previous Canvas course into your official course site. This will work whether you taught a Canvas course at UD or even at another institution!</li></ul>",
-                    "<p>Learn more about the switch to Canvas at <a href='http://go.udayton.edu/lms-transition' target='_blank'>http://go.udayton.edu/lms-transition</a></p>"
-                  ]
                 }
               ]
             }
