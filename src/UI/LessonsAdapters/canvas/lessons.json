@@ -13,7 +13,8 @@
         "paragraphs": [
           "<h4 class='pt-5'>What is Canvas?",
           "<p>Canvas, a market-leading learning management system (LMS), is a digital platform designed for the efficient administration, delivery, and tracking of educational courses. This modern, interactive, and comprehensive digital learning environment supports exceptional teaching and learning for the UD community.</p>",
-          "<p>For instructors, Canvas is a tool for effective course management and dynamic content creation. For students, Canvas serves as a centralized access point for learning resources, encourages communication, and supports their educational journey.</p>"
+          "<p>For instructors, Canvas is a tool for effective course management and dynamic content creation.</p>",
+          "<p>For students, Canvas serves as a centralized access point for learning resources, encourages communication, and supports their educational journey.</p>"
         ]
       }
     ]
@@ -116,9 +117,9 @@
                   "type": "TEXT",
                   "paragraphs": [
                     "<strong>Introducing Canvas at UD</strong>",
-                    "Canvas, a market-leading learning management system (LMS), is a digital platform designed for the efficient administration, delivery, and tracking of educational courses. This modern, interactive, and comprehensive digital learning environment supports exceptional teaching and learning for the UD community.",
-                    "<br />For instructors, Canvas is a tool for effective course management and dynamic content creation.",
-                    "For students, Canvas serves as a centralized access point for learning resources, encourages communication, and supports their educational journey."
+                    "<p>Canvas, a market-leading learning management system (LMS), is a digital platform designed for the efficient administration, delivery, and tracking of educational courses. This modern, interactive, and comprehensive digital learning environment supports exceptional teaching and learning for the UD community.</p>",
+                    "<p>For instructors, Canvas is a tool for effective course management and dynamic content creation.</p>",
+                    "<p>For students, Canvas serves as a centralized access point for learning resources, encourages communication, and supports their educational journey.</p>"
                   ]
                 },
                 {
@@ -723,8 +724,8 @@
                     {
                       "type": "LINK",
                       "icon": "fa-external-link",
-                      "title": "How do I create a quiz using New Quizzes?",
-                      "href": "https://community.canvaslms.com/t5/Instructor-Guide/How-do-I-create-a-quiz-using-New-Quizzes/ta-p/1173"
+                      "title": "How do I create a quiz with individual questions?",
+                      "href": "https://community.canvaslms.com/t5/Instructor-Guide/How-do-I-create-a-quiz-with-individual-questions/ta-p/1248"
                     }
                   ]
                 }
