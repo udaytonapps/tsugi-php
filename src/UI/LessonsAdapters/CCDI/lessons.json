@@ -118,6 +118,62 @@
                 "type": "REGISTRATION"
             }
         ]
+      },
+      {
+        "session": "CCDI Seminar Series",
+        "title": "Spring Session 1: AI Curricula and Pedagogy Workstream Panel",
+        "anchor": "ccdi-4",
+        "core": true,
+        "icon": "fa-laptop",
+        "duration": "1hr 30min",
+        "calendar": "Apr",
+        "description": "The AI Curricula and Pedagogy working group will share their thoughts, findings, and recommendations with attendees. This seminar is open to all UD faculty and scholars.",
+        "image": "/images/cyber-security-password.jpg",
+        "imagealt": "text and iconography representing cybersecurity.",
+        "introContents": [
+          "<h5 class='mt-3'>Session Details</h5>",
+          "<p>Coffee and snacks are provided. The CCDI Seminar Series is supported with funding from the Ohio Cyber Range Institute (OCRI) and the Ohio Department of Higher Education. </p>",
+          "<p>Please contact Dr. Zhongmei Yao at <a href='mailto:zyao01@udayton.edu'>zyao01@udayton.edu</a> with any questions.</p>",
+          "<strong>Agenda:</strong><br />2:30 - 3:15 p.m. - Presentation<br />3:15 - 4:00 p.m. - Q & A"
+        ],
+        "facilitators": [
+          "acarrchellman1@udayton.edu", "pdagnall1@udayton.edu", "hgauder1@udayton.edu", "khallinan1@udayton.edu", "lliu01@udayton.edu", "gneeley1@udayton.edu", "vpaslaru1@udayton.edu", "ttabo1@udayton.edu", "hmajidizolbanin1@udayton.edu"
+        ],
+        "lti": [{
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=CCDI&session_id=ccdi-4&view=REGISTRATION",
+          "resource_link_id" : "reg-ccdi-4",
+          "type": "REGISTRATION"
+        }]
+      },
+      {
+        "session": "CCDI Seminar Series",
+        "title": "Spring Session 2: AI Research and Scholarship Workstream Panel",
+        "anchor": "ccdi-5",
+        "core": true,
+        "icon": "fa-laptop",
+        "duration": "1hr 30min",
+        "calendar": "Apr",
+        "description": "The AI Research and Scholarship working group will share their thoughts, findings, and recommendations with attendees. This seminar is open to all UD faculty and scholars.",
+        "image": "/images/index204.jpg",
+        "imagealt": "A globe floats in the center of a web of labels, numbers, and tags.",
+        "introContents": [
+          "<h5 class='mt-3'>Session Details</h5>",
+          "<p>Coffee and snacks are provided. The CCDI Seminar Series is supported with funding from the Ohio Cyber Range Institute (OCRI) and the Ohio Department of Higher Education. </p>",
+          "<p>Please contact Dr. Zhongmei Yao at <a href='mailto:zyao01@udayton.edu'>zyao01@udayton.edu</a> with any questions.</p>",
+          "<strong>Agenda:</strong><br />2:30 - 3:15 p.m. - Presentation<br />3:15 - 4:00 p.m. - Q & A"
+        ],
+        "facilitators": [
+          "vasari1@udayton.edu", "dashley1@udayton.edu", "bkunz1@udayton.edu", "gneeley1@udayton.edu", "hpu001@udayton.edu", "eziedsesdesplantes1@udayton.edu", "atodd1@udayton.edu", "zyao01@udayton.edu", "mzargham1@udayton.edu"
+        ],
+        "lti": [{
+          "title" : "Register",
+          "assignmenttitle": "Registered / Attended",
+          "launch" : "/mod/learn-registration/?program=CCDI&session_id=ccdi-5&view=REGISTRATION",
+          "resource_link_id" : "reg-ccdi-5",
+          "type": "REGISTRATION"
+        }]
       }
     ]
 }
