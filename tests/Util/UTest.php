@@ -1,6 +1,7 @@
 <?php
 
 use \Tsugi\Util\U;
+use \Tsugi\Config\ConfigInfo;
 
 class UTest extends \PHPUnit\Framework\TestCase
 {
@@ -171,4 +172,159 @@ class UTest extends \PHPUnit\Framework\TestCase
         $t1 = U::htmlent_utf8(null);
         $this->assertEquals($t1, "");
     }
+
+    public function testStrlen() {
+        // Non string parameters in the old days were treated as "stringy" - if
+        // something can be converted to a string, what would its length be?
+        // PHP beyond 8.2 might get cranky with these illegal calls.
+        // Test these in case PHP changes its mind in the future
+        $this->assertEquals(strlen(''), 0);
+        $this->assertEquals(strlen('0'), 1);
+        $this->assertEquals(strlen('bob'), 3);
+        $this->assertEquals(strlen(42), 2);
+        $this->assertEquals(strlen(4.2), 3);
+        $this->assertEquals(strlen(false), 0);
+        // $this->assertEquals(strlen(null), 0); // Breaks on 8.2 
+        $this->assertEquals(strlen(true), 1);  // Why oh why?
+
+        // Make a sane strlen
+        $this->assertEquals(U::strlen(''), 0);
+        $this->assertEquals(U::strlen('0'), 1);
+        $this->assertEquals(U::strlen('bob'), 3);
+        $this->assertEquals(U::strlen(42), 2);
+        $this->assertEquals(U::strlen(4.2), 3);
+        $this->assertEquals(U::strlen(false), 0);
+        $this->assertEquals(U::strlen(null), 0);
+        $this->assertEquals(U::strlen(true), 0);  // Depart from PHP here
+    }
+
+    public function testEmpty() {
+        // Sane stuff
+        $this->assertTrue(U::isEmpty(''));
+        $this->assertTrue(U::isEmpty(null));
+        $this->assertTrue(U::isEmpty(false));
+        $this->assertTrue(U::isNotEmpty('bob'));
+        $this->assertTrue(U::isNotEmpty('0'));
+
+        // Weird but like 7.4 strlen
+        $this->assertTrue(U::isNotEmpty(42));
+        $this->assertTrue(U::isNotEmpty(4.2));
+
+
+        // We are not going to follow PHP down these rabbit holes :)
+        $this->assertTrue(U::isEmpty(false));
+        $this->assertFalse(U::isNotEmpty(true));
+
+        // Lets just run the PHP empty() through its paces as of 8.2
+        // sane and otherwise - to check if PHP changes its mind in a
+        // future version.
+        $this->assertTrue(empty(''));
+        $this->assertTrue(empty(null));
+        $this->assertTrue(empty(false));
+        $this->assertFalse(empty(42));
+        $this->assertFalse(empty(4.2));
+
+        $this->assertFalse(empty('false'));
+        $this->assertFalse(empty('bob'));
+
+        // Rasmus, this should be false - what are they thinking
+        $this->assertTrue(empty('0'));
+
+        /*  strlen(42) = 2
+            strlen(4.2) = 3
+            strlen(false) = 0
+            strlen(true) = 1
+            empty(42) = false
+            empty(4.2) = false
+            empty(false) = true
+            empty(true) = false
+        */
+
+    }
+
+    public function testJsonDecode() {
+        $this->assertIsObject(U::json_decode(null));
+        $this->assertIsObject(U::json_decode(false));
+        $this->assertIsObject(U::json_decode(42));
+        $this->assertIsObject(U::json_decode('funky'));
+        $this->assertIsObject(U::json_decode('{ "zap }'));
+
+        $json = '{ "key" : 42 }';
+        $js = U::json_decode($json);
+        $this->assertIsObject($js);
+
+        // $this->assertObjectHasProperty('key', $js);
+        $this->assertTrue(property_exists($js, 'key'));
+        // $this->assertObjectHasNotProperty('bob', $js);
+        $this->assertFalse(property_exists($js, 'bob'));
+
+        // Bad json
+        $json = '{ "key : 42 }';
+        $js = U::json_decode($json);
+        $this->assertIsObject($js);
+
+        $this->assertFalse(property_exists($js, 'key'));
+        $this->assertFalse(property_exists($js, 'bob'));
+    }
+
+    public function testUrlParm() {
+        $url = "http://www.tsugi.org";
+        $this->assertEquals(U::add_url_parm(null, null, null), null);
+        $this->assertEquals(U::add_url_parm('bob', null, null), 'bob');
+        $this->assertEquals(U::add_url_parm('bob', 'x', null), 'bob');
+        $this->assertEquals(U::add_url_parm('bob', null, 'y'), 'bob');
+        $this->assertEquals(U::add_url_parm('bob', 'x', 'y'), 'bob?x=y');
+        $this->assertEquals(U::add_url_parm('bob?a=b', 'x', 'y'), 'bob?a=b&x=y');
+    }
+
+    public function testIsKeyNotEmpty() {
+        $arr = array("bob" => "42", "sam" => 43, "sarah" => null, "sue" => false);
+        $this->assertTrue(U::isKeyNotEmpty($arr, "bob"));
+        $this->assertTrue(U::isKeyNotEmpty($arr, "sam"));
+        $this->assertFalse(U::isKeyNotEmpty($arr, "sarah"));
+        $this->assertFalse(U::isKeyNotEmpty($arr, "sue"));
+        $this->assertFalse(U::isKeyNotEmpty($arr, ""));
+        $this->assertFalse(U::isKeyNotEmpty($arr, "zap"));
+    }
+
+    public function testServerPrefix() {
+        $CFG = new ConfigInfo("bob", "http://www.zap.com/tsugi");
+        $this->assertEquals($CFG->serverPrefix(), "www.zap.com/tsugi");
+        $CFG->apphome = "https://www.zap.com";
+        $this->assertEquals($CFG->serverPrefix(), "www.zap.com");
+        $CFG->apphome = "www.zap.com";
+        $this->assertEquals($CFG->serverPrefix(), "www.zap.com");
+        // Use MD5 if too long
+        $CFG->apphome = "dlsjsdflkjdfljdljdflkjflkjlkjfdklja;ljdfsl;jgfl;jgfl;jgl;jgfds;ljgfl;jgfd;ljdfl;kjdsljalwskjaskhfkdjhdfgkjhgkhkdshkghdfkhgfkhfgkh";
+        $this->assertEquals($CFG->serverPrefix(), "227b19f82bca5eb23f9cd02cfe34dbbe");
+    }
+
+    public function testSha256() {
+        $out = lti_sha256("hello world");
+        $this->assertEquals($out, "b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9");
+        $out = lti_sha256(null);
+        $this->assertEquals($out, null);
+    }
+
+    public function testStartsWith() {
+        $this->assertTrue(U::startsWith("csev@umich.edu", "csev"));
+        $this->assertTrue(U::startsWith("csev@umich.edu", ""));
+        $this->assertFalse(U::startsWith("csev@umich.edu", "cxev"));
+        $this->assertFalse(U::startsWith("edu", "@umich.edu"));
+        $this->assertFalse(U::startsWith(null, "@umich.edu"));
+        $this->assertFalse(U::startsWith(null, null));
+        $this->assertFalse(U::startsWith("edu", null));
+    }
+
+
+    public function testEndsWith() {
+        $this->assertTrue(U::endsWith("csev@umich.edu", "@umich.edu"));
+        $this->assertTrue(U::endsWith("csev@umich.edu", ""));
+        $this->assertFalse(U::endsWith("csev@umich.edu", "@xmich.edu"));
+        $this->assertFalse(U::endsWith("edu", "@umich.edu"));
+        $this->assertFalse(U::endsWith(null, "@umich.edu"));
+        $this->assertFalse(U::endsWith(null, null));
+        $this->assertFalse(U::endsWith("edu", null));
+    }
+
 }

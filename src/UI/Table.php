@@ -2,6 +2,7 @@
 
 namespace Tsugi\UI;
 
+use \Tsugi\Util\U;
 use \Tsugi\UI\CrudForm;
 use \Tsugi\Core\LTIX;
 
@@ -28,7 +29,7 @@ class Table {
     public static function doForm($values, $override=Array()) {
         foreach (array_merge($values,$override) as $key => $value) {
             if ( $value === false ) continue;
-            if ( is_string($value) && strlen($value) < 1 ) continue;
+            if ( is_string($value) && empty($value) ) continue;
             if ( is_int($value) && $value === 0 ) continue;
             if ( $key == session_name() ) continue; // Will be added automatically
             echo('<input type="hidden" name="'.htmlent_utf8($key).
@@ -40,10 +41,10 @@ class Table {
         $retval = '';
         foreach (array_merge($values,$override) as $key => $value) {
             if ( $value === false ) continue;
-            if ( is_string($value) && strlen($value) < 1 ) continue;
+            if ( is_string($value) && empty($value) ) continue;
             if ( is_int($value) && $value === 0 ) continue;
             if ( $key == session_name() ) continue; // Will be added automatically
-            if ( strlen($retval) > 0 ) $retval .= '&';
+            if ( U::strlen($retval) > 0 ) $retval .= '&';
             $retval .= urlencode($key) . "=" . urlencode($value);
         }
         return $retval;
@@ -51,7 +52,7 @@ class Table {
 
     public static function makeUrl($url, $values, $override=Array()) {
         $extra = self::doUrl($values, $override);
-        if ( strlen($extra) == 0 ) return $url;
+        if ( U::strlen($extra) == 0 ) return $url;
         if ( strpos($url,'?') > 0 ) {
             $url .= '&';
         } else {
@@ -66,7 +67,7 @@ class Table {
         if ( ! is_array($columns) ) return false;
         foreach ($columns as $v) {
             if ( $colname == $v ) return true;
-            if ( strlen($v) < 2 ) continue;
+            if ( U::strlen($v) < 2 ) continue;
             if ( substr($v,1,1) != '.' ) continue;
             if ( substr($v,2) == $colname ) return true;
         }
@@ -131,7 +132,7 @@ class Table {
 
         // Fix up the SQL Query
         $newsql = $sql;
-        if ( strlen($searchtext) > 0 ) {
+        if ( U::strlen($searchtext) > 0 ) {
             if ( strpos($sql,"WHERE" ) !== false ) {
                 $newsql = str_replace("WHERE", "WHERE ( ".$searchtext." ) AND ", $newsql);
             } else {
@@ -144,10 +145,10 @@ class Table {
             $newsql .= "\n" . $groupby;
         }
 
-        if ( strlen($ordertext) > 0 ) {
+        if ( U::strlen($ordertext) > 0 ) {
             $newsql .= "\nORDER BY ".$ordertext." ";
         }
-        if ( strlen($limittext) > 0 ) {
+        if ( U::strlen($limittext) > 0 ) {
             $newsql .= "\nLIMIT ".$limittext." ";
         }
         return $newsql . "\n";
@@ -335,7 +336,7 @@ class Table {
                     $stuff = Table::doUrl($params,$override);
                     echo('<th class="'.$color.'">');
                     echo(' <a href="'.$thispage);
-                    if ( strlen($stuff) > 0 ) {
+                    if ( U::strlen($stuff) > 0 ) {
                         echo("?");
                         echo($stuff);
                     }
@@ -361,7 +362,7 @@ class Table {
                 if ( $link_name !== false ) {
                     $detail = Table::makeUrl($view,$params,Array($link_name => $link_val));
                     echo('<a href="'.$detail.'">');
-                    if ( strlen($v) < 1 ) $v = $link_name.':'.$link_val;
+                    if ( empty($v) ) $v = $link_name.':'.$link_val;
                 }
                 echo(htmlent_utf8($v));
                 if ( $link_name !== false ) {

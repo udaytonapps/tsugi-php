@@ -7,7 +7,6 @@ use \Tsugi\Util\LTI;
 use \Tsugi\Core\LTIX;
 use \Tsugi\Crypt\AesOpenSSL;
 
-
 class Lessons {
 
     /**
@@ -783,7 +782,7 @@ class Lessons {
         echo($ob_output);
     }
 
-    public function renderAssignments($allgrades, $buffer=false)
+    public function renderAssignments($allgrades, $alldates, $buffer=false)
     {
         ob_start();
         echo('<h1>'.$this->lessons->title."</h1>\n");
@@ -823,7 +822,11 @@ class Lessons {
                     }
                     echo("</td><td>".$lti->title."</td>\n");
                     if ( isset($allgrades[$lti->resource_link_id]) ) {
-                        echo("<td>Score: ".(100*$allgrades[$lti->resource_link_id])."</td>");
+                        $datestring = U::get($alldates, $lti->resource_link_id, "");
+                        if ( strlen($datestring) > 0 ) {
+                            $datestring = " (".substr($datestring,0,10).")";
+                        }
+                        echo("<td>Score: ".(100*$allgrades[$lti->resource_link_id]).$datestring."</td>");
                     } else {
                         echo("<td>&nbsp;</td>");
                     }
@@ -918,7 +921,7 @@ class Lessons {
         $email = U::get($_SESSION, 'email');
         if ( $displayname ) $display .=  $displayname;
         if ( $email ) {
-            if ( strlen($display) > 0 ) {
+            if ( U::strlen($display) > 0 ) {
                 $display .= ' (';
                 $display .= $email;
                 $display .= ')';
@@ -926,7 +929,7 @@ class Lessons {
                 $display = $email;
             }
         }
-        if (strlen($display) > 0 ) {
+        if (U::strlen($display) > 0 ) {
             echo("<p>".__("Student:")." ".$display."</p>\n");
         }
         $awarded = array();
@@ -987,12 +990,17 @@ class Lessons {
                 $lti = $this->getLtiByRlid($resource_link_id);
 
                 echo('<tr><td>');
+
                 $rest_path = U::rest_path();
-                $href = $rest_path->parent . '/lessons/' . urlencode($module->anchor);
+                $href= "Missing ". $resource_link_id;
+                if ($module != null )  $href = $rest_path->parent . '/lessons/' . urlencode($module->anchor);
+
+                $badge_title = "Missing ". $resource_link_id;
+                if ( $lti != null ) $badge_title = $lti->title;
 
                 echo('<a href="'.$href.'">');
                 echo('<i class="fa fa-square-o text-info" aria-hidden="true" style="label label-success; padding-right: 5px;"></i>');
-                echo($lti->title."</a>\n");
+                echo($badge_title."</a>\n");
                 echo('</td><td style="width: 30%; min-width: 200px;">');
                 echo('<a href="'.$href.'">');
                 echo('<div class="progress">');
@@ -1241,7 +1249,7 @@ $(function(){
         global $CFG;
 
         $custom = LTIX::ltiCustomGet($key);
-        if ( strlen($custom) > 0 ) return $custom;
+        if ( U::strlen($custom) > 0 ) return $custom;
 
         if ( $rlid === false ) return false;
         $lti = $this->getLtiByRlid($rlid);

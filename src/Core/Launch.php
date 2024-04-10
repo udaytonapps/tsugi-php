@@ -2,6 +2,7 @@
 
 namespace Tsugi\Core;
 
+use \Tsugi\Util\U;
 use \Tsugi\Util\LTI;
 use \Tsugi\Util\LTI13;
 use \Tsugi\Util\LTIConstants;
@@ -97,6 +98,11 @@ class Launch {
      * Get the error message if something went wrong with the setup (TBD)
      */
     public $error_message = null;
+
+    /**
+     * The deeplink url, if any
+     */
+    public $deeplink = null;
 
     /**
      * Get a key from the session
@@ -196,7 +202,7 @@ class Launch {
      */
     public function isLTI13() {
         $issuer_client = $this->ltiParameter('issuer_client');
-        return is_string($issuer_client) && strlen($issuer_client) > 0 ;
+        return is_string($issuer_client) && U::strlen($issuer_client) > 0 ;
     }
 
     /**

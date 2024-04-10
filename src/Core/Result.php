@@ -71,7 +71,7 @@ class Result extends Entity {
      * Call the right LTI service to retrieve the server's grade and
      * update our local cached copy of the server_grade and the date
      * retrieved. This routine pulls the key and secret from the LTIX
-     * session to avoid crossing cross tennant boundaries.
+     * session to avoid crossing cross tenant boundaries.
      *
      * TODO: Add LTI 2.x support for the JSON style services to this
      *
@@ -134,7 +134,7 @@ class Result extends Entity {
      * Call the right LTI service to send a new grade up to the server.
      * update our local cached copy of the server_grade and the date
      * retrieved. This routine pulls the key and secret from the LTIX
-     * session to avoid crossing cross tennant boundaries.
+     * session to avoid crossing cross tenant boundaries.
      *
      * @param $grade A new grade - floating point number between 0.0 and 1.0
      * @param $row An optional array with the data that has the result_id, sourcedid,
@@ -231,8 +231,8 @@ class Result extends Entity {
         }
 
         // Check if we don't have a lineitem_url but do have a lineitems url so we can create a lineitem
-        if ( strlen($lti13_lineitem) < 1 && strlen($lti13_lineitems) > 0 ) {
-            if ( ! is_string($title) || strlen($title) < 1 ) {
+        if ( empty($lti13_lineitem) && !empty($lti13_lineitems) ) {
+            if ( ! is_string($title) || empty($title) ) {
                 $msg = "Loading link title for result $result_id";
                 if ( is_array($debug_log) )  $debug_log[] = $msg;
 
@@ -249,8 +249,8 @@ class Result extends Entity {
                 if ( is_array($row) ) {
                     $title = $row['title'];
                     $link_id = $row['link_id'];
-                    if ( strlen($row['lti13_lineitem']) > 0 ) $lti13_lineitem = $row['lti13_lineitem'];
-                    if ( strlen($title) < 1 ) {
+                    if ( !empty($row['lti13_lineitem']) ) $lti13_lineitem = $row['lti13_lineitem'];
+                    if ( empty($title) ) {
                         // TODO: Think how to make this less chatty if the attempt is forever pointless
                         $msg = "No title found for result $result_id - cannot create lineItem";
                         error_log($msg);
@@ -265,7 +265,7 @@ class Result extends Entity {
                 }
             }
 
-            if ( strlen($lti13_lineitem) < 1 && strlen($title) > 0  && strlen($lti13_lineitems) > 0 ) {
+            if ( empty($lti13_lineitem) && !empty($title) && !empty($lti13_lineitems) ) {
                 $msg = "Creating LineItem for result $result_id title '$title' lineitems url=$lti13_lineitems";
                 error_log($msg);
                 if ( is_array($debug_log) )  $debug_log[] = $msg;
@@ -327,7 +327,7 @@ class Result extends Entity {
 
         // LTI 1.3 grade passback - Prefer if available
         } else if ( is_object($TSUGI_LAUNCH) && isset($TSUGI_LAUNCH->context) && is_object($TSUGI_LAUNCH->context) &&
-            strlen($lti13_subject_key) > 0 && strlen($lti13_lineitem) > 0 ) {
+            !empty($lti13_subject_key) && !empty($lti13_lineitem) ) {
 
             if ( is_array($debug_log) )  $debug_log[] = "Using LTI Advantage";
             $GradeSendTransport = "LTI 1.3";
@@ -335,7 +335,7 @@ class Result extends Entity {
             $status = $TSUGI_LAUNCH->context->sendLineItemResult($lti13_lineitem, $lti13_subject_key, $grade."", "1", $comment, $debug_log, $extra);
 
         // Classic POX call
-        } else if ( strlen($key_key) > 0 && strlen($secret) > 0 && strlen($sourcedid) > 0 && strlen($service) > 0 ) {
+        } else if ( !empty($key_key) && !empty($secret) && !empty($sourcedid) && !empty($service) ) {
             if ( is_array($debug_log) )  $debug_log[] = "Using LTI 1.1";
             $GradeSendTransport = "LTI 1.1";
             $status = LTI::sendPOXGrade($grade, $sourcedid, $service, $key_key, $secret, $debug_log, $signature);
@@ -354,7 +354,7 @@ class Result extends Entity {
      * Call the right LTI service to send a new grade up to the server.
      * update our local cached copy of the server_grade and the date
      * retrieved. This routine pulls the key and secret from the LTIX
-     * session to avoid crossing cross tennant boundaries.
+     * session to avoid crossing cross tenant boundaries.
      *
      * @param $grade A new grade - floating point number between 0.0 and 1.0
      * @param $row An optional array with the data that has the result_id, sourcedid,
@@ -492,7 +492,8 @@ class Result extends Entity {
             return $retval;
         } else if ( $this->launch->user->instructor ) {
             $json_str = $this->getJsonForUser($user_id);
-            $json = json_decode($json_str);
+            if ( is_string($json_str) ) $json = json_decode($json_str);
+            if ( ! is_object($json) ) $json = new \stdClass();
             if ( isset($json->{$key}) ) return $json->{$key};
             return $default;
         } else {

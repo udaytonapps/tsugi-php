@@ -2,6 +2,8 @@
 
 namespace Tsugi\Util;
 
+use \Tsugi\Util\U;
+
 /**
  * This general purpose library for HTTP communications.
  *
@@ -101,7 +103,7 @@ class Net {
             if ( $pos < 1 ) continue;
             $key = substr($line,0,$pos);
             $value = trim(substr($line, $pos+1));
-            if ( strlen($key) < 1 || strlen($value) < 1 ) continue;
+            if ( empty($key) || empty($value) ) continue;
             $headermap[$key] = $value;
         }
         return $headermap;
@@ -312,15 +314,15 @@ class Net {
 
         $uri = "/";
         if ( isset($url['path'])) $uri = $url['path'];
-        if ( strlen($url['query']) > 0 ) $uri .= '?'.$url['query'];
-        if ( strlen($url['fragment']) > 0 ) $uri .= '#'.$url['fragment'];
+        if ( U::strlen($url['query']) > 0 ) $uri .= '?'.$url['query'];
+        if ( U::strlen($url['fragment']) > 0 ) $uri .= '#'.$url['fragment'];
 
         $headers =  $method." ".$uri." HTTP/1.0".$eol.
                     "Host: ".$url['host'].$hostport.$eol.
                     "Referer: ".$url['protocol'].$url['host'].$url['path'].$eol.
                     "Content-Length: ".strlen($data).$eol;
         if ( is_string($moreheaders) ) $headers .= $moreheaders;
-        $len = strlen($headers);
+        $len = U::strlen($headers);
         if ( substr($headers,$len-2) != $eol ) {
             $headers .= $eol;
         }
@@ -485,7 +487,7 @@ class Net {
         $headers = array();
         foreach($rawheaders as $key => $value) {
             $key = trim(strtolower($key));
-            if ( !is_string($key) || strlen($key) < 1 ) continue;
+            if ( !is_string($key) || empty($key) ) continue;
             $headers[$key] = $value;
         }
 
@@ -562,7 +564,7 @@ class Net {
      */
     public static function setCookieStrong($name, $value, $domain, $expires) {
         $old_value = U::get($_COOKIE, $name);
-        if (is_string($old_value) && strlen($old_value) > 1 ) {
+        if (is_string($old_value) && U::strlen($old_value) > 1 ) {
             if ( $old_value == $value ) return;
         } else {
             setcookie(

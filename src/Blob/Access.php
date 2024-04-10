@@ -2,6 +2,7 @@
 
 namespace Tsugi\Blob;
 
+use \Tsugi\Util\U;
 use \Tsugi\Core\LTIX;
 use \Tsugi\Blob\BlobUtil;
 
@@ -13,7 +14,7 @@ class Access {
         $LAUNCH = LTIX::requireData();
 
         $id = $_REQUEST['id'];
-        if ( strlen($id) < 1 ) {
+        if ( empty($id) ) {
             die("File not found");
         }
 
@@ -26,7 +27,7 @@ class Access {
         $lob = $retval[0];
         $type = $retval[1];
 
-        if ( strlen($type) > 0 ) header('Content-Type: '.$type );
+        if ( U::strlen($type) > 0 ) header('Content-Type: '.$type );
 
         if ( is_string($lob) ) {
             echo($lob);
@@ -39,7 +40,7 @@ class Access {
     public static function openContent($LAUNCH, $id) {
         global $CFG, $PDOX;
 
-        if ( strlen($id) < 1 ) {
+        if ( empty($id) ) {
             return("File not found");
         }
 
@@ -185,7 +186,7 @@ class Access {
         $LAUNCH = LTIX::requireData();
 
         $id = $_REQUEST['id'];
-        if ( strlen($id) < 1 ) {
+        if ( empty($id) ) {
             die("File not found");
         }
 

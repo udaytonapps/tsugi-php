@@ -29,9 +29,9 @@ class Activity {
         $failure = 0;
         $failure_code = false;
         $retval = array();
-        if ( U::apcAvailable() ) {
+        if ( U::apcuAvailable() ) {
             $found = false;
-            $last_push = apc_fetch('last_event_push_time',$found);
+            $last_push = apcu_fetch('last_event_push_time',$found);
             $diff = $start - $last_push;
             if ( $found && $diff < self::PUSH_REPEAT_SECONDS ) {
                 // error_log("Last push was $diff seconds ago");
@@ -42,7 +42,7 @@ class Activity {
                 $retval['purged'] = $purged;
                 return $retval;
             }
-            apc_store('last_event_push_time',$start);
+            apcu_store('last_event_push_time',$start);
         }
 
         while ($count < $max && $now < $end ) {
@@ -84,13 +84,13 @@ class Activity {
         global $CFG;
 
         // We really want some quiet time...
-        if ( U::apcAvailable() ) {
+        if ( U::apcuAvailable() ) {
             $push_found = false;
-            $last_push = apc_fetch('last_event_push_time',$push_found);
+            $last_push = apcu_fetch('last_event_push_time',$push_found);
             $push_diff = time() - $last_push;
 
             $purge_found = false;
-            $last_purge = apc_fetch('last_event_purge_time',$purge_found);
+            $last_purge = apcu_fetch('last_event_purge_time',$purge_found);
             $purge_diff = time() - $last_purge;
 
             if ( ($push_found && $push_diff < self::PUSH_REPEAT_SECONDS) ||
@@ -98,7 +98,7 @@ class Activity {
                 // error_log("Last purge was $purge_diff seconds ago last push was $push_diff seconds ago");
                 return 0;
             }
-            apc_store('last_event_purge_time', time());
+            apcu_store('last_event_purge_time', time());
         } else { // purge probabilistically
             $check = isset($CFG->eventcheck) ? $CFG->eventcheck : 1000;
             if ( $check < 1 ) $check = 1000;
@@ -196,8 +196,8 @@ class Activity {
         $key_key = $row['key_key'];
 
         // Detect and delete malformed events
-        if ( strlen($key_key) < 1 || strlen($user_key) < 1 ||
-             strlen($caliper_url) < 1 || strlen($caliper_key) < 1 ) {
+        if ( empty($key_key) || empty($user_key) ||
+             empty($caliper_url) || empty($caliper_key) ) {
             $sql = "DELETE FROM {$CFG->dbprefix}cal_event WHERE event_id = :event_id";
             $PDOX->queryDie($sql, array(':event_id' => $event_id));
             error_log("Deleted malformed event:".$event_id." key=".$key_key.':'.$caliper_url);

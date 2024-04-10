@@ -2,7 +2,9 @@
 
 namespace Tsugi\Util;
 
+use \Tsugi\Util\U;
 use \Tsugi\Util\PS;
+use \Tsugi\Util\PDOXStatement;
 
 /**
  * This is our "improved" version of PDO
@@ -63,6 +65,8 @@ class PDOX extends \PDO {
 
     private $PDOX_upsert_marker = '/* upsert */';
 
+    public $sqlPatch;
+
     /**
      * Prepare and execute an SQL query with lots of error checking.
      *
@@ -107,10 +111,15 @@ class PDOX extends \PDO {
     }
 
     function queryReturnErrorInternal($sql, $arr=FALSE, $error_log=TRUE) {
+        // Save attributes we will override
         $errormode = $this->getAttribute(\PDO::ATTR_ERRMODE);
         if ( $errormode != \PDO::ERRMODE_EXCEPTION) {
             $this->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         }
+
+        $statement_class = $this->getAttribute(\PDO::ATTR_STATEMENT_CLASS);
+        $this->setAttribute(\PDO::ATTR_STATEMENT_CLASS , ['\Tsugi\Util\PDOXStatement', [&$this]]);
+
         $q = FALSE;
         $success = FALSE;
         $message = '';
@@ -149,17 +158,9 @@ class PDOX extends \PDO {
             $message = $e->getMessage();
             if ( $error_log ) error_log($message);
         }
-        if ( ! is_object($q) ) $q = new \stdClass();
-        if ( isset( $q->success ) ) {
-            error_log("\PDO::Statement should not have success member");
-            die("\PDO::Statement should not have success member"); // with error_log
-        }
+        if ( ! is_object($q) ) $q = new PDOXStatement();
         $q->success = $success;
         if ( self::isInsertStatement($sql) && $q->success ) $this->PDOX_LastInsertStatement = $q;
-        if ( isset( $q->ellapsed_time ) ) {
-            error_log("\PDO::Statement should not have ellapsed_time member");
-            die("\PDO::Statement should not have ellapsed_time member"); // with error_log
-        }
         $q->ellapsed_time = microtime(true)-$start;
         if ( $this->slow_query < 0 || ($this->slow_query > 0 && $q->ellapsed_time > $this->slow_query ) ) {
             $dbt = U::getCaller(2);
@@ -168,18 +169,20 @@ class PDOX extends \PDO {
         }
 
         // In case we build this...
-        if ( !isset($q->errorCode) ) $q->errorCode = '42000';
-        if ( !isset($q->errorInfo) ) $q->errorInfo = Array('42000', '42000', $message);
-        if ( !isset($q->errorImplode) ) $q->errorImplode = implode(':',$q->errorInfo);
-        if ( !isset($q->sqlQuery) ) {
-            $q->sqlQuery = implode('; ', $todo);
-            $this->PDOX_LastSqlQuery = $q->sqlQuery;
-        }
-        if ( !isset($q->sqlOriginalQuery) ) $q->sqlOriginalQuery = $sql;
+        $q->errorCodeOverride = '42000';
+        $q->errorInfoOverride = Array('42000', '42000', $message);
+        $q->errorImplode = implode(':',$q->errorInfoOverride);
+        $q->sqlQuery = implode('; ', $todo);
+        $this->PDOX_LastSqlQuery = $q->sqlQuery;
+
+        $q->sqlOriginalQuery = $sql;
         // Restore ERRMODE if we changed it
         if ( $errormode != \PDO::ERRMODE_EXCEPTION) {
             $this->setAttribute(\PDO::ATTR_ERRMODE, $errormode);
         }
+
+        $this->setAttribute(\PDO::ATTR_STATEMENT_CLASS , $statement_class);
+
         return $q;
     }
 
@@ -521,19 +524,14 @@ class PDOX extends \PDO {
      *
      * We won't really have a statement until they run execute() but we tolerate that.
      */
-    // Switch to declaring return value after our minimum version if PHP 8.0
-    // function prepare($statement, $options = NULL) : \PDOStatement|false {
-
-    // Quick fix to suppress the deprecation warnings in 8.1
-    // https://wiki.php.net/rfc/internal_method_return_types
-    #[\ReturnTypeWillChange]
-    function prepare($statement, $options = NULL) {
+    function prepare($statement, $options = NULL) : \PDOStatement|false {
         if ( $options === NULL ) {
             $stmt = parent::prepare($statement);
         } else {
             $stmt = parent::prepare($statement, $options);
         }
-        $stmt->PDOX = $this;
+        // TODO: Comment this out for PHP 8.2 and later :( - This may break PostgreSQL - Which probably should be removed - Chuck 1-Aug-23
+        // $stmt->PDOX = $this;
         if ( self::isInsertStatement($statement) ) {
             $this->PDOX_LastInsertStatement = $stmt;
         }
@@ -766,7 +764,7 @@ class PDOX extends \PDO {
                     error_log($sql);
                     die('$PDOX->upsertGetPKReturnError() missing '.$valkey.' in the values array for PostgreSQL');
                 }
-                if ( strlen($whereclause) > 0 ) $whereclause .= ' AND ';
+                if ( U::strlen($whereclause) > 0 ) $whereclause .= ' AND ';
                 $whereclause .= $lk . '=' . $valkey;
                 $wherevalues[$valkey] = $value;
             }
@@ -847,13 +845,7 @@ class PDOX extends \PDO {
      * This is needed because upsert in MySQL, and PostgreSQL are quite different
      * and in particular lastInsertId() in stock PDO is only useful for MySQL.
      */
-    // Switch to declaring return value after our minimum version is PHP 8.0
-    // function lastInsertId($seqname = NULL) : string|false {
-
-    // Quick fix to suppress the deprecation warnings in 8.1
-    // https://wiki.php.net/rfc/internal_method_return_types
-    #[\ReturnTypeWillChange]
-    function lastInsertId($seqname = NULL) {
+    function lastInsertId($seqname = NULL) : string|false {
         // Is there is a sequence, assume they know what they are doing :)
         if ( $seqname != NULL ) return parent::lastInsertId($seqname);
         if ( ! $this->isPgSQL() ) return parent::lastInsertId($seqname);
@@ -893,6 +885,20 @@ class PDOX extends \PDO {
             $retval[$part] = U::get($vars, $part);
         }
         return $retval;
+    }
+
+    /** 
+     *
+     */
+    public static function timeFromMySQLTimeStamp(string $datetime) {
+        return strtotime($datetime);
+    }
+
+    /** 
+     *
+     */
+    public static function timeToMySQLTimeStamp(int $when) {
+        return date("Y-m-d H:i:s",$when);
     }
 
 }

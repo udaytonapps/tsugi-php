@@ -153,6 +153,7 @@ class LTIX {
     public static function encrypt_secret($secret)
     {
         global $CFG;
+        if ( ! is_string($secret) ) return null;
         if ( startsWith($secret,'AES::') ) return $secret;
         $encr = AesOpenSSL::encrypt($secret, $CFG->cookiesecret) ;
         return 'AES::'.$encr;
@@ -370,9 +371,9 @@ class LTIX {
     public static function getBrowserMark() {
         global $CFG, $TSUGI_BROWSER_MARK;
         $browser_mark = U::get($_COOKIE, self::BROWSER_MARK_COOKIE);
-        if (is_string($browser_mark) && strlen($browser_mark) > 1 ) {
+        if (is_string($browser_mark) && U::strlen($browser_mark) > 1 ) {
             // error_log('Got browser_mark '.$browser_mark."\n");
-        } else if ( is_string($TSUGI_BROWSER_MARK) && strlen($TSUGI_BROWSER_MARK) > 1 ) {
+        } else if ( is_string($TSUGI_BROWSER_MARK) && U::strlen($TSUGI_BROWSER_MARK) > 1 ) {
             $browser_mark = $TSUGI_BROWSER_MARK;
         } else {
             $browser_mark = uniqid();
@@ -445,7 +446,7 @@ class LTIX {
                 session_start();
             // if we're using a cookie session, the session may already have been started; if not, start it now
             // (if we call session_start() and the session has already been started, php will generate a notice, which we don't want)
-            } else if (empty($_SESSION)) {
+            } else if (U::isEmpty($_SESSION)) {
                 session_start();
             }
             $session_id = session_id();
@@ -481,18 +482,17 @@ class LTIX {
             self::abort_with_error_log('Found issuer, but did not find corresponding deployment: '.htmlentities(U::get($post,'deployment_id')));
         }
 
-        // Copy the deployment_id into run=time data for later
-        if ( $LTI13 && U::get($post,'deployment_id') ) {
-            $row['deployment_id'] = $post['deployment_id'];
-        }
-
-
         if ( ! $row || ! U::get($row, 'key_id') ) {
             if ( U::get($post,'key') ) {  // LTI 1.1
                 self::abort_with_error_log('Launch could not find key: '.htmlentities(U::get($post,'key')));
             } else {
                 self::abort_with_error_log('Launch could not find issuer: '.htmlentities(U::get($post,'issuer_key')));
             }
+        }
+
+        // Copy the deployment_id into run=time data for later
+        if ( $LTI13 && U::get($post,'deployment_id') ) {
+            $row['deployment_id'] = $post['deployment_id'];
         }
 
         $delta = 0;
@@ -517,7 +517,7 @@ class LTIX {
 
             // If there is a new_secret it means an LTI2 re-registration is in progress and we
             // need to check both the current and new secret until the re-registration is committed
-            if ( $valid !== true && strlen($row['new_secret']) > 0 && $row['new_secret'] != $row['secret']) {
+            if ( $valid !== true && U::isNotEmpty($row['new_secret']) && $row['new_secret'] != $row['secret']) {
                 $valid = LTI::verifyKeyAndSecret($post['key'],$row['new_secret'],self::curPageUrl(), $request_data);
                 if ( $valid ) {
                     $row['secret'] = $row['new_secret'];
@@ -558,13 +558,13 @@ class LTIX {
             $public_key = self::getPlatformPublicKey($issuer_id, $key_id, $request_kid, $our_kid, $public_key, $our_keyset_url, $our_keyset);
 /*
             // Sanity check
-            if ( strlen($our_keyset_url) < 1 ) {
+            if ( U::isEmpty($our_keyset_url) ) {
                  self::abort_with_error_log("Could not find keyset and $issuer_key");
             }
 
             // Make sure we have or update to the latest keyset if we have a keyset_url
-            if ( strlen($our_keyset_url) > 0 &&
-                    (strlen($our_keyset) < 1 || $our_kid != $request_kid ) ) {
+            if ( U::isNotEmpty($our_keyset_url) &&
+                    (U::isEmpty($our_keyset) || $our_kid != $request_kid ) ) {
                 $our_keyset = file_get_contents($our_keyset_url);
                 $decoded = json_decode($our_keyset);
                 if ( $decoded && isset($decoded->keys) && is_array($decoded->keys) ) {
@@ -579,8 +579,8 @@ class LTIX {
             }
 
             // If we have a keyset and a kid mismatch, lets grab that new key
-            if ( strlen($our_keyset) > 0 &&
-                ($our_kid != $request_kid || strlen($public_key) < 1) ) {
+            if ( U::isNotEmpty($our_keyset) &&
+                ($our_kid != $request_kid || U::isEmpty($public_key)) ) {
 
                 $new_public_key = LTI13::extractKeyFromKeySet($our_keyset, $request_kid);
 
@@ -596,7 +596,7 @@ class LTIX {
                     $PDOX->queryDie("UPDATE {$CFG->dbprefix}lti_issuer
                         SET lti13_platform_pubkey=NULL, updated_at=NOW() WHERE issuer_sha256 = :SHA",
                     array(':SHA' => $issuer_sha256) );
-                    if ( strlen($public_key) > 0 ) {
+                    if ( U::isNotEmpty($public_key) ) {
                         error_log("Cleared public key $issuer_sha256 invalid kid");
                         self::abort_with_error_log("Invalid Key Id (header.kid), public key cleared");
                     } else {
@@ -614,7 +614,7 @@ class LTIX {
 
             // Check validity of LTI 1.1 transition data if it exists
             $lti11_transition_user_id = U::get($post, 'lti11_transition_user_id');
-            if ( strlen($lti11_transition_user_id) > 0 ) {
+            if ( U::isNotEmpty($lti11_transition_user_id) ) {
                 $lti11_oauth_consumer_key = $row['key_key'];  // From the join
                 $lti11_oauth_consumer_secret = self::decrypt_secret($row['secret']);
                 $check = LTI13::checkLTI11Transition($jwt->body, $lti11_oauth_consumer_key, $lti11_oauth_consumer_secret);
@@ -797,11 +797,11 @@ class LTIX {
             self::wrapped_session_put($session_object, 'HTTP_USER_AGENT', $_SERVER['HTTP_USER_AGENT']);
         }
         $ipaddr = Net::getIP();
-        if ( $ipaddr ) {
+        if ( is_string($ipaddr) ) {
             self::wrapped_session_put($session_object, 'REMOTE_ADDR', $ipaddr);
             // Check our list of IP address history
             // TODO: decrypt
-            $iphistory = U::get($_COOKIE, "TSUGI-HISTORY");
+            $iphistory = U::get($_COOKIE, "TSUGI-HISTORY",'');
             // Add this IP Address to the Tsugi IP History if it is not there
             if ( strpos($iphistory, $ipaddr) === false ) {
                 $iphistory .= '!' . $ipaddr;
@@ -817,7 +817,7 @@ class LTIX {
 
         // Save this to make sure the user does not wander unless we launched from the root
         $scp = $CFG->getScriptPath();
-        if ( strlen($scp) > 0 ) {
+        if ( U::isNotEmpty($scp) ) {
             self::wrapped_session_put($session_object, 'script_path', $CFG->getScriptPath());
         }
 
@@ -856,13 +856,13 @@ class LTIX {
     {
         global $PDOX, $CFG;
 
-        if ( strlen($public_key) > 0 && $request_kid == $our_kid ) return $public_key;
+        if ( U::isNotEmpty($public_key) && $request_kid == $our_kid ) return $public_key;
 
         error_log("getPlatformPublicKey issuer_id=$issuer_id key_id=$key_id request_kid=$request_kid stored_kid=$our_kid");
 
         // Make sure we have or update to the latest keyset if we have a keyset_url
         // and the kid is new to us
-        if ( strlen($our_keyset_url) > 0 ) {
+        if ( U::isNotEmpty($our_keyset_url) ) {
             $our_keyset = @file_get_contents($our_keyset_url);
             if ( $our_keyset === false ) {
                 $error = error_get_last();
@@ -889,7 +889,7 @@ class LTIX {
         }
 
         // If we have a keyset, lets look for the new key
-        if ( strlen($our_keyset) > 0 ) {
+        if ( U::isNotEmpty($our_keyset) ) {
             $new_public_key = LTI13::extractKeyFromKeySet($our_keyset, $request_kid);
 
             if ( $new_public_key ) {
@@ -917,7 +917,7 @@ class LTIX {
             $PDOX->queryDie("UPDATE {$CFG->dbprefix}lti_issuer
                 SET lti13_platform_pubkey=NULL, updated_at=NOW() WHERE issuer_id = :ID",
             array(':ID' => $issuer_id) );
-            if ( strlen($public_key) > 0 ) {
+            if ( U::isNotEmpty($public_key) ) {
                 error_log("Cleared public key $issuer_id invalid kid");
                 self::abort_with_error_log("Invalid Key Id (header.kid), public key cleared");
             } else {
@@ -928,7 +928,7 @@ class LTIX {
             $PDOX->queryDie("UPDATE {$CFG->dbprefix}lti_key
                 SET lms_cache_pubkey=NULL, updated_at=NOW() WHERE key_id = :ID",
             array(':ID' => $key_id) );
-            if ( strlen($public_key) > 0 ) {
+            if ( U::isNotEmpty($public_key) ) {
                 error_log("Cleared lms_cache_pubkey key $key_id invalid kid");
                 self::abort_with_error_log("Invalid Key Id (header.kid), public key cleared");
             } else {
@@ -1055,7 +1055,7 @@ class LTIX {
             $roles = $FIXED['roles'];
         }
 
-        if ( strlen($roles) > 0 ) {
+        if ( U::isNotEmpty($roles) ) {
             $roles = strtolower($roles);
             if ( ! ( strpos($roles,'instructor') === false ) ) $retval['role'] = self::ROLE_INSTRUCTOR;
             if ( ! ( strpos($roles,'administrator') === false ) ) $retval['role'] = self::ROLE_ADMINISTRATOR;
@@ -1072,6 +1072,10 @@ class LTIX {
 
         $sub_caliper_url = U::get($FIXED,'sub_caliper_url');
         if ($sub_caliper_url ) $retval['sub_caliper_url'] = $sub_caliper_url;
+
+        // Get the theme data
+        $retval['theme_base'] = isset($FIXED['theme_base']) ? $FIXED['theme_base'] : null;
+        $retval['theme_dark_mode'] = isset($FIXED['theme_dark_mode']) ? $FIXED['theme_dark_mode'] : null;
 
         return $retval;
     }
@@ -1156,7 +1160,7 @@ class LTIX {
         $failmsg = '';
         if ( count($failures) > 0 ) {
             foreach($failures as $failure) {
-                if ( strlen($failmsg) > 0 ) $failmsg .= ", \n";
+                if ( U::isNotEmpty($failmsg) ) $failmsg .= ", \n";
                 $failmsg .= $failure;
             }
             error_log("Could not find all required items in body (link_id, user_id, context_id)");
@@ -1218,7 +1222,7 @@ class LTIX {
 
             $roles = implode(':',$body->{LTI13::ROLES_CLAIM});
 
-            if ( strlen($roles) > 0 ) {
+            if ( U::isNotEmpty($roles) ) {
                 $roles = strtolower($roles);
                 if ( ! ( strpos($roles,'instructor') === false ) ) $retval['role'] = self::ROLE_INSTRUCTOR;
                 if ( ! ( strpos($roles,'administrator') === false ) ) $retval['role'] = self::ROLE_ADMINISTRATOR;
@@ -1231,6 +1235,10 @@ class LTIX {
         if ( isset($body->{LTI13::DEEPLINK_CLAIM}) ) {
             $retval['lti13_deeplink'] = $body->{LTI13::DEEPLINK_CLAIM};
         }
+
+        // Get the theme data
+        $retval['theme_base'] = isset($body->theme_base) ? $body->theme_base : null;
+        $retval['theme_dark_mode'] = isset($body->theme_dark_mode) ? $body->theme_dark_mode : null;
 
         return $retval;
     }
@@ -1310,7 +1318,8 @@ class LTIX {
             k.lms_issuer, k.lms_client, k.lms_oidc_auth, k.lms_keyset_url,
             k.lms_token_url, k.lms_token_audience, k.lms_cache_keyset, k.lms_cache_pubkey, k.lms_cache_kid,
             n.nonce,
-            c.context_id, c.title AS context_title, context_sha256, c.settings_url AS context_settings_url,
+            c.context_id, c.title AS context_title, context_sha256, c.context_key as context_key,
+            c.settings_url AS context_settings_url,
             c.ext_memberships_id AS ext_memberships_id, c.ext_memberships_url AS ext_memberships_url,
             c.lineitems_url AS lineitems_url, c.memberships_url AS memberships_url,
             c.lti13_lineitems AS lti13_lineitems, c.lti13_membership_url AS lti13_membership_url,
@@ -1438,14 +1447,14 @@ class LTIX {
 
         // Compute user identity bits based on user_subject, user_id and LTI 1.1 transition id if present
         $post_user_subject = U::get($post, 'user_subject');
-        $subject_sha256 = strlen($post_user_subject) > 0 ? lti_sha256($post_user_subject) : null;
+        $subject_sha256 = U::isNotEmpty($post_user_subject) ? lti_sha256($post_user_subject) : null;
 
         // Allow for for the legacy user id
         $user_check = U::get($post, "user_id");
-        if ( strlen($user_check) < 1 ) {
+        if ( U::isEmpty($user_check) ) {
             $user_check = U::get($post, 'lti11_transition_user_id', null);
         }
-        $user_sha256 = strlen($user_check) > 0 ? lti_sha256($user_check) : null;
+        $user_sha256 = U::isNotEmpty($user_check) ? lti_sha256($user_check) : null;
 
         $parms = array(
             ':nonce' => substr($post['nonce'],0,128),
@@ -1534,6 +1543,7 @@ class LTIX {
                 ':title' => $post['context_title'],
                 ':key_id' => $row['key_id']));
             $row['context_id'] = $PDOX->lastInsertId();
+            $row['context_key'] = $post['context_id'];  // We rename this for all internal structures...
             $row['context_title'] = $post['context_title'];
             $row['context_settings_url'] = $context_settings_url;
             $actions[] = "=== Inserted context id=".$row['context_id']." ".$row['context_title'];
@@ -1571,7 +1581,7 @@ class LTIX {
         // $post['user_id'] is the user_id from the launch
         // $post['user_subject'] is the user_subject from the launch
         // $row['subject_key'] is the subject from the row
-        if ( $row['user_id'] === null && isset($post['user_id']) && strlen($post['user_id']) > 0) {
+        if ( $row['user_id'] === null && isset($post['user_id']) && U::isNotEmpty($post['user_id']) ) {
             $sql = "INSERT INTO {$p}lti_user
                 /*PDOX pk: user_id lk: user_sha256,key_id */
                 ( user_key, user_sha256, displayname, email, image, locale, key_id, created_at, updated_at ) VALUES
@@ -1595,7 +1605,7 @@ class LTIX {
             $actions[] = "=== Inserted user id=".$row['user_id']." ".$row['user_email'];
 
             // TODO: Combine this into the previous query after user_subject migrations run - 28-May-2019
-            if ( strlen($post_user_subject) > 0 ) {
+            if ( U::isNotEmpty($post_user_subject) ) {
                 $sql = "UPDATE {$p}lti_user SET
                     subject_key = :subject_key,
                     subject_sha256 = :subject_sha256,
@@ -1621,7 +1631,7 @@ class LTIX {
         // An LTI 1.3 launch with a subject and no legacy user_id
         $lti11_transition_user_id = isset($post['lti11_transition_user_id']) ? $post['lti11_transition_user_id'] : null;
         $lti11_transition_user_id_sha256 = $lti11_transition_user_id === null ? null : lti_sha256($lti11_transition_user_id);
-        if ( $row['user_id'] === null && strlen($post_user_subject) > 0) {
+        if ( $row['user_id'] === null && U::isNotEmpty($post_user_subject) ) {
             $sql = "INSERT INTO {$p}lti_user
                 /*PDOX pk: user_id lk: subject_sha256,user_sha256,key_id */
                 ( user_key, user_sha256, subject_key, subject_sha256, displayname, email, image, locale, key_id, created_at, updated_at ) VALUES
@@ -1650,7 +1660,7 @@ class LTIX {
 
         // If we have a user subject and all of a we get a new transition id, keep it
         // Note that we will forever check for errors because of duplicate key possibilities
-        if ( $row['user_id'] > 0 && strlen($post_user_subject) > 0 && strlen($lti11_transition_user_id) > 0 &&
+        if ( $row['user_id'] > 0 && U::isNotEmpty($post_user_subject) && U::isNotEmpty($lti11_transition_user_id) &&
             $row['user_key'] !=  $lti11_transition_user_id) {
             $sql = "UPDATE {$p}lti_user
                 SET user_key = :user_key, user_sha256 = :user_sha256, updated_at = NOW()
@@ -1674,7 +1684,7 @@ class LTIX {
         // If we already have a user_key and we just got a new post_user_subject
         // Always check and log errors in case the transition went badly and then was reconfigured
         $row_subject_key = U::get($row, 'subject_key');
-        if ( $row['user_id'] > 0 && strlen($post_user_subject) > 0 && $post_user_subject != $row_subject_key ) {
+        if ( $row['user_id'] > 0 && U::isNotEmpty($post_user_subject) && $post_user_subject != $row_subject_key ) {
             $sql = "UPDATE {$p}lti_user
                 SET subject_key = :subject_key, subject_sha256 = :subject_sha256, updated_at = NOW()
                 WHERE user_id = :uid";
@@ -1872,7 +1882,7 @@ class LTIX {
         if ( isset($row['user_id']) ) {
             foreach($user_fields as $u_field ) {
                 $user_field = 'user_'.$u_field;
-                if ( isset($post[$user_field]) && $post[$user_field] != $row[$user_field] && strlen($post[$user_field]) > 0 ) {
+                if ( isset($post[$user_field]) && $post[$user_field] != $row[$user_field] && U::isNotEmpty($post[$user_field]) ) {
                     $sql = "UPDATE {$p}lti_user SET {$u_field} = :value, updated_at = NOW() WHERE user_id = :user_id";
                     $PDOX->queryDie($sql, array(
                         ':value' => $post[$user_field],
@@ -1984,7 +1994,7 @@ class LTIX {
 
         // https://stackoverflow.com/questions/35728486/read-php-session-without-actually-starting-it
         $serializer = ini_get('session.serialize_handler');
-        if ( ! isset($CFG->memcached) || strlen($CFG->memcached) < 1 || $serializer != 'php_serialize') return;
+        if ( ! isset($CFG->memcached) || U::isEmpty($CFG->memcached) || $serializer != 'php_serialize') return;
 
         sleep(1);
         try {
@@ -2282,6 +2292,7 @@ class LTIX {
             if (isset($LTI['context_title']) ) $CONTEXT->title = $LTI['context_title'];
             if (isset($LTI['key_key']) ) $CONTEXT->key = $LTI['key_key'];
             if (isset($LTI['secret']) ) $CONTEXT->secret = $LTI['secret'];
+            if (isset($LTI['context_key']) ) $CONTEXT->context_id = $LTI['context_key'];
             $TSUGI_LAUNCH->context = $CONTEXT;
         }
 
@@ -2430,7 +2441,7 @@ class LTIX {
      * Call the right LTI service to retrieve the server's grade and
      * update our local cached copy of the server_grade and the date
      * retrieved. This routine pulls the key and secret from the LTIX
-     * session to avoid crossing cross tennant boundaries.
+     * session to avoid crossing cross tenant boundaries.
      *
      * @param $row An optional array with the data that has the result_id, sourcedid,
      * and service (url) if this is not present, the data is pulled from the LTI
@@ -2456,7 +2467,7 @@ class LTIX {
      * Call the right LTI service to send a new grade up to the server.
      * update our local cached copy of the server_grade and the date
      * retrieved. This routine pulls the key and secret from the LTIX
-     * session to avoid crossing cross tennant boundaries.
+     * session to avoid crossing cross tenant boundaries.
      *
      * @param $grade A new grade - floating point number between 0.0 and 1.0
      * @param $row An optional array with the data that has the result_id, sourcedid,
@@ -2527,7 +2538,7 @@ class LTIX {
     {
 
         $caliperURL = LTIX::ltiRawParameter('custom_sub_canvas_xapi_url');
-        if ( strlen($caliperURL) == 0 ) {
+        if ( U::strlen($caliperURL) == 0 ) {
             if ( is_array($debug_log) ) $debug_log[] = array('custom_sub_canvas_xapi_url not found in launch data');
             return false;
         }
@@ -2846,9 +2857,9 @@ class LTIX {
         }
 
         // Coalesce from profile to user where there is missing data
-        if ( strlen($row['user_image']) < 1 ) $row['user_image'] = $row['p_user_image'];
-        if ( strlen($row['email']) < 1 ) $row['email'] = $row['p_email'];
-        if ( strlen($row['displayname']) < 1 ) $row['displayname'] = $row['p_displayname'];
+        if ( U::isEmpty($row['user_image']) ) $row['user_image'] = $row['p_user_image'];
+        if ( U::isEmpty($row['email']) ) $row['email'] = $row['p_email'];
+        if ( U::isEmpty($row['displayname']) ) $row['displayname'] = $row['p_displayname'];
         unset($row['p_user_image']);
         unset($row['p_email']);
         unset($row['p_displayname']);
@@ -3209,5 +3220,28 @@ class LTIX {
      */
     public static function getKidForKey($pubkey) {
         return hash('sha256', trim($pubkey));
+    }
+
+    /** Retrieve the context and link ids for a previous installation of the tool, such as
+     *  if it were imported from another site during a site import. Returns false, if not.
+     * @return array[
+     *  'context_id' => number,
+     *  'link_id' => number
+     * ] | false
+     */
+    public static function getLatestHistoryIds() {
+        global $CFG, $LAUNCH, $PDOX;
+        $resource_history = $LAUNCH->ltiCustomGet("resourcelink_id_history", '$ResourceLink.id.history');
+        if ($resource_history != '$ResourceLink.id.history') {
+            // Split the link_key and use the most recent one
+            $link_key_arr = explode(',', $resource_history);
+            $prev_link_key = end($link_key_arr);
+            // Get the previous context and link ids
+            $linkquery = "SELECT context_id, link_id FROM {$CFG->dbprefix}lti_link WHERE link_key = :link_key;";
+            $linkarr = array(':link_key' => $prev_link_key);
+            return $PDOX->rowDie($linkquery, $linkarr);
+        } else {
+            return false;
+        }
     }
 }

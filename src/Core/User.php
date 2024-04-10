@@ -2,6 +2,7 @@
 
 namespace Tsugi\Core;
 
+use \Tsugi\Util\U;
 use \Tsugi\Core\Cache;
 
 /**
@@ -26,10 +27,20 @@ class User {
     protected $ENTITY_NAME = "user";
     use JsonTrait;  // Pull in the trait
 
+    /*
+     * The upwards pointer to the corresponding launch
+     */
+    public $launch = false;
+
     /**
      * The integer primary key for this user in the 'lti_user' table.
      */
     public $id;
+
+    /**
+     * The logical key for this user in the 'lti_user' table.
+     */
+    public $key;
 
     /**
      * The user's email
@@ -67,25 +78,37 @@ class User {
     public $instructor = null;
 
     /**
+     * Is the user an administrator?
+     */
+    public $admin = false;
+
+    /**
      * Construct the user's name / email combination
      */
     public function getNameAndEmail() {
-        $display = '';
-        if ( isset($this->displayname) && strlen($this->displayname) > 0 ) {
-            $display = $this->displayname;
-        }
-        if ( isset($this->email) && strlen($this->email) > 0 ) {
-            if ( strlen($display) > 0 ) {
-                $display .= ' ('.$this->email.')';
-            } else {
-                $display = $this->email;
-            }
-        }
-        $display = trim($display);
-        if ( strlen($display) < 1 ) return false;
-        return $display;
+        return self::getDisplay($this->id, $this->displayname, $this->email);
     }
 
+    /**
+     * Construct the user's name / email combination
+     */
+    public static function getDisplay($user_id, $displayname, $email) {
+        if ( !is_string($displayname) ) $displayname = '';
+        if ( !is_string($email) ) $email = '';
+
+        if ( strlen($displayname) > 0 && strlen($email) > 0) {
+            $display = trim($displayname) . ' (' . trim($email) . ')';
+        } else if ( strlen($displayname) > 0 ) {
+            $display = trim($displayname);
+        } else if ( strlen($email) > 0) {
+            $display = trim($email);
+        } else if ( $user_id > 0 ) {
+            $display = 'User: '.$user_id;
+        } else { 
+            $display = false;
+        }
+        return $display;
+    }
 
     /**
      * Get the user's first name, falling back to email
@@ -118,7 +141,7 @@ class User {
             array(":UID" => $user_id, ":CID" => $CONTEXT->id)
         );
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
-        if ( strlen($row['displayname']) < 1 && strlen($row['user_key']) > 0 ) {
+        if ( empty($row['displayname']) && U::strlen($row['user_key']) > 0 ) {
             $row['displayname'] = 'user_key:'.substr($row['user_key'],0,25);
         }
         Cache::set($cacheloc, $user_id, $row);
@@ -134,7 +157,7 @@ class User {
     public function loadUserInfoBypassBySubject($user_subject)
     {
         global $CFG;
-        if ( ! is_string($user_subject) || strlen($user_subject) < 1 ) return null;
+        if ( ! is_string($user_subject) || empty($user_subject) ) return null;
         if ( ! isset($this->launch->key) || ! isset($this->launch->key->id) ) return null;
 
         $subject_sha256 = lti_sha256($user_subject);
@@ -151,7 +174,7 @@ class User {
         );
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
         if ( ! is_array($row) ) return null;
-        if ( strlen($row['displayname']) < 1 && strlen($row['user_key']) > 0 ) {
+        if ( empty($row['displayname']) && U::strlen($row['user_key']) > 0 ) {
             $row['displayname'] = 'user_key:'.substr($row['user_key'],0,25);
         }
         $cacheloc = 'lti_user';

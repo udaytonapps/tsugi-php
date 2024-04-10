@@ -14,6 +14,11 @@ namespace Tsugi\Config;
 class ConfigInfo {
 
     /**
+     * Extensions
+     */
+    public $extensions;
+
+    /**
      * The URL where tsugi is located
      *
      * Do not add a trailing slash to this string
@@ -74,6 +79,7 @@ class ConfigInfo {
      * knows who to send the mail for key requests to.
      */
     public $providekeys = false;
+    public $autoapprovekeys = false; // A regex like - '/.+@gmail\\.com/'
 
     /**
      * Database connection information to configure the PDO connection
@@ -133,6 +139,61 @@ class ConfigInfo {
     public $dbprefix  = 't_';
 
     /**
+     * The slow_query setting indicated when we want PDOX to log a query for being too slow.
+     */
+    public $slow_query;
+
+    /**
+     * Support memcache for session caching
+     *
+     * Memcache is php-only and so is likely to require less overall dependencies.
+     *
+     * http://php.net/manual/en/memcache.sessions.php
+     *
+     * Installed on Ubuntu using
+     *
+     * apt-get install -y php${TSUGI_PHP_VERSION}-memcache
+     *
+     * You should only select one of memcache and memcached
+     *
+     * $CFG->memcache = 'tcp://memcache-tsugi.4984vw.cfg.use2.cache.amazonaws.com:11211';
+     *
+     * In addition to setting this variable, your config.php must include the code
+     * to configure the PHP session save handler as shown in config-dist.php
+     *
+     */
+    public $memcache;
+
+    /**
+     * Support memcached for session caching
+     *
+     * Memcached is a combination of PHP and C and so may require extra dependencies.
+     *
+     * http://php.net/manual/en/memcached.sessions.php
+     *
+     * Installed on Ubuntu using
+     *
+     * apt-get install -y php${TSUGI_PHP_VERSION}-memcached
+     *
+     * You should only select one of memcache and memcached
+     *
+     * $CFG->memcached = 'memcache-tsugi.4984vw.cfg.use2.cache.amazonaws.com:11211';
+     *
+     * Note no "tcp://" for the memcached version of the url
+     *
+     * In addition to setting this variable, your config.php must include the code
+     * to configure the PHP session save handler as shown in config-dist.php
+     */
+    public $memcached;
+
+    /**
+     * Adding in support for using Redis for session caching.
+     *
+     * $CFG->redis = 'tcp://localhost:6379?auth=addYourRedisPasswordHere';
+     */
+    public $redis;
+
+    /**
      * This is the PW that you need to access the Administration features of this application.
      *
      * You should change this from the default.
@@ -161,6 +222,11 @@ class ConfigInfo {
      * Default time zone - see http://www.php.net/....
      */
     public $timezone = 'America/New_York';
+
+    /**
+     * Indicate whether the PHP on this server wants to verify SSL or not
+     */
+    public $verifypeer;
 
     /**
      * Enable developer features of the application.
@@ -207,8 +273,46 @@ class ConfigInfo {
      * the application, but you may have no other choice to leave this false
      * (default). Make sure that this folder is readable and writable by
      * the web server.
+     *
+     * If you set $dataroot to a writeable folder, Tsugi will store blobs on disk
+     * instead of the database using the following folder / file pattern
+     *     tsugi_blobs/1f/84/00001754/1f84ab151...56a
+     *     tsugi_blobs/67/fb/00001754/67fba23c8...123b
+     * The folders are based on the sha256 of file contents
+     *
+     * In a normal setup - make sure the folder is writable by the web server,
+     * backed up and not in the document root hierarchy.
+     *
+     * It is important to note that changing dataroot does not migrate the data.
+     * Tsugi stores the blob path in the blob_file table.  Data uploaded to a blob
+     * will stay there and data uploaded to a path will stay there regardless of
+     * this setting.  There will are separate migration processes to move blob data
+     * from the database to dataroot.  See tsugi/admin/blob for more detail.
+     *
+     * You can set dataroot to a temporary folder for dev but never for production
      */
-    public $dataroot = false;
+    public $dataroot = false; // '/backedup/tsugi_blobs';
+
+    /**
+     * This turns on auto-migration of blobs from the database to dataroot, as
+     * blobs are accessed
+     */
+    public $migrateblobs = false;
+
+    /**
+     * Configure lti keys that go into blob_blob regardless of $dataroot
+     *
+     * The use case for this can be for testing.  Many servers set up the
+     * 12345/secret ask key and secret to allow testing.   The Admin tool
+     * has the ability to clear out the 12345 data regularly.   We want to
+     * wipe out any blob data that is stored whlist testing with 12345.
+     *
+     * Blobs in the blob_blob table get removed during the 12345 cleanup.
+     *
+     * This can also be used for testing to route a particular key into
+     * blob_blob.
+     */
+    public $testblobs = false; // array('12345');
 
     /**
      * Configure the long-term login cookie encryption values.
@@ -266,6 +370,11 @@ class ConfigInfo {
      */
     public $universal_analytics = false;  // "UA-423997-16";
 
+    /*
+     * The default language for this systyem
+     */
+    public $lang = 'en';
+
     /**
      * Enable Google Translate on this site
      *
@@ -288,12 +397,94 @@ class ConfigInfo {
     /**
      * Indicate which directories to scan for tools.
      *
-     * This allows you to make your own tool folders.  These are scanned
-     * for database.php, register.php and index.php files to do automatic
-     * table creation as well as making lists of tools in various UI places
-     * and during LTI 2.x tool registration.
+     *  This allows you to include various tool folders.  These are scanned
+     *  for register.php, database.php and index.php files to do automatic
+     *  table creation as well as making lists of tools in various UI places
+     *  such as ContentItem and Deep Linking.
      */
-    public $tool_folders = array("core", "mod", "samples");
+    public $tool_folders = array("admin", "mod");
+
+    /**
+     * Indicate which folder to install new modules into.
+     *
+     * By default we use the built-in admin tools, and
+     * install new tools (see /admin/install/) into mod.  If this is left to
+     * false, it will suppress automatic tool installation in Tsugi admin.
+     *
+     * $CFG->install_folder = $CFG->dirroot.'/mod';
+     */
+    public $install_folder = false;
+
+    /**
+     * Configure git for auto-installation
+     *
+     * On Windows, to run the automatic install of modules:
+     *
+     * (1) Make sure Git is installed (https://git-scm.com/download/win
+     * Maybe also install a GIT GUI https://git-scm.com/downloads/guis
+     *
+     * (2) Open "cmd" and type "git --version"
+     * this should give you the current version of git. If this fails
+     * then git is not setup in your path
+     * (Control Panel > System and Security > System > Advanced System Settings > Environment Variables)
+     *
+     * (3) Then in "config.php":
+     * $CFG->git_command = 'git'
+     *
+     * In order to run git from the a PHP script, we may need a setuid version
+     * of git - example commands if you are not root:
+     *
+     *    cd /home/csev
+     *    cp /usr/bin/git .
+     *    chmod a+s git
+     *
+     * If you are root, your web area and git must belong to the user that owns
+     * the web process.  You can check this using:
+     *
+     * apache2ctl -S
+     *  ..
+     *  User: name="www-data" id=33
+     *  Group: name="www-data" id=33
+     *
+     * cd /var/www/html
+     * chown -R 33:33 site-folder
+     * chown 33:33 /home/csev/git
+     *
+     * This of course is something to consider carefully.
+     * $CFG->git_command = '/home/csev/git';
+     */
+    public $git_command = false;
+
+    /**
+     * If defined, this is displayed as the privacy URL when Tsugi
+     * is used as an "App Store".  If you want to use Google login,
+     * you need these URLs available on the OAuth application.
+     *
+     * You can see sample wording at:
+     *
+     * https://www.py4e.com/service.php
+     */
+    public $privacy_url = false;
+
+    /**
+     * If defined, this is displayed as the SLA URL when Tsugi
+     * is used as an "App Store".  If you want to use Google login,
+     * you need these URLs available on the OAuth application.
+     *
+     * You can see sample wording at:
+     *
+     * https://www.py4e.com/service.php
+     */
+    public $sla_url = false;
+
+    /**
+     *
+     * Tools to hide in the store for non-admin users.  Each tool sets their status
+     * in their register.php with a line like:
+     *     "tool_phase" => "sample",
+     * If this is null, then all tools are shown.
+     */
+    public $storehide = null; // A regex like - '/dev|sample|test|beta/';
 
     /**
      * Set the session timeout - in seconds
@@ -342,6 +533,18 @@ class ConfigInfo {
     public $theme;
 
     /**
+     * The color to be used as the theme base
+     * This could optionally be overridden by a launch parameter
+     */
+    public $theme_base;
+
+    /**
+     * A boolean indicator as to whether dark mode should be used
+     * This could optionally be overridden by a launch parameter
+     */
+    public $theme_dark_mode;
+
+    /**
      * The path to an LTI-launch error handling page
      *
      * When the LTI runtime (LTIX.php) is lost and confused because
@@ -373,19 +576,31 @@ class ConfigInfo {
      */
     public $defaultmenu;
 
+    /*
+     * If we are running Embedded Tsugi we need to set the
+     * "course title" for the course that represents
+     * the "local" students that log in through Google.
+     *
+     * $CFG->context_title = "Web Applications for Everybody";
+     */
+    public $context_title = false;
+
     /**
-     * Path to the gift quiz content. You can maintain a set of gift quizes
+     * Path (on disk) to the gift quiz content.
+     *
+     * You can maintain a set of gift quizes
      * as text files in github if you like.   These can be part of your main
      * Koseu repository or a separate checked-out private repository.
      * When you are configuring a quiz, quiz content can be loaded from these files.
      * There is a '.lock' file in the folder if you want to hide the quiz content
      * from those using the test feature in the store.
+     *
      * $CFG->giftquizzes = $CFG->dirroot.'/../py4e-private/quiz';
      */
     public $giftquizzes;
 
     /**
-     * The path to the installed instance of the tdiscus tool.
+     * The url of the installed instance of the tdiscus tool.
      *
      * When you set this, and you add discussions to lessons.json
      * LTI links to your dicussions are added to exported common
@@ -397,6 +612,34 @@ class ConfigInfo {
     public $tdiscus;
 
     /**
+     * The url of the installed YouTube tool
+     *
+     * If you want lessons to launch YouTube URLs using the tracking
+     * tool, put its path here.  If you have not installed this tool,
+     * leave this value blank.
+     *
+     * $CFG->youtube_url = $CFG->apphome . '/mod/youtube/';
+     *
+     */
+    public $youtube_url = false;
+
+    /*
+     * If we are going to use the lessons tool and/or badges, we need to
+     * create and point to a lessons.json file
+     *
+     * $CFG->lessons = $CFG->dirroot.'/../lessons.json';
+     */
+    public $lessons = false;
+
+    /*
+     * If we are going to use the Topics section, we need to create and
+     * point to the topics.json file
+     *
+     * $CFG->topics = $CFG->dirroot.'/../topics.json';
+     */
+    public $topics = false;
+
+    /**
      * Storage location for Lumen Application.
      *
      * Needed for log files, by default dirroot."/storage/". This needs
@@ -404,6 +647,165 @@ class ConfigInfo {
      *
      */
     public $lumen_storage;
+
+    /*
+     * Whether or not to track launch activity
+     */
+    public $launchactivity = true;
+
+    /*
+     * Set this to true if you are running certification since it is wonky at times
+     */
+    public $certification = false;
+    public $require_conformance_parameters = false;
+    public $prefer_lti1_for_grade_send = false;
+
+    /*
+     * Set these to enable Tsugi's option to uify accounts by email address
+     */
+    public $unify = false;
+
+    /*
+     * Controls the event push logic
+     */
+    public $eventcheck = false;
+    public $eventtime = 7*24*60*60;
+    public $eventpushtime = 2;
+    public $eventpushcount = 0;
+
+    /*
+     * Controls google log in and maps setup.
+     *
+     * Go to https://console.developers.google.com/apis/credentials
+     * create a new OAuth 2.0 credential for a web application,
+     * get the key and secret, and put them in these attributes
+     */
+    public $google_client_id = false;
+    public $google_client_secret = false;
+    public $google_map_api_key = false;
+
+    /*
+     * Tells Google to come back to "/login" after Google Login.
+     * If set to false our login comes back to "login.php".
+     *
+     * The login return is part of your OAuth 2.0 configuration
+     * in Google.  And some old integrations used login.php.
+     * New integrations should use "/login" and leave this true.
+     * This is here to for old integrations.
+     */
+    public $google_login_new = true;
+
+    /*
+     * This allows you to force login.php to always go to the same
+     * page after login success.  Tsugi looks at the session for a
+     * "go back after login" URL, and will go to apphome or wwwroot.
+     *
+     * But if you want for the return to always go to some particular
+     * URL, set this field.
+     *
+     * $CFG->login_return_url = $CFG->apphome . "/welcome";
+     */
+    public $login_return_url = false;
+
+    /**
+     * Defaults to $CFG->apphome if defined and $CFG->wwwroot if that is not defined or false
+     */
+    public $logout_return_url;
+
+    /**
+     * If we have a web socket server, put its URL here
+     * Do not add a path here - just the host and port
+     * Make sure the port is open on your server
+     *
+     * $CFG->websocket_secret = 'changeme';
+     * $CFG->websocket_url = 'ws://localhost:2021'; // Local dev test
+     * $CFG->websocket_url = 'wss://socket.tsugicloud.org:443'; // Production
+     *
+     * If you are running a reverse proxy (proxy_wstunnel) set this to the port
+     * you will forward to in your apache config
+     *
+     * $CFG->websocket_proxyport = 8080;
+    */
+    public $websocket_secret = false;
+    public $websocket_url = false;
+    public $websocket_proxyport = false;
+
+    /*
+     * This is the internal version of the datbase.   This is an internal
+     * value and set in setup.php and read in migrate.php - you should not
+     * touch this value.
+     */
+    public $dbversion = false;
+
+    /*
+     * These are here to override the defaults for the vendor folder naming conventions
+     *
+     * It is unlikely you need to change these.
+     */
+    public $vendorroot = false;
+    public $vendorinclude = false;
+    public $vendorstatic = false;
+
+    /**
+     * The autoloader to be used when loading classes.
+     *
+     * This is part of configuration startup and should be left as-is
+     * from config.dist
+     */
+    public $loader = false;
+
+    /*
+     * Allows you to run your Tsugi on a branch other than master
+     *
+     * This is an array of key value pairs when Tsugi is auto-upgrading Tsugi
+     * or a tool.   If it is checking out a particular remote, once
+     * that is checked out - it will switch to the specified branch instead
+     * of master.
+     *
+     *   $CFG->branch_override = array(
+     *    "https://github.com/tsugiproject/tsugi.git" => "php81"
+      *  }
+     */
+    public $branch_override = false;
+
+    // Legacy values no longer used
+    public $bootswatch = false;
+    public $bootswatch_color = false;
+    public $fontawesome = false;
+
+    /**
+     * Badge generation settings - once you start issuing badges - don't change these
+     */
+    public $badge_encrypt_password = null; // "somethinglongwithhex387438758974987";
+    public $badge_assert_salt = null; // "mediumlengthhexstring";
+    public $badge_path = null; // $CFG->dirroot . '/../bimages';
+    public $badge_url = null; // $CFG->apphome . '/bimages';
+
+    /**
+     * The defaults for data expiration.  Data expiration is not done by default, but can
+     * be triggered in the Tsugi Admin UI or via a php CLI program.
+     */
+    public $expire_pii_days = 150;  // Three months
+    public $expire_user_days = 400;  // One year
+    public $expire_context_days = 600; // 1.5 Years
+    public $expire_tenant_days = 800; // Two years
+
+    /**
+     * Legacy: Google Classroom support - this was an experiment and is no longer supported
+     * First, Go to https://console.developers.google.com/apis/credentials
+     * And add access to "Google Classroom API" to your google_client_id (above)
+
+     * (legacy) Set the secret to a long random string - this is used for internal
+     * url Tsugi signing - not for Google interactions.  Don't change it
+     * once you set it.
+     */
+    public $google_classroom_secret = null;
+
+    /**
+     * (legacy) This should be an absolute URL that will be used to populate previews
+     * in Google Classroom
+     */
+    public $google_classroom_logo = null;
 
     /**
      * Create the configuration object.
@@ -446,8 +848,20 @@ class ConfigInfo {
     public function __construct($dirroot, $wwwroot, $dataroot=false) {
         $this->dirroot = $dirroot;
         $this->wwwroot = $wwwroot;
+        $this->extensions = array();
         $this->staticroot = 'https://static.tsugi.org';
         $this->lumen_storage = sprintf("%s/storage/", $dirroot);
+    }
+
+    function getExtension($key, $default=null) {
+	    return $this->extensions[$key] ?? $default;
+    }
+
+    /**
+     * Set an extension value
+     */
+    function setExtension($key, $value) {
+	    $this->extensions[$key] = $value;
     }
 
     function getCurrentFile($file) {
@@ -569,6 +983,17 @@ class ConfigInfo {
         if ( strpos($this->wwwroot,'://localhost') !== false ) return true;
         if ( strpos($this->wwwroot,'://127.0.0.1') !== false ) return true;
         return false;
+    }
+
+    /**
+     * Return a prefix unique to this server for things like shared cache keys
+     */
+    public function serverPrefix() : string {
+        $prefix = $this->wwwroot;
+        if ( is_string($this->apphome) && strlen($this->apphome) > 0 ) $prefix = $this->apphome;
+        $prefix = preg_replace('/https?:\/\//', '', $prefix);
+        if (strlen($prefix) > 50 ) $prefix = md5($prefix);
+        return $prefix;
     }
 }
 

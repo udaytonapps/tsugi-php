@@ -62,7 +62,8 @@ class U {
 
     // Convienence method to wrap sha256
     public static function lti_sha256($val) {
-        return hash('sha256', $val);
+        if ( is_string($val) ) return hash('sha256', $val);
+        return null;
     }
 
     // Convienence method to get the local path if we are doing
@@ -120,6 +121,7 @@ class U {
      */
     public static function get_rest_path($uri=false) {
         if ( ! $uri ) $uri = $_SERVER['REQUEST_URI'];     // /tsugi/lti/some/cool/stuff
+        if ( ! is_string($uri) ) return $uri;
         $pos = strpos($uri,'?');
         if ( $pos > 0 ) $uri = substr($uri,0,$pos);
         if ( self::endsWith($uri, '/') ) {
@@ -266,12 +268,13 @@ class U {
 
         // If doing this before the session is running, check for the
         // id as GET or POST parameter
-        if ( strlen($session_id) < 1 ) {
+        if ( self::isEmpty($session_id) ) {
             $session_id = self::get($_POST, session_name());
         }
-        if ( strlen($session_id) < 1 ) {
+        if ( self::isEmpty($session_id) ) {
             $session_id = self::get($_GET, session_name());
         }
+        if ( self::isEmpty($session_id) ) return $url;
 
         // Don't add more than once...
         $parameter = session_name().'=';
@@ -295,6 +298,7 @@ class U {
     }
 
     public static function add_url_parm($url, $key, $val) {
+        if ( ! is_string($url) || ! is_string($key) || ! is_string($val) ) return $url;
         $url .= strpos($url,'?') === false ? '?' : '&';
         $url .= urlencode($key) . '=' . urlencode($val);
         return $url;
@@ -382,7 +386,7 @@ class U {
             error_log($message);
         }
         if ( $CFG->DEVELOPER === TRUE ) {
-            if ( strlen($DEBUG_STRING) > 0 ) {
+            if ( self::strlen($DEBUG_STRING) > 0 ) {
                 echo("\n<pre>\n");
                 echo(htmlentities($DEBUG_STRING ?? ''));
                 echo("\n</pre>\n");
@@ -409,11 +413,13 @@ class U {
     // http://stackoverflow.com/questions/834303/startswith-and-endswith-public static functions-in-php
     public static function startsWith($haystack, $needle) {
         // search backwards starting from haystack length characters from the end
+        if ( !is_string($haystack) || !is_string($needle) ) return false;
         return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== FALSE;
     }
 
     public static function endsWith($haystack, $needle) {
         // search forward starting from end minus needle length characters
+        if ( !is_string($haystack) || !is_string($needle) ) return false;
         return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== FALSE);
     }
 
@@ -579,12 +585,12 @@ class U {
         return $dt->format(\DateTime::ATOM);
     }
 
-    // https://stackoverflow.com/questions/4393626/how-do-i-know-if-any-php-caching-is-enabled
     /**
-     * Return if APC cache is available
+     * Return if APC cache is available (Deprecated)
      */
     public static function apcAvailable() {
-        return (extension_loaded('apc') && ini_get('apc.enabled'));
+        error_log("U::apcAvailable() should be changed to U::apcuAvailable()");
+        return self::apcuAvailable();
     }
 
     /**
@@ -592,25 +598,27 @@ class U {
      */
     public static function apcuAvailable() {
         global $CFG;
-        if ( isset($CFG->apcuAvailable) ) return ($CFG->apcuAvailable === true || $CFG->apcuAvailable == 'true');
         return (function_exists('apcu_enabled') && apcu_enabled());
     }
 
     public static function appCacheGet($key, $default=null) {
+        global $CFG;
         if ( ! self::apcuAvailable() ) return $default;
-        $retval = apcu_fetch($key,$success);
+        $retval = apcu_fetch($CFG->serverPrefix().":".$key,$success);
         if ( ! $success ) return $default;
         return $retval;
     }
 
     public static function appCacheSet($key, $value, $ttl=0) {
+        global $CFG;
         if ( ! self::apcuAvailable() ) return;
-        apcu_store($key, $value, $ttl);
+        apcu_store($CFG->serverPrefix().":".$key, $value, $ttl);
     }
 
     public static function appCacheDelete($key) {
+        global $CFG;
         if ( ! self::apcuAvailable() ) return;
-        apcu_delete($key);
+        apcu_delete($CFG->serverPrefix().":".$key);
     }
 
     // https://stackoverflow.com/questions/2110732/how-to-get-name-of-calling-function-method-in-php
@@ -634,7 +642,7 @@ class U {
             if ( ! isset($dbt['file']) ) continue;
             if ( ! isset($dbt['line']) ) continue;
             if ( $myfile != $dbt['file'] ) {
-                if ( strlen($retval) > 0 ) $retval .= " ";
+                if ( self::strlen($retval) > 0 ) $retval .= " ";
                 $retval.= $dbt['file'].':'.$dbt['line'];
                 $count--;
                 if ( $count < 1 ) return $retval;
@@ -710,6 +718,81 @@ class U {
             if (preg_match($pattern,$color) ) return true;
         }
         return false;
+    }
+
+    /**
+     * Build a PHP 7 strlen for PHP 8.2 and later
+     *
+     * This is needed because in PHP 8.2 strlen() demands a string (i.e. can't handle false, etc)
+     */
+    public static function strlen($string) : int {
+        if ( !isset($string) ) return 0;
+        if ( $string === true ) return 0; // Depart from PHP on this one
+        if ( $string === false ) return 0;
+        if ( $string === NULL ) return 0;
+        if ( is_numeric($string) ) $string = $string . '';
+        if ( $string instanceof Stringable ) $string = $string . '';
+        if ( !is_string($string) ) return 0;
+        return strlen($string);
+    }
+
+    /**
+     * Determine if a variable is empty
+     *
+     * This is needed because in PHP 8.2 strlen() demands a string (i.e. can't handle false, etc)
+     * Sadly, empty('0') becomes falsey and so returns true - What??
+     *
+     * The method name is taken from Java since its rules are corect.
+     *
+     * https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#isEmpty--
+     */
+    public static function isEmpty($string) : bool {
+        return self::strlen($string) < 1;
+    }
+
+    /**
+     * Imitate StringUtils.isNotEmpty()
+     *
+     * Sigh, Java 8.0 does not have isNotEmpty - which is super useful so we imitate
+     *
+     * https://commons.apache.org/proper/commons-lang/javadocs/api-3.3/org/apache/commons/lang3/StringUtils.html
+     *
+     * It is the little things - sigh.
+     *
+     */
+    public static function isNotEmpty($string) : bool {
+        return ! self::isEmpty($string);
+    }
+
+    /**
+     * Check if a key in an array is not empty
+     */
+    public static function isKeyNotEmpty(array $collection, string $key) : bool {
+        return self::isNotEmpty(self::get($collection, $key));
+    }
+
+    /**
+     * Make an htmlentities() that is more tolerant than the PHP 8.2 version.
+     *
+     * https://commons.apache.org/proper/commons-text/apidocs/org/apache/commons/text/StringEscapeUtils.html
+     */
+    public static function escapeHtml($string) {
+        if ( !isset($string) ) return '';
+        if ( !is_string($string) ) return '';
+        return htmlentities($string);
+    }
+
+    /**
+     * Build an "always works" json_decode()
+     *
+     * This is needed because in PHP 8.2 json_decode() demands a string (i.e. can't handle false, etc)
+     */
+    public static function json_decode($string) : object {
+        if ( !isset($string) ) return  new \stdClass();
+        if ( ! is_string($string) ) return  new \stdClass();
+        $retval = json_decode($string);
+        if ( is_object($retval) ) return $retval;
+        return new \stdClass();
     }
 
 }
